@@ -1,0 +1,747 @@
+野外使用和其它類別道具
+除蟲噴霧器  除蟲噴霧器  むしよけスプレー  Repel  一種使用後100步之內等級低的野生神奇寶貝不會出現的道具。  
+白銀噴霧器  白銀噴霧器  シルバースプレー  Super Repel  一種使用後200步之內等級低的野生神奇寶貝不會出現的道具。  
+黃金噴霧器  黃金噴霧器  ゴールドスプレー  Max Repel  一種使用後250步之內等級低的野生神奇寶貝不會出現的道具。  
+脫離洞穴的繩子  脫離洞穴的繩子  あなぬけのヒモ  Escape Rope  一根長而結實的繩子，用它可以瞬間逃出迷宮或洞窟。  
+黑色哨子  黑色哨子  くろいビードロ  Black Flute  一個由黑色玻璃製成的哨子，用它更容易遇到強大的野生神奇寶貝。  
+白色哨子  白色哨子  しろいビードロ  White Flute  一個由白色玻璃製成的哨子，用它能喚醒處於睡眠狀態的神奇寶貝。  
+淺灘海鹽  淺灘海鹽  あさせのしお  Shoal Salt  在淺灘洞穴深處可以找到的純淨海鹽。  
+淺灘貝殼  淺灘貝殼  あさせのかいがら  Shoal Shell  在淺灘洞穴深處可以找到的美麗海貝。  
+紅色碎片  紅色碎片  あかいかけら  Red Shard  一小片紅色碎片，似乎是某種遠古器具殘片的一部分。  
+藍色碎片  藍色碎片  あおいかけら  Blue Shard  一小片藍色碎片，似乎是某種遠古器具殘片的一部分。  
+黃色碎片  黃色碎片  きいろいかけら  Yellow Shard  一小片黃色碎片，似乎是某種遠古器具殘片的一部分。  
+綠色碎片  綠色碎片  みどりのかけら  Green Shard  一小片綠色碎片，似乎是某種遠古器具殘片的一部分。  
+學習裝置  學習裝置  がくしゅうそうち  Exp. Share  打開這個特殊的裝置後隊伍裡的神奇寶貝都可以得到在對戰中獲得的經驗值。  
+未知  木箱  きのはこ  Normal Box  打開它後看看它的裡面。  
+未知  桐木箱  きりのはこ  Gorgeous Box  打開它後看看它的裡面。  
+美味尾巴  美味尾巴  おいしいシッポ  Slowpoketail  某物的尾巴，美味非凡，能夠以高昂的價格出售。  
+甜蜜  甜蜜  あまいミツ  Honey  帶著濃郁香氣的甜蜜，它可以吸引在特殊的樹木和草叢以及洞窟裡的野生神奇寶貝。  
+穩穩肥  穩穩肥  すくすくこやし  Growth Mulch  向種了樹果的土地施的肥料。  
+溼溼肥  溼溼肥  じめじめこやし  Damp Mulch  向種了樹果的土地施的肥料。  
+長長肥  長長肥  ながながこやし  Stable Mulch  向種了樹果的土地施的肥料。  
+黏黏肥  黏黏肥  ねばねばこやし  Gooey Mulch  向種了樹果的土地施的肥料。  
+楔石  楔石  かなめいし  Odd Keystone  一個有生命跡象的道具，沒有的話石塔就會崩塌的重要的石頭，有時可以從石頭中聽到聲音。  
+釋出之玉  釋出之玉  デルダマ  Pass Orb  一顆注入了神秘的合眾能量的寶玉，在光輝能量發生時才能使用。  
+荒誕肥  荒誕肥  とんでもこやし  Amaze Mulch  樹果田裡使用的同時擁有勁勁肥、驚訝肥和碩果肥的作用效果的超級化肥。  
+勁勁肥  勁勁肥  ぐんぐんこやし  Boost Mulch  樹果田裡使用的越勤勞的澆水，收穫的樹果量就越多的化肥。  
+碩果肥  碩果肥  たわわこやし  Rich Mulch  樹果田裡使用的不需要勤勞的照顧樹果，就能大豐收的化肥。  
+驚訝肥  驚訝肥  びっくりこやし  Surprise Mulch  樹果田裡使用的能引發樹果變異的化肥。  
+特價券  特價券  バーゲンチケット  Discount Coupon  有了這種特殊的優惠劵，可以使購買的服裝打折。  
+神奇擺設  神奇擺設  ふしぎなおきもの  Strange Souvenir  描述某個神奇寶貝的紀念品，這個神奇寶貝在遠離卡洛斯的地方被尊為守護者。  
+
+
+
+
+化石
+貝之化石  貝之化石  かいのカセキ  Helix Fossil  遠古時住在海洋裡的神奇寶貝的化石，可能是一個貝殼。  
+龜殼化石  龜殼化石  こうらのカセキ  Dome Fossil  遠古時住在海洋裡的神奇寶貝的化石，可能是一個甲殼。  
+秘密琥珀  秘密琥珀  ひみつのコハク  Old Amber  一快仍然包含了古代生物基因的晶瑩剔透的琥珀。  
+樹根化石  樹根化石  ねっこのカセキ  Root Fossil  遠古時住在海洋裡的神奇寶貝的化石，可能是一個植物的根部。  
+尖爪化石  尖爪化石  ツメのカセキ  Claw Fossil  遠古時住在海洋裡的神奇寶貝的化石，似乎個爪子的一部分。  
+盾牌化石  盾牌化石  たてのカセキ  Armor Fossil  遠古時住在陸地上的神奇寶貝的化石，似乎是頭的一部分。  
+頭蓋化石  頭蓋化石  ずがいのカセキ  Skull Fossil  遠古時住在陸地上的神奇寶貝的化石，看起像一個盾牌。  
+蓋狀化石  蓋狀化石  ふたのカセキ  Cover Fossil  遠古時住在陸地上的神奇寶貝的化石，似乎是後背的一部分。  
+羽之化石  羽之化石  はねのカセキ  Plume Fossil  遠古時住在天空中的神奇寶貝的化石，看起像羽毛的一部分。  
+顎之化石  顎之化石  アゴのカセキ  Jaw Fossil  遠古時住在陸地上的神奇寶貝的化石，看起像一塊下顎。  
+鰭之化石  鰭之化石  ヒレのカセキ  Sail Fossil  遠古時住在陸地上的神奇寶貝的化石，看起像一個皮質帆。  
+
+
+
+
+進化石
+太陽之石  太陽之石  たいようのいし  Sun Stone  能使特定種類的神奇寶貝進化的奇怪石頭，明如太陽。  
+月之石  月之石  つきのいし  Moon Stone  能使特定種類的神奇寶貝進化的奇怪石頭，黑如夜空。  
+火之石  火之石  ほのおのいし  Fire Stone  能使特定種類的神奇寶貝進化的奇怪石頭，中心橘紅。  
+雷之石  雷之石  かみなりのいし  Thunderstone  能使特定種類的神奇寶貝進化的奇怪石頭，石上有雷紋。  
+水之石  水之石  みずのいし  Water Stone  能使特定種類的神奇寶貝進化的奇怪石頭，藍如碧水。  
+葉之石  葉之石  リーフのいし  Leaf Stone  能使特定種類的神奇寶貝進化的奇怪石頭，石上有葉紋。  
+光之石  光之石  ひかりのいし  Shiny Stone  能使特定種類的神奇寶貝進化的奇怪石頭，耀眼如光。  
+闇之石  闇之石  やみのいし  Dusk Stone  能使特定種類的神奇寶貝進化的奇怪石頭，黑如陰影。  
+覺醒之石  覺醒之石  めざめいし  Dawn Stone  能使特定種類的神奇寶貝進化的奇怪石頭，它如目光般閃爍。  
+
+
+
+
+貴重道具
+小蘑菇  小蘑菇  ちいさなキノコ  Tiny mushroom  稀有的小蘑菇，收藏家會以高價收購。  
+大蘑菇  大蘑菇  おおきなキノコ  Big Mushroom  稀有的大蘑菇，收藏家會以高價收購。  
+珍珠  珍珠  しんじゅ  Pearl  閃耀著美麗銀光的有點小的珍珠，能以低價出售給商店。  
+大珍珠  大珍珠  おおきなしんじゅ  Big Pearl  閃耀著美麗銀光的相當大的珍珠，能以高價出售給商店。  
+星星的沙子  星星的沙子  ほしのすな  Stardust  有著絲綢般順滑手感的可愛紅砂，能以高價賣給商店。  
+星星的碎片  星星的碎片  ほしのかけら  Star Piece  閃爍著紅色光芒的美麗寶石的碎片，能以高價出售給商店。  
+未知  金葉  きんのはっぱ  Gold Leaf  奇怪的金色葉子。  
+未知  銀葉  ぎんのはっぱ  Silver Leaf  奇怪的銀色葉子。  
+未知  磚瓦碎片  かわらのかけら  Brick Piece  稀有的磚塊。  
+金色珠  金色珠  きんのたま  Nugget  金光閃閃的純金塊，能以高價賣給商店。  
+心之鱗片  心之鱗片  ハートのウロコ  Heart Scale  美麗的心形鱗片，極其稀有。微微閃爍著彩虹色的光芒。  
+貴重骨頭  貴重骨頭  きちょうなホネ  Rare Bone  對神奇寶貝考古學家來說是有著非凡價值的骨頭，能以高價出售給商店。  
+美麗羽毛  美麗羽毛  きれいなハネ  Pretty Wing  雖然這根羽毛很漂亮，但似乎只是普通的羽毛，對神奇寶貝沒有作用。  
+芳香蘑菇  芳香蘑菇  かおるキノコ  BalmMushroom  一種發出芳香能擴散方圓十裡的罕見蘑菇，能以高價出售給商店。  
+大金色珠  大金色珠  でかいきんのたま  Big Nugget  散發耀眼金色光芒的大顆純金圓珠，能以高價賣給商店。  
+珍珠團子  珍珠團子  おだんごしんじゅ  Pearl String  散發銀色光輝的大粒珍珠，能以高價賣給商店。  
+彗星碎片  彗星碎片  すいせいのかけら  Comet Shard  彗星接近時掉落在地表的碎片，能以高價賣給商店。  
+古代銅幣  古代銅幣  こだいのどうか  Relic Copper  大約三千年前的古代文明使用的銅幣。  
+古代銀幣  古代銀幣  こだいのぎんか  Relic Silver  大約三千年前的古代文明使用的銀幣。  
+古代金幣  古代金幣  こだいのきんか  Relic Gold  大約三千年前的古代文明使用的金幣。  
+古代之壺  古代之壺  こだいのツボ  Relic Vase  大約三千年前的古代文明使用的花瓶。  
+古代手鐲  古代手鐲  こだいのうでわ  Relic Band  大約三千年前的古代文明使用的手鐲。  
+古代石像  古代石像  こだいのせきそう  Relic Statue  大約三千年前的古代文明使用的石像。  
+古代王冠  古代王冠  こだいのおうかん  Relic Crown  大約三千年前的古代文明使用的王冠。  
+
+
+
+
+攜帶物品
+亮光之粉  亮光之粉  ひかりのこな  BrightPowder  
+學習裝置  學習裝置  がくしゅうそうち  Exp. Share  
+先攻之爪  先攻之爪  せんせいのツメ  Quick Claw  
+王者之證  王者之證  おうじゃのしるし  King's Rock  
+銀色的粉  銀色的粉  ぎんのこな  SilverPowder  
+護身金幣 護身金幣  護身金幣  おまもりこばん  Amulet Coin  
+淨身的護身符  淨身的護身符  きよめのおふだ  Cleanse Tag  
+煙霧球  煙霧球  けむりだま  Smoke Ball  
+不變之石  不變之石  かわらずのいし  Everstone  
+振奮精神的頭布  振奮精神的頭布  きあいのハチマキ  Focus Band  
+振奮精神的綁帶  振奮精神的綁帶  きあいのタスキ  Focus Sash  
+幸運蛋  幸運蛋  しあわせタマゴ  Lucky Egg  
+對焦鏡片（第二世代起）  對焦鏡片  ピントレンズ  Scope Lens  
+金屬塗層  金屬塗層  メタルコート  Metal Coat  
+吃剩下的東西  吃剩下的東西  たべのこし  Leftovers  
+龍之鱗片  龍之鱗片  りゅうのウロコ  Dragon Scale  
+電氣球  電氣球  でんきだま  Light Ball  
+柔軟的沙子  柔軟的沙子  やわらかいすな  Soft Sand  
+硬石頭  硬石頭  かたいいし  Hard Stone  
+奇蹟種子  奇蹟種子  きせきのタネ  Miracle Seed  
+黑色的眼鏡  黑色的眼鏡  くろいメガネ  BlackGlasses  
+黑色帶子  黑色帶子  くろおび  Black Belt  
+磁鐵  磁鐵  じしゃく  Magnet  
+神秘水滴  神秘水滴  しんぴのしずく  Mystic Water  
+尖銳鳥嘴  尖銳鳥嘴  するどいくちばし  Sharp Beak  
+毒針  毒針  どくバリ  Poison Barb  
+不融冰  不融冰  とけないこおり  NeverMeltIce  
+詛咒護身符  詛咒護身符  のろいのおふだ  Spell Tag  
+彎曲的湯匙  彎曲的湯匙  まがったスプーン  TwistedSpoon  
+木炭  木炭  もくたん  Charcoal  
+龍之牙  龍之牙  りゅうのキバ  Dragon Fang  
+未知  粉紅色絲帶  ピンクのリボン  Pink Ribbon  
+未知  水玉色之帶  みずたまりボン  Polkadot Bow  
+升級  升級  アップグレード  Up-Grade  
+幸運之拳  幸運之拳  ラッキーパンチ  Lucky Punch  
+金屬粉  金屬粉  メタルパウダー  Metal Powder  
+胖骨頭  胖骨頭  ふといホネ  Thick Club  
+大蔥  大蔥  ながねぎ  Stick  
+未知  破壞性的遺傳因子  はかいのいでんし  Berserk Gene  
+白色藥草  白色藥草  しろいハーブ  White Herb  
+強制鍛煉器  強制鍛煉器  きょうせいギプス  Macho Brace  
+安撫之鈴  安撫之鈴  やすらぎのすず  Soothe Bell  
+心靈藥草  心靈藥草  メンタルハーブ  Mental Herb  
+限定招式的頭巾  限定招式的頭巾  こだわりハチマキ  Choice Band  
+心之水滴  心之水滴  こころのしずく  Soul Dew  
+深海之牙  深海之牙  しんかいのキバ  DeepSeaTooth  
+深海之鱗  深海之鱗  しんかいのウロコ  DeepSeaScale  
+絲綢圍巾  絲綢圍巾  シルクのスカーフ  Silk Scarf  
+貝殼之鈴  貝殼之鈴  かいがらのすず  Shell Bell  
+海潮熏香  海潮熏香  うしおのおこう  Sea Incense  
+悠閒熏香  悠閒熏香  のんきのおこう  Lax Incense  
+紅色頭巾  紅色頭巾  あかいバンダナ  Red Scarf  
+藍色頭巾  藍色頭巾  あおいバンダナ  Blue Scarf  
+粉紅頭巾  粉紅頭巾  ピンクのバンダナ  Pink Scarf  
+綠色頭巾  綠色頭巾  みどりのバンダナ  Green Scarf  
+黃色頭巾  黃色頭巾  きいろのバンダナ  Yellow Scarf  
+火球板塊  火球板塊  ひのたまプレート  Flame Plate  
+水滴板塊  水滴板塊  しずくプレート  Splash Plate  
+雷電板塊  雷電板塊  いかずちプレート  Zap Plate  
+碧綠板塊  碧綠板塊  みどりのプレート  Meadow Plate  
+冰柱板塊  冰柱板塊  つららのプレート  Icicle Plate  
+拳頭板塊  拳頭板塊  こぶしのプレート  Fist Plate  
+劇毒板塊  劇毒板塊  もうどくプレート  Toxic Plate  
+大地板塊  大地板塊  だいちのプレート  Earth Plate  
+青空板塊  青空板塊  あおぞらプレート  Sky Plate  
+奇異板塊  奇異板塊  ふしぎのプレート  Mind Plate  
+玉蟲板塊  玉蟲板塊  たまむしプレート  Insect Plate  
+岩石板塊  岩石板塊  がんせきプレート  Stone Plate  
+妖怪板塊  妖怪板塊  もののけプレート  Spooky Plate  
+龍之板塊  龍之板塊  りゅうのプレート  Draco Plate  
+兇狠板塊  兇狠板塊  こわもてプレート  Dread Plate  
+鋼鐵板塊  鋼鐵板塊  こうてつプレート  Iron Plate  
+怪異熏香  怪異熏香  あやしいおこう  Odd Incense  
+岩石熏香  岩石熏香  がんせきおこう  Rock Incense  
+滿腹熏香  滿腹熏香  まんぷくおこう  Full Incense  
+波紋熏香  波紋熏香  さざなみのおこう  Wave Incense  
+鮮花熏香  鮮花熏香  おはなのおこう  Rose Incense  
+幸運熏香  幸運熏香  こううんのおこう  Luck Incense  
+清淨熏香  清淨熏香  きよめのおこう  Pure Incense  
+護身盔甲  護身盔甲  プロテクター  Protector  
+電力發動機  電力發動機  エレキブースター  Electirizer  
+岩漿驅動器  岩漿驅動器  マグマブースター  Magmarizer  
+怪異補丁  怪異補丁  あやしいパッチ  Dubious Disc  
+靈界之布  靈界之布  れいかいのぬの  Reaper Cloth  
+銳利爪子  銳利爪子  するどいツメ  Razor Claw  
+銳利牙  銳利牙  するどいキバ  Razor Fang  
+圓石頭  圓石頭  まんまるいし  Oval Stone  
+金剛玉魂  金剛玉魂  こんごうだま  Adamant Orb  
+白玉魂  白玉魂  しらたま  Lustrous Orb  
+白金玉魂  白金玉魂  はっきんだま  Griseous Orb  
+廣角鏡片  廣角鏡片  こうかくレンズ  Wide Lens  
+力量頭巾  力量頭巾  ちからのハチマキ  Muscle Band  
+知識眼鏡  知識眼鏡  ものしりメガネ  Wise Glasses  
+達人帶子  達人帶子  たつじんのおび  Expert Belt  
+光之黏土  光之黏土  ひかりのねんど  Light Clay  
+生命之玉  生命之玉  いのちのたま  Life Orb  
+力量藥草  力量藥草  パワフルハーブ  Power Herb  
+劇毒珠  劇毒珠  どくどくだま  Toxic Orb  
+火焰珠  火焰珠  かえんだま  Flame Orb  
+速度粉  速度粉  スピードパウダー  Quick Powder  
+對焦鏡片（第四世代起）  對焦鏡片  フォーカスレンズ  Zoom Lens  
+節拍器  節拍器  メトロノーム  Metronome  
+黑色鐵球  黑色鐵球  くろいてっきゅう  Iron Ball  
+後攻之尾  後攻之尾  こうこうのしっぽ  Lagging Tail  
+紅線  紅線  あかいいと  Destiny Knot  
+黑色淤泥  黑色淤泥  くろいヘドロ  Black Sludge  
+冰冷岩石  冰冷岩石  つめたいいわ  Icy Rock  
+流沙岩石  流沙岩石  さらさらいわ  Smooth Rock  
+炎熱岩石  炎熱岩石  あついいわ  Heat Rock  
+潮溼岩石  潮溼岩石  しめったいわ  Damp Rock  
+黏著鉤爪  黏著鉤爪  ねばりのかぎづめ  Grip Claw  
+限定招式的圍巾  限定招式的圍巾  こだわりスカーフ  Choice Scarf  
+附針  附針  くっつきバリ  Sticky Barb  
+力量護腕  力量護腕  パワーリスト  Power Bracer  
+力量腰帶  力量腰帶  パワーベルト  Power Belt  
+力量鏡片  力量鏡片  パワーレンズ  Power Lens  
+力量束帶  力量束帶  パワーバンド  Power Band  
+力量護踝  力量護踝  パワーアンクル  Power Anklet  
+力量負重  力量負重  パワーウエイト  Power Weight  
+漂亮外套  漂亮外套  きれいなぬけがら  Shed Shell  
+巨大根莖  巨大根莖  おおきなねっこ  Big Root  
+限定招式的眼鏡  限定招式的眼鏡  こだわりメガネ  Choice Specs  
+水柱卡帶  水柱卡帶  アクアカセット  Douse Drive  
+火焰卡帶  火焰卡帶  ブレイズカセット  Burn Drive  
+冰凍卡帶  冰凍卡帶  フリーズカセット  Chill Drive  
+閃電卡帶  閃電卡帶  イナズマカセット  Shock Drive  
+綺麗鱗片  綺麗鱗片  きれいなウロコ  Prism Scale  
+進化輝石  進化輝石  しんかのきせき  Eviolite  
+浮石  浮石  かるいし  Float Stone  
+堅硬頭盔  堅硬頭盔  ゴツゴツメット  Rocky Helmet  
+氣球  氣球  ふうせん  Air Balloon  
+紅牌  紅牌  レッドカード  Red Card  
+狙擊標靶  狙擊標靶  ねらいのまと  Ring Target  
+緊固頭巾  緊固頭巾  しめつけバンド  Binding Band  
+球根  球根  きゅうこん  Absorb Bulb  
+充電電池  充電電池  じゅうでんち  Cell Battery  
+逃脫按鈕  逃脫按鈕  だっしゅつボタン  Eject Button  
+炎之寶石  炎之寶石  ほのおのジュエル  Fire Gem  
+水之寶石  水之寶石  みずのジュエル  Water Gem  
+電之寶石  電之寶石  でんきのジュエル  Electric Gem  
+草之寶石  草之寶石  くさのジュエル  Grass Gem  
+冰之寶石  冰之寶石  こおりのジュエル  Ice Gem  
+格鬥寶石  格鬥寶石  かくとうジュエル  Fighting Gem  
+毒之寶石  毒之寶石  どくのジュエル  Poison Gem  
+地上寶石  地上寶石  じめんのジュエル  Ground Gem  
+飛行寶石  飛行寶石  ひこうのジュエル  Flying Gem  
+超能寶石  超能寶石  エスパージュエル  Psychic Gem  
+蟲之寶石  蟲之寶石  むしのジュエル  Insect Gem  
+岩石寶石  岩石寶石  いわのジュエル  Rock Gem  
+幽靈寶石  幽靈寶石  ゴーストジュエル  Ghost Gem  
+龍之寶石  龍之寶石  ドラゴンジュエル  Dragon Gem  
+惡之寶石  惡之寶石  あくのジュエル  Dark Gem  
+鋼之寶石  鋼之寶石  はがねのジュエル  Steel Gem  
+一般寶石  一般寶石  ノーマルジュエル  Normal Gem  
+弱點保險  弱點保險  じゃくてんほけん  Weakness Policy  
+突擊護甲  突擊護甲  とつげきチョッキ  Assault Vest  
+精靈板塊  精靈板塊  せいれいプレート  Pixie Plate  
+特性膠囊  特性膠囊  とくせいカプセル  Ability Capsule  
+防塵護眼鏡  防塵護眼鏡  ぼうじんゴーグル  Safety Goggles  
+奶油棒糖  奶油棒糖  ホイップポップ  Whipped Dream  
+香囊  香囊  においぶくろ  Sachet  
+光苔  光苔  ひかるコケ  Luminous Moss  
+雪球  雪球  ゆきだま  Snowball  
+妖精寶石  妖精寶石  フェアリージュエル  Fairy Gem  
+紅色寶珠  紅色寶珠  べにいろのたま  Red Orb  
+藍色寶珠  藍色寶珠  あいいろのたま  Blue Orb  
+
+
+
+
+藥品
+藥水  藥水  キズぐすり  Potion  
+解毒劑  解毒劑  どくけし  Antidote  
+灼傷藥  灼傷藥  やけどなおし  Burn Heal  
+解凍藥  解凍藥  こおりなおし  Ice Heal  
+解眠藥  解眠藥  ねむけざまし  Awakening  
+解麻藥  解麻藥  まひなおし  Parlyz Heal  
+回復藥水  回復藥水  かいふくのくすり  Full Restore  
+全滿藥水  全滿藥水  まんたんのくすり  Max Potion  
+超高級藥水  超高級藥水  すごいキズぐすり  Hyper Potion  
+超級藥水  超級藥水  いいキズぐすり  Super Potion  
+萬能藥  萬能藥  なんでもなおし  Full Heal  
+更生劑  更生劑  げんきのかけら  Revive  
+特級更生劑  特級更生劑  げんきのかたまり  Max Revive  
+美味之水  美味之水  おいしいみず  Fresh Water  
+塞可汽水  塞可汽水  サイコソーダ  Soda Pop  
+綜合調味乳  綜合調味乳  ミックスオレ  Lemonade  
+PP小補劑  PP小補劑  ピーピーエイド  Ether  
+PP單補劑  PP單補劑  ピーピーリカバー  Max Ether  
+PP大補劑  PP大補劑  ピーピーエイダー  Elixir  
+PP全補劑  PP全補劑  ピーピーマックス  Max Elixir  
+摩摩牛奶  摩摩牛奶  モーモーミルク  Moomoo Milk  
+元氣之粉  元氣之粉  ちからのこな  EnergyPowder  
+元氣之根  元氣之根  ちからのねっこ  Energy Root  
+萬能之粉  萬能之粉  ばんのうごな  Heal Powder  
+復活之草  復活之草  ふっかつそう  Revival Herb  
+神聖之灰  神聖之灰  せいなるはい  Sacred Ash  
+憤怒饅頭  憤怒饅頭  いかりまんじゅう  RageCandyBar  
+釜炎仙貝  釜炎仙貝  フエンせんべい  Lava Cookie  
+樹果汁  樹果汁  きのみジュース  Berry Juice  
+HP提升劑  HP提升劑  マックスアップ  HP Up  
+攻擊牛磺劑  攻擊牛磺劑  タウリン  Protein  
+防禦提升劑  防禦提升劑  ブロムヘキシン  Iron  
+效果防護劑  效果防護劑  インドメタシン  Carbos  
+特攻增加劑  特攻增加劑  リゾチウム  Calcium  
+神奇糖果  神奇糖果  ふしぎなアメ  Rare Candy  
+PP提升劑  PP提升劑  ポイントアップ  PP Up  
+特防甲殼劑  特防甲殼劑  キトサン  Zinc  
+PP增加劑  PP增加劑  ポイントマックス  PP Max  
+心形甜品  心形甜品  ハートスイーツ  Sweet Heart  
+體力之羽  體力之羽  たいりょくのハネ  Health Wing  
+肌力之羽  肌力之羽  きんりょくのハネ  Muscle Wing  
+抵抗之羽  抵抗之羽  ていこうのハネ  Resist Wing  
+智力之羽  智力之羽  ちりょくのハネ  Genius Wing  
+精神之羽  精神之羽  せいしんのハネ  Clever Wing  
+瞬發之羽  瞬發之羽  しゅんぱつのハネ  Swift Wing  
+森之羊羹  森之羊羹  もりのヨウカン  Old Gateau  
+飛雲冰淇淋  飛雲冰淇淋  ヒウンアイス  Casteliacone  
+密阿雷脆皮餅  密阿雷脆皮餅  ミアレガレット  Lumiose Galette  
+娑羅餅乾  娑羅餅乾  シャラサブレ  Shalour Sable  
+
+
+
+
+寶貝球
+神奇寶貝球  神奇寶貝球  モンスターボール  Poké Ball  
+超級球  超級球  スーパーボール  Great Ball  
+高級球  高級球  ハイパーボール  Ultra Ball  
+掌門球  掌門球  マスターボール  Master Ball  
+狩獵球  狩獵球  サファリボール  Safari Ball  
+重量球  重量球  ヘビーボール  Heavy Ball  
+等級球  等級球  レベルボール  Level Ball  
+誘餌球 誘餌球  誘餌球  ルアーボール  Lure Ball  
+速度球  速度球  スピードボール  Fast Ball  
+友友球  友友球  フレンドボール  Friend Ball  
+月亮球  月亮球  ムーンボール  Moon Ball  
+愛心球  愛心球  ラブラブボール  Love Ball  
+競賽球  競賽球  コンペボール  Sport Ball  
+網紋球  網紋球  ネットボール  Net Ball  
+潛水球  潛水球  ダイブボール  Dive Ball  
+巢穴球  巢穴球  ネストボール  Nest Ball  
+重複球  重複球  リピートボール  Repeat Ball  
+計時球  計時球  タイマーボール  Timer Ball  
+華麗球  華麗球  ゴージャスボール  Luxury Ball  
+首席球  首席球  プレミアボール  Premier Ball  
+治癒球  治癒球  ヒールボール  Heal Ball  
+黑暗球  黑暗球  ダークボール  Dusk Ball  
+超速球  超速球  クイックボール  Quick Ball  
+公園球 公園球  公園球  パークボール  Park Ball  
+珍貴球  珍貴球  プレジャスボール  Cherish Ball  
+夢境球  夢境球  ドリームボール  Dream Ball  
+
+
+
+
+學習器
+技能學習器  わざマシン  TM  
+秘傳技學習器  ひでんマシン  HM  
+
+
+
+
+果實
+樹果  きのみ  Berry  
+黃金的果實  おうごんのみ  Gold Berry  
+消除麻痺的果實  まひなおしのみ  PRZCureBerry  
+解毒的果實  どくけしのみ  PSNCureBerry  
+苦澀的果實  にがいきのみ  Bitter Berry  
+燒烤的果實  やけたきのみ  Burnt Berry  
+冰凍的果實  こおったきのみ  Ice Berry  
+薄荷的果實  はっかのみ  Mint Berry  
+奇蹟的果實  きせきのみ  MiracleBerry  
+神奇的果實  ふしぎなきのみ  MysteryBerry  
+辣櫻  辣櫻  クラボのみ  Cheri Berry  
+澀栗  澀栗  カゴのみ  Chesto Berry  
+甜桃  甜桃  モモンのみ  Pecha Berry  
+苦莓  苦莓  チーゴのみ  Rawst Berry  
+酸梨  酸梨  ナナシのみ  Aspear Berry  
+紅蘋  紅蘋  ヒメリのみ  Leppa Berry  
+藍橘  藍橘  オレンのみ  Oran Berry  
+甜柿  甜柿  キーのみ  Persim Berry  
+綠姆果  綠姆果  ラムのみ  Lum Berry  
+香柚  香柚  オボンのみ  Sitrus Berry  
+辣椰果  辣椰果  フィラのみ  Figy Berry  
+藍異奇果  藍異奇果  ウイのみ  Wiki Berry  
+甘芒  甘芒  マゴのみ  Mago Berry  
+綠樂芭  綠樂芭  バンジのみ  Aguav Berry  
+酸木瓜  酸木瓜  イアのみ  Iapapa Berry  
+紅蔓莓  紅蔓莓  ズリのみ  Razz Berry  
+藍莓  藍莓  ブリーのみ  Bluk Berry  
+粉蕉  粉蕉  ナナのみ  Nanab Berry  
+青梨  青梨  セシナのみ  Wepear Berry  
+黃旺梨  黃旺梨  パイルのみ  Pinap Berry  
+紅榴  紅榴  ザロクのみ  Pomeg Berry  
+藍根藻果  藍根藻果  ネコブのみ  Kelpsy Berry  
+粉枇杷  粉枇杷  タポルのみ  Qualot Berry  
+黃斑蜜瓜  黃斑蜜瓜  ロメのみ  Hondew Berry  
+黃金葡  黃金葡  ウブのみ  Grepa Berry  
+辣茄  辣茄  マトマのみ  Tamato Berry  
+紫黍  紫黍  モコシのみ  Cornn Berry  
+甜山竹  甜山竹  ゴスのみ  Magost Berry  
+綠毛丹  綠毛丹  ラブタのみ  Rabuta Berry  
+酸檸  酸檸  ノメルのみ  Nomel Berry  
+辣樂奇  辣樂奇  ノワキのみ  Spelon Berry  
+紫椰  紫椰  シーヤのみ  Pamtre Berry  
+甜瓜  甜瓜  カイスのみ  Watmel Berry  
+苦璉  苦璉  ドリのみ  Durin Berry  
+靛莓  靛莓  ベリブのみ  Belue Berry  
+奇拉果  奇拉果  チイラのみ  Liechi Berry  
+龍佳果  龍佳果  リュガのみ  Ganlon Berry  
+酸甜椰  酸甜椰  カムラのみ  Salac Berry  
+紅龍果  紅龍果  ヤタピのみ  Petaya Berry  
+青杏  青杏  ズアのみ  Apicot Berry  
+紅陽  紅陽  サンのみ  Lansat Berry  
+綠星桃  綠星桃  スターのみ  Starf Berry  
+謎團果實  謎團果實  ナゾのみ  Enigma Berry  
+南瓜果  カチャのみ  Pumkin Berry  
+蘿蔔果  ブーカのみ  Drash Berry  
+茄果  ビスナのみ  Eggant Berry  
+豌豆果  エドマのみ  Strib Berry  
+酸漿果  ホズのみ  Chilan Berry  
+花生果  ラッカのみ  Nutpea Berry  
+洋蔥果  ギネマのみ  Ginema Berry  
+秋葵果  クオのみ  Kuo Berry  
+苦瓜果  ヤゴのみ  Yago Berry  
+辣椒果  トウガのみ  Touga Berry  
+大蒜果  ニニクのみ  Niniku Berry  
+土豆果  トポのみ  Topo Berry  
+歐可果  歐可果  オッカのみ  Occa Berry  
+浮番果  浮番果  イトケのみ  Passho Berry  
+燭木果  燭木果  ソクノのみ  Wacan Berry  
+苦豆  苦豆  リンドのみ  Rindo Berry  
+冰迦果  冰迦果  ヤチェのみ  Yache Berry  
+麻霧果  麻霧果  ヨプのみ  Chople Berry  
+通木果  通木果  ビアーのみ  Kebia Berry  
+蜜腰果  蜜腰果  シュカのみ  Shuca Berry  
+風瓜  風瓜  バコウのみ  Coba Berry  
+糖葫果  糖葫果  ウタンのみ  Payapa Berry  
+藤櫻果  藤櫻果  タンガのみ  Tanga Berry  
+石蠶果  石蠶果  ヨロギのみ  Charti Berry  
+佛手果  佛手果  カシブのみ  Kasib Berry  
+番榴  番榴  ハバンのみ  Haban Berry  
+刺球果  刺球果  ナモのみ  Colbur Berry  
+霹靂果  霹靂果  リリバのみ  Babiri Berry  
+燈籠果  燈籠果  ホズのみ  Chilan Berry  
+神秘果  神秘果  ミクルのみ  Micle Berry  
+赤迦果  赤迦果  イバンのみ  Custap Berry  
+嘉寶果  嘉寶果  ジャポのみ  Jaboca Berry  
+蓮霧果  蓮霧果  レンブのみ  Rowap Berry  
+洛神果  洛神果  ロゼルのみ  Roseli Berry  
+阿開果  阿開果  アッキのみ  Kee Berry  
+香波果  香波果  タラプのみ  Maranga Berry  
+
+
+
+
+郵件
+藍天郵件  あおぞらメール  Bluesky Mail  
+伊布郵件  ブイブイメール  Eon Mail  
+花案郵件  はながらメール  Flower Mail  
+海洋郵件  みずいろメール  Litebluemail  
+可愛郵件  ラブリーメール  Lovely Mail  
+夢幻郵件  まぼろしメール  Mirage Mail  
+變身郵件  へんしんメール  Morph Mail  
+肖像郵件  にがおえメール  Portraitmail  
+音符郵件  おんぷメール  Music Mail  
+衝浪郵件  なみのりメール  Surf Mail  
+橙色郵件  橙色郵件  オレンジメール  Harbor Mail  
+港口郵件  港口郵件  ハーバーメール  Surf Mail  
+閃亮郵件  閃亮郵件  キラキラメール  Glitter Mail  
+機械郵件  機械郵件  メカニカルメール  Mech Mail  
+木紋郵件  木紋郵件  ウッディメール  Wood Mail  
+波濤郵件  波濤郵件  クロスメール  Wave Mail  
+珠寶郵件  珠寶郵件  トレジャーメール  Bead Mail  
+影子郵件  影子郵件  シャドーメール  Shadow Mail  
+熱帶郵件  熱帶郵件  トロピカルメール  Tropical Mail  
+夢境郵件  夢境郵件  ドリームメール  Dream Mail  
+奇蹟郵件  奇蹟郵件  ミラクルメール  Miracle Mail  
+復古郵件  復古郵件  レトロメール  Retro Mail  
+青草郵件  青草郵件  グラスメール  Grass Mail  
+火焰郵件  火焰郵件  フレイムメール  Flame Mail  
+泡泡郵件  泡泡郵件  ブルーメール  Bubble Mail  
+綻放郵件  綻放郵件  ブルームメール  Bloom Mail  
+隧道郵件  隧道郵件  トンネルメール  Tunnel Mail  
+鋼鐵郵件  鋼鐵郵件  スチールメール  Steel Mail  
+心靈郵件  心靈郵件  ラブラブメール  Heart Mail  
+雪花郵件  雪花郵件  ブリザードメール  Snow Mail  
+空間郵件  空間郵件  スペースメール  Space Mail  
+天空郵件  天空郵件  エアメール  Air Mail  
+鑲嵌郵件  鑲嵌郵件  モザイクメール  Mosaic Mail  
+磚塊郵件  磚塊郵件  ブリックメール  Brick Mail  
+初始郵件  初始郵件  はじめてメール  Greet Mail  
+喜愛郵件  喜愛郵件  だいすきメール  Favored Mail  
+邀請郵件  邀請郵件  おさそいメール  RSVP Mail  
+感謝郵件  感謝郵件  かんしゃメール  Thanks Mail  
+質問郵件  質問郵件  しつもんメール  Inquiry Mail  
+推薦郵件  推薦郵件  おすすめメール  Like Mail  
+回覆郵件  回覆郵件  おかえしメール  Reply Mail  
+橋樑郵件S  橋樑郵件S  ブリッジメールＳ  Bridge Mail S  
+橋樑郵件H  橋樑郵件H  ブリッジメールＨ  Bridge Mail D  
+橋樑郵件C  橋樑郵件C  ブリッジメールＣ  Bridge Mail T  
+橋樑郵件V  橋樑郵件V  ブリッジメールＶ  Bridge Mail V  
+橋樑郵件W  橋樑郵件W  ブリッジメールＷ  Bridge Mail M  
+
+
+
+
+對戰道具
+防禦效果  防禦效果  エフェクトガード  Guard Spec.  
+要害攻擊  要害攻擊  クリティカッター  Dire Hit  
+力量增強  力量增強  プラスパワー  X Attack  
+傷害預防  傷害預防  ディフェンダー  X Defend  
+速度增加  速度增加  スピーダー  X Speed  
+命中加強  命中加強  ヨクアタール  X Accuracy  
+特殊增強  特殊增強  スペシャルアップ  X Special  
+特防強化  特防強化  スペシャルガード  X Sp. Def  
+皮皮玩偶  皮皮玩偶  ピッピにんぎょう  Poké Doll  
+向尾喵的尾巴  向尾喵的尾巴  エネコのシッポ  Fluffy Tail  
+藍色哨子  藍色哨子  あおいビードロ  Blue Flute  
+黃色哨子  黃色哨子  きいろビードロ  Yellow Flute  
+紅色哨子  紅色哨子  あかいビードロ  Red Flute  
+神奇寶貝玩具  神奇寶貝玩具  ポケじゃらし  Poké Toy  
+特效召喚  特效召喚  スキルコール  Ability Urge  
+道具擊落  道具擊落  アイテムドロップ  Item Drop  
+道具召喚  道具召喚  アイテムコール  Item Urge  
+恢復召喚  恢復召喚  フラットコール  Reset Urge  
+
+
+
+
+重要物品
+代幣盒  代幣盒  コインケース  Coin Case  
+探寶器探寶器探寶器
+探寶器探寶器  探寶器  ダウジングマシン  Itemfinder
+Dowsing MCHN  
+破爛釣竿 破爛釣竿  破爛釣竿  ボロのつりざお  Old Rod  
+優秀釣竿 優秀釣竿  優秀釣竿  いいつりざお  Good Rod  
+超強釣竿 超強釣竿  超強釣竿  すごいつりざお  Super Rod  
+船票  船票  ふねのチケット  S.S. Ticket  
+包裹  包裹  おとどけもの  Oak's Parcel  
+神奇寶貝之笛 神奇寶貝之笛  神奇寶貝之笛  ポケモンのふえ  Poké Flute  
+秘密鑰匙 秘密鑰匙  秘密鑰匙  ひみつのカギ  Secret Key  
+自行車兌換券  自行車兌換券  ひきかえけん  Bike Voucher  
+金子做的假牙  金子做的假牙  きんのいれば  Gold Teeth  
+卡片鑰匙  卡片鑰匙  カードキー  Card Key  
+電梯鑰匙  電梯鑰匙  エレベータのカギ  Lift Key  
+幻影透視鏡  幻影透視鏡  シルフスコープ  Silph Scope  
+自行車  自行車  じてんしゃ  Bicycle  
+城鎮地圖 城鎮地圖  城鎮地圖  タウンマップ  Town Map  
+
+
+
+
+第二世代起
+未知  GS球  ジーエスボール  GS Ball  
+未知  神奇寶貝蛋兌換券  タマゴけん  Egg Ticket  
+透明鈴噹  透明鈴噹  とうめいなスズ  Clear Bell  
+藍色卡片  藍色卡片  ブルーカード  Itemfinder  
+傑尼龜的噴水器  傑尼龜的噴水器  ゼニガメじょうろ  Squirtbottle  
+紅色的鱗片  紅色的鱗片  あかいウロコ  Red Scale  
+掉落的東西掉落的東西  掉落的東西  おとしもの  Lost Item  
+定期月票  定期月票  リニアパス*  Pass  
+機械的零件  機械的零件  きかいのぶひん  Machine Part  
+銀色之翼銀色之翼  銀色之翼  ぎんいろのはねカ  Silver Wing  
+彩虹之翼  彩虹之翼  にじいろのはね  Rainbow Wing  
+神奇之蛋  神奇之蛋  ふしぎなタマゴ  Mystery Egg  
+秘傳之藥  秘傳之藥  ひでんのくすり  SecretPotion  
+馬赫自行車  馬赫自行車  マッハじてんしゃ  Mach Bike  
+華麗大賽通行證  華麗大賽通行證  コンテストパス  Contest Pass  
+吼吼鯨噴壺  吼吼鯨噴壺  ホエルコじょうろ  Wailmer Pail  
+得文公司的貨物  得文公司的貨物  デボンのにもつ  Devon Goods  
+集灰袋  集灰袋  はいぶくろ  Soot Sack  
+地下的鑰匙  地下的鑰匙  ちかのカギ  Basement Key  
+飛躍自行車  飛躍自行車  ダートじてんしゃ  Acro Bike  
+能量方塊盒  能量方塊盒  ポロックケース  Pokéblock Case  
+給大吾的信  給大吾的信  ダイゴへのてがみ  Letter  
+無限船票  無限船票  むげんのチケット  Eon Ticket  
+紅色寶珠紅色寶珠  紅色寶珠  べにいろのたま  Red Orb  
+藍色寶珠藍色寶珠  藍色寶珠  あいいろのたま  Blue Orb  
+探測器  探測器  たんちき  Scanner  
+沙塵護目鏡 沙塵護目鏡  沙塵護目鏡  ゴーゴーゴーグル  Go-Goggles  
+隕石  隕石  いんせき  Meteorite  
+1號客房的鑰匙  1號客房的鑰匙  １ごうしつのカギ  Rm. 1 Key  
+2號客房的鑰匙  2號客房的鑰匙  ２ごうしつのカギ  Rm. 2 Key  
+4號客房的鑰匙  4號客房的鑰匙  ４ごうしつのカギ  Rm. 4 Key  
+6號客房的鑰匙  6號客房的鑰匙  ６ごうしつのカギ  Rm. 6 Key  
+倉庫的鑰匙 倉庫的鑰匙  倉庫的鑰匙  そうこのカギ  Storage Key  
+得文偵測望遠鏡  得文偵測望遠鏡  デボンスコープ  Devon Scope  
+對戰搜尋器  對戰搜尋器  バトルサーチャー  Vs. Seeker  
+聲音記錄器  聲音記錄器  ボイスチェッカー  Fame Checker  
+技能學習器盒  技能學習器盒  わざマシンケース  TM Case  
+果實袋  果實袋  きのみぶくろ  Berry Pouch  
+教學電視  教學電視  おしえテレビ  Teachy TV  
+通行船票  通行船票  トライパス  Tri-Pass  
+彩虹通行券  彩虹通行券  レインボーパス  Rainbow Pass  
+茶  茶  おちゃ  Tea  
+神秘船票  神秘船票  しんぴのチケット  MysticTicket  
+極光船票  極光船票  オーロラチケット  AuroraTicket  
+粉末收集瓶  粉末收集瓶  こないれ  Powder Jar  
+紅寶石  紅寶石  ルビー  Ruby  
+藍寶石  藍寶石  サファイア  Sapphire  
+火岩標誌  火岩標誌  マグマのしるし  Magma Emblem  
+陳舊航海圖  陳舊航海圖  ふるびたかいず  Old Sea Map  
+挖掘裝備  挖掘裝備  たんけんセット  Explorer Kit  
+寶藏袋  寶藏袋  たからぶくろ  Loot Sack  
+規則書  規則書  ルールブック  Rule Book  
+神奇追蹤  神奇追蹤  ポケトレ  Poké Radar  
+得點卡  得點卡  ポイントカード  Point Card  
+冒險筆記本  冒險筆記本  ぼうけんノート  Journal  
+貼紙盒  貼紙盒  シールいれ  Seal Case  
+飾品盒  飾品盒  アクセサリーいれ  Fashion Case  
+貼紙袋  貼紙袋  シールぶくろ  Seal Bag  
+朋友筆記  朋友筆記  ともだちてちょう  Pal Pad  
+發電場鑰匙  發電場鑰匙  はつでんしょキー  Works Key  
+古代護身符  古代護身符  こだいのおまもり  Old Charm  
+銀河隊鑰匙  銀河隊鑰匙  ギンガだんのカギ  Galactic Key  
+紅鎖鍊  紅鎖鍊  あかいくさり  Red Chain  
+可達鴨噴壺  可達鴨噴壺  コダックじょうろ  Sprayduck  
+麵寶收納盒  麵寶收納盒  ポフィンケース  Poffin Case  
+房間鑰匙  房間鑰匙  ルームキー  Suite Key  
+大木博士的信  大木博士的信  オーキドのてがみ  Oak's Letter  
+月牙之羽  月牙之羽  みかづきのはね  Lunar Wing  
+會員卡  會員卡  メンバーズカード  Member Card  
+天界之笛  天界之笛  てんかいのふえ  Azure Flute  
+火山鎮石  火山鎮石  かざんのおきいし  Magma Stone  
+禮券1  禮券1  ひきかえけん1  Coupon 1  
+禮券2  禮券2  ひきかえけん2  Coupon 2  
+禮券3  禮券3  ひきかえけん3  Coupon 3  
+對戰攝錄機  對戰攝錄機  バトルレコーダー  Vs. Recorder  
+葛拉西蒂亞花  葛拉西蒂亞花  グラシデアのはな  Gracidea  
+圓柑果實盒  圓柑果實盒  ぼんぐりケース  Apricorn Box  
+未知圖騰筆記  未知圖騰筆記  アンノーンノート  Unown Report  
+樹果種植盆  樹果種植盆  きのみプランター  Berry Pots  
+相冊  相冊  フォトアルバム  Photo Album  
+GB音樂盒  GB音樂盒  GBプレイヤー  GB Sounds  
+海鳴鈴噹  海鳴鈴噹  うみなりのスズ  Tidal Bell  
+資料卡  資料卡  データカード  Data Card  
+綠色寶珠 IV  綠色寶珠  もえぎいろのたま  Jade Orb  
+上鎖的膠囊 上鎖的膠囊  上鎖的膠囊  ロックカプセル  Lock Capsule  
+神秘水晶  神秘水晶  なぞのすいしょう  Enigma Stone  
+自由船票  自由船票  リバティチケット  Liberty Pass  
+裝飾品盒  裝飾品盒  グッズケース  Prop Case  
+龍骨  龍骨  ドラゴンのホネ  Dragon Skull  
+黑闇石  黑闇石  ダークストーン  Dark Stone  
+光芒石  光芒石  ライトストーン  Light Stone  
+神石  神石  ゴッドストーン  God Stone  
+實況轉播器 實況轉播器  實況轉播器  ライブキャスター  Xtransceiver  
+轉交物品  轉交物品1  はいたつぶつ１  Gram 1  
+轉交物品  轉交物品2  はいたつぶつ２  Gram 2  
+轉交物品  轉交物品3  はいたつぶつ３  Gram 3  
+獎章盒  獎章盒  メダルボックス  Medal Box  
+阿克羅瑪機器  阿克羅瑪機器  アクロママシーン  Colress MCHN  
+基因之楔  基因之楔  いでんしのくさび  DNA Splicers  
+遺失物 遺失物  遺失物  わすれもの  Dropped Item  
+髒手帕  髒手帕  よごれたハンカチ  Grubby Hanky  
+圓形護符  圓形護符  まるいおまもり  Oval Charm  
+許可證  許可證  きょかしょう  Permit  
+電漿卡  電漿卡  プラズマカード  Plasma Card  
+寫形鏡  寫形鏡  うつしかがみ  Reflecting Mirror  
+閃耀護符  閃耀護符  ひかるおまもり  Shining Charm  
+立體影像轉播器  立體影像轉播器  ホロキャスター  Holo Caster  
+探險心得  探險心得  たんけんこころえ  Adventure Rules  
+奇妙石  奇妙石  すごそうないし  Intriguing Stone  
+一般石  一般石  ありふれたいし  Common Stone  
+隱形眼鏡盒  隱形眼鏡盒  レンズケース  Lens Case  
+自行車 自行車  自行車  じてんしゃ  Bicycle  
+超進化環  超進化環  メガリング  Mega Ring  
+超進化飾墜  超進化飾墜  メガチャーム  Mega Charm  
+未知  超進化手套  メガローブ  Mega Glove  
+直排輪  直排輪  ローラースケート  Roller Skates  
+發電所通行證  發電所通行證  はつでんしょパス  Power Plant Pass  
+TMV通行證  TMV通行證  ＴＭＶパス  TMV Pass  
+電梯的鑰匙  電梯的鑰匙  エレベータのカギ  Elevator Key  
+卡洛斯紋章  卡洛斯紋章  カロスエンブレム  Honor of Kalos  
+帥哥票證  帥哥票證  ハンサムチケット  Looker Ticket  
+服飾旅行箱 服飾旅行箱  服飾旅行箱  いしょうトランク  Travel Trunk  
+超進化手鐲  超進化手鐲  メガバングル  Mega Bracelet  
+超進化護腕  超進化護腕  メガブレス  Mega Cuff  
+能量方塊組合  能量方塊組合  ポロックキット  Pokéblock Kit  
+得文潛水裝備  得文潛水裝備  デボンボンベ  Devon Scuba Gear  
+匯演禮服  匯演禮服  ライブスーツ  Contest Costume  
+匯演舞裙  匯演舞裙  ライブドレス  Contest Costume  
+火岩套裝  火岩套裝  マグマスーツ  Magma Suit  
+束縛之壺  束縛之壺  いましめのつぼ  Prison Bottle  
+水艦套裝  水艦套裝  アクアスーツ  Aqua Suit  
+雙人票  雙人票  ペアチケット  Pair of Tickets  
+隕石碎片  隕石碎片  いんせきのかけら  Meteorite Shard  
+無限之笛  無限之笛  むげんのふえ  Eon Flute  
+
+
+
+
+圓柑果實
+紅色圓柑果實  紅色圓柑果實  あかぼんぐり  Red Apricorn  
+藍色圓柑果實  藍色圓柑果實  あおぼんぐり  Blu Apricorn  
+黃色圓柑果實  黃色圓柑果實  きぼんぐり  Ylw Apricorn  
+綠色圓柑果實  綠色圓柑果實  みどぼんぐり  Grn Apricorn  
+白色圓柑果實  白色圓柑果實  しろぼんぐり  Wht Apricorn  
+黑色圓柑果實  黑色圓柑果實  くろぼんぐり  Blk Apricorn  
+桃色圓柑果實  桃色圓柑果實  ももぼんぐり  Pnk Apricorn  
+
+
+
+
+超進化石
+妙蛙花進化石  妙蛙花進化石  フシギバナイト  Venusaurite  
+噴火龍進化石X  噴火龍進化石X  リザードナイトX  Charizardite X  
+噴火龍進化石Y  噴火龍進化石Y  リザードナイトY  Charizardite Y  
+水箭龜進化石  水箭龜進化石  カメックスナイト  Blastoisinite  
+大針蜂進化石  大針蜂進化石  スピアナイト  Beedrillite  
+比雕進化石  比雕進化石  ピジョットナイト  Pidgeotite  
+胡地進化石  胡地進化石  フーディナイト  Alakazite  
+呆河馬進化石  呆河馬進化石  ヤドランナイト  Slowbronite  
+耿鬼進化石  耿鬼進化石  ゲンガナイト  Gengarite  
+袋龍進化石  袋龍進化石  ガルーラナイト  Kangaskhanite  
+大甲進化石  大甲進化石  カイロスナイト  Pinsirite  
+暴鯉龍進化石  暴鯉龍進化石  ギャラドスナイト  Gyaradosite  
+化石翼龍進化石  化石翼龍進化石  リプテラナイト  Aerodactylite  
+超夢進化石X  超夢進化石X  ミュウツナイトX  Mewtwoite X  
+超夢進化石Y  超夢進化石Y  ミュウツナイトY  Mewtwoite Y  
+電龍進化石  電龍進化石  デンリュウナイト  Ampharosite  
+大鋼蛇進化石  大鋼蛇進化石  ハガネールナイト  Steelixite  
+巨鉗螳螂進化石  巨鉗螳螂進化石  ハッサムナイト  Scizorite  
+赫拉剋羅斯進化石  赫拉剋羅斯進化石  ヘラクロスナイト  Heracronite  
+黑魯加進化石  黑魯加進化石  ヘルガナイト  Houndoomite  
+班吉拉進化石  班吉拉進化石  バンギラスナイト  Tyranitarite  
+蜥蜴王進化石  蜥蜴王進化石  ジュカインナイト  Sceptilite  
+火焰雞進化石  火焰雞進化石  バシャーモナイト  Blazikenite  
+巨沼怪進化石  巨沼怪進化石  ラグラージナイト  Swampertite  
+沙奈朵進化石  沙奈朵進化石  サーナイトナイト  Gardevoirnite  
+勾魂眼進化石  勾魂眼進化石  ヤミラミナイト  Sablenite  
+大嘴娃進化石  大嘴娃進化石  クチートナイト  Mawilite  
+波士可多拉進化石  波士可多拉進化石  ボスゴドラナイト  Aggronite  
+恰雷姆進化石  恰雷姆進化石  チャーレムナイト  Medichamite  
+雷電獸進化石  雷電獸進化石  ライボルトナイト  Manectite  
+巨牙鯊進化石  巨牙鯊進化石  サメハダナイト  Sharpedonite  
+噴火駝進化石  噴火駝進化石  バクーダナイト  Cameruptite  
+七夕青鳥進化石  七夕青鳥進化石  チルタリスナイト  Altarianite  
+詛咒娃娃進化石  詛咒娃娃進化石  ジュペッタナイト  Banettite  
+阿勃梭魯進化石  阿勃梭魯進化石  アブソルナイト  Absolite  
+冰鬼護進化石  冰鬼護進化石  オニゴーリナイト  Glalitite  
+暴蠑螈進化石  暴蠑螈進化石  ボーマンダナイト  Salamencite  
+巨金怪進化石  巨金怪進化石  メタグロスナイト  Metagrossite  
+拉帝亞斯進化石  拉帝亞斯進化石  ラティアスナイト  Latiasite  
+拉帝歐斯進化石  拉帝歐斯進化石  ラティオスナイト  Latiosite  
+長耳兔進化石  長耳兔進化石  ミミロップナイト  Lopunnite  
+路卡利歐進化石  路卡利歐進化石  ルカリオナイト  Lucarionite  
+烈咬陸鯊進化石  烈咬陸鯊進化石  ガブリアスナイト  Garchompite  
+暴雪王進化石  暴雪王進化石  ユキノオナイト  Abomasite  
+艾路雷朵進化石  艾路雷朵進化石  エルレイドナイト  Galladite  
+差不多娃娃進化石  差不多娃娃進化石  タブンネナイト  Audinite  
+蒂安希進化石  蒂安希進化石  ディアンシナイト  Diancite  
+

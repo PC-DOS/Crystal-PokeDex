@@ -1,0 +1,818 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Crystal_PokeDex.PageNatues"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是放置所有頁面的根資料格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含應用程式的名稱和頁面標題-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="CRYSTAL POKEDEX" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="性格效果表" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="50"/>
+        </StackPanel>
+
+        <!--ContentPanel - 其他內容置於此-->
+        <Grid x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="12,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                        <TextBlock Foreground="White" Text="攻擊" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFF08030" Margin="2.5">
+                        <TextBlock Foreground="White" Text="帥氣" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                        <TextBlock Foreground="White" Text="防禦" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFF8d030" Margin="2.5">
+                        <TextBlock Foreground="White" Text="強壯" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                        <TextBlock Foreground="White" Text="速度" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFF85888" Margin="2.5">
+                        <TextBlock Foreground="White" Text="可愛" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                        <TextBlock Foreground="White" Text="特攻" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FF6890F0" Margin="2.5">
+                        <TextBlock Foreground="White" Text="美麗" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                        <TextBlock Foreground="White" Text="特防" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FF78C850" Margin="2.5">
+                        <TextBlock Foreground="White" Text="聰明" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                    </Grid>
+                </Grid>
+                
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Background="LightGray" Margin="2.5" Height="5"/>
+            </Grid>
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Orientation="Vertical" Margin="12,0,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="努力" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="孤獨" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="勇敢" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="固執" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="調皮" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="大膽" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="坦率" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="悠閒" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="淘氣" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="樂天" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="膽小" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="急躁" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="認真" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="開朗" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="天真" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="保守" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="穩重" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="冷靜" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="害羞" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="馬虎" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="沉著" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="溫順" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="狂妄" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="慎重" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Red" Margin="2.5">
+                            <TextBlock Foreground="White" Text="-10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Green" Margin="2.5">
+                            <TextBlock Foreground="White" Text="+10%" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="{StaticResource PhoneAccentBrush}" Margin="2.5">
+                            <TextBlock Foreground="White" Text="浮躁" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="4" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                        <Grid Grid.Column="5" Background="Gray" Margin="2.5">
+                            <TextBlock Foreground="White" Text="--" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="{應用程序命名空間}.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是放置所有頁面的根資料格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,0,0,19">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含應用程式的名稱和頁面標題-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{應用程序名稱大寫}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="幫助" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 其他內容置於此-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Height="597" TextWrapping="Wrap" VerticalAlignment="Top" Width="446">
+                       {應用程序幫助信息}
+            </TextBlock>
+        </Grid>
+        <TextBlock x:Name="TimeBox" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Text="當前系統時間:25時25分25秒" Margin="186,98,0,0"/>
+        <TextBlock x:Name="TextBlock2_Copy2" HorizontalAlignment="Left" Margin="331,66,0,0" TextWrapping="Wrap" Text="100%" VerticalAlignment="Top" Width="126" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock x:Name="TextBlock1__Copy2" HorizontalAlignment="Left" Margin="186,66,0,0" TextWrapping="Wrap" Text="電池剩餘電量:" VerticalAlignment="Top" Width="140"/>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton Text="關音樂" IconUri="/Assets/MenuIcons/cancel.png" Click="ApplicationBarIconButton_Click" />
+            <shell:ApplicationBarIconButton Text="刷新" IconUri="/Assets/MenuIcons/refresh.png" Click="ApplicationBarIconButton_Click_1" />
+            <shell:ApplicationBarIconButton Text="打電話" IconUri="/Assets/MenuIcons/call.png" Click="ApplicationBarIconButton_Click_2" />
+            <shell:ApplicationBar.MenuItems  >
+                <shell:ApplicationBarMenuItem Text="飛行模式設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_2"  />
+                <shell:ApplicationBarMenuItem Text="藍牙功能設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_3" />
+                <shell:ApplicationBarMenuItem Text="無綫網絡設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_4" />
+                <shell:ApplicationBarMenuItem Text="移動網絡設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_5" />
+                <shell:ApplicationBarMenuItem Text="鎖定畫面設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_13" />
+                <shell:ApplicationBarMenuItem Text="手機定位設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_14" />
+                <shell:ApplicationBarMenuItem Text="畫面旋轉設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_11" />
+                <shell:ApplicationBarMenuItem Text="省電模式設定" IsEnabled="True" Click="ApplicationBarMenuItem_Click_12" />
+                <shell:ApplicationBarMenuItem Text="應用市場鏈接" IsEnabled="True" Click="ApplicationBarMenuItem_Click_7" />
+                <shell:ApplicationBarMenuItem Text="音樂市場鏈接" IsEnabled="True" Click="ApplicationBarMenuItem_Click_8" />
+                <shell:ApplicationBarMenuItem Text="撥打聯係人" IsEnabled="True" Click="ApplicationBarMenuItem_Click_9" />
+                <shell:ApplicationBarMenuItem Text="關閉音樂播放器" IsEnabled="True" Click="ApplicationBarMenuItem_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

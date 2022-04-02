@@ -1,0 +1,1878 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- 
+This program has been written by Heracles Papatheodorou a.k.a Arty2, webmaster of www.legendarypokemon.net
+You can contact the author via email: legendarypokemon {at} gmail {dot} com or AIM: LPArty2
+
+Please pardon the code mess that follows since it's always a work in progress :]
+Be my guest if you think you can improve one of the following algorithms; I am not a programmer by profession.
+I tried to provide subtle documentation here and there; the complex parts are at least covered.
+Source is uncompressed, for educational (?) purposes.
+
+
+The latest version this program can be always found at http://www.legendarypokemon.net/ivcalcxy.html 
+-->
+<title>神奇寶貝X·Y 個體值與能力值計算器 - 52Poké.com</title>
+<meta name="Author" content="Heracles Papatheodorou" />
+<meta name="keywords" content="Pokemon, IVs, IV, Calculator, Individual, Values, Stats, Stat, Hidden Power" />
+<meta name="description" content="This IV Calculator / Stat Calculator / Hidden Power Calculator aims to help Pokemon trainers calculate the attributes of their Pokemon." />
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFFJREFUOMu1kjEOACAIA/ng/f87Lo4WimgTo4M9G0vEWexlCbG3hDiPE5A81E5DcVeaEJ9KBcAAxFdABsFtBSOJVV0KYAq46Zuno2xNl2tsmxeYhhbdfJzuqAAAAABJRU5ErkJggg==" />
+<style title="default" media="all" type="text/css">
+body {
+	background: #b5bdb9;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#calculator * { /* global styles */
+	font: 12px Verdana, Geneva, Kalimati, sans-serif;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px; -webkit-background-clip: padding-box !important;
+	border-radius: 3px;
+	border-color: inherit;
+	line-height: 14px;
+	margin: 0;
+	padding: 0;
+}
+#calculator {
+	background: #b5bdb9;
+	border-bottom: 1px dotted; /* remove this when including */
+	border-color: #838986; /* universal border color */
+	color: #3e4340;
+	padding-top: 15px;
+	text-align: center;
+	/*text-shadow: #b5bdb9 1px 1px 0px;
+	text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 0px;*/
+}
+#calculator ::-moz-selection { background:#e4287c; color:#fff; }
+#calculator ::selection { background:#e4287c; color:#fff; }
+#calculator strong { font-weight: bold !important; }
+#calculator em { font-style: italic !important; }
+#calculator img { border: none; }
+#calculator input, #calculator select {
+	background-color: #fff;
+	border: 1px solid;
+	border-color: #737b76; /* universal input color */
+	color: #000;
+	padding: 1px;
+	text-align: right;
+	text-shadow: none;
+	-moz-transition: border-color 0.2s ease-in-out;
+	-webkit-transition: border-color 0.2s ease-in-out;
+	-o-transition: border-color 0.2s ease-in-out;
+	transition: border-color 0.2s ease-in-out;
+}
+#calculator select {
+	height: 18px;
+	text-align: left;
+	width: 100%;
+}
+#calculator optgroup { 
+	font-weight: bold;
+	margin: 4px 0 0 0;
+}
+#calculator option { padding: 0 0 0 4px; }
+#calculator #pot1 { height: auto; }
+#calculator input:focus, #calculator select:focus {
+	outline: 3px double #e4287c;
+	border-color: #fff;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+	position: relative;
+	text-decoration: none;
+}
+#calculator .radio {
+	-moz-border-radius: 10px !important;
+	-webkit-border-radius: 10px !important;
+	border-radius: 10px !important;
+}
+#calculator a {
+	color: inherit;
+	font-style: italic;
+	text-decoration: none;
+}
+#calculator table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	width: 100%;
+}
+#calculator td {
+	padding: 3px;
+	text-align: center;
+	}
+#calculator dt, #calculator #documentation h3 {
+	font-weight: bold !important;
+	text-align: left;
+}
+#calculator p, #calculator dd {
+	text-align: left;
+	margin: 3px 0 3px 15px !important;
+}
+#calculator h1 {
+	font: small-caps bold 15px sans-serif !important;
+	margin: 3px;
+}
+#calculator h2 {
+	border-bottom: 1px dotted;
+	font: bold 12px Verdana, Geneva, Kalimati, sans-serif;
+	text-align: left;
+	text-transform: uppercase;
+}
+#calculator h3 {
+	border-bottom: 1px dotted;
+	font: small-caps bold 12px Verdana, Geneva, Kalimati, sans-serif;
+}
+#calculator #documentation h3 { margin: 5px 0 0 0; }
+#calculator #documentation h2 { margin: 10px 0 3px 0; }
+#calculator h4 {
+	font: bold 12px Arial, sans-serif;
+	text-align: right !important;
+}
+#calculator #head td { vertical-align: middle; }
+#calculator #documentation td { padding: 0 5px !important; }
+#calculator #documentation a { text-shadow: 1px 1px 2px #3e4340; color: #fff; }
+#calculator #documentation a:hover { color: #e4287c; }
+#toggleinstructions, #togglehistory, #toggleinfo, .button, .btn { cursor: pointer; }
+#status { cursor: text;	}
+#controls {
+	border-top: 2px dotted;
+	border-color: inherit;
+}
+#bar {
+	border-bottom: 2px solid;
+	border-top: 1px dashed;
+	border-color: inherit;
+}
+#nickname {
+	background: none !important;
+	color: #3e4340 !important;
+	border-style: dotted !important;
+}
+#calculator .loading {
+	background: url('data:image/png;base64,R0lGODlhDwAPAIABAP///////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJGQABACwAAAAADwAPAAACGoyPqQGLzQx00c0q6aU47c+F4vaImheS5lEAACH5BAkZAAEALAAAAAAPAA8AAAIZjI+pAYv9nIwOzjutAbxrDFLLF24JeZZLAQAh+QQJGQABACwAAAAADwAPAAACGIyPqQGL/ZyMDs47rdGs4i1pYnhBZvlJBQAh+QQFGQABACwAAAAADwAPAAACGYyPqQGL/ZyMDs47gd7WdAxSyxd6CXmWSwEAOw==') 50% 100% no-repeat;
+	display: inline-block;
+	padding: 0 0 25px 0;
+}
+#calculator .button {
+	background: #ced2d0 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAAGUlEQVQY02P8////GUYg8YxkogFOMBBLAACNTUydrXmzbAAAAABJRU5ErkJggg==') 50% 50% repeat-x;
+	border: 2px solid;
+	color: #606762;
+	font-size: 12px;
+	font-weight: bold;
+	height: 25px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #fff;
+	width: 100%;
+}
+#calculator .button:focus, #calculator .button:active {
+	background-image: none;
+	border-color: #e4287c;
+}
+#calculator input:disabled {
+	background: none;
+	border-width: 1px;
+	border-style: dashed;
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+#calculator .button:hover { border-color: #e4287c; }
+#calculator .btn { font-weight: bold !important; }
+#calculator .block {
+	border: 2px solid;
+	border-color: inherit;
+	background: #9aa7a0; /* primary color */
+	margin: 0 auto 20px auto !important;
+	width: 750px;
+}
+#calculator .primary {
+	border-right: 2px solid;
+	border-color: inherit;
+	vertical-align: top;
+	width: 57% !important;
+}
+#calculator .secondary {
+	background: #8e9892; /* secondary color */
+	border-color: inherit;
+	vertical-align: top;
+	}
+#calculator .top { vertical-align: top !important; }
+#calculator .left { text-align: left !important; }
+#calculator .center {
+	text-align: center !important;
+	vertical-align: middle !important;
+}
+#calculator .right { 
+	text-align: right !important;
+	vertical-align: top !important;
+	padding-right: 6px !important;
+}
+#calculator #tooltip {
+	background: #eee;
+	border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; -webkit-background-clip: padding-box !important;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+	color: #777;
+	display: none;
+	font-size: 9px;
+	margin: 0 30px;
+	padding: 3px;
+	text-align: left;
+	text-shadow: none;
+	position: absolute;
+	z-index: 1000;
+}
+#calculator .error {
+	color: #f00 !important;
+	border-color: #f00 !important;
+	font-weight: bold !important;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px !important;
+}
+#calculator .ok {
+	color: #8d6 !important;
+	font-weight: bold !important;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px !important;
+}
+#calculator .new {
+	background: #eee;
+	color: #000;
+}
+
+/* SPP Theme */
+.spp { background: #383838 !important; }
+.spp * { border-color: #404040 !important; text-shadow: none !important; }
+.spp ::-moz-selection { background:#cb7 !important; color:#444 !important; }
+.spp ::selection { background:#cb7 !important; color:#444 !important; }
+.spp #documentation a { border-bottom: 1px solid #cb7 !important; }
+.spp #documentation a:hover { color: #cb7 !important; }
+.spp #bar, .spp #controls { border: none; }
+.spp table { border-collapse: separate !important; border-spacing: 3px !important; }
+.spp .block, .spp .primary, .spp #documentation .secondary { background: #404040 !important; border: none; color: #fff !important; }
+.spp .secondary { background: #6f9a4c !important; color: #444; border-radius: 5px !important; }
+.spp input, .spp select { background: #cb7 !important; border-color: #3b3b3b !important; color: #444 !important; }
+.spp input:focus, .spp select:focus { outline: 3px solid #8d6 !important; border-color: #8d6 !important; -moz-border-radius: 0 !important; -webkit-border-radius: 0 !important; border-radius: 0 !important; text-decoration: none; position: relative; }
+.spp .button:hover { border-color: #8d6 !important; color: #000 !important; }
+.spp .button:disabled { background: none !important; }
+.spp .new { background: #ba6 !important; }
+
+/* isotope Theme */
+.isotope { background: #4c7da2 !important; }
+.isotope * { border-color: #f0f0f0 !important;	color: #2d2e2f !important; text-shadow: none !important; }
+.isotope ::-moz-selection { color: #000 !important;	  background: #b6d796 !important; }
+.isotope ::selection  { color: #000 !important;  background: #b6d796!important; }
+.isotope #documentation a { color: #47a4fb !important; }
+.isotope #documentation a:hover { color: #b5d594 !important; }
+.isotope table { border-collapse: separate !important; border-spacing: 3px !important; }
+.isotope .block { background: #f0f0f0 !important; border: 4px solid #f0f0f0 !important; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); }
+.isotope .primary { background: #f0f0f0 !important; }
+.isotope .secondary { background: #e9e9e9 !important; border: 2px solid #e9e9e9 !important; border-radius: 5px !important; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+.isotope #bar { background: #b6d796 !important; border: 2px solid #aacd8b !important; border-radius: 5px !important; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+.isotope input, .isotope select { border-color: #d6d6d6 !important; color: #000 !important; }
+.isotope #controls { border: none !important; background: none !important;  }
+.isotope .button { background: #dfdfdf !important; border-color: #888 !important; color: #555 !important; }
+.isotope input:focus, .isotope select:focus { outline: 3px double #b5d594 !important; border-color: #47a4fb !important; -moz-border-radius: 0 !important; -webkit-border-radius: 0 !important; border-radius: 0 !important; text-decoration: none; position: relative; }
+.isotope .button:hover { border-color: #47a4fb !important; color: #000 !important; }
+.isotope input:disabled { background: none !important; }
+.isotope h1, .isotope h2, .isotope h3 { border: none !important; font-family: Century Gothic, Andale Mono, Futura, sans-serif !important; }
+
+/* Simplex Theme */
+.simplex .ext { display: none; }
+/* td { outline: 1px dotted red !important; }  *//* DEBUG */
+
+</style>
+<style media="print" type="text/css">
+#calculator * {
+	background: #fff;
+	border: none !important;
+	box-shadow: 0px 0px 0px #ffffff !important; -moz-box-shadow: 0px 0px 0px #ffffff !important; -webkit-box-shadow: 0px 0px 0px #ffffff !important;
+	color: #000 !important;
+	text-shadow: none !important;
+	}
+#calculator #head {
+	border-bottom: 3px solid #000 !important;
+	padding-bottom: 1em;
+}
+#calculator .block { width: 100%; }
+#calculator #controls, #documentation, #btn-addeps, #times, $name, #charn { display: none; }
+#calculator h2 { border-bottom: 1px solid #000 !important; }
+</style>
+<style type="text/css" id="thema">/* required for the "Colorize" functionality */</style>
+</head>
+<body> 
+<div id="calculator"> <!-- Start here if you want to include this in your page -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+/* Generic functions */
+
+function $() { // http://www.dustindiaz.com/top-ten-javascript/
+	var elements = [];
+	for (var i=0, j=arguments.length; i < j; i++) {
+		var element = arguments[i];
+		if (typeof element == 'string')
+			element = document.getElementById(element);
+		if (j == 1)
+			return element;
+		elements.push(element);
+	}
+	return elements;
+}
+function $c(classname, node) { //Get elements by class
+	if(!node) node = document.getElementsByTagName('body')[0];
+	var a = [];
+	var re = new RegExp('\\b' + classname + '\\b');
+	var els = node.getElementsByTagName("*");
+	for(var i=0, j=els.length; i<j; i++)
+		if(re.test(els[i].className))a.push(els[i]);
+	return a;
+}
+function event_add(obj,type,fn) { // http://www.dustindiaz.com
+	if (obj.addEventListener)	obj.addEventListener(type,fn,false );
+	else if (obj.attachEvent) {
+		obj["e"+type+fn] = fn;
+		obj.attachEvent( "on"+type, function() { obj["e"+type+fn](); } );
+	}
+}
+function event_del(obj,type,fn) { // http://www.dustindiaz.com
+	if (obj.removeEventListener) obj.removeEventListener(type,fn,false);
+	else if (obj.detachEvent) {
+		obj.detachEvent( "on"+type, obj["e"+type+fn] );
+		obj["e"+type+fn] = null;
+	}
+}
+function cookie_create(name,value,days) {
+	if (location.protocol == 'data:') { return null; } //prevents security errors
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = '; expires='+date.toGMTString();
+	}
+	else var expires = '';
+	document.cookie = name+'='+value+expires+'; path=/';
+}
+function cookie_read(name) {
+	if (location.protocol == 'data:') { return null; }
+	var name = name+'=', ca = document.cookie.split(';');
+	for(var i=0, j=ca.length;i < j;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	}
+	return null;
+}
+function toggle(el) {
+	if ( el.style.display != 'none' ) { el.style.display = 'none'; }
+	else { el.style.display = ''; }
+}
+function autocomplete(field,select,property,forcematch) { // <input/> -> <select>
+	var f = false;
+	for (var i=0, j=select.options.length; i < j; i++) {
+		if (select.options[i][property].toUpperCase().indexOf(field.value.toUpperCase()) == 0) {
+			f=true; break;
+		}
+	}
+	if (forcematch && !f) {
+		field.value = field.value.slice(0,field.value.length-1);
+		autocomplete(field,select,property,forcematch);
+		return false;
+	}
+	if (f) { select.selectedIndex = i; }
+	else { select.selectedIndex = 0; }
+}
+function vv(e,min,max,evt,r)  {  //Field Value Validation (numeric only)
+	if (r != undefined && $('act-'+r).checked == 0) { row_act(r); }
+	if ($(e).title == '') {
+		$(e).autocomplete = 'off';
+		$(e).title = '('+min+' - '+max+') Use up/down arrow keys to increase/decrease.';
+	}
+	var r = $(e).id.split('-')[1], v = $(e).value;
+	var k = window.event?event.keyCode:evt.keyCode; // alert(k); //DEBUG
+	switch(k) {
+		case 9: return false; break; //tab
+		case 8: return false; break; //backspace
+		case 46: return false; break; //delete
+		case 13: calc_ivs((mode==2 && act>-1?act:0)); break; //enter
+		case 38: //Up key, increase
+			$(e).value = v<max?(1*v)+1:v;
+		break;
+		case 40: //Down key, decrease
+			$(e).value = v>min?(1*v)-1:v;
+		break;
+		default:
+			$(e).value = isNaN(v)?min:Math.min(v,max);
+	}
+}
+function tooltips() { // inspired by http://qrayg.com/learn/code/qtip
+	if (!$('tooltip')) { var e = el_add($('calculator'),'div',{className:'a',id:'tooltip'});
+		event_add(document, "mousemove", function(evt) {
+			var de = document.documentElement;
+			$('tooltip').style.left = (document.all?((de && de.scrollLeft)?de.scrollLeft:document.body.scrollLeft)+window.event.clientX:evt.pageX)+'px';
+			$('tooltip').style.top = (document.all?((de && de.scrollTop)?de.scrollTop:document.body.scrollTop)+window.event.clientY:evt.pageY)+'px';
+		});
+	}
+	var elements = $c('tooltip');
+	var  i=elements.length-1; do {
+		var e = elements[i];
+				if(e.title && !e.tooltip) {
+					e.tooltip = e.title;
+					e.title = ''; e.alt = ''; //prevent default behaviour
+					event_add(e, "mouseover", function() { $('tooltip').innerHTML = this.tooltip; $('tooltip').style.display = 'block'; });
+					event_add(e, "mouseout", function() { $('tooltip').innerHTML = ''; $('tooltip').style.display = 'none'; });
+				}
+	} while(i--);
+}
+function el_add(el,tag,attr,txt) { //Appends element - el_add(el,'div',{className:'a',id:'b'},'text');
+	var i='',e=document.createElement(tag);
+	if (attr) {
+		for (i in attr) {
+			e[i] = attr[i];
+		}
+	}
+	e.innerHTML = txt || '';
+	el.appendChild(e);
+	return e;
+}
+function el_del(el) { //Removes all element children of el
+	while (el.firstChild) {
+		el.removeChild(el.firstChild);
+	}
+	return this;
+}
+function array_intersect(a, b) { //arrays must be sorted, a and b are destructed afterwards
+	var r=[];
+	while( a.length > 0 && b.length > 0 ) {
+		if (a[0] < b[0] ){ a.shift(); }
+		else if (a[0] > b[0] ){ b.shift(); }
+		else {
+			r.push(a.shift());
+			b.shift();
+		}
+	}
+	return r;
+}
+if (!Array.prototype.map) {
+	Array.prototype.map = function(fn, thisObj) { // http://www.dustindiaz.com/basement/sugar-arrays.html
+		var scope = thisObj || window;
+		var a = [];
+		for (var i=0, j=this.length; i < j; ++i) {
+			a.push(fn.call(scope, this[i], i, this));
+		}
+		return a;
+	};
+}
+if (!Array.prototype.indexOf) {
+	Array.prototype.indexOf = function(el, start) { // http://www.dustindiaz.com/basement/sugar-arrays.html
+		var start = start || 0;
+		for (var i=0, j=this.length; i < j; ++i) { //rewrite using while do?
+			if (this[i] === el ) {
+				return i;
+			}
+		}
+		return -1;
+	};
+}
+Array.prototype.sum = function() {
+	var sum=0,i=this.length-1; do {
+		sum += this[i];
+	} while(i--);
+	return sum;
+};
+Array.prototype.sortnum = function() {
+   return this.sort( function (a,b) { return a-b; } );
+};
+Array.prototype.style = function(p,v) {
+	var i=this.length-1; do {
+		this[i].style[p] = v;
+	} while(i--);
+};
+
+/* Pokemon Data and retrieval functions */
+//Pokemon Name:Number - email the author for a precompiled list of the names in other languages
+pkmns='妙蛙種子:1|妙蛙草:2|妙蛙花:3|小火龍:4|火恐龍:5|噴火龍:6|傑尼龜:7|卡咪龜:8|水箭龜:9|綠毛蟲:10|鐵甲蛹:11|巴大蝴:12|獨角蟲:13|鐵殼昆:14|大針蜂:15|波波:16|比比鳥:17|比雕:18|小拉達:19|拉達:20|烈雀:21|大嘴雀:22|阿柏蛇:23|阿柏怪:24|皮卡丘:25|雷丘:26|穿山鼠:27|穿山王:28|尼多蘭:29|尼多娜:30|尼多後:31|尼多朗:32|尼多力諾:33|尼多王:34|皮皮:35|皮可西:36|六尾:37|九尾:38|胖丁:39|胖可丁:40|超音蝠:41|大嘴蝠:42|走路草:43|臭臭花:44|霸王花:45|派拉斯:46|派拉斯特:47|毛球:48|末入蛾:49|地鼠:50|三地鼠:51|喵喵:52|貓老大:53|可達鴨:54|哥達鴨:55|猴怪:56|火爆猴:57|卡蒂狗:58|風速狗:59|蚊香蝌蚪:60|蚊香蛙:61|快泳蛙:62|凱西:63|勇吉拉:64|胡地:65|腕力:66|豪力:67|怪力:68|喇叭芽:69|口呆花:70|大食花:71|瑪瑙水母:72|毒刺水母:73|小拳石:74|隆隆石:75|隆隆岩:76|小火馬:77|烈焰馬:78|呆呆獸:79|呆河馬:80|小磁怪:81|三合一磁怪:82|Farfetch’d:83|嘟嘟:84|嘟嘟利:85|小海獅:86|白海獅:87|臭泥:88|臭臭泥:89|大舌貝:90|鐵甲貝:91|鬼斯:92|鬼斯通:93|耿鬼:94|大岩蛇:95|素利普:96|素利拍:97|大鉗蟹:98|巨鉗蟹:99|雷電球:100|頑皮彈:101|蛋蛋:102|椰蛋樹:103|可拉可拉:104|嘎拉嘎拉:105|沙瓦郎:106|艾比郎:107|大舌頭:108|瓦斯彈:109|雙彈瓦斯:110|鐵甲犀牛:111|鐵甲暴龍:112|吉利蛋:113|蔓藤怪:114|袋龍:115|墨海馬:116|海刺龍:117|角金魚:118|金魚王:119|海星星:120|寶石海星:121|吸盤魔偶:122|飛天螳螂:123|迷唇姐:124|電擊獸:125|鴨嘴火龍:126|大甲:127|肯泰羅:128|鯉魚王:129|暴鯉龍:130|乘龍:131|百變怪:132|伊布:133|水精靈:134|雷精靈:135|火精靈:136|3D龍:137|菊石獸:138|多刺菊石獸:139|化石盔:140|鐮刀盔:141|化石翼龍:142|卡比獸:143|急凍鳥:144|閃電鳥:145|火焰鳥:146|迷你龍:147|哈克龍:148|快龍:149|超夢:150|夢幻:151|菊草葉:152|月桂葉:153|大菊花:154|火球鼠:155|火岩鼠:156|火暴獸:157|小鋸鰐:158|藍鰐:159|大力鰐:160|尾立:161|大尾立:162|咕咕:163|貓頭夜鷹:164|芭瓢蟲:165|安瓢蟲:166|線球:167|阿利多斯:168|叉字蝠:169|燈籠魚:170|電燈怪:171|皮丘:172|皮寶寶:173|寶寶丁:174|波克比:175|波克基古:176|天然雀:177|天然鳥:178|咩利羊:179|綿綿:180|電龍:181|美麗花:182|瑪力露:183|瑪力露麗:184|胡說樹:185|牛蛙君:186|毽子草:187|毽子花:188|毽子綿:189|長尾怪手:190|向日種子:191|向日花怪:192|陽陽瑪:193|烏波:194|沼王:195|太陽精靈:196|月精靈:197|黑暗鴉:198|河馬王:199|夢妖:200|未知圖騰:201|果然翁:202|麒麟奇:203|榛果球:204|佛烈托斯:205|土龍弟弟:206|天蠍:207|大鋼蛇:208|布盧:209|布盧皇:210|千針魚:211|巨鉗螳螂:212|壺壺:213|赫拉克羅斯:214|狃拉:215|熊寶寶:216|圈圈熊:217|熔岩蟲:218|熔岩蝸牛:219|小山豬:220|長毛豬:221|太陽珊瑚:222|鐵炮魚:223|章魚桶:224|信使鳥:225|巨翅飛魚:226|盔甲鳥:227|戴魯比:228|黑魯加:229|刺龍王:230|小小象:231|頓甲:232|3D龍II:233|驚角鹿:234|圖圖犬:235|巴爾郎:236|柯波朗:237|迷唇娃:238|電擊怪:239|小鴨嘴龍:240|大奶罐:241|幸福蛋:242|雷公:243|炎帝:244|水君:245|由基拉:246|沙基拉:247|班吉拉:248|洛奇亞:249|Ho-oh:250|雪拉比:251|木守宮:252|森林蜥蜴:253|蜥蜴王:254|火稚雞:255|力壯雞:256|火焰雞:257|水躍魚:258|沼躍魚:259|巨沼怪:260|土狼犬:261|大狼犬:262|蛇紋熊:263|直衝熊:264|刺尾蟲:265|甲殼蛹:266|狩獵鳳蝶:267|盾甲繭:268|毒粉蝶:269|蓮葉童子:270|蓮帽小童:271|樂天河童:272|橡實果:273|長鼻葉:274|狡猾天狗:275|傲骨燕:276|大王燕:277|長翅鷗:278|大嘴鷗:279|拉魯拉絲:280|奇魯莉安:281|沙奈朵:282|溜溜糖球:283|雨翅蛾:284|蘑蘑菇:285|鬥笠菇:286|懶人翁:287|過動猿:288|請假王:289|土居忍士:290|鐵面忍者:291|脫殼忍者:292|咕妞妞:293|吼爆彈:294|爆音怪:295|幕下力士:296|超力王:297|露力麗:298|朝北鼻:299|向尾喵:300|優雅貓:301|勾魂眼:302|大嘴娃:303|可可多拉:304|可多拉:305|波士可多拉:306|瑪沙那:307|恰雷姆:308|落雷獸:309|雷電獸:310|正電拍拍:311|負電拍拍:312|電螢蟲:313|甜甜螢:314|毒薔薇:315|溶食獸:316|吞食獸:317|利牙魚:318|巨牙鯊:319|吼吼鯨:320|吼鯨王:321|呆火駝:322|噴火駝:323|煤炭龜:324|跳跳豬:325|噗噗豬:326|晃晃斑:327|大顎蟻:328|超音波幼蟲:329|沙漠蜻蜓:330|沙漠奈亞:331|夢歌奈亞:332|青綿鳥:333|七夕青鳥:334|貓鼬斬:335|飯匙蛇:336|月石:337|太陽岩:338|泥泥鰍:339|鯰魚王:340|龍蝦小兵:341|鐵螯龍蝦:342|天秤偶:343|念力土偶:344|觸手百合:345|搖籃百合:346|太古羽蟲:347|太古盔甲:348|笨笨魚:349|美納斯:350|漂浮泡泡:351|變隱龍:352|怨影娃娃:353|詛咒娃娃:354|夜骷顱:355|夜巨人:356|熱帶龍:357|風鈴鈴:358|阿勃梭魯:359|小果然:360|雪童子:361|冰鬼護:362|海豹球:363|海魔獅:364|帝牙海獅:365|珍珠貝:366|獵斑魚:367|櫻花魚:368|古空棘魚:369|愛心魚:370|寶貝龍:371|甲殼龍:372|暴蠑螈:373|鐵啞鈴:374|金屬怪:375|巨金怪:376|雷吉洛克:377|雷吉艾斯:378|雷吉斯奇魯:379|拉帝亞斯:380|拉帝歐斯:381|蓋歐卡:382|固拉多:383|烈空坐:384|基拉祈:385|代歐奇希斯:386|草苗龜:387|樹林龜:388|土台龜:389|小火焰猴:390|猛火猴:391|烈焰猴:392|波加曼:393|波皇子:394|帝王拿波:395|姆克兒:396|姆克鳥:397|姆克鷹:398|大牙狸:399|大尾狸:400|圓法師:401|音箱蟀:402|小貓怪:403|勒克貓:404|倫琴貓:405|含羞苞:406|羅絲雷朵:407|頭蓋龍:408|戰槌龍:409|盾甲龍:410|護城龍:411|結草兒:412|結草貴婦（草木）:413|紳士蛾:414|三蜜蜂:415|蜂後:416|帕奇利茲:417|泳氣鼬:418|浮潛鼬:419|櫻花寶:420|櫻花兒:421|無殼海牛:422|海牛獸:423|雙尾怪手:424|飄飄球:425|附和氣球:426|卷卷耳:427|長耳兔:428|夢妖魔:429|烏鴉頭頭:430|魅力喵:431|東施喵:432|鈴鐺響:433|臭鼬噗:434|坦克臭鼬:435|銅鏡怪:436|青銅鐘:437|愛哭樹:438|魔尼尼:439|好運蛋:440|聒噪鳥:441|花岩怪:442|圓陸鯊:443|尖牙陸鯊:444|烈咬陸鯊:445|小卡比獸:446|利歐路:447|路卡利歐:448|怪河馬:449|河馬獸:450|紫天蠍:451|龍王蠍:452|不良蛙:453|毒骷蛙:454|尖牙籠:455|螢光魚:456|霓虹魚:457|小球飛魚:458|雪笠怪:459|暴雪王:460|瑪狃拉:461|自爆磁怪:462|大舌舔:463|超鐵暴龍:464|巨蔓藤:465|電擊魔獸:466|鴨嘴焰龍:467|波克基斯:468|梅卡陽瑪:469|葉精靈:470|冰精靈:471|天蠍王:472|象牙豬:473|3D龍Z:474|艾路雷朵:475|大朝北鼻:476|夜黑魔人:477|雪妖女:478|洛托姆:479|由克希:480|艾姆利多:481|亞克諾姆:482|帝牙盧卡:483|帕路奇犽:484|席多藍恩:485|雷吉奇卡斯:486|騎拉帝納（另類）:487|克雷色利亞:488|霏歐納:489|瑪納霏:490|達克萊伊:491|潔咪（陸地）:492|阿爾宙斯:493|比克提尼:494|藤藤蛇:495|青藤蛇:496|君主蛇:497|暖暖豬:498|炒炒豬:499|炎武王:500|水水獺:501|雙刃丸:502|大劍鬼:503|探探鼠:504|步哨鼠:505|小約克:506|哈約克:507|長毛狗:508|扒手貓:509|酷豹:510|花椰猴:511|花椰猿:512|爆香猴:513|爆香猿:514|冷水猴:515|冷水猿:516|食夢夢:517|夢夢蝕:518|豆豆鴿:519|波波鴿:520|轟隆雉雞:521|斑斑馬:522|雷電斑馬:523|石丸子:524|地幔岩:525|龐岩怪:526|滾滾蝙蝠:527|心蝙蝠:528|螺釘地鼠:529|龍頭地鼠:530|差不多娃娃:531|搬運小匠:532|鐵骨土人:533|修繕老頭:534|圓蝌蚪:535|藍蟾蜍:536|蟾蜍王:537|投射鬼:538|打擊鬼:539|蟲寶包:540|寶包繭:541|保母蟲:542|百足蜈蚣:543|車輪球:544|蜈蚣王:545|木棉球:546|風妖精:547|百合根娃娃:548|裙兒小姐:549|勇士鱸魚（紅線）:550|黑眼鰐:551|混混鰐:552|流氓鰐:553|火紅不倒翁:554|達摩狒狒:555|街頭沙鈴:556|石居蟹:557|岩殿居蟹:558|滑頭小子:559|頭巾混混:560|象徵鳥:561|哭哭面具:562|死神棺:563|原蓋海龜:564|肋骨海龜:565|始祖小鳥:566|始祖大鳥:567|破破袋:568|灰塵山:569|索羅亞:570|索羅亞克:571|泡沫栗鼠:572|奇諾栗鼠:573|哥德寶寶:574|哥德小童:575|哥德小姐:576|單卵細胞球:577|雙卵細胞球:578|人造細胞卵:579|鴨寶寶:580|首席天鵝:581|迷你冰:582|多多冰:583|雙倍多多冰:584|四季鹿:585|芽吹鹿:586|導電飛鼠:587|蓋蓋蟲:588|騎士蝸牛:589|寶貝球菇:590|暴露菇:591|輕飄飄:592|胖嘟嘟:593|保母曼波:594|電電蟲:595|電蜘蛛:596|種子鐵球:597|堅果啞鈴:598|齒輪兒:599|齒輪組:600|齒輪怪:601|麻麻小魚:602|麻麻鰻:603|麻麻鰻魚王:604|小灰怪:605|大宇怪:606|燭光靈:607|燈火幽靈:608|水晶燈火靈:609|牙牙:610|斧牙龍:611|雙斧戰龍:612|噴嚏熊:613|凍原熊:614|幾何雪花:615|小嘴蝸:616|敏捷蟲:617|泥巴魚:618|功夫鼬:619|師父鼬:620|赤面龍:621|泥偶小人:622|泥偶巨人:623|駒刀小兵:624|劈斬司令:625|爆爆頭水牛:626|毛頭小鷹:627|勇士鷹:628|禿鷹小子:629|禿鷹娜:630|食蟻爐:631|鐵蟻:632|單首龍:633|雙頭龍:634|三頭龍:635|燃燒蟲:636|火神蟲:637|勾帕路翁:638|代拉基翁:639|畢力吉翁:640|龍捲雲:641|雷電雲:642|雷希拉姆:643|捷克羅姆:644|土地雲:645|酋雷姆:646|凱路迪歐（普通）:647|美洛耶塔（歌聲）:648|蓋諾賽克特:649|ハリマロン:650|ハリボーグ:651|ブリガロン:652|フォッコ:653|テールナー:654|マフォクシー:655|ケロマツ:656|ゲコガシラ:657|ゲッコウガ:658|ホルビー:659|ホルード:660|ヤヤコマ:661|ヒノヤコマ:662|ファイアロー:663|コフキムシ:664|コフーライ:665|ビビヨン:666|シシコ:667|カエンジシ:668|フラベベ:669|フラエッテ:670|フラージェス:671|メェークル:672|ゴーゴート:673|ヤンチャム:674|ゴロンダ:675|トリミアン:676|ニャスパー:677|ニャオニクス♂:678|ヒトツキ:679|ニダンギル:680|ギルガルド:681|シュシュプ:682|フレフワン:683|ペロッパフ:684|ペロリーム:685|マーイーカ:686|カラマネロ:687|カメテテ:688|ガメノデス:689|クズモー:690|ドラミドロ:691|ウデッポウ:692|ブロスター:693|エリキテル:694|エレザード:695|チゴラス:696|ガチゴラス:697|アマルス:698|アマルルガ:699|仙子精靈:700|ルチャブル:701|デデンネ:702|メレシー:703|ヌメラ:704|ヌメイル:705|ヌメルゴン:706|クレッフィ:707|ボクレー:708|オーロット:709|バケッチャ（一般）:710|パンプジン（一般）:711|カチコール:712|クレベース:713|オンバット:714|オンバーン:715|ゼルネアス:716|イベルタル:717|ジガルデ:718|代歐奇希斯（攻擊）:386.1|代歐奇希斯（防禦）:386.2|代歐奇希斯（速度）:386.3|結草貴婦（砂土）:413.1|結草貴婦（垃圾）:413.2|潔咪（天空）:492.1|騎拉帝納（起源）:487.1|洛托姆（加熱）:479.1|洛托姆（沖洗）:479.2|洛托姆（結霜）:479.3|洛托姆（旋轉）:479.4|洛托姆（切割）:479.5|漂浮泡泡（太陽）:351.1|漂浮泡泡（雨水）:351.2|漂浮泡泡（雪雲）:351.3|勇士鱸魚（藍線）:550.1|達摩狒狒（不倒翁）:555.1|美洛耶塔（舞步）:648.1|酋雷姆（焰白）:646.1|酋雷姆（暗黑）:646.2|凱路迪歐（覺悟）:647.1|龍捲雲（靈獸）:641.1|雷電雲（靈獸）:642.1|土地雲（靈獸）:645.1|ニャオニクス♀:678.1|ギルガルド（刀劍）:681.1|バケッチャ（小）:710.1|バケッチャ（大）:710.2|バケッチャ（巨大）:710.3|パンプジン（小）:711.1|パンプジン（大）:711.2|パンプジン（巨大）:711.3|妙蛙花（百萬）:3.1|噴火龍（百萬X）:6.1|噴火龍（百萬Y）:6.2|水箭龜（百萬）:9.1|胡地（百萬）:65.1|耿鬼（百萬）:94.1|袋龍（百萬）:115.1|大甲（百萬）:127.1|暴鯉龍（百萬）:130.1|化石翼龍（百萬）:142.1|超夢（百萬X）:150.1|超夢（百萬Y）:150.2|電龍（百萬）:181.1|巨鉗螳螂（百萬）:212.1|赫拉克羅斯（百萬）:214.1|黑魯加（百萬）:229.1|班吉拉（百萬）:248.1|火焰雞（百萬）:257.1|沙奈朵（百萬）:282.1|大嘴娃（百萬）:303.1|波士可多拉（百萬）:306.1|恰雷姆（百萬）:308.1|雷電獸（百萬）:310.1|詛咒娃娃（百萬）:354.1|阿勃梭魯（百萬）:359.1|烈咬陸鯊（百萬）:445.1|路卡利歐（百萬）:448.1|暴雪王（百萬）:460.1';
+
+//Compressed Pokemon data: HP/ATK/DEF/SP.ATK/SP.DEF/SPD/Type1/Type2/Egg1/Egg2/EPs2/EPs1 - national order + forms
+pkmn='            gηη55g-,"4 "&WI//&-,"4 #/ΗZAA/-,"4 1ΜΚ_&(566"9: P:P/5/66"9:"jνj}^A6*"9 ,M=5(:_!!"*F qI/5/P!!"*F$lZA^;j!!"* Eg78BBg11,," (B3>>711,,G &g(0/)1*,, 1@87BB(1,,,: g>(>>81,,,G 50@g/S1,,,+$@g@88c *$$: I&3((k *$$K Z/S))ψ *$$ε 7c8>8C  ##: 3t&()ο  ##K @&7ΟΟ) *$$: 505eeA *$$K 8&M@y3,,#9$ &^m5l/,,#9+ 83@((0EE#1K &030/wEE#1ε (S^B7@$$##F SAwg35$$##G 3ιΚ@@z,,"#" )WQ33c,,..* 0NΞS^[,$.., ρx@@@(,,"#$ eCx335,,"#+ tά|^S^,$"#E )g=&58HH11* 2)~20&HH11, τz@(5566##: ~[StAA66##:$OgBg>B H11* ?)g^(g H11, @g87@3,*$$: S/)5S0,*$$K g(3S57-,44 "&5)^S@-,44 *S/^w0(-,44 ,8)3g3>1-,4$ &2/&/71-,4Ε &3(@3g1,,, $)5&0S01,,,:"!3>8g2$$##: 8/(()<$$##K @g8@@0  ##: 5)&55O  ##K (Κ=5(3!!*# "/Ηj2/^!!*# *@/88g)""##$ 5;&&)2""##+ 3)g)(&66##$ 0w/A/266##+ @(@@@0!!**: 555((0!!**K 022)0)!"**= >B.;30VV++ "@87<);VV++ *3(gb2<VV++ ,)/(888""++$ /A)(&g""+++ 0L/5^3""++E (S8)7@-,44$ 50(^g3-,44+ /;5A))-,44E @@8(A)!,66 $/)5/<A!,66 +@/A77B#$!!F 32Ogg8#$!!G /<L35g#$!!= (^355066##: 5A)//;66##K 055@@.!V"*" 2SwA/7!V"*G >8)23gE+!! "(&2<))E+!! *Κ53PW& *$#$ 8^g88S *$$$ &w)&&A *$$+ 5g3g)g!!*# $0)/)2)!9*# +//(@(>,,--" ;;S5A(,,--# 75Ag>@!!66F (2Ν^g)!966G 787A8/4,-- "g(gO324,-- *&5&LSw4,-- ,8gn7g)#$!!F &=g_0sVV++ $^~)~OQVV++ +7;0>>(!!66$ 3LO((S!!66+ @7(33AEE!!: &()//?EE!!K &@/&g@-V44F 22^h53-V44 *((2@(8$$""F &/w(/g$$""G (<o8wΞ""+++ (;l8w[""++ +03S&S7  ""* @52&g8,,--F 50<^)&,,--G /^277>$#"#F ;L<gg@$#"#+ à##8;(  11* 53OA@&--44F ;2/@/0  ""* 7@))>&!!*9 "3522g^!!*9F"gQ&8(I!!EE$ /N55/i!!EE+ 7g3)3^!!66: &S^A^O!V66K @g5A<0VH++ +)w/3/;1*,,$ 5(8O229V++ *5Zx2^;EE++K 52xA^d66++ *5hA3)^11,,+ SA2@)w  ##i B!3.B/!!E9: 2hl&At!*E9+ L^/^2&!9"** ======  VV" 33(g53  ## $L5&w25!!##* 55&w2LEE##K 5L&2w566##+ 5&)^S@  !! "8@A038#!*6F )&hO)3#!*6G 7/03g3#!*6F &O;5)/#!*6+ /;5&SL#*$$K nw55w7  ""* 0^A2h^9*.. E00^h0AE*.. ,0A0h^06*.. ,z:g(((..*9$ eν5)))..*9+ uώ2AA/.**9E pw0{0LVV.. ,AAAAAAVV.., gη5η5g--"4 $&W/I/&--"4F$/ΗAZA/--"4F+ΜΚ_&(566##: P:P/5/66##:"jνj}^A66## ,(5:M=_!!"*$ 5//qIP!!"*B ^;AlZj!!"*Ε 8ρς8gB  ##$ ^[:g30  ##K &77χc( *$$" A(([ύ) *$$* @B7@/31*,, $38(3w^1*,, +@&@@@71,,,$ )0)&&@1,,,+ ^0/)/L,*$$ε SττccQ!EEE" hPP[[Q!EEE* B@.88&EE..: (>Λg3.HH.. $07.@B. H.." 8B5@5BHH.. $3@^/;@H*$1 +@(g)g)V*$$ "5S)2)2V*$$:"3@@5g8EE"# ")33/&gEE"# *0S^O03EE"# ,S/20A(--44 E)B(B(@!H*1* A(/&/(!H*1, )AO757##!!G 0SS0A)!!** E88@83(-*14 $3g(g5/-*14K S3)32w-*14ε 3)3@3^  ##: 777777--44 "SS3;^7--44 *55gSg21*,,: 3gg>>.!$*#" 2^^558!$*#* 55&L2wVV## *25w&L5FF## +&^s^suF*$$: 2S/Aw7!V"* E&&&^^^44-- $=C=C==VV..$"βΩPΩPΩVV--* )/505^ V## *(5088.11,,F S0?&&@1+,,G A))55g  ##" 5S;85^$*,,F S^ό357+$!!G &/(@@7HH#1$ 0<S&&gHH#1+ 52S33^!,EE$ )LA3/51+,,+ B!f!f#1#,,F$/hS@2^1",,+ 3238SOF9##: &/(((@  ##$ 0LSSS3  ##+ @@@)@B66-- "((<//76#--G ((@77(9$##$ AA/&&(9$### 33^5^8!#*6F$858585!!*E "S;S;Sg!!*E$"g3g5gS9**#: 5@)/?)!*** +5/?@))+*$$G g&7/(5F6## "S0(w/2F6## *S2222^!.*9$#0&&@@@$$##" 0<<&&($$##B ^/0;2&  !! *~2W^5^  ##$ 3B8BgS  ##: 888888""..$ (228w)""++ +g7.^559V.. "gIΓ532EE..: gSΓ)3Z66..: 2/;@)A  ##G ä!!Sb3  11, 0^SOAOEE..K"OO^0SA66..6 ASO0O^!!..F+(:(g(z#$""$ )ν)5)ω#$""+ Aώw2Ae#F""E p0L0{wV*.. EpL0w{06*.. EAAAAAAV-.., @g853)--"9: (5g^52--"9K )^5;^<--"9ε g&@)(g66## "&^&^&36"##$"/<)w)/6"##E ()(((@!!"*$ )^)&)(!$"*+ Aw0^0&!$"*E 838778FF##$ )0)&&)FF##+ τ7z7z&  ##: j)e(eA  ##K gg8B7B11,," (83>>.11,,G &)(A(51*,, ,(83>>.11,,G &()(051,,, E@77@(7!-*4 $&((&)(!-*4 +/))0A)!-*4 E@@(777--#4F ))@&@&-F#4+ 0A&0&/-F#4E @3777^ *$$: &^&((h *$$K @7737^!**$: &(A^)5!**$G Λ>>g8@VH-- "τ8853(VH-- *i55hO/VH-- ,@7G(Κ51!*,: )&W/Η&1**, #&@&@&8--14" &L/&&)-"14+ &&&887  ##" ///330  ##K YnA25A  ##, Οg077@1$,,F e0g((n1*,,K "0g77@14!!* :ωΥωΥΛ  "#" νk_k_=  "#* θuIu~i  "#, C&7B7>""++" ã<&@&(""++* (B@B@B H.." 7gbg07##!!F (gg88(  #1: )5533)  #15 (SS55(F4++B (^^33(+H#1B ()A@@7+#""F &0?((@+#""G )wΝ&&(+#""= 7@3@3&"V++: &&S&S/"V++K @g@5@5EE##: )S&;&;EE##K &(@^S2EE11: &@(S^2EE11: 5~3ιS^11,+: 5ι3~S^11,+: (&gA/5-,14 *)_o_o@,,--" A~Z~Z3,,--* g0B5B5!FEE$ )<@2@2!FEE+ L)8)8&!!#E" ]0g0g&!!#E* &&@5g86$## ")A);S@6$##$")^?^)B66##G &>8)/&VV## $/g50w/VV## +&&&&&&  #+ "gAggg!$$,,$ ()((()$.,,i /A///A$.,,D (^@^@8--4+ ")O&O&3-F4+$"g@&@S( *$9 $S)0);/.*$9 +~O&&&0  ##+ ~A&A&5,,#9$")352^)#V!! *)2^35)#V!!+ (=_ρz&!$EE" wj~[k&!$EE* _/5(88!!*6$ I<^033!F*6+ @@3@)3$V!! $&);)<S$V!! +az|eΞΥ#-66 $Ttοtγ_#-66 +g2(@(S#166$ ShA)/g#166+ B.B!3/!!*9: 2&lAht!!*9 +))))))  1-" &0)&<@  ## $MS8IΩg44--$ :O5ZI544--+ B@070>44-- $@)L&L>44--F$λiZCΞω-*"4* 5()2/5VV-- #5L&S&SFF##+ 2Υ=Υ=ΥVV.." ((((((991!" //////991!* )@(3(>9!*#" 0&)S)g9!*#* w/02059!*#, 8:^α3G!!**F 3θ;ΑSΚ!!**B 3ν;ΦSΚ!!** *A0Lg53!#*EH _73@5ο!!EE: gS&@7(..99$ 52A&((..99G 2b/w/A.*99E @3/8&7+V!!F &SA3/(+V!!G /bL20)+V!!= /Aό(A(##..= /(AAό(99.. E/SYSY(++..G$//0wLw.V.. E/0/Lww.V.. ,AA0Y?0!!.. ,AY?A00$$..E ;Y0Y02.*..+"AAAAAA+V.., (Y(Y(YVV..i"3i:g3Ο--"4$ Sυ^35χ--"4B 2};S^c-$"4Ε MPMPMe66#+: :jΚjΚt6"#+:"[θkθkX6"#+i"oωoec@!!*# ":ait[(!!*# *νTRσψ&!+*# ,@3777& *$$: 3S(@@/ *$$K ^<)(&A *$$E qg@8@Ο  *#" l^&3&k !*#+ Γ>z>z>11,,F |^ω3ω511,,+ g5ς@ςgEE##$ &^η&η&EE##+ /<l2l)EE##E @78()3-,.. "&)5h;0-,14 ,Qh@77P##""$ ο`&5(P##""+ 7sΘsR7#+""F &Κϋιâ7#+""G @έgέgχ11,, $&q^l;χ1-,, +)Α(Α(a1*,,$"77s7s)1*,,: )/ά/ά@1*,,F$&g)g02EE#1: 358&7^!!*#: ^;3^(O!!*#K g8gWo8--14 ")&)Ξj^--14 *[==xWς!!*-" σZiNΗΜ!$*-* SAa&aO  ##K 0(ς&M)4*--" Y/M0y/4*--* 3aMMc^  #+: 5[νyύ;  #+K &&&;;;44-- #AhΚ;ΚkF*$$+ η3ssΓ^  ##: kΗ::qJ  ##K g7(5(gVV.. "IIιzzα,F##: %dQkeν,F##* xΕTΕTΥ+V!!F QυΨlΨΩ+V!!F$(/2!g!##..F B>g)0&VH.. $A##.57  .." [5gNsu *$$$ (NXNX84F--F$P)g@gs.$"9$ i05(3Η.$"9+ XL2/^ά.$"9E b^@@^#  .." @)@8@&""..$ )w)O)0"+#+$"iCjτsG$$##F XJΘiCι$$##G @(0735,1,6F )0w&S2,F,6G =e@e@(,"++$ Zp5T5^,"+++ αAC0Cρ--44+ ηηcηea!!EE: mm[mTu!!EEK gB(&<(!*.. $&W(W&@-9"4$ 0NSN^&-9"4$")<5g^hF9##i ))OL0&E+!! ,w^2/2(  "", O?L33@$#"#E AAhw((--44G SδQ2^2EE++E S2Qh2Z66++ ,^(2<O/H*$1 1T[TΨc21*,,+ 5wL&52--##G 5&wL2599## *S2hgS2$*,,G wL/)&/9$##E ^/)bS0  !! ,ih55O/V"--E &3USY@#+!!F+gAb5bg44--F+)/)/)w941!K ((|2|uE4--:"SSLSL2VV..G$/;;;;/VV..$#Sh)h)OVV..+"A<<YA0+... ,0<AY<A!... ,u0pLp|6+.. ,wnw/wA  ..E YA<A<04..., <)<SL^VV.. E//////!!*1" AAAAAA!!*1, )00b0hFF..:*AAAAAA--.., <<<<<<  .., AAAAAAV6.., gg3g3I--#4: &&S&SZ--#4K SS2S2Σ--#4ε 5Igggg66##" 0d3)336"##+ wδ5A556"##E 33gIgg!!## "SS&Z&&!!## *2A^X))!!## ,g3Μ8Μs  ##$ &^m&m|  ##+ g&g>g3  ##$ 5/585&  ##+ ^w0g0/  ##E z(Γ(ΓaFF##: :R(R(pFF##K (o=o=:--##: SφIφIψ--##K (o=o=:66##: SφIφIψ66##K (o=o=:!!##: SφIφIψ!!##K [>gQ3ΕVV##" Ψ3^γ2έVV##* (3(χ7_ *$$$ W|W(s5 *$$+ /O/53d *$$E g&G(G[EE##: SAI/IΨEE##K 3S^>>.##!!F );;(@B##!!B ^bL&/>##!!E 3g_3_CV*#$: Qx3|3ΦV*#$K &^@7gi$$##$ wb&(5R$+##+ %&T&T(  11* S/3>88""++$ ^;^@(@""+++ ;?235g""++E ((@(@:!!**: S5353m!$*** ;2S^Sα!$**, <A^7^g""++* ShS7S^""+++ go)@&s1-,,F 3I0(/s1-,,G S%/)/N1-,,E 7gq7Μx1,,,F @3λ@lι1,,,G &Aυ3mJ1,,,ε @ή&Γ(a-H41: &Q^|SΨ-H41K g8()(7--44 ")&SwS0--44 *)N5/3φ!!EEK (C8885$F##$ &Ηgggα$F##+ 2Ρ/5)N$F##E )0g.g(66##$ ;?373266##+ STQpQ&--44 *(5^8831#,!F )2h5Sg1#,!G (S)8)=F"#9$ 50OgOPF"#9F$CP/%/οV*$$ *τ7^35744!-F P(U2;744!-G yj%ogϊ!#*6F αXáZ5G!#*6G 3Jgαg)#*$6$ S?5J5w#*$6+ ((W@W5,,!!: /2Η&ΗS,,!!+ @5@/@5FF## "&;&<&;FF## *3(@@@S  ##: S2&5&O  ##K g7(35gVV++ $&g)S^3VV++ +)322w5VV++ Eg7@;(BVV-- "5@(h&7VV-- *w5Sh^7VV-- ,WM(M(3!**$" SΞIΞIφ!**$K χ((5&M99!! "ω55/Sq99!! *k2^w2l99!! ,&&(@(S -##: /A)&)2 -##+ 3S&S&%E*##K (Sg@g&11,,$ )b;&;B1+,,+ m3g33.-,44" Φ^)^/7-,44* 3@(5^@!4-- $A&)^;&!4-- +`S/@g5!!*E* (ι(x(51E,,: )|&ο&X1E,,K M(uΕT!-+4!F αΑΔyΨB-+4!G @3)g&7++!!F &/2)^(++!!G &AO)^0++!!= 83@g@&EE--: 5^)S)@EE--+ ^O/;/(EE--E 333^37VV++ "SSSh2@VV++ *(7353B46-- "&@&2&346-- *&30U0/46-- ,ρΞ&7@x.."9$ aΡ)@(Q.."9+ [ΐ0&)ο.."9E 3)@&@@99##$ 2w/)/(99##+ )(72b;99!! +(@^@5>11,,F /)@A&U11,,K }aνtλG$E*-* g^(3(5""#+$ 5h&2&;""#++ |<0&0=..9"+ qα(8(8$4!!$ υί/3/3$4!!+ g^)@@&F+++$ 5hA&))F++++ 2w2@23  ##+ )Z(Γ(& *$$$ AδSxS/ *$$+ )3Sg5&F*$$F w5;32/F*$$ *^οa;a566## *P}J==}1+,,G Κ5(g(τF.99$ C^)5)PF.99+ N;0h0φF.99 ,3^3(3&16,,$ ^&5b;A16,, ,u0Β0CX+"..= uΒ0C0X#"..E u0C0ΒX-".. ElO)h/σ**..E lO)h/σE*..E A<AY<0.6.. ,AY<<A0.E..E υh0O/ψ$*.. ,hL0L02.9..#"uC0Β0X!".. ,A||KK0 V..:#k<2<2λ1+..i"ce5=gτ--##F ej2cPx--##G RγμαS:-"##= @g@W&&66## "qqP0)~66## *SmCΦAθ6V## ,zc@WMk!!**: yIΚZcο!!**K C2Q%kμ!F**ε τχτGχx  ##: ^c|(|j $##* g(_@τW *$$: W~3cΚν6*$$: jtkαmΠ6*$$K τ8@ή>811,,F gϊ&ή7έ11,,F /Κ(0(υ1*,,F W(P~yC6 ## "TiC}ap6 ## *MτΜelsHH11 $ygιSφΚHH11 +j5iJ{SHH11 Ea5=WxΚ--##" δAWοti--##* QΗWρ=_""#+$ 2ίjmkP"F#++ S/&50ά  ## $W=yI&iVV##: α=[ZtθVV##K g/A8ΓΛ+4!!G qwYgη8+4!!G &(Y(Y&+4!!= jΚ&I5ΥHH11" ψCCλυέHH11* W=aqxηHH11F Η/T^SCHH11G oyoΓρgFV*E$ TNRiS~FV*E$ sΚQΜc(#!66$ C;OyTi#!66+ (&&&&7,!*9 "5S0οδM,.*9 *(oWPIM!!*6 "k~R<υq!!*6 "MτΩe_)E "9: W3Κ}Α}E "9K Pυ|gg=#."9$ ΗΖΧmqk#."9E |q(QIρ#9""" δ|CλNP#9""* 255wL&HH## +jNSαIΘ"*+++ QPxtQψEH#1K ((Y(Y(#H1!F$g(83S@..99 $iSoZΣ&..99 +0A)wY/..99 Ex/u/ΞS+H!!F _)=(&τ4-4-$ ^w[5Ηc4-4-+ ηa)M3ω4---F 50μPSν4---G 3m^G8Λ99""F 2ΡΤMρΛ99""G @78g@3*.$$: ^)/ο/δ*.$$K ΠΔ2ΔφλHH.., ΠΔ2ΔφλF*.., XAΖt22.$..,                                     (ΝBΝBYVV..+"()n)n0VV..G$(2020ΝVV..ε &l;q^χ1$,,G &m2m2χ1+,,F$A%S<SΙ-*..ε Y<A<A04..., (5γ;γTE6--:"(5γ;γTE!--:"(5γ;γTE9--:"(5γ;γTE*--:"(5γ;γTE---:"))))))661-" ))))))!!1-" ))))))991-" )N5/3φ!!EEK ;7;?;36V## *AK0||K "..ν h<0]A2.9.. ,h]A<02.9..E uC0Β0X!".. ,lA/w0Ζ**..ε l;)U/ψE*.. ,υU0;/u$*..E α=[ZtθVV##K &Y(Y(&+4!!= Ma)M3c4---F ya)M3ρ4---F qa)M3z4---F 3^μPSλ4---F S2μPSm4---F ^AμPSy4---F /Aδμ</-,"4 1jLσL^A6."9 ,jθjπOA6*"9 ,l%<bOj!!"* E3(5ξ2YVV++ ,&5/]2L4,-- ,;hA&AA  ""* 5ζ<50;1*,,+ 2ζ})Lt!FE9+ /b^)2Y#*$$K pβA{ALV".. ,pY)κ<?VV.. ,02;`wgE."# ,)Y?5AS1+,,+ /rO@;S1",,+ S00?0OF6## *AvY2<k#F""E /n/L/A6"##E i^5`bAVH-- ,(;h32(+H#1B )?f&/(++""= &A^/^A"V++K )S/b/bEE##K :`SdZS44--+ 5Y&O&OFF##+ X]O<2N.$"9E )UR?)J"+#+$"0D;D;7-9"4$"';
+//Decompression Arrays
+pk='00,0a,01,05,04,3c,32,46,02,08,03,0b,0f,50,5a,06,5f,37,07,41,09,1e,23,0e,40,69,78,30,19,8c,28,64,14,48,84,0c,10,20,11,3f,70,80,82,2c,5c,73,3a,43,58,4b,56,91,0d,3e,6c,96,53,4c,aa,55,2b,a5,42,87,38,5d,3d,e6,2d,7d,44,4e,47,4f,45,a0,35,6a,3b,b9,2a,51,5b,a4,6e,39,36,29,9a,4d,6d,49,67,4a,be,6b,7b,c0,9b,31,68,2f,c2,63,7a,54,af,61,9f,2e,6f,26,59,62,24,65,33,5e,81,25,83,18,79,52,76,7f,34,1c,27,b4,57,1f,7e,75,71,b8,17,72,77,74,21,22,66,1d,1b,7c,c8,60,86,16,a8,93,fa,85,8a,90,ff'; pk=pk.split(',');
+mn=' !"#$&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~%αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩςάέήίόύώϊϋΐàáâãä'; mn=mn.split(''); base=[];
+
+forms = {386.1:722,386.2:723,386.3:724,413.1:725,413.2:726,492.1:727,487.1:728,479.1:729,479.2:730,479.3:731,479.4:732,479.5:733,351.1:734,351.2:735,351.3:736,550.1:737,555.1:738,648.1:739,646.1:740,646.2:741,647.1:742,641.1:743,642.1:744,645.1:745,678.1:746,681.1:747,710.1:748,710.2:749,710.3:750,711.1:751,711.2:752,711.3:753,3.1:754,6.1:755,6.2:756,9.1:757,65.1:758,94.1:759,115.1:760,127.1:761,130.1:762,142.1:763,150.1:764,150.2:765,181.1:766,212.1:767,214.1:768,229.1:769,248.1:770,257.1:771,282.1:772,303.1:773,306.1:774,308.1:775,310.1:776,354.1:777,359.1:778,445.1:779,448.1:780,460.1:781};
+
+function get_base(p,s) { //Returns values from pkmn
+	if (p.indexOf('.') > -1) {
+		p = forms[p];
+	}
+	if (!base[p]) {
+		base[p]=pkmn.slice(12*p,12*p+12).split('').map(function(v,i){v=pk[mn.indexOf(v)];if(i<10)v=parseInt(v,16);return v});
+		base[p].push(('000000000000000'+parseInt(base[p].pop()+''+base[p].pop(),16).toString(2)).split('').reverse().join('').substr(0,12).split('').reverse().join('').match(new RegExp(".{1,"+2+"}", "g")).reverse().map(function (v) { return parseInt(v,2); }));
+		base[p][10].push(base[p][10].splice(3,1)[0]);
+	}
+	return base[p][s];
+}
+
+//Add a custom Pokemon by modifying and un-commenting the following lines.
+//Format is HP,ATK,DEF,SP.ATK,SP.DEF,SPD,Type1,Type2,Egg1,Egg2,[HP EPs,ATK EPs,DEF EPs,SP.ATK EPs,SP.DEF EPs,SPD EPs]
+/*
+pkmns = pkmns+'|Bulbasaur:1';
+base[1] = [45, 49, 49, 65, 65, 45, 12, 3, 1, 7,[0, 0, 0, 1, 0, 0]];
+*/
+
+//ATK/DEF/SP.ATK/SP.DEF/SPD / Bashful 1, Docile 2, Hardy 3, Serious 4, Quirky 5, Bold 6, Modest 7, Calm 8, Timid 9, Lonely 10, Mild 11, Gentle 12, Hasty 13, Adamant 14, Impish 15, Careful 16, Jolly 17, Naughty 18, Lax 19, Rash 20, Naive 21, Brave 22, Relaxed 23, Quiet 24, Sassy 25
+natures = [[],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[0.9,1.1,1,1,1],[0.9,1,1.1,1,1],[0.9,1,1,1.1,1],[0.9,1,1,1,1.1],[1.1,0.9,1,1,1],[1,0.9,1.1,1,1],[1,0.9,1,1.1,1],[1,0.9,1,1,1.1],[1.1,1,0.9,1,1],[1,1.1,0.9,1,1],[1,1,0.9,1.1,1],[1,1,0.9,1,1.1],[1.1,1,1,0.9,1],[1,1.1,1,0.9,1],[1,1,1.1,0.9,1],[1,1,1,0.9,1.1],[1.1,1,1,1,0.9],[1,1.1,1,1,0.9],[1,1,1.1,1,0.9],[1,1,1,1.1,0.9]];
+natures[-1] = [1,1,1,1,1]; //neutral
+natures['max'] = [1.1,1.1,1.1,1.1,1.1]; //all max
+natures['min'] = [0.9,0.9,0.9,0.9,0.9]; //all max
+
+//Type affinity no fg fl po gu ro bu gh st fi wa gs el ps ic dr da fa
+damage = [[1,1,1,1,1,0.5,1,0,0.5,1,1,1,1,1,1,1,1,1],[2,1,0.5,0.5,1,2,0.5,0,2,1,1,1,1,0.5,2,1,2,0.5],[1,2,1,1,1,0.5,2,1,0.5,1,1,2,0.5,1,1,1,1,1],[1,1,1,0.5,0.5,0.5,1,0.5,0,1,1,2,1,1,1,1,1,2],[1,1,0,2,1,2,0.5,1,2,2,1,0.5,2,1,1,1,1,1],[1,0.5,2,1,0.5,1,2,1,0.5,2,1,1,1,1,2,1,1,1],[1,0.5,0.5,0.5,1,1,1,0.5,0.5,0.5,1,2,1,2,1,1,2,0.5],[0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,0.5,1],[1,1,1,1,1,2,1,1,0.5,0.5,0.5,1,0.5,1,2,1,1,2],[1,1,1,1,1,0.5,2,1,2,0.5,0.5,2,1,1,2,0.5,1,1],[1,1,1,1,2,2,1,1,1,2,0.5,0.5,1,1,1,0.5,1,1],[1,1,0.5,0.5,2,2,0.5,1,0.5,0.5,2,0.5,1,1,1,0.5,1,1],[1,1,2,1,0,1,1,1,1,1,2,0.5,0.5,1,1,0.5,1,1],[1,2,1,2,1,1,1,1,0.5,1,1,1,1,0.5,1,1,0,1],[1,1,2,1,2,1,1,1,0.5,0.5,0.5,2,1,1,0.5,2,1,1],[1,1,1,1,1,1,1,1,0.5,1,1,1,1,1,1,2,1,0],[1,0.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,0.5,0.5],[1,2,1,0.5,1,1,1,1,0.5,0.5,1,1,1,1,1,2,2,1]];
+
+ivr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+
+stats = ['HP','攻擊','防禦','特攻','特防','速度','&mdash;'];
+types = ['一般','格鬥','飛行','毒','地上','岩石','蟲','幽靈','鋼','炎','水','草','電','超能力','冰','龍','惡','妖精'];
+eggs = ['???','怪獸','水中1','蟲','飛行','地面','妖精','植物','人型','水中3','礦物','不定形','水中2','百變怪','龍','未發現'];
+typeshp = ['格鬥','飛行','毒','地上','岩石','蟲','幽靈','鋼','炎','水','草','電','超能力','冰','龍','惡'];
+hps = ['0,1,2,3,4','5,6,7,8','9,10,11,12','13,14,15,16','17,18,19,20','21,22,23,24,25','26,27,28,29','30,31,32,33','34,35,36,37','38,39,40,41','42,43,44,45,46','47,48,49,50','51,52,53,54','55,56,57,58','59,60,61,62','63']; //possible Hidden Power "types"
+
+
+/* UI specific functions */
+function get_text(id,n) { //Returns text associated with n value from id (<select/>)
+	var a = $(id).value;
+	$(id).value = n;
+	var b = $(id).options[$(id).selectedIndex].text;
+	$(id).value = a;
+	return b;
+}
+
+pkmns=pkmns.split('|');
+pkmns.sort(function(x, y){
+	return x.split(':')[1] - y.split(':')[1];
+}); //Sort names alphabetically
+function pop_species() { //Populates the species list
+	var a = document.createDocumentFragment();
+	var i=0,j=pkmns.length; do {
+		var b = pkmns[i].split(':');
+		var c = el_add(a,"option",{value:b[1]},b[0]);
+		if ((forms[b[1]] > 649 && forms[b[1]] < 718) || forms[b[1]] > 746) { c.className = 'new'; } //show new species
+		i++;
+	} while (i<j);
+	$('species').appendChild(a);
+}
+
+online = 0; //global- online status
+function online_check() { //Checks if there's an internet connection alive
+	if (navigator.onLine) {
+		if (online == 1) { return true; }
+		online = 1;
+		add_sprite();
+		//Version Check - DO NOT change the following
+		$('version').innerHTML = '<a href="http://www.legendarypokemon.net/ivcalcxy.html"><img id="verchk" alt=""/></a><span class="error">Ø</span> <strong><a href="http://www.legendarypokemon.net/ivcalcxy.html">點擊這裡</a>使用計算器的最新版本（英文）。</strong>';
+		var verchk = $('verchk');
+		verchk.src = 'http://www.legendarypokemon.net/ivcalcxy_1.1.png?p='+ Math.floor(Math.random( )*100);
+		verchk.onload = function() { if (verchk.width==1) { $('version').innerHTML = '<span class="ok">OK！</span>這是最新版本的計算器！'; } }
+	}
+	else { $('version').innerHTML =  '<span class="error">Ø</span> 網絡故障！不能檢查更新。'; }
+}
+
+themes = ['isotope','spp','simplex']; //define your own themes here, feel free to edit this
+themed = themes.indexOf('isotope'); //global- set default theme here
+theme = (!cookie_read('theme')?themed:cookie_read('theme'));
+function toggle_theme() {
+	$('calculator').className = themes[theme];
+	display_status('主題切換到了 "'+themes[theme]+'"。<br/><span class="btn" onclick="toggle_simple();">簡潔模式？</span>');	
+	if (theme == -1 && (navigator.userAgent.indexOf('MSIE ') == -1)) {
+		display_status('主題切換到了“Colorize”。<br/>您可以選擇色彩、飽和度和亮度：');	
+		var c = cookie_read('color') || 'd';
+		if (c.charAt(0) == ',') {
+			c = c.split(',');
+			thema(c[1],c[2],c[3]);
+		}
+		$('status').innerHTML += '<br/><br/><input id="hue" type="range" min="0" max="360" value="150" />';
+		$('status').innerHTML += '<br/><input id="sat" type="range" min="0" max="100" value="4" />';
+		$('status').innerHTML += '<br/><input id="lit" type="range" min="0" max="100" value="74" />';
+		event_add($('hue'),"change", function () {  thema($('hue').value,$('sat').value,$('lit').value); });
+		event_add($('sat'),"change", function () {  thema($('hue').value,$('sat').value,$('lit').value); });
+		event_add($('lit'),"change", function () {  thema($('hue').value,$('sat').value,$('lit').value); });
+		event_add($('hue'),"keyup", function (evt) {  vv(this.id,0,360,evt); thema($('hue').value,$('sat').value,$('lit').value); });
+		event_add($('sat'),"keyup", function (evt) {  vv(this.id,0,100,evt); thema($('hue').value,$('sat').value,$('lit').value); });
+		event_add($('lit'),"keyup", function (evt) {  vv(this.id,0,100,evt); thema($('hue').value,$('sat').value,$('lit').value); });
+	}
+	cookie_create('theme',theme,60);
+	theme = (theme == themes.length?-1:theme*1+1);
+}
+function toggle_simple() {
+	$('calculator').className += ' simplex';
+	toggle($('info')); toggle($('instructions'));
+	display_status('一切素淨了！<br/>（刷新恢復到默認）');
+	}
+function thema(h,s,l) { //Color theming, does not work in IE8
+	var bg = 'hsl('+h+', '+s+'%, '+l+'%)';
+	var bd = 'hsl('+h+', '+s+'%, '+(l-20)+'%)';
+	var bd2 = 'hsl('+h+', '+s+'%, '+(l-26)+'%)';
+	var bp = 'hsl('+h+', '+s+'%, '+(l-9)+'%)';
+	var bs = 'hsl('+h+', '+s+'%, '+(l-16)+'%)';
+	$('thema').innerHTML = '#calculator{background:'+bg+';border-color:'+bd+';}#calculator .primary{background:'+bp+';}#calculator .secondary{background:'+bs+';}#calculator input,#calculator select,#calculator .button{border-color:'+bd2+';color:'+bd2+';}#calculator .button {background-color:'+bg+';}'; //dibs on this method
+	cookie_create('color',','+h+','+s+','+l,60);
+}
+eps = 1; //global- EPs enabled
+function toggle_evs() { //Enable/Disable EV functions
+	switch(eps) {
+		case 1:
+			eps = 0; $('btn-evs').value = '基礎得點關';
+		break;
+		case 0:
+			eps = 1; $('btn-evs').value = '基礎得點開';
+		break;			
+	}
+	var j = $c('eps').slice();
+	var i = j.length-1; do {
+		toggle(j[i]);
+	} while(i--);
+	display_base();
+}
+mode = 0; //global- Single enabled
+function toggle_mode(m) { //Single/Team/Row mode
+	var m = m || mode;
+	switch(m) {
+		case 0:
+			mode = 1;
+			$('btn-mode').value = '隊伍計算';
+			$('mode0').style.display='none';
+			$('mode1').style.display='';
+			$('btn-hp').disabled = 'disabled';
+			$('btn-stats').disabled = 'disabled';
+			$('btn-eps').disabled = 'disabled';
+			display_status('切換到了 <strong>隊伍計算</strong> 模式。');
+			break;
+		case 1:
+			mode = 2;
+			$('btn-mode').value = '單行計算';
+			$('mode0').style.display='';
+			$('mode1').style.display='none';
+			$('btn-hp').disabled = '';
+			$('btn-stats').disabled = '';
+			display_status('切換到了 <strong>單行計算</strong> 模式。');
+			break;
+		default:
+			mode = 0;
+			$('btn-mode').value = '神奇寶貝';
+			$('mode0').style.display='';
+			$('mode1').style.display='none';
+			$('btn-hp').disabled = '';
+			$('btn-stats').disabled = '';
+			$('btn-eps').disabled = ''; 
+			display_status('切換到了 <strong>神奇寶貝</strong> 模式。');
+	}	
+	display_sprite();
+	display_effectiveness($('number-'+(act>-1?act:0)).value);
+}
+/* Save & Load functionality */
+
+function code_load(c) { //Loads a SaveCode
+	//var c = prompt('Input SaveCode or [Cancel] to load from URL:') || location.search;
+	//var c = location.search;
+	display_status('<span class="loading">讀入保存代碼...</span>');
+	if (c == undefined || c.indexOf('?sc=') == -1) { display_status('無法讀入保存代碼。'); return false; }
+	c = c.replace(/%20/gi,'').substring(1).split('!');
+	if (c.length < 2) { display_status('無法讀入保存代碼。'); return false; }
+	var  i = c.length-1; do { c[i] = c[i].split(','); } while(i--);
+	//Check if SaveCodeVersion is compatible (may change with Black/White)
+	if (c[0][0] > 1) { display_status('保存代碼不兼容。'); return; }
+	//Check if SaveCodeUI is compatible, and restore UI
+	if (c[0][1] == 0) {
+		if (c[0][2] == 0 && eps == 1) { toggle_evs(); }
+		var i = c[0][3]*1;
+		if(mode!=i) { if(mode==2) { mode = 0; } toggle_mode(i-1); }
+		display_status('<span class="loading">讀入保存代碼...</span>');
+		mode = i;
+		$('nickname').value = unescape(c[0][4]);
+	}
+	//Load user entered IVs
+	$('statlvl').value = c[1][6]; $('hiddent').innerHTML=''; $('hiddenp').innerHTML='';
+	var  i=5; do {
+		ivs[i] = ivr.slice();
+		$('med'+i+'-0').value = c[1][i]*1;
+		$('spr'+i+'-0').innerHTML = '';
+		$('plv'+i+'-0').innerHTML = '';
+		$('stats'+i).innerHTML = '';
+	} while(i--);
+	//Load row data
+	$('statrows').style.display = 'none';
+	el_del($('statrows'));act=-1;actp=0;rn=1;rs=[0];ivs=[];
+	
+	var i=2, r=i-2; l=c.length;
+	if (l > 2) {
+		do {
+			if (r!=0) { row_add(0,c[i][1]); };
+			$('level-'+r).value = c[i][1]*1; $('number-'+r).value = c[i][0]*1; $('nat-'+r).value = c[i][14]*1; $('char-'+r).value = c[i][15]; $('hpt-'+r).value = c[i][16]*1;
+			$('pot0-'+r).value = c[i][17]*1; $('pot1-'+r).value = c[i][18]; $('pot2-'+r).value = c[i][19]*1;
+			var  j=5; do {
+				$('stat'+j+'-'+r).value = c[i][j+2]*1;
+				$('ep'+j+'-'+r).value = c[i][j+8]*1;
+			} while(j--);
+			display_eps();
+			i++; r++;
+		} while (i<l);
+	}
+	//Restore focus and set active row
+	$('act-0').checked = 1; act=0; actp=0; row_sync();
+	$('statrows').style.display = '';
+	
+	display_effectiveness($('number-'+act).value);
+	tooltips();
+	display_status('成功讀入保存代碼！');
+	$('btn-ivs').focus();
+}
+function code_save() { //Displays a SaveCode
+	var c = '?sc=0,0,'; //Data/SaveCode version
+	c += eps+',';
+	c += mode+',';
+	c += escape($('nickname').value)+'!';
+	c += $('med0-0').value+',';
+	c += $('med1-0').value+',';
+	c += $('med2-0').value+',';
+	c += $('med3-0').value+',';
+	c += $('med4-0').value+',';
+	c += $('med5-0').value+',';
+	c += $('statlvl').value+''; 
+	var s = $c('statrow'), i = (mode==2?0:s.length), r = (mode==2 && act>-1?act:0); s.reverse();
+	do {
+		c += '!'+$('number-'+r).value+','+$('level-'+r).value+','+$('stat0-'+r).value+','+$('stat1-'+r).value+','+$('stat2-'+r).value+','+$('stat3-'+r).value+','+$('stat4-'+r).value+','+$('stat5-'+r).value+','+$('ep0-'+r).value+','+$('ep1-'+r).value+','+$('ep2-'+r).value+','+$('ep3-'+r).value+','+$('ep4-'+r).value+','+$('ep5-'+r).value+','+$('nat-'+r).value+','+$('char-'+r).value+','+$('hpt-'+r).value+','+$('pot0-'+r).value+','+$('pot1-'+r).value+','+$('pot2-'+r).value;
+		if (i > 0) { r = s[i-1].id.split('-')[1]; }
+	} while (i--);
+	display_status('<a href="'+c+'">保存代碼</a> (<a href="http://j.mp/http://wiki.52poke.com/calc/'+c+'">縮短</a>):<br/>'+c.split('!').join('! '));
+	$('contact').href = 'http://www.legendarypokemon.net/contact?topic=IV%20Calculator&text='+escape('My browser is: '+navigator.userAgent+'\nMy savecode is: '+c+'\n\n');
+	//window.location += c; //Uncomment for old behaviour
+}
+
+/* Row functions */
+
+act = 0; actp = 0; //global- active row; previous active row
+rn = 1; rs = [0]; //global- new row counter; array of current rows
+error = 1; //global- error flag, default: true
+function row_act(n) { //Makes n row active
+	if ($('act-'+n).value == act) {
+		actp = act;
+		act = -1;
+		$('act-'+n).checked = 0;
+		$('name').focus();
+		$('ept').style.visibility = '';
+		if (online == 1) { display_sprite(); }
+		display_effectiveness($('number').value);
+		return false;
+	}
+	act = n;
+	actp = 0;
+	$('act-'+n).checked = 1;
+	/*$('number-'+n).readonly = 'readonly'; $('number-'+n).disabled = ''; //look into this
+	$('number-'+actp).readonly = ''; $('number-'+actp).disabled = 'disabled';*/
+	$('ept').style.visibility = 'hidden';
+	row_sync();
+}
+function row_sync() { //Syncs the display with active row
+	var n=act, t=$('pot1-'+n).value.split('.');
+	$('number').value = Math.floor($('number-'+n).value);
+	$('species').value = $('number-'+n).value;
+	$('nat').value = $('nat-'+n).value;
+	$('char').value = $('char-'+n).value;
+	$('hpt').value = $('hpt-'+n).value;
+	$('pot0').value = $('pot0-'+n).value;
+	$('pot2').value = $('pot2-'+n).value;
+	var i=5; do {
+		$('pot1').options[(i+1)].selected = (t.indexOf(i.toString()) > -1?true:false);
+	} while(i--);
+	display_effectiveness($('number-'+n).value);
+	display_base();
+	display_nature();
+	display_char();
+	if (mode == 2) { calc_ivs(n); }
+	if (online == 1) { display_sprite(); }
+}
+function row_edit() { //Makes active row editable
+	var n=act, t=[];
+	if (n == -1) { return false; }
+	$('number-'+n).value = $('species').value;
+	$('nat-'+n).value = $('nat').value;
+	$('char-'+n).value = $('char').value;
+	$('hpt-'+n).value = $('hpt').value;
+	$('pot0-'+n).value = $('pot0').value;
+	var i=6; do {
+		if ($('pot1').options[i].selected && t.indexOf(i-1) == -1 ) { t.push(i-1); }
+	} while(i--);
+	$('pot1-'+n).value = t.join('.');
+	$('pot2-'+n).value = $('pot2').value;
+}
+function row_up(r) { //Moves row upwards
+	var t=[], n=[], p=rs[rs.indexOf(r)-1];
+	if ($('act-'+p).checked == 0) { row_act(p); }
+	else if (online == 1) { display_sprite(); }
+	p = $('level-'+p,'stat0-'+p,'stat1-'+p,'stat2-'+p,'stat3-'+p,'stat4-'+p,'stat5-'+p,'number-'+p,'nat-'+p,'char-'+p,'hpt-'+p,'pot0-'+p,'pot1-'+p,'pot2-'+p,'ep0-'+p,'ep1-'+p,'ep2-'+p,'ep3-'+p,'ep4-'+p,'ep5-'+p);
+	n = $('level-'+r,'stat0-'+r,'stat1-'+r,'stat2-'+r,'stat3-'+r,'stat4-'+r,'stat5-'+r,'number-'+r,'nat-'+r,'char-'+r,'hpt-'+r,'pot0-'+r,'pot1-'+r,'pot2-'+r,'ep0-'+r,'ep1-'+r,'ep2-'+r,'ep3-'+r,'ep4-'+r,'ep5-'+r);
+	p.map(function(v){t.push(v.value); });
+	n.map(function(v,i){p[i].value=v.value;v.value=t[i];});
+	display_eps(r);
+	row_sync();
+}
+function row_del(n) { //Removes n row
+	rs.splice(rs.indexOf(n),1);
+	if (act==n) { row_act(0); }
+	$('statrows').removeChild($('statrow-'+n));
+	$('statrows').removeChild($('eprow-'+n));
+	row_sync();
+}
+function row_add(n,lvl) { //Appends a new row
+	if (n > 0) { rn = (rs.length == 1?1:n); }
+	if (!lvl && mode==0) {
+		var lvl = $('level-'+rs[(rs.length-1)]).value;
+		lvl = (lvl<100?lvl*1+1:100);
+	}
+	lvl = lvl || 100;
+	var ep = [0,0,0,0,0,0];
+	if (mode==0) {
+		var p = rs[(rs.length-1)];
+		var ep = [$('ep0-'+p).value,$('ep1-'+p).value,$('ep2-'+p).value,$('ep3-'+p).value,$('ep4-'+p).value,$('ep5-'+p).value,];
+	}	
+	rs.push(rn);
+	var a = document.createDocumentFragment();
+	var b = el_add(a,"tr",{id:'statrow-'+rn,className:'statrow'});
+		el_add(b,"td",'','<input type="radio" class="radio tooltip" name="act" id="act-'+rn+'" value="'+rn+'" onclick="row_act('+rn+');" title="（取消）選擇這一行。"/> <span class="btn tooltip" onclick="row_del('+rn+');" title="刪除這一行。">-</span>');
+		el_add(b,"td",'','<input type="text"  id="level-'+rn+'" name="level-'+rn+'" maxlength="3" size="3" value="'+lvl+'" onkeyup="vv(this.id,0,100,event,'+rn+');" />');
+		el_add(b,"td",{},'<span class="btn tooltip" onclick="row_up('+rn+');" title="向上移動這一行。">^</span>');
+		var i = 0; do {
+			el_add(b,"td",'','<input type="text" name="stat'+i+'-'+rn+'" id="stat'+i+'-'+rn+'" maxlength="3" size="3" value="" onkeyup="vv(this.id,0,999,event,'+rn+');" />');
+			i++;
+		} while (i<6);
+		el_add(b,"td",'','<input type="text" disabled="disabled" id="number-'+rn+'" name="number-'+rn+'" maxlength="3" size="3" value="'+$('number').value+'" /><input type="hidden" id="nat-'+rn+'" name="nat-'+rn+'" value="'+$('nat').value+'" /><input type="hidden" id="char-'+rn+'" name="char-'+rn+'" value="'+$('char').value+'" /><input type="hidden" id="hpt-'+rn+'" name="hpt-'+rn+'" value="'+$('hpt').value+'" /><input type="hidden" id="pot0-'+rn+'" name="pot0-'+rn+'" value="'+$('pot0').value+'" /><input type="hidden" id="pot1-'+rn+'" name="pot1-'+rn+'" value="'+$('pot1').value+'" /><input type="hidden" id="pot2-'+rn+'" name="pot2-'+rn+'" value="'+$('pot2').value+'" />');
+	var c = el_add(a,"tr",{id:'eprow-'+rn,className:'eps'});
+		if (eps == 0) { c.style.display = 'none'; }
+		el_add(c,"td");
+		el_add(c,"td",{id:'eps-'+rn,value:ep.sum()});
+		el_add(c,"td");
+		var i = 0; do {
+			el_add(c,"td",'','<input type="text" name="ep'+i+'-'+rn+'" id="ep'+i+'-'+rn+'" maxlength="3" size="3" value="'+ep[i]+'" onkeyup="vv(this.id,0,255,event,'+rn+');display_eps();" />');
+			i++;
+		} while (i<6);
+		el_add(c,"td");
+	$('statrows').appendChild(a);
+	row_act(rn);
+	rn++;
+}
+function add_eps() { //adds provided effort points to Pokemon's Effort Values
+	function validate_eps(ep1,ep2) { //EPs limits | ep1 = current EPs | ep2 = EPs to be added
+		var n = actp;
+		var eps = 1*$('eps-'+n).innerHTML;
+		epsum = 1*ep1 + 1*ep2;
+		epsum2 = 1*ep1 + (510-1*eps);
+		if (ep2 < 0 && epsum > 0) { return epsum; }
+		if (eps < 510 && ep1 < 255) {
+			ep3 = (eps + 1*ep2 < 510)?((epsum < 255)?epsum:255):((epsum2 < 255)?epsum2:255);
+			return ((ep3 < 0)?0:ep3);
+		}
+		else { return ep1; }
+	}
+	display_base();
+	var n = actp; //active row
+	var  i=5; do {
+		$('ep'+i+'-'+n).value = validate_eps($('ep'+i+'-'+n).value,$('eff'+i+'').innerHTML);
+	} while(i--);
+	display_eps();
+	$('name').focus(); //return focus to input
+}
+
+/* Calculation functions */
+function calc_effectiveness(typ,type1,type2) { //Calculates effectiveness
+	var mul = damage[typ][type1];
+	if (type2 != type1) { mul = mul * damage[typ][type2]; }
+	return mul;
+}
+function calc_hiddenp() { //Calculates Hidden Power's power
+	return 60;  //Obsolete since XY
+	var a = arguments;
+	return Math.floor((0.5*(a[0]&2)+1*(a[1]&2)+2*(a[2]&2)+4*(a[5]&2)+8*(a[3]&2)+16*(a[4]&2))*40/63 + 30);
+	//return (((((a[4]&2)<<1) + (a[3]&2) + ((a[5]&2)>>>1))*10 + (a[2]&2)*3 + (a[0]&2) + (a[1]&2)) >>> 1)+30; //alternate, by Chase
+}
+function calc_hiddent() { //Calculates Hidden Power's type
+	var a = arguments;
+	return Math.floor(((a[0]&1)+2*(a[1]&1)+4*(a[2]&1)+8*(a[5]&1)+16*(a[3]&1)+32*(a[4]&1))*15/63);
+	//return (a[2] & 1) + ((a[5] & 1) << 1) + ((a[3] & 1) << 2) + ((a[4] & 1) << 3); //alternate, by Chase, uses the main types[]
+}
+function calc_hidden(n) { //Displays all possible Hidden Powers
+	//d = new Date(); time = d.getTime(); //DEBUG
+	function display_hp() {
+		t.reverse().sort(); p.sortnum();
+		$('hiddent').innerHTML = t.join(', ');
+		$('hiddenp').innerHTML = 60; //p.join(', ');
+		//array_intersect(ivs[i],eo[ivhss[i][0]].slice());
+		//d = new Date(); display_status((d.getTime()-time)/1000); return true; //DEBUG
+		display_text(n);
+	}
+	display_status('<span class="loading">正在計算<em>催醒</em>...</span>');
+	
+	if ($('medl').checked) {
+		var t = [typeshp[calc_hiddent($('med0-0').value,$('med1-0').value,$('med2-0').value,$('med3-0').value,$('med4-0').value,$('med5-0').value)]];
+		//var p = [calc_hiddenp($('med0-0').value,$('med1-0').value,$('med2-0').value,$('med3-0').value,$('med4-0').value,$('med5-0').value)];
+		display_hp(); return true;
+	}
+	
+	if (error != 0) { display_status('無法計算！<br/>請先輸入或計算個體值。'); return false; }
+	var a = [], b = $('hpt-'+n).value, t = [], p = [], i0=ivs[0].length-1;
+	do { //must optimize this further
+		a[0] = ivs[0][i0];
+		var i1=ivs[1].length-1;
+		do {
+			a[1] = ivs[1][i1];
+			var i2=ivs[2].length-1;
+				do {
+					a[2] = ivs[2][i2];
+					var i3=ivs[3].length-1;
+						do {
+							a[3] = ivs[3][i3];
+							var i4=ivs[4].length-1;
+								do {
+									a[4] = ivs[4][i4];
+									var i5=ivs[5].length-1;
+										do {
+											a[5] = ivs[5][i5];
+											var c = typeshp[calc_hiddent(a[0],a[1],a[2],a[3],a[4],a[5])];
+											if (b == -1 || c == typeshp[b]) {
+												if (t.indexOf(c) == -1) { t.push(c); }
+												//var d = calc_hiddenp(a[0],a[1],a[2],a[3],a[4],a[5]);
+												//if (p.indexOf(d) == -1) { p.push(d); }
+											}
+											if (p.length == 41 && t.length == 16) { display_hp(); return true; } //exit loops if all possible
+										} while (i5--);
+								} while (i4--);
+						} while (i3--);
+				} while (i2--);
+		} while (i1--);
+	} while (i0--);
+	display_hp();
+}
+function calc_stat(species,pstat,stativ,statev,pokelvl,nature) { //Calculates Pokemon stats
+	var basestat = get_base(species,pstat);
+	var bonus = natures[nature][(pstat-1)];
+	if (eps == 0) { var statev = 0; }
+	if (pstat == 0) { //HP uses a different formula
+		var result =  (Math.floor(((basestat*2 + (stativ/1) + Math.floor(statev/4))*pokelvl)/100)) + (pokelvl/1) + 10;
+		if (species == 292) { return 1; } //Shedinja Case
+	}
+	else { var result = Math.floor((Math.floor(((basestat*2 + (stativ/1) + Math.floor(statev/4))*pokelvl)/100) + 5)*bonus); }
+	return result;
+}
+
+ivs = [ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice()]; //global- IVs array
+function calc_stativ(species,pstat,stat,statev,pokelvl,nature,chara,pot1,pot2) { //Calculates Pokemon IVs - brute force
+	var chara = chara.split('.');
+	var pot1 = pot1.split('.');
+	var charas = [[0,5,10,15,20,25,30],[1,6,11,16,21,26,31],[2,7,12,17,22,27],[3,8,13,18,23,28],[4,9,14,19,24,29]];
+	var pots = [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],[16,17,18,19,20,21,22,23,24,25],[26,27,28,29,30],[31]];
+	ivs[pstat] = [-1];
+	var  i=31; do {
+		if (calc_stat(species,pstat,i,statev,pokelvl,nature) == stat) { ivs[pstat].unshift(i); }
+	} while(i--);
+	
+	if (pstat == 0 && species == 292) { ivs[pstat] = ivr.slice(); } //Shedinja Case
+	
+	if (chara[0] == pstat && chara != -1) {
+		ivs[pstat] = array_intersect(ivs[pstat],charas[chara[1]]);
+		maxiv = ivs[pstat][ivs[pstat].length-1]; //global maximum IV
+	}
+	if (pot1.indexOf(pstat.toString()) != -1 && pot2 != -1) {
+		ivs[pstat] = array_intersect(ivs[pstat],pots[pot2]);
+	}
+	if (ivs[pstat][0] > miniv[1]) { miniv[1] = ivs[pstat][0]; }
+	return ivs[pstat];
+}
+function calc_ivs(rn) { //Calculates a complete IV set
+	error = 0; //global- reset errors
+	if ($('number-0').value == 0) {
+		error = '無法繼續操作！<br/>請首先選擇<em class="error">神奇寶貝</em>...';
+		display_status(error);
+		$('name').value=''; $('name').focus();
+		return false;
+	}
+	if ($('level-0').value == 0) {
+		error = '無法計算！<br/><em class="error">等級</em>不能為0。';
+		display_status(error);
+		$('level-0').focus();
+		return false;
+	}
+	display_status('<span class="loading">正在計算<em>個體值</em>...</span>');
+	
+	function validate_iv(result,species,pstat,stat,statev,pokelvl,nature) { // IV error handling
+		var spname = get_text('species',species);
+		var max = calc_stat(species,pstat,31,statev,pokelvl,nature);
+		var min = calc_stat(species,pstat,0,statev,pokelvl,nature);
+		if (stat > max || stat < min) {
+			error = '<em>'+spname+'</em> 等級 '+pokelvl+' 無法計算！<br/><em class="error">'+stats[pstat]+'</em> ('+stat*1+') 應該在 '+min+' 和 '+max+' 之間。<br/> 您可能輸入了錯誤的<em class="error">基礎得點</em>或<em class="error">性格</em>。';
+			ivs[pstat] = [-1];
+			return ['error'];
+		}
+		
+		var i=0,l=result.length; do {
+			if (result[i] > maxiv) { //beyond characteristic upper bound
+				result = result.slice(0,i);
+			}
+			if (miniv[0] == pstat && result[i] >= miniv[1]) { //best iv must remain be at least equal to the lower bound
+				result = result.slice(i);
+			}
+			i++;
+		} while(i<l);
+		
+		if (result.length == 0 || result[0] > maxiv || result[0] == -1 || result[result.length] > 31) { //out of any bounds
+			error = '<em>'+spname+'</em> 等級 '+pokelvl+' 無法計算！<br/>The <em class="error">'+stats[pstat]+'</em> 能力值，<em class="error">基礎得點</em>，<em class="error">個性</em>或<em class="error">最高能力</em>不正確。'; //global error - prevent complex calculations
+			ivs[pstat] = [-1];
+			return ['error'];
+		}
+		return result;
+	}
+	function validate_ties() { //Refines in case max IVs tie
+		var ties = $('pot1-'+rn).value.split('.');
+		var l = ties.length;
+		if (l > 1) {
+			var t = ivs[ties[0]].slice(); 
+			var i=1; do {
+				t = array_intersect(t,ivs[ties[i]]);
+				if (t[0] == undefined) {
+					error = '<em>'+get_text('species',$('number-'+rn).value)+'</em> 等級 '+$('level-'+rn).value+' 無法計算！<br/>輸入的<em class="error">最高能力</em>不正確。';
+					return false;
+				}
+				i++;
+			} while(i<l);
+			ties.map(function(v){ivs[v]=t.slice();});
+		}
+	}
+	
+	maxiv = 31; miniv = [-1,0];//global- maximum IV
+	ivs = [ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice(),ivr.slice()];
+	//Calculate row(s)
+	var rn = rn || 0;
+	var i=rn, l=(mode!=0?(rn+1):rs.length); do {
+		//alert(rn); //DEBUG
+		var r=rs[i];
+		var j=5; do {
+			ivs[j] = array_intersect(ivs[j],calc_stativ($('number-'+r).value,j,$('stat'+j+'-'+r).value,$('ep'+j+'-'+r).value,$('level-'+r).value,$('nat-'+r).value,$('char-'+r).value,$('pot1-'+r).value,$('pot2-'+r).value));
+			if (error != 0) { display_status(error); $('stat'+j+'-'+r).focus(); return false; }
+		} while(j--);
+		miniv[0] = $('char-'+r).value.split('.')[0];
+		i++;
+	} while(i<l);
+	//Validate IVs
+	var c = 0; var i=5; do {
+		ivs[i] = validate_iv(ivs[i],$('number-'+r).value,i,$('stat'+i+'-'+r).value,$('ep'+i+'-'+r).value,$('level-'+r).value,$('nat-'+r).value);
+		if (error != 0) { display_status(error); $('stat'+i+'-'+r).focus(); return false; }
+		if (ivs[i].length == 1) { c++; }
+	} while(i--);
+	
+	validate_ties();
+	if (error != 0) { display_status(error); $('pot1').focus(); return false; }
+	
+	//Refine using Hidden Power //XY TODO
+	if ((error == 0) && $('hpt-'+rn).value > -1) {
+		if (c == 6 && ($('hpt-'+rn).value != calc_hiddent(ivs[0][0],ivs[1][0],ivs[2][0],ivs[3][0],ivs[4][0],ivs[5][0]))) {
+			error = '<em>'+get_text('species',$('number-'+rn).value)+'</em> 等級 '+$('level-'+rn).value+' 無法計算！<br/>輸入的<em class="error">催醒</em>（'+typeshp[$('hpt-'+rn).value]+'）不正確。';
+			display_status(error);
+			$('hpt').focus();
+			return false;
+		}
+
+		ivh = [];
+		var k = 0;
+		var  i=5; do {
+			ivh[i] = [];
+			for(var j=0;j<ivs[i].length;j++) { //global- make odd&even possibility array for every stat
+				ivh[i].push(((ivs[i][j]%2==1)?1:0));
+				if (ivh[i].length == 2) { k++; break; }
+			}
+		} while(i--);
+		var hp = hps[$('hpt-'+rn).value].split(',');
+		for (var i=0; i < hp.length;i++) {
+			hp[i] = (hp[i]*1).toString(2); //decimal -> binary SpDef/SpAtk/Spd/Def/Atk/HP
+			hp[i] = hp[i].split('');
+			hp[i] = hp[i].reverse(); //-> HP/Atk/Def/Spd/SpAtk/SpDef
+			hp[i].push(0,0,0,0,0); //ensure all bits are there
+			hp[i] = hp[i].slice(0,6); //but we only need 6
+			var s = hp[i][3]; //-> HP/Atk/Def/SpAtk/SpDef/Spd
+			hp[i][3] = hp[i][4];
+			hp[i][4] = hp[i][5];
+			hp[i][5] = s;
+		}
+		var ivhs = [];
+		var l = 0;
+		for (var i=0;i < hp.length;i++) {
+			if ((ivh[0].indexOf(1*hp[i][0]) != -1) && (ivh[1].indexOf(1*hp[i][1]) != -1) && (ivh[2].indexOf(1*hp[i][2]) != -1) && (ivh[3].indexOf(1*hp[i][3]) != -1) && (ivh[4].indexOf(1*hp[i][4]) != -1) && (ivh[5].indexOf(1*hp[i][5]) != -1)) { //if all match then add to possible hps[] value for given type
+				ivhs[l] = [];
+				ivhs[l] = hp[i].slice();
+				l++;
+			}
+		}
+		var ivhss = [];
+		var l = 0;
+		for (var i=0;i < ivhs.length;i++) {
+			var j=5; do { //make possibility array for every stat, [0], [1] or [0,1]/[1,0] for given type
+				if (!ivhss[j]) { ivhss[j] = []; }
+				var t = ivhs[i][j];
+				if (ivhss[j].length < 2 && ivhss[j].indexOf(t) == -1) { ivhss[j].push(t); }
+				if (ivhss[j].length == 2) { l++; }
+			} while(j--);
+		}
+		if (l != 6) { //ensure not all combinations are possible for given type
+			var i=5; do {
+				if (!ivhss[i]) {
+					error = '<em>'+get_text('species',$('number-'+rn).value)+'</em> 等級 '+$('level-'+rn).value+' 無法計算！<br/>輸入的<em class="error">催醒</em>（'+typeshp[$('hpt-'+rn).value]+'）不正確。';
+					display_status(error);
+					$('hpt').focus();
+					return false;
+				}
+				if (ivhss[i].length == 1) {
+					var eo = [];
+					eo[0] = [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
+					eo[1] = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31];
+					ivs[i] = array_intersect(ivs[i],eo[ivhss[i][0]].slice());
+				}
+			} while(i--);
+		}
+	}
+	//end Hidden Power refine
+	
+	validate_ties();
+	if (error != 0) { display_status(error); $('pot1').focus(); return false; }
+	
+	//Pinpoint next helpfull level and EPs if IVs are multiple
+	//plv: 1-level 2-eps 3-stat1 4-stat2 - branched stats
+	var lr = (mode==2?rn:rs[rs.length-1]);
+	var plv = [];
+	var  i=5; do {
+		plv[i] = ['','','']; //level, branch, eps
+		var z=1;
+		if (ivs[i].length > 1 && mode!=1) {
+			var j = $('level-'+lr).value;
+			while (plv[i][0] == '' && j <= 100) {
+				for (var z=1,zl=ivs[i].length;z <= zl;z++) {
+					var statev = $('ep'+i+'-'+lr).value;
+					var a = calc_stat($('number-'+lr).value,i,ivs[i][z-1],statev,j,$('nat-'+lr).value);
+					var b = calc_stat($('number-'+lr).value,i,ivs[i][z],statev,j,$('nat-'+lr).value);
+					if (ivs[i].length <= 2 && eps == 1) { //Calculate EPs for exact stat
+						var y = statev;
+						while (plv[i][2] == '' && y < 255) {
+							for (var x=1,xl=ivs[i].length;x <= xl;x++) {
+								var c = calc_stat($('number-'+lr).value,i,ivs[i][x-1],y,$('level-'+lr).value,$('nat-'+lr).value);
+								var d = calc_stat($('number-'+lr).value,i,ivs[i][x],y,$('level-'+lr).value,$('nat-'+lr).value);
+								if (c < d) { plv[i][2] = y; break; }
+							}
+							y++;
+						}
+					}
+					if (a < b) { plv[i][0] = j; plv[i][3] = a; plv[i][4] = b; break; }
+				}
+				j++;
+			}
+			if ($('level-'+lr).value == 100) { plv[i][0] = ''; }
+		}
+		plv[i][1] = z-1;
+	} while(i--);
+	//Display Results
+	var i=rs.indexOf(rn);
+	if (i>-1) {
+		display_ivs(rn,plv);
+		if (mode==1 && rs[i+1]) { calc_ivs(rs[i+1],1); } //recursion if Team mode
+	}
+	//return true;
+}
+function calc_eps() { //Calculates and displays required EPs
+	display_eps();
+	$('statlvl').value = $('level-0').value;
+	if (display_stats(0)) {
+		$('stat0-0').focus();
+		function count_eps(pstat,stat,iv,eps) { //calculates required EPs - brute force way
+			for (var i=$(eps).value;i<=255;i++) {
+				if (calc_stat($('number-0').value,pstat,$(iv).value,i,$('level-0').value,$('nat-0').value) == $(stat).value) { return i - $(eps).value; }
+			}
+			return 'Lv.';
+		}
+		var  i=5; do {
+			$('eps'+i).innerHTML = count_eps(i,'stat'+i+'-0','med'+i+'-0','ep'+i+'-0');
+		} while(i--);
+		$('epsr').innerHTML = 1*$('eps0').innerHTML + 1*$('eps1').innerHTML + 1*$('eps2').innerHTML + 1*$('eps3').innerHTML + 1*$('eps4').innerHTML + 1*$('eps5').innerHTML + 1*$('eps-0').innerHTML;
+		if(isNaN($('epsr').innerHTML)) { $('epsr').innerHTML = 'Lv.'; }
+	}
+	if ($('epsr').innerHTML > 510) { $('epsr').className = 'error';}
+	if ($('epsr').innerHTML < 510) { $('epsr').className = '';}
+}
+
+/* Display functions */
+
+function display_status(str,s) {
+	var t = $('status').innerHTML;
+	$('status').innerHTML = str;
+	if (s>0) { setTimeout(function () { display_status(t); }, s*1000);	}
+}
+function display_base() { //Displays Base Stats
+	var p = $('species').value;
+	$('types').innerHTML =  (get_base(p,6) == get_base(p,7)?types[get_base(p,6)]:types[get_base(p,6)]+' / '+types[get_base(p,7)]);
+	$('eggs').innerHTML =  (get_base(p,8) == get_base(p,9)?eggs[get_base(p,8)]:eggs[get_base(p,8)]+' / '+eggs[get_base(p,9)]);
+	var  i=5; do {
+		$('base'+i).innerHTML =  get_base(p,i);
+	} while(i--);
+	display_eps();
+	display_effectiveness(p);
+}
+function display_eps(n) { //Displays provided EPs
+	if (eps == 0) { return false; }
+	var p = $('species').value;
+	var n = (n>-1?n:(act>-1?act:actp)); //active row
+	var sum = 1*$('ep0-'+n).value + 1*$('ep1-'+n).value + 1*$('ep2-'+n).value + 1*$('ep3-'+n).value + 1*$('ep4-'+n).value + 1*$('ep5-'+n).value;
+	$('eps-'+n).innerHTML = (sum==510?'<span class="ok">'+sum+'</span>':sum);
+	var item = $('item').value;
+	var vit = ((item > 7)?0:1); //vitamins on or off	
+	var berry = 1; if (item > 13) { berry = -1; item = item-6; } //berries off or on	
+	var mult = $('times').value*(($('pkrs').checked == 1)?2:1)*((item == 1)?2:1)*vit; //multipliers
+	
+	//hp up, protein, iron, calcium, zinc, 13carbos - Pomeg, Kelpsy, Qualot, Hondew, Grepa and Tamato 		
+	var  i=5; do {
+		$('eff'+i).innerHTML =  mult*(1*(get_base(p,10)[i])+((item == 2+i)?4:0)) + $('times').value*(1*((item == i+8)?10:0))*berry;
+		$('item').options[i+8].disabled = ''; //reset vitamins
+		if ($('ep'+i+'-'+n).value*1+$('times').value*10 > 100 || 510 < sum+$('times').value*10 || $('level-'+n).value == 100) {
+			$('item').options[i+8].disabled = 'disabled';
+			if (item > 7) {
+				$('eff'+i).innerHTML = ((item == i+8) && (berry == -1)?-10*$('times').value:0);
+			}
+		}
+	} while(i--);
+	
+	if (sum > 510) { $('eps-'+n).className = 'error'; }
+	else { $('eps-'+n).className = ''; }
+}
+function display_nature() {
+	var n = $('nat').value;
+	var i=5; do {
+		$('nate-'+i).innerHTML = '-';
+		if (natures[n][i-1] > 1) { $('nate-'+i).innerHTML = '<strong>&times;1.1</strong>'; }
+		if (natures[n][i-1] < 1) { $('nate-'+i).innerHTML = '&times;0.9'; }
+		i--;
+	} while(i>0);
+}
+function display_char() {
+	var i=5; do { 
+		$('med'+i+'-0').style.borderWidth = '';
+	} while(i--);
+	var n=$('char').value.split('.')[0];
+	if (n > -1) { $('med'+n+'-0').style.borderWidth = '3'; }
+}
+function display_effectiveness(p) {
+	var type1 = get_base(p,6); 
+	var type2 = get_base(p,7);
+	var d = []; d[4] = []; d[0] = []; d[1] = []; d[2] = []; d[8] = []; d[16] = [];
+	var t = []; t[4] = []; t[0] = []; t[1] = []; t[2] = []; t[8] = []; t[16] = [];
+	
+	if (mode==1 && act >-1) {
+		for (var i=0,l=rs.length; i < l; i++)  {
+			p = $('number-'+rs[i]).value;
+			type1 = get_base(p,6);
+			type2 = get_base(p,7);
+			for (var j=0; j < 18; j++)  {
+				var a = calc_effectiveness(j,type1,type2);
+				if(!t[4*a][j]) {
+					t[4*a][j] = 1;
+					d[4*a].push(j);
+				}
+				else { t[4*a][j]++; }
+			}
+		}
+	}
+	else {
+		for (var i=0; i < 18; i++)  {
+			var a = calc_effectiveness(i,type1,type2);
+			t[4*a][i] = 1;
+			d[4*a].push(i);
+		}
+	}
+	var i=4, j=[0,1,2,8,16]; do {
+		d[j[i]] = d[j[i]].map(function(v){if(t[j[i]][v]>1){return types[v]+'<strong>&times;'+t[j[i]][v]+'</strong>';}return types[v];});
+		d[j[i]].sort();
+		$('dmg'+j[i]).innerHTML = d[j[i]].join(', ');
+	} while(i--);
+}
+function add_sprite() { //Adds sprite events
+	event_add($('species'), 'change', display_sprite);
+	event_add($('name'), 'keyup', display_sprite);
+	event_add($('number'), 'keyup', display_sprite);
+	display_sprite();
+}
+spr = '';
+function display_sprite() { //feel free to modify if you want to server sprites from your server
+	clearTimeout(spr);
+	if (!navigator.onLine) {
+		online = 0;
+		$('sprite').innerHTML = '';
+		return false;
+	}
+	alt = {0:'egg',386.1:'386-a',386.2:'386-d',386.3:'386-s',413.1:'413-c',413.2:'413-t',492.1:'492-s',487.1:'487-o',479.1:'479-h',479.2:'479-w',479.3:'479-f',479.4:'479-s',479.5:'479-m',351.1:'351-s',351.2:'351-r',351.3:'351-i',550.1:'550-b',555.1:'555-d',648.1:'648-s',646.1:'646-w',646.2:'646-b',647.1:'647-r',641.1:'641-t',642.1:'642-t',645.1:'645-t',678.1:'678-f',681.1:'681-b',710.1:'710-s',710.2:'710-l',710.3:'710-h',711.1:'711-s',711.2:'711-l',711.3:'711-h',3.1:'003-m',6.1:'006-mx',6.2:'006-my',9.1:'009-m',65.1:'065-m',94.1:'094-m',115.1:'115-m',127.1:'127-m',130.1:'130-m',142.1:'142-m',150.1:'150-mx',150.2:'150-my',181.1:'181-m',212.1:'212-m',214.1:'214-m',229.1:'229-m',248.1:'248-m',257.1:'257-m',282.1:'282-m',303.1:'303-m',306.1:'306-m',308.1:'308-m',310.1:'310-m',354.1:'354-m',359.1:'359-m',445.1:'445-m',448.1:'448-m',460.1:'460-m'};
+	spr = setTimeout (function() {
+		$('sprite').innerHTML = '';
+		var i=0, l=(mode==1 && act >-1?rs.length:1), result='';
+		do { //logic here needs reworking
+			var n = (mode==1 && act >-1?$('number-'+rs[i]):$('species')).value*1;
+			var m = n;
+			if (alt[n]) {
+				m = alt[n];
+			}
+			if (m < 10) {
+				n = '0'+n;
+				m = n;
+			}
+			if (m < 100) {
+				n = '0'+n;
+				m = n;
+			}
+			$('sprite').innerHTML += '<a href="http://wiki.52poke.com/calc/jump.php?id='+m+'"><img src="http://www.serebii.net/'+
+			(mode==1 && act >-1?'pokedex-xy/icon/'+m+'.png':'xy/pokemon/'+m+'.png')+'" alt="'+n+'" /></a>';
+			i++;
+		} while(i<l);
+	}, 500);
+}
+function display_text(r) { //Displays copy & paste results
+	var b=[],a = '#'+$('number-'+r).value+' '+get_text('species',$('number-'+r).value)+' ['+get_text('nat',$('nat-'+r).value)+']<br/>IVs: ';
+	//get_text('gnd',$('gnd').value)
+	var i=0; do {
+		if (ivs[i].length > 3) {
+			b.push(ivs[i][0]+' - '+ivs[i][(ivs[i].length-1)]);
+		}
+		else { b.push(ivs[i].join(', ')); }
+		i++;
+	} while (i<6);
+	a += b.join(' / ');
+	a += '<br/>等級 '+$('level-'+r).value+' 的能力值: ';
+	var i=0,b=[]; do {
+		stat = $('stat'+i+'-'+r).value;
+		ep = $('ep'+i+'-'+r).value;
+		b.push(stat + (ep > 0?' ('+ep+')':''));
+		i++;
+	} while (i<6);
+	a += b.join(' / ');
+	display_status(a);
+}
+function display_stats(r,m) { //Displays calculated stats
+	if ($('statlvl').value == 0) { $('statlvl').value = 100; }
+	if (mode == 1) { display_status('無法計算隊伍模式的能力值。'); }
+	
+	var  i=5; do {
+		if (m === '' && (!$('med'+i+'-0').value || error != 0)) {
+			display_status('無法計算！<br/>請先輸入或計算個體值。');
+			return false;
+		}
+		switch(m) {
+			case 0: var iv=0, ep=0, nat='min'; break;
+			case 1: var iv=31, ep=255, nat='max'; break;
+			default:
+			var iv = $('med'+i+'-0').value, ep = $('ep'+i+'-'+r).value, nat = $('nat-'+r).value;
+		}
+		$('stats'+i).innerHTML = calc_stat($('number-'+r).value,i,iv,ep,$('statlvl').value,nat);
+	} while(i--);
+	return true;
+}
+function display_ivs(rn,plv) { //Displays IVs appropriately
+	if (error != 0) { return false; }
+	if (mode==1) {
+		if (rn==0) {
+			$('ivrows').style.display = 'none';
+			el_del($('ivrows'));
+			$('ivrows').style.display = '';
+		}
+		var a=[], i=0; do {
+			if (ivs[i].length > 2) {
+				a.push(ivs[i][0]+'-'+ivs[i][(ivs[i].length-1)])+'';
+			}
+			else { a.push(ivs[i].join('-')); }
+			i++;
+		} while (i<6);
+		var r = el_add($('ivrows'),'tr');
+		el_add(r,'td',{},'<h4 class="btn" onclick="toggle_mode(); if ($(\'act-'+rn+'\').checked == 0) { row_act('+rn+'); } calc_ivs('+rn+'); $(\'btn-mode\').focus();">#'+$('number-'+rn).value+':</h4>');
+		var i=0; do {
+			el_add(r,'td',{className:'right'},a[i]+'');
+			i++;
+		} while (i<6);
+		display_status('計算完成。');
+		return true;
+	}
+	var  i=5; do {
+		if (!$('medl').checked) { $('med'+i+'-0').value = ivs[i][Math.ceil(ivs[i].length/2)-1]; }
+		$('plv'+i+'-0').innerHTML = (plv[i][0] == ''?(ivs[i].length == 1?'<span class="ok">OK!</span>':'<span class="tooltip" title="Refine using Hidden Power.">[?]</span>'):'<span class="btn" onclick="row_add(0,'+plv[i][0]+'); $(\'stat0-\'+(rn-1)).focus();">'+plv[i][0]+'</span>')+(plv[i][2] == ''?'':'<br/><span class="eps">'+plv[i][2]+'</span>');
+			
+		var ivst = ivs[i].slice();
+		if (plv[i][1]<ivst.length) { ivst[plv[i][1]] = ivst[plv[i][1]]+'</span><span class="tooltip" style="font-size: 0.9em;" title="Lv.'+plv[i][0]+' '+stats[i]+': &lt;strong&gt;'+plv[i][4]+'&lt;/strong&gt;">'; }
+		$('spr'+i+'-0').innerHTML = '<span class="tooltip" style="font-weight: bold;" '+(plv[i][0] == ''?'':'title="Lv.'+plv[i][0]+' '+stats[i]+': &lt;strong&gt;'+plv[i][3]+'&lt;/strong&gt;"')+'>'+ivst.join(', ')+'&nbsp;</span>';
+	} while(i--);
+	rn = (mode==2?rn:rs[rs.length-1]);
+	display_stats(rn); display_text(rn);
+}
+
+eval(function(a,r,c,e,u,s){u=function(c){return(c<r?'':u(parseInt(c/r)))+((c=c%r)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)s[u(c)]=e[c]||u(c);e=[function(u){return s[u]}];u=function(){return'\\w+'};c=1};while(c--)if(e[c])a=a.replace(new RegExp('\\b'+u(c)+'\\b','g'),e[c]);return a}('l s(){w($(\'z\')==q){y("\\u\\3\\A\\1\\2\\7\\0\\1\\4\\5\\1\\o\\4\\3\\9\\2\\6\\4\\3\\5\\1\\3\\m\\1\\6\\d\\4\\8\\1\\c\\7\\3\\f\\7\\2\\j\\r\\8\\1\\9\\4\\a\\0\\5\\a\\0\\h\\n\\p\\9\\0\\2\\8\\0\\1\\2\\9\\b\\2\\e\\8\\1\\i\\0\\0\\c\\1\\6\\d\\0\\1\\a\\7\\0\\g\\4\\6\\8\\1\\4\\5\\6\\2\\a\\6\\h\\n\\n\\b\\b\\b\\k\\9\\0\\f\\0\\5\\g\\2\\7\\e\\c\\3\\i\\0\\j\\3\\5\\k\\5\\0\\6");t}v();x()};',37,37,'u0065|u0020|u0061|u006f|u0069|u006e|u0074|u0072|u0073|u006c|u0063|u0077|u0070|u0068|u0079|u0067|u0064|u0021|u006b|u006d|u002e|function|u0066||u0076|u0050|null|u0027|init0|return|u0059|online_check|if|initO|alert|lp|u0075'.split('|'),0,{}));
+
+function initO() { //Actions to perform once the page has loaded
+	$('form').reset(); //reset all fields
+	toggle_theme();
+	tooltips();
+	display_status('<span class="loading">正在初始化...</span>');
+	$('calculator').style.minHeight = (1*(window.innerHeight?window.innerHeight:(document.body?document.body.clientHeight:''))-16)+'px'; /* remove this when including */
+	$('ept').style.visibility = 'hidden';
+	$('mode1').style.display = 'none';
+	toggle($('history'));	
+	
+	event_add($('name'),"keyup", function () { autocomplete(this,$('species'),'text',true); $('number').value=Math.floor($('species').value); display_base(); row_edit(); });
+	event_add($('name'),"focus", function () { this.value = '' });
+	event_add($('species'),"change", function () { $('name').value=$('species').options[$('species').selectedIndex].text; $('number').value=Math.floor($('species').value); display_base(); row_edit(); });
+	event_add($('number'),"keyup", function (evt) { vv('number',0,718,evt); $('species').value=$('number').value; $('name').value=$('species').options[$('species').selectedIndex].text; display_base(); row_edit(); });
+	event_add($('nat'),"change", function () { display_nature(); row_edit(); });
+	event_add($('charn'),"keyup", function () { autocomplete(this,$('char'),'text',true); display_char(); row_edit(); });
+	event_add($('char'),"change", function () { $('charn').value=$('char').options[$('char').selectedIndex].text; display_char(); row_edit(); });
+	event_add($('hpt'),"change", function () { row_edit(); if(act>-1){ $('level-'+act).focus(); }});
+	event_add($('hpt'),"blur", function () { if(act>-1){ $('level-'+act).focus();}}); //fails in chrome, issue 6759
+	event_add($('pkrs'),"click", function () { display_eps(); });
+	event_add($('item'),"change", function () { display_eps(); });
+	event_add($('times'),"keyup", function (evt) { vv('times',0,255,evt); display_eps(); });
+	
+	event_add($('level-0'),"keyup", function (evt) { vv('level-0',0,100,evt,0); });
+	event_add($('statlvl'),"keyup", function (evt) { vv('statlvl',0,100,evt); });
+	event_add($('act-0'),"click", function () { row_act(0); });
+	var  i=5; do {
+		event_add($('stat'+i+'-0'),"keyup", function (evt) { vv(this.id,0,999,evt,0); });
+		event_add($('ep'+i+'-0'),"keyup", function (evt) { vv(this.id,0,255,evt,0); display_eps(); });
+		event_add($('med'+i+'-0'),"keyup", function (evt) { vv(this.id,0,31,evt); });
+	} while(i--);
+		
+	event_add($('pot0'),"change", function () { row_edit(); });	
+	if (navigator.userAgent.indexOf('AppleWebKit') > -1) { $('pot1').style.height = '18px'; } //workaround for Webkit, Chrome issue 41759
+	event_add($('pot1'),"focus", function () { this.size=7; this.style.position='absolute'; this.style.width='88px'; this.style.height='auto'; });
+	event_add($('pot1'),"blur", function () { this.size=7; this.style.position='absolute'; this.style.width='88px'; this.style.height='18px'; });
+	event_add($('pot1'),"blur", function () { row_edit(); this.size=1; this.style.position=''; this.style.width='78px'; });
+	event_add($('pot2'),"change", function () { row_edit(); });
+	
+	event_add($('btn-addrow'),"click", function () { row_add(); $((mode?'name':'stat0-'+(rn-1))).focus(); tooltips(); });
+	event_add($('btn-addeps'),"click", add_eps);
+	event_add($('btn-theme'),"click", toggle_theme);
+	event_add($('btn-eps'),"click", function () { calc_eps(); });
+	event_add($('btn-evs'),"click", toggle_evs);
+	event_add($('btn-mode'),"click", function () { toggle_mode(mode); });	
+	event_add($('btn-save'),"click", code_save);
+	event_add($('btn-ivs'),"click", function () { calc_ivs((mode==2 && act>-1?act:0)); tooltips(); });
+	event_add($('btn-stats'),"click", function () { display_stats((act>-1?act:0)); });
+	event_add($('btn-statsmin'),"click", function () { display_stats((act>-1?act:0),0); });
+	event_add($('btn-statsmax'),"click", function () { display_stats((act>-1?act:0),1); });
+	event_add($('btn-hp'),"click", function () { calc_hidden((mode==2 && act>-1?act:0)); });
+	event_add($('toggleinfo'),"click", function () { toggle($('info')); toggle($('instructions')); });
+	event_add($('toggleinstructions'),"click", function () { toggle($('info')); toggle($('instructions')); });
+	event_add($('togglehistory'),"click", function () { toggle($('history')); });
+			
+	var tload;
+	event_add($('btn-load'),"click", function(){
+		if(tload){
+			clearTimeout(tload);
+			tload = '';
+			code_load(prompt('輸入保存代碼：'));
+		}
+		else tload= setTimeout(function(){
+			tload = '';
+			code_load(location.search);
+		},300);
+	});
+	
+	pop_species();
+	display_base();
+	
+	if (location.protocol != 'data:') {
+		var br = navigator.userAgent;
+		if (br.indexOf('iPhone') > -1 || br.indexOf('iPod') > -1 || br.indexOf('iPad') > -1) {
+		$('download').innerHTML = "&#63743; 用戶您好！你可以將本頁<strong>保存</strong>脫機使用。只要<a href=\"javascript:x=new XMLHttpRequest();x.onreadystatechange=function(){if(x.readyState==4)location='data:text/html;charset=utf-8;base64,'+btoa(unescape(encodeURIComponent(x.responseText)))};x.open('GET',location);x.send('');\">點擊這個鏈接</a>，然後保存到個人收藏即可。";  }
+	}
+	
+	$('name').focus();
+	if (location.search.indexOf('sc=') > -1) { $('btn-load').value+='*'; $('btn-load').focus(); } //Make SavedCose visible
+	
+	if ((document.charset && document.charset.toLowerCase() != 'utf-8') || (document.characterSet && document.characterSet.toLowerCase() != 'utf-8')) {
+		display_status("請設置您的瀏覽器編碼為 UTF-8。");
+	}
+	else { display_status('順利運行。<br/><span class="btn" onclick="toggle_simple();">簡潔模式？</span>'); }
+}
+event_add(window,"load", init0);
+//--><!]]>
+</script>
+<div id="head" class="block">
+<table><tr><td class="primary"><h1>神奇寶貝X·Y 個體值與能力值計算器</h1></td>
+<td class="secondary"><a href="http://www.legendarypokemon.net">LegendaryPokemon.net</a> / <a href="http://52poke.com/">神奇寶貝部落格</a></td></tr></table> <!-- feel free to put your branding here -->
+</div><!-- end header -->
+<noscript><div class="block"><p class="center">請開啓您的瀏覽器的 JavaScript 功能。</p></div></noscript>
+<div id="gui" class="block"><form id="form" action="" onsubmit="return false;"><table>
+<tr><td class="primary"><table>
+<tr><td colspan="7"><h2>神奇寶貝</h2></td><td colspan="3"><h2>性格</h2></td></tr>
+<tr><td colspan="3"><input type="text" id="name" name="name" class="left" /></td><td colspan="4">
+<select id="species" name="species">
+	<option value="0"> </option>
+</select>
+</td>
+<!--<td>
+<select id="gnd" name="gnd">
+	<option value="-1">&#9898;</option>
+	<option value="0">&#9792;</option>
+	<option value="1">&#9794;</option>
+</select>
+</td>-->
+<td colspan="3">
+<select id="nat" name="nat">
+	<option value="-1"> </option>
+	<option value="3">努力</option>
+	<option value="10">孤獨</option>
+	<option value="22">勇敢</option>
+	<option value="14">固執</option>
+	<option value="18">調皮</option>
+	<option value="6">大膽</option>
+	<option value="2">坦率</option>
+	<option value="23">悠閒</option>
+	<option value="15">淘氣</option>
+	<option value="19">樂天</option>
+	<option value="9">膽小</option>
+	<option value="13">急躁</option>
+	<option value="4">認真</option>
+	<option value="17">開朗</option>
+	<option value="21">天真</option>
+	<option value="7">保守</option>
+	<option value="11">穩重</option>
+	<option value="24">冷靜</option>
+	<option value="1">害羞</option>
+	<option value="20">馬虎</option>
+	<option value="8">沈著</option>
+	<option value="12">溫順</option>
+	<option value="25">狂妄</option>
+	<option value="16">慎重</option>
+	<option value="5">浮躁</option>
+</select></td>
+</tr>
+<tr class="ext"><td colspan="2"><h4>屬性：</h4></td><td id="types" colspan="3" class="left"></td><td colspan="2"><h4>蛋群：</h4></td><td id="eggs" colspan="3" class="left"></td></tr>
+<tr class="ext"><td colspan="7"><h2 class="tooltip" title="&lt;strong&gt;可選&lt;/strong&gt;（鑽石珍珠之後）">個性 *</h2></td><td colspan="3"><h2 class="tooltip" title="&lt;strong&gt;可選&lt;/strong&gt; 詢問百刻市神奇寶貝中心以東屋子里的催醒超能力者。">催醒 *</h2></td></tr>
+<tr class="ext"><td colspan="3"><input type="text" id="charn" name="charn" class="left" /></td><td colspan="4">
+<select id="char" name="char">
+	<option value="-1"> </option>
+	<option value="0.0">喜歡吃東西</option>
+	<option value="0.1">喜歡午睡</option>
+	<option value="0.2">經常打瞌睡</option>
+	<option value="0.3">總是把東西拆碎</option>
+	<option value="0.4">喜歡無拘無束</option>
+	<option value="1.0">以有力量為傲</option>
+	<option value="1.1">容易暴動</option>
+	<option value="1.2">有點容易著迷</option>
+	<option value="1.3">喜歡吵架</option>
+	<option value="1.4">血氣方剛</option>
+	<option value="2.0">身體結實</option>
+	<option value="2.1">抗擊打</option>
+	<option value="2.2">耐性很好</option>
+	<option value="2.3">很能忍耐</option>
+	<option value="2.4">自制力很好</option>
+	<option value="3.0">好奇心超強</option>
+	<option value="3.1">喜歡惡作劇</option>
+	<option value="3.2">無孔不入</option>
+	<option value="3.3">總在想很多事</option>
+	<option value="3.4">非常一絲不苟</option>
+	<option value="4.0">精神強大</option>
+	<option value="4.1">有點愛慕虛榮</option>
+	<option value="4.2">非常不服輸</option>
+	<option value="4.3">討厭失敗</option>
+	<option value="4.4">有點固執</option>
+	<option value="5.0">喜歡亂跑</option>
+	<option value="5.1">對聲音敏感</option>
+	<option value="5.2">衝動莽撞</option>
+	<option value="5.3">有點粗魯</option>
+	<option value="5.4">逃跑非常快</option>
+<!--
+Hiruneoyokusuru - Often dozes off - Takes plenty of siestas (HP%5=1)
+Inemurigaooi - Often scatters things - Nods off a lot - (HP%5=2)
+Monooyokuchirasu - Scatters things often - Scatters things often - (HP%5=3)
+-->
+</select>
+</td>
+<td colspan="3"><select name="hpt" id="hpt">
+	<option value="-1"> </option>
+	<option value="0">格鬥</option>
+	<option value="1">飛行</option>
+	<option value="2">毒</option>
+	<option value="3">地上</option>
+	<option value="4">岩石</option>
+	<option value="5">蟲</option>
+	<option value="6">幽靈</option>
+	<option value="7">鋼</option>
+	<option value="8">炎</option>
+	<option value="9">水</option>
+	<option value="10">草</option>
+	<option value="11">電</option>
+	<option value="12">超能力</option>
+	<option value="13">冰</option>
+	<option value="14">龍</option>
+	<option value="15">惡</option>
+	<option value="16">妖精</option>
+</select></td>
+</tr>
+<tr class="ext tooltip" title="&lt;strong&gt;可選&lt;/strong&gt; 詢問奇南市神奇寶貝中心內的能力判斷師"><td colspan="5"><h2>全體能力 *</h2></td><td colspan="5"><h2>最高能力 *</h2></td></tr>
+<tr class="ext">
+<td colspan="5"><select name="pot0" id="pot0">
+	<option value="-1"> </option>
+	<option value="0">普普通通 [0-90]</option>
+	<option value="1">平均之上 [91-120]</option>
+	<option value="2">相當優秀 [121-150]</option>
+	<option value="3">非常棒 [150-186]</option>
+</select></td>
+<td colspan="2" style="position: relative;" class="left top"><select name="pot1" id="pot1" size="1" multiple="multiple">
+	<option value="-1"> </option>
+	<option value="0">HP</option>
+	<option value="1">攻擊</option>
+	<option value="2">防禦</option>
+	<option value="3">特攻</option>
+	<option value="4">特防</option>
+	<option value="5">速度</option>
+</select>	
+</td>
+<td colspan="3"><select name="pot2" id="pot2">
+	<option value="-1"> </option>
+	<option value="0">普普通通</option>
+	<option value="1">相當不錯</option>
+	<option value="2">非常棒</option>
+	<option value="3">無敵了</option>
+</select></td>
+<!--
+	zero IVs:
+<td colspan="3"><select name="pot3" id="pot3">
+	<option value="-1"> </option>
+	<option value="0">HP</option>
+	<option value="1">Attack</option>
+	<option value="2">Defense</option>
+	<option value="3">Sp. Attack</option>
+	<option value="4">Sp. Defense</option>
+	<option value="5">Speed</option>
+</select></td>
+-->
+</tr>
+
+
+<tr class="ext"><td></td><td></td><td></td><td><h3>HP</h3></td><td><h3>攻擊</h3></td><td><h3>防禦</h3></td><td><h3>特攻</h3></td><td><h3>特防</h3></td><td><h3>速度</h3></td><td><h3 class="center">編號</h3></td></tr>
+
+<tr class="ext"><td colspan="3"><h4>性格影響：</h4></td><td></td><td class="right" id="nate-1">-</td><td class="right" id="nate-2">-</td><td class="right" id="nate-3">-</td><td class="right" id="nate-4">-</td><td class="right" id="nate-5">-</td></tr>
+<tr class="ext"><td colspan="3"><h4>最高能力：</h4></td><td class="right" id="base0"></td><td class="right" id="base1"></td><td class="right" id="base2"></td><td class="right" id="base3"></td><td class="right" id="base4"></td><td class="right" id="base5"></td><td><input style="text-align: right;"  type="text" id="number" name="number" maxlength="3" size="3" value="0" /></td></tr>
+<tr class="eps ext"><td colspan="3"><h4>基礎得點：</h4></td><td class="right" id="eff0"></td><td class="right" id="eff1"></td><td class="right" id="eff2"></td><td class="right" id="eff3"></td><td class="right" id="eff4"></td><td class="right" id="eff5"></td><td></td></tr>
+<tr id="ept" class="eps ext">
+<td colspan="2"><h4>神奇病毒：</h4></td><td><input name="pkrs" id="pkrs" type="checkbox"/></td>
+<td><h4>道具</h4></td><td colspan="3"><select id="item" name="item">
+	<option value="0"> </option>
+	<optgroup label="攜帶道具">
+	<option value="1">強制鍛鍊器</option>
+	<option value="2">力量負重</option>
+	<option value="3">力量護碗</option>
+	<option value="4">力量腰帶</option>
+	<option value="5">力量鏡片</option>
+	<option value="6">力量束帶</option>
+	<option value="7">力量護踝</option>
+	</optgroup>
+	<optgroup label="營養飲品">
+	<option value="8">HP提升劑</option>
+	<option value="9">攻擊牛磺劑</option>
+	<option value="10">防禦提升劑</option>
+	<option value="11">特攻增加劑</option>
+	<option value="12">特防甲殼劑</option>
+	<option value="13">效果防護劑</option>
+	</optgroup>
+	<optgroup label="降低基礎得點">
+	<option value="14">紅榴</option>
+	<option value="15">藍根藻果</option>
+	<option value="16">粉枇杷</option>
+	<option value="17">黃斑蜜瓜</option>
+	<option value="18">黃金葡</option>
+	<option value="19">辣茄</option>
+	</optgroup>
+</select></td>
+<td>&times;</td><td><input type="text" id="times" name="times" maxlength="3" size="3" value="1" /></td>
+<td><input class="button tooltip" type="button" id="btn-addeps" value="+" title="增加基礎得點。" /></td></tr>
+
+<tr><td></td><td><h3>等級</h3></td><td></td><td><h3>HP</h3></td><td><h3>攻擊</h3></td><td><h3>防禦</h3></td><td><h3>特攻</h3></td><td><h3>特防</h3></td><td><h3>速度</h3></td><td><h3 class="center">編號</h3></td></tr>
+<tr id="statrow-0"><td><input type="radio" class="radio tooltip" name="act" id="act-0" value="0" checked="checked" title="（取消）選擇這一行。"/> <span id="btn-addrow" class="btn tooltip" title="增加新一行。">+</span></td><td><input type="text"  id="level-0" name="level-0" maxlength="3" size="3"/></td><td><h4>能力</h4></td>
+<td><input type="text" name="stat0-0" id="stat0-0" maxlength="3" size="3" value="" /></td>
+<td><input type="text" name="stat1-0" id="stat1-0" maxlength="3" size="3" value="" /></td>
+<td><input type="text" name="stat2-0" id="stat2-0" maxlength="3" size="3" value="" /></td>
+<td><input type="text" name="stat3-0" id="stat3-0" maxlength="3" size="3" value="" /></td>
+<td><input type="text" name="stat4-0" id="stat4-0" maxlength="3" size="3" value="" /></td>
+<td><input type="text" name="stat5-0" id="stat5-0" maxlength="3" size="3" value="" /></td>
+<td><input style="text-align: right;" disabled="disabled" type="text" id="number-0" name="number-0" maxlength="3" size="3" value="0" /><input type="hidden" id="nat-0" name="nat-0" value="" /><input type="hidden" id="char-0" name="char-0" value="" /><input type="hidden" id="hpt-0" name="hpt-0" value="" /><input type="hidden" id="pot0-0" name="pot0-0" value="" /><input type="hidden" id="pot1-0" name="pot1-0" value="" /><input type="hidden" id="pot2-0" name="pot2-0" value="" /></td>
+</tr>
+<tr id="eprow-0" class="eps"><td></td><td id="eps-0"></td><td><h4>基礎得點</h4></td>
+<td><input type="text" name="ep0-0" id="ep0-0" maxlength="3" size="3" value="0" /></td>
+<td><input type="text" name="ep1-0" id="ep1-0" maxlength="3" size="3" value="0" /></td>
+<td><input type="text" name="ep2-0" id="ep2-0" maxlength="3" size="3" value="0" /></td>
+<td><input type="text" name="ep3-0" id="ep3-0" maxlength="3" size="3" value="0" /></td>
+<td><input type="text" name="ep4-0" id="ep4-0" maxlength="3" size="3" value="0" /></td>
+<td><input type="text" name="ep5-0" id="ep5-0" maxlength="3" size="3" value="0" /></td>
+<td></td>
+</tr>
+
+<tr class="eps ext"><td></td><td id="epsr"></td><td></td><td class="right" id="eps0"></td><td class="right" id="eps1"></td><td class="right" id="eps2"></td><td class="right" id="eps3"></td><td class="right" id="eps4"></td><td class="right" id="eps5"></td><td></td></tr>
+<tfoot id="statrows"></tfoot>
+</table></td>
+
+<td class="secondary">
+<table id="mode0">
+<tr><td colspan="8"><h2>個體值</h2></td></tr>
+<tr><td colspan="2"></td><td><h3>HP</h3></td><td><h3>攻擊</h3></td><td><h3>防禦</h3></td><td><h3>特攻</h3></td><td><h3>特防</h3></td><td><h3>速度</h3></td></tr>
+<tr><td colspan="2"><h4><input name="medl" id="medl" class="ext tooltip" type="checkbox" title="鎖定平均個體值。"/> 平均</h4></td>
+<td><input type="text" name="med0-0" id="med0-0" maxlength="2" size="2"/></td>
+<td><input type="text" name="med1-0" id="med1-0" maxlength="2" size="2"/></td>
+<td><input type="text" name="med2-0" id="med2-0" maxlength="2" size="2"/></td>
+<td><input type="text" name="med3-0" id="med3-0" maxlength="2" size="2"/></td>
+<td><input type="text" name="med4-0" id="med4-0" maxlength="2" size="2"/></td>
+<td><input type="text" name="med5-0" id="med5-0" maxlength="2" size="2"/></td></tr>
+<tr class="tooltip" title="精確結果所需要的等級或基礎得點。" class="top"><td colspan="2"><h4>+ 等級</h4><h4 class="eps">+ 基礎得點</h4></td>
+<td id="plv0-0"></td>
+<td id="plv1-0"></td>
+<td id="plv2-0"></td>
+<td id="plv3-0"></td>
+<td id="plv4-0"></td>
+<td id="plv5-0"></td></tr>
+<tr><td colspan="2" class="top"><h4>分布：</h4></td>
+<td id="spr0-0" class="right"></td>
+<td id="spr1-0" class="right"></td>
+<td id="spr2-0" class="right"></td>
+<td id="spr3-0" class="right"></td>
+<td id="spr4-0" class="right"></td>
+<td id="spr5-0" class="right"></td></tr>
+</table>
+<table id="mode1" class="mode">
+<tr><td colspan="7"><h2>個體值</h2></td></tr>
+<tr><td></td><td><h3>HP</h3></td><td><h3>攻擊</h3></td><td><h3>防禦</h3></td><td><h3>特攻</h3></td><td><h3>特防</h3></td><td><h3>速度</h3></td></tr>
+<tfoot id="ivrows"></tfoot></table>
+</td></tr>
+<tr class="ext"><td id="bar" class="secondary">
+<table>
+<tr><td id="sprite" colspan="3" rowspan="5"></td><td colspan="7"><h2 class="tooltip" title="忽略特性影響。">屬性相性</h2></td></tr>
+<tr><td><h4>&times;0</h4></td><td colspan="5" id="dmg0" class="left"></td></tr>
+<tr><td><h4>&times;&frac14;</h4></td><td colspan="5" id="dmg1" class="left"></td></tr>
+<tr><td><h4>&times;&frac12;</h4></td><td colspan="5" id="dmg2" class="left"></td></tr>
+<tr><td><h4>&times;2</h4></td><td colspan="5" id="dmg8" class="left"></td></tr>
+<tr><td colspan="3"><input type="text" name="nickname" id="nickname" maxlength="10" size="10" class="center tooltip" title="&lt;strong&gt;可選&lt;/strong&gt;  神奇寶貝的暱稱" /></td>
+	<td><h4>&times;4</h4></td><td colspan="5" id="dmg16" class="left"></td></tr>
+</table>
+</td>
+
+<td class="secondary">
+<table><tr><td colspan="8"><h2>計算出的能力值 - <span class="btn tooltip" id="btn-statsmin" title="基礎得點和個體值均為0，性格降低能力值。">最大</span> / <span class="btn tooltip" id="btn-statsmax" title="基礎得點為252（除非關閉），個體值為31，以及性格增加能力值">最小</span></h2></td></tr>
+<tr><td class="top"><h4>等級</h4></td><td class="top"><input type="text"  id="statlvl" name="statlvl" maxlength="3" size="3"/></td><td id="stats0" class="right"></td><td id="stats1" class="right"></td><td id="stats2" class="right"></td><td id="stats3" class="right"></td><td id="stats4" class="right"></td><td id="stats5" class="right"></td></tr></table>
+<table><tr><td colspan="6"><h2>催醒</h2></td></tr>
+<tr><td><h4>屬性：</h4></td><td id="hiddent" colspan="5" class="left"></td></tr>
+<tr><td><h4>威力：</h4></td><td id="hiddenp" colspan="5" class="left"></td></tr>
+</table>
+</td></tr>
+
+<tr><td class="primary" style="vertical-align: middle;">
+<table>
+<tr><td id="status" colspan="3">檢測到自爆！<br/>請打開 JavaScript，若問題持續請報告錯誤。</td></tr>
+</table>
+</td>
+
+<td id="controls" class="secondary">
+<table>
+<tr>
+<td><input type="button" class="button" id="btn-evs" value="基礎得點開" /></td>
+<td><input type="button" class="button" id="btn-theme" value="主題" /></td>
+<td><input type="button" class="button" id="btn-save" value="保存" /></td>
+<td><input type="button" class="button" id="btn-load" value="讀入" /></td>
+</tr>
+<tr class="ext"><td colspan="2"><input type="button" class="button" id="btn-mode" value="神奇寶貝" /></td><td colspan="2"><input type="button" class="button" id="btn-eps" value="計算基礎得點" /></td></tr>
+<tr class="ext"><td colspan="2"><input type="button" class="button" id="btn-hp" value="計算催醒" /></td>
+<td colspan="2"><input type="button" class="button" id="btn-stats" value="計算能力值" /></td></tr>
+<tr><td colspan="4"><input type="button" class="button" id="btn-ivs" value="計算個體值" /></td></tr>
+</table>
+</td></tr>
+</table></form></div><!-- end gui -->
+
+<div id="documentation" class="block">
+<table><tr><td class="primary">
+<h2 id="toggleinfo">程序信息 &#177;</h2>
+<div id="info">
+<h3>如何下載計算器</h3>
+<p id="download">在瀏覽器窗口菜單中選擇 <strong>文件 -&gt; 另存為...</strong> 將網頁保存到您的計算機中（請務必選擇<strong>“網頁，僅 HTML”</strong>方式保存）。該程序在脫機狀態下仍然可用。</p>
+<h3>兼容性：</h3>
+<p>由於神奇寶貝X‧Y中一些神奇寶貝的種族值有變化，這個計算器並不適合之前的遊戲，可以使用 <a href="http://wiki.52poke.com/calc/gen5.html">適合第五世代及之前版本的個體值計算器</a>。</p>
+<h3>關於</h3>
+<p>個體值 / 能力值 / 催醒計算器由 <a href="http://www.legendarypokemon.net" id="lp">Legendary Pokémon</a> 管理員 Hercules G. Papatheodorou (Arty2) 開發。該程序可以通過神奇寶貝的種族、性格、能力和基礎得點數據來計算個體值。</p>
+<p>該程序由 <strong>JavaScript</strong> 編寫，具有跨操作系統的兼容性，只需一個文件和具有 JavaScript 功能的瀏覽器即可。該程序 <em>應該可以</em> 在任何操作系統的 Firefox, Chrome, Safari, Opera, Internet Explorer 等瀏覽器運行（任天堂 DSi 和 3DS 由於字庫問題不支持中文版）。</p>
+<p>如果您希望翻譯，修改或將該程序嵌入您的網站，請閱讀下面的許可協議。</p>
+
+<h2 id="togglehistory">更新記錄 &#177;</h2>
+<p id="version"><span class="loading">正在檢查最新版...</span></p>
+<dl>
+	<dt>V1.1 (2013-11-20)</dt>
+ 	<dd>修復種族值數據中的錯誤。</dd>
+	<dt>V1.0 (2013-11-19)</dt>
+ 	<dd>根據 <a href="http://wiki.52poke.com/calc/gen5.html">個體值與能力值計算器</a> 針對神奇寶貝X‧Y製作的分支版本。</dd>
+</dl>
+<dl id="history">
+    <dt>V1.0 Beta (2004-09-14)</dt> 
+ 	<dd>第一個公開版本。</dd>
+</dl>
+
+<h2>許可協議</h2>
+<p>本作品基於 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh">創作共用協議</a>，<strong>禁止</strong>修改本作品的署名信息。</p>
+<dl>
+<dt>您可以自由：</dt>
+<dd><strong>分享</strong> — 複製、發行或通過信息網絡傳播本作品</dd>
+<dd><strong>演繹</strong> — 再創作本作品</dd>
+
+<dt>唯須遵守下列條件：</dt>
+<dd><strong>署名</strong> — 您必須按照作者或者許可人指定的方式對作品進行署名。</dd>
+<dd><strong>非商業性使用</strong> — 您不得將本作品用於商業目的。</dd>
+<dd><strong>相同方式共享</strong> — 如果您改變、轉換本作品或者以本作品為基礎進行創作，您只能採用與本協議相同的許可協議發佈基於本作品的演繹作品。</dd>
+</dl>
+<p>感謝 <a href="http://www.dustindiaz.com/">Dustin Diaz</a> 開發的函數。</p>
+<p>希望您修改或翻譯本作品之後，可以告知原作者。</p>
+<h2>免責聲明</h2>
+<p>神奇寶貝版權屬於 &copy; Nintendo, Creatures, Game Freak 與 Pokémon Inc. 所有。本程序並非上述公司所開發。</p>
+</div>
+
+</td>
+<td class="secondary">
+<h2 id="toggleinstructions">幫助說明 &#177;</h2>
+ 	<div id="instructions">
+	<h3>個體值和基礎得點是甚麼？</h3>
+		<p><a href="http://wiki.52poke.com/">神奇寶貝百科</a>之中有<a href="http://wiki.52poke.com/wiki/%E4%B8%AA%E4%BD%93%E5%80%BC">個體值</a>、<a href="http://wiki.52poke.com/wiki/%E5%9F%BA%E7%A1%80%E5%BE%97%E7%82%B9">基礎得點</a>等內容的詳細解釋。</p>
+		<p>示例：<a href="javascript:code_load('?sc=0,0,1,0,Sepultura! 9,18,22,7,22,8,100! 6,45,129,79,85,106,91,107,0,0,0,0,0,0,9,4.2,4,0,2,1! 6.1,45,129,117,114,125,91,107,0,0,0,0,0,0,9,4.2,4,0,2,1')">噴火龍</a>，<a href="javascript:code_load('?sc=0,0,1,0,! 31,6,10,28,6,1,100! 257,85,271,265,144,207,139,168,70,129,59,78,50,124,14,0.1,-1,0,0,3! 257.1,85,271,339,161,238,156,202,70,129,59,78,50,124,14,0.1,-1,0,0,3! 257,85,257,235,132,193,129,141,0,0,0,0,0,0,14,0.1,-1,0,0,3')">火焰雞</a></p>
+	<h3>用戶界面</h3>
+	<dl>
+		<dt>保存</dt><dd>生成保存代碼和鏈接，可以保存到收藏夾或發給朋友。</dd>
+		<dt>讀取</dt><dd>單擊讀入保存在地址欄中的數據，雙擊可以讀入保存代碼。</dd>
+	</dl>
+		<h3>個體值計算<span class="ext btn" onclick="toggle_simple();">（簡潔模式？）</span></h3>
+		<p>* 星號標記的為可選項。</p>
+		<p>注意一定要記錄基礎得點，必要時可以使用<em>降低基礎得點</em>樹果，或使用<em>超級訓練系統</em>的<em>重置袋</em>清除所有基礎得點。</p>
+		<p><em>能力判斷師</em>位於奇南市神奇寶貝中心，可以告訴你神奇寶貝的全體能力和最高個體值評價，以及個體值為0的能力。在計算器中，可以使用 Ctrl/CMD 鍵選擇（取消選擇）多項能力。</p>
+		<p>使用神奇糖果將神奇寶貝提升到等級 20，就可以得到 100% 準確的能力值，在使用之前記得存檔。</p>
+		<p><strong>神奇寶貝模式：</strong>神奇寶貝的等級越高，計算出的個體值越準確。如果在較低的等級計算，請盡量多填寫可選的內容。<em>+等級</em> 和 <em>+基礎得點</em> 是指要計算出更精確的結果所需要的等級或基礎得點。不同型態或百萬進化的能力值也可以幫助計算。</p>
+	<div class="ext">
+		<p><strong>隊伍模式：</strong>可以一次計算多個神奇寶貝的個體值。</p>
+		<p><strong>單行模式：</strong>可以計算多個神奇寶貝的個體並分別查看。</p>
+	<h3>能力值計算</h3><p>使用<em>平均個體值</em>，基礎得點來準確計算出特定等級下神奇寶貝的能力值。</p>
+	<h3>催醒計算</h3>
+		<p>催醒的屬性和威力取決於神奇寶貝的個體值，如果已知屬性，可以更容易計算。</p>
+		<p><em>催醒超能力者</em>位於百刻市神奇寶貝中心以東屋子里。</p>
+		<p>使用個體值分布（或平均個體值）可以得到所有可能的組合。</p>
+	<h3>基礎得點訓練</h3><dl>
+		<dt>基礎得點追蹤</dt><dd>取消選擇選中的一行可以進入追蹤模式，選擇相應的道具、對手的神奇寶貝和數量來計算得到的基礎得點。</dd>
+		<dt>基礎得點計算</dt><dd>首先計算出神奇寶貝的能力值，然後改變<em>第一行</em>中的能力值，然後得出到達特定的能力值尚需的基礎得點。</dd>
+	</dl>
+	</div>
+</div></td>
+</tr>
+<tr><td class="primary">
+<p class="center">任何問題或 Bug 報告請<a class="tooltip" id="contact" href="http://www.legendarypokemon.net/contact?topic=IV%20Calculator" title="在報告 Bug 之前請點擊 [保存]。">聯繫這裡</a>，和中文版有關的問題請<a class="tooltip" href="http://52poke.com/contact/" title="http://52poke.com/contact/">致信</p>
+</td>
+<td class="secondary"><a href="http://www.legendarypokemon.net">LegendaryPokemon.net</a> 出品
+</td></tr>
+</table>
+</div><!-- end documentation -->
+
+</div> <!-- end calculator --> <!-- Stop here if you want to include this in your page -->
+</body>
+</html>

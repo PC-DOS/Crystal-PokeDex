@@ -1,0 +1,646 @@
+編號 中文名 日文名 英文名 屬性 分類 威力 命中率 PP 
+1  拍擊  はたく  Pound  一般  物理  40  100  35  
+2  手刀  からてチョップ  Karate Chop  格鬥*  物理  50  100  25  
+3  連環巴掌  おうふくビンタ  Double Slap  一般  物理  15  85  10  
+4  連續拳  れんぞくパンチ  Comet Punch  一般  物理  18  85  15  
+5  百萬噸拳擊  メガトンパンチ  Mega Punch  一般  物理  80  85  20  
+6  聚寶功  ネコにこばん  Pay Day  一般  物理  40  100  20  
+7  火焰拳  ほのおのパンチ  Fire Punch  炎  物理  75  100  15  
+8  急凍拳  れいとうパンチ  Ice Punch  冰  物理  75  100  15  
+9  雷光掌  かみなりパンチ  Thunder Punch  電  物理  75  100  15  
+10  利爪  ひっかく  Scratch  一般  物理  40  100  35  
+11  剪斷  はさむ  Vice Grip  一般  物理  55  100  30  
+12  剪刀斷頭臺  ハサミギロチン  Guillotine  一般  物理  變化  30  5  
+13  旋風刀  かまいたち  Razor Wind  一般  特殊  80  100*  10  
+14  劍舞  つるぎのまい  Swords Dance  一般  變化  —  —  20*  
+15  一字斬  いあいぎり  Cut  一般  物理  50  95  30  
+16  烈暴風  かぜおこし  Gust  飛行*  特殊  40  100  35  
+17  翅膀攻擊  つばさでうつ  Wing Attack  飛行  物理  60*  100  35  
+18  旋風  ふきとばし  Whirlwind  一般  變化  —  100  20  
+19  飛翔  そらをとぶ  Fly  飛行  物理  90*  95  15  
+20  綁緊  しめつける  Bind  一般  物理  15  85*  20  
+21  叩打  たたきつける  Slam  一般  物理  80  75  20  
+22  藤鞭  つるのムチ  Vine Whip  草  物理  45*  100  25*  
+23  踐踏  ふみつけ  Stomp  一般  物理  65  100  20  
+24  連環腿  にどげり  Double Kick  格鬥  物理  30  100  30  
+25  百萬噸飛腿  メガトンキック  Mega Kick  一般  物理  120  75  5  
+26  飛踢  とびげり  Jump Kick  格鬥  物理  100*  95  10*  
+27  旋風腿  まわしげり  Rolling Kick  格鬥  物理  60  85  15  
+28  飛沙腳  すなかけ  Sand Attack  地上*  變化  —  100  15  
+29  鐵頭功  ずつき  Headbutt  一般  物理  70  100  15  
+30  角撞  つのでつく  Horn Attack  一般  物理  65  100  25  
+31  瘋狂攻擊  みだれづき  Fury Attack  一般  物理  15  85  20  
+32  獨角鑽  つのドリル  Horn Drill  一般  物理  變化  30  5  
+33  衝擊  たいあたり  Tackle  一般  物理  50  100  35  
+34  泰山壓頂  のしかかり  Body Slam  一般  物理  85  100  15  
+35  捆綁  まきつく  Wrap  一般  物理  15  90  20  
+36  猛撞  とっしん  Take Down  一般  物理  90  85  20  
+37  橫衝直撞  あばれる  Thrash  一般  物理  120  100  10  
+38  捨身攻擊  すてみタックル  Double-Edge  一般  物理  120*  100  15  
+39  搖尾巴  しっぽをふる  Tail Whip  一般  變化  —  100  30  
+40  毒針  どくばり  Poison Sting  毒  物理  15  100  35  
+41  雙針  ダブルニードル  Twineedle  蟲  物理  25  100  20  
+42  飛彈針  ミサイルばり  Pin Missile  蟲  物理  25*  95*  20  
+43  瞪眼  にらみつける  Leer  一般  變化  —  100  30  
+44  咬咬  かみつく  Bite  惡*  物理  60  100  25  
+45  嚎叫  なきごえ  Growl  一般  變化  —  100  40  
+46  吼叫  ほえる  Roar  一般  變化  —  —*  20  
+47  唱歌  うたう  Sing  一般  變化  —  55  15  
+48  超音波  ちょうおんぱ  Supersonic  一般  變化  —  55  20  
+49  音爆  ソニックブーム  Sonic Boom  一般  特殊  變化  90  20  
+50  石化功  かなしばり  Disable  一般  變化  —  100  20  
+51  溶解液  ようかいえき  Acid  毒  特殊  40  100  30  
+52  火花  ひのこ  Ember  炎  特殊  40  100  25  
+53  噴射火焰  かえんほうしゃ  Flamethrower  炎  特殊  90*  100  15  
+54  白霧  しろいきり  Mist  冰  變化  —  —  30  
+55  水槍  みずでっぽう  Water Gun  水  特殊  40  100  25  
+56  水炮  ハイドロポンプ  Hydro Pump  水  特殊  110*  80  5  
+57  衝浪  なみのり  Surf  水  特殊  90*  100  15  
+58  急凍光線  れいとうビーム  Ice Beam  冰  特殊  90*  100  10  
+59  暴風雪  ふぶき  Blizzard  冰  特殊  110*  70  5  
+60  幻象光  サイケこうせん  Psybeam  超能力  特殊  65  100  20  
+61  泡沫光線  バブルこうせん  Bubble Beam  水  特殊  65  100  20  
+62  極光束  オーロラビーム  Aurora Beam  冰  特殊  65  100  20  
+63  破壞死光  はかいこうせん  Hyper Beam  一般  特殊  150  90  5  
+64  啄  つつく  Peck  飛行  物理  35  100  35  
+65  衝鑽  ドリルくちばし  Drill Peck  飛行  物理  80  100  20  
+66  地獄滾動  じごくぐるま  Submission  格鬥  物理  80  80  25  
+67  下踢  けたぐり  Low Kick  格鬥  物理  變化  100  20  
+68  返拳  カウンター  Counter  格鬥  物理  變化  100  20  
+69  地球上投  ちきゅうなげ  Seismic Toss  格鬥  物理  變化  100  20  
+70  勁力  かいりき  Strength  一般  物理  80  100  15  
+71  吸收  すいとる  Absorb  草  特殊  20  100  25  
+72  百萬噸吸收  メガドレイン  Mega Drain  草  特殊  40  100  15  
+73  寄生種子  やどりぎのタネ  Leech Seed  草  變化  —  90  10  
+74  生長  せいちょう  Growth  一般  變化  —  —  40  
+75  飛葉快刀  はっぱカッター  Razor Leaf  草  物理  55  95  25  
+76  陽光烈焰  ソーラービーム  Solar Beam  草  特殊  120  100  10  
+77  毒粉末  どくのこな  Poison Powder  毒  變化  —  75  35  
+78  麻痺粉  しびれごな  Stun Spore  草  變化  —  75  30  
+79  睡眠粉  ねむりごな  Sleep Powder  草  變化  —  75  15  
+80  花之舞  はなびらのまい  Petal Dance  草  特殊  120  100  10  
+81  吐絲  いとをはく  String Shot  蟲  變化  —  95  40  
+82  龍之怒  りゅうのいかり  Dragon Rage  龍  特殊  變化  100  10  
+83  火焰漩渦  ほのおのうず  Fire Spin  炎  特殊  35  85  15  
+84  電擊  でんきショック  Thunder Shock  電  特殊  40  100  30  
+85  十萬伏特  １０まんボルト  Thunderbolt  電  特殊  90*  100  15  
+86  電磁波  でんじは  Thunder Wave  電  變化  —  100  20  
+87  打雷  かみなり  Thunder  電  特殊  110*  70  10  
+88  滾石  いわおとし  Rock Throw  岩石  物理  50  90  15  
+89  地震  じしん  Earthquake  地上  物理  100  100  10  
+90  地裂  じわれ  Fissure  地上  物理  變化  30  5  
+91  挖地洞  あなをほる  Dig  地上  物理  80  100  10  
+92  猛毒素  どくどく  Toxic  毒  變化  —  90  10  
+93  念力  ねんりき  Confusion  超能力  特殊  50  100  25  
+94  幻象術  サイコキネシス  Psychic  超能力  特殊  90  100  10  
+95  催眠術  さいみんじゅつ  Hypnosis  超能力  變化  —  60  20  
+96  瑜伽姿勢  ヨガのポーズ  Meditate  超能力  變化  —  —  40  
+97  高速移動  こうそくいどう  Agility  超能力  變化  —  —  30  
+98  電光一閃  でんこうせっか  Quick Attack  一般  物理  40  100  30  
+99  憤怒  いかり  Rage  一般  物理  20  100  20  
+100  瞬間移動  テレポート  Teleport  超能力  變化  —  —  20  
+101  黑夜詛咒  ナイトヘッド  Night Shade  幽靈  特殊  變化  100  15  
+102  模仿  ものまね  Mimic  一般  變化  —  —  10  
+103  噪音  いやなおと  Screech  一般  變化  —  85  40  
+104  影子分身  かげぶんしん  Double Team  一般  變化  —  —  15  
+105  自我復原  じこさいせい  Recover  一般  變化  —  —  10  
+106  硬梆梆  かたくなる  Harden  一般  變化  —  —  30  
+107  縮小  ちいさくなる  Minimize  一般  變化  —  —  10*  
+108  煙幕  えんまく  Smokescreen  一般  變化  —  100  20  
+109  奇異光線  あやしいひかり  Confuse Ray  幽靈  變化  —  100  10  
+110  縮殼  からにこもる  Withdraw  水  變化  —  —  40  
+111  防衛卷  まるくなる  Defense Curl  一般  變化  —  —  40  
+112  障礙  バリアー  Barrier  超能力  變化  —  —  20*  
+113  光牆  ひかりのかべ  Light Screen  超能力  變化  —  —  30  
+114  黑霧  くろいきり  Haze  冰  變化  —  —  30  
+115  減半反射  リフレクター  Reflect  超能力  變化  —  —  20  
+116  集氣  きあいだめ  Focus Energy  一般  變化  —  —  30  
+117  忍忍  がまん  Bide  一般  物理  變化  —  10  
+118  揮指功  ゆびをふる  Metronome  一般  變化  —  —  10  
+119  學舌術  オウムがえし  Mirror Move  飛行  變化  —  —  20  
+120  自爆  じばく  Self-Destruct  一般  物理  200 *  100  5  
+121  炸蛋  タマゴばくだん  Egg Bomb  一般  物理  100  75  10  
+122  舔舌頭  したでなめる  Lick  幽靈  物理  30*  100  30  
+123  迷霧  スモッグ  Smog  毒  特殊  30*  70  20  
+124  泥漿攻擊  ヘドロこうげき  Sludge  毒  特殊  65  100  20  
+125  骨棒  ホネこんぼう  Bone Club  地上  物理  65  85  20  
+126  大字爆  だいもんじ  Fire Blast  炎  特殊  110*  85  5  
+127  魚躍龍門  たきのぼり  Waterfall  水  物理  80  100  15  
+128  夾殼  からではさむ  Clamp  水  物理  35  85 *  10 *  
+129  高速星星  スピードスター  Swift  一般  特殊  60  —  20  
+130  火箭頭槌  ロケットずつき  Skull Bash  一般  物理  130*  100  10*  
+131  尖刺加農炮  とげキャノン  Spike Cannon  一般  物理  20  100  15  
+132  糾纏  からみつく  Constrict  一般  物理  10  100  35  
+133  瞬間失憶  ドわすれ  Amnesia  超能力  變化  —  —  20  
+134  折彎湯匙  スプーンまげ  Kinesis  超能力  變化  —  80  15  
+135  生蛋  タマゴうみ  Soft-Boiled  一般  變化  —  —  10  
+136  飛膝撞  とびひざげり  High Jump Kick  格鬥  物理  130*  90  10*  
+137  大蛇瞪眼  へびにらみ  Glare  一般  變化  —  100*  30  
+138  食夢  ゆめくい  Dream Eater  超能力  特殊  100  100  15  
+139  毒瓦斯  どくガス  Poison Gas  毒  變化  —  90*  40  
+140  丟球  たまなげ  Barrage  一般  物理  15  85  20  
+141  吸血  きゅうけつ  Leech Life  蟲  物理  20  100  15  
+142  惡魔之吻  あくまのキッス  Lovely Kiss  一般  變化  —  75  10  
+143  高空攻擊  ゴッドバード  Sky Attack  飛行  物理  140  90  5  
+144  變身  へんしん  Transform  一般  變化  —  —  10  
+145  泡沫  あわ  Bubble  水  特殊  40*  100  30  
+146  迷昏拳  ピヨピヨパンチ  Dizzy Punch  一般  物理  70  100  10  
+147  蘑菇孢子  キノコのほうし  Spore  草  變化  —  100  15  
+148  閃光  フラッシュ  Flash  一般  變化  —  100  20  
+149  幻象波  サイコウェーブ  Psywave  超能力  特殊  變化  100*  15  
+150  水濺躍  はねる  Splash  一般  變化  —  —  40  
+151  溶化  とける  Acid Armor  毒  變化  —  —  20*  
+152  螃蟹拳  クラブハンマー  Crabhammer  水  物理  100*  90 *  10  
+153  大爆炸  だいばくはつ  Explosion  一般  物理  250 *  100  5  
+154  瘋狂亂抓  みだれひっかき  Fury Swipes  一般  物理  18  80  15  
+155  骨頭回力鏢  ホネブーメラン  Bonemerang  地上  物理  50  90  10  
+156  睡覺  ねむる  Rest  超能力  變化  —  —  10  
+157  山崩地裂  いわなだれ  Rock Slide  岩石  物理  75  90  10  
+158  必殺門牙  ひっさつまえば  Hyper Fang  一般  物理  80  90  15  
+159  稜角  かくばる  Sharpen  一般  變化  —  —  30  
+160  變性  テクスチャー  Conversion  一般  變化  —  —  30  
+161  三角攻擊  トライアタック  Tri Attack  一般  特殊  80  100  10  
+162  憤怒之牙  いかりのまえば  Super Fang  一般  物理  變化  90  10  
+163  劈開  きりさく  Slash  一般  物理  70  100  20  
+164  替身  みがわり  Substitute  一般  變化  —  —  10  
+165  掙扎  わるあがき  Struggle  一般  物理  50  —  —  
+166  寫生  スケッチ  Sketch  一般  變化  —  —  1  
+167  三倍足攻  トリプルキック  Triple Kick  格鬥  物理  10  90  10  
+168  小偷  どろぼう  Thief  惡  物理  60*  100  25*  
+169  蛛絲  クモのす  Spider Web  蟲  變化  —  —  10  
+170  心眼  こころのめ  Mind Reader  一般  變化  —  —  5  
+171  惡夢  あくむ  Nightmare  幽靈  變化  —  100  15  
+172  火焰輪  かえんぐるま  Flame Wheel  炎  物理  60  100  25  
+173  打鼾  いびき  Snore  一般  特殊  50*  100  15  
+174  咒語  のろい  Curse  幽靈*  變化  —  —  10  
+175  手足慌亂  じたばた  Flail  一般  物理  變化  100  15  
+176  變性II  テクスチャー２  Conversion 2  一般  變化  —  —  30  
+177  空氣爆炸  エアロブラスト  Aeroblast  飛行  特殊  100  95  5  
+178  棉孢子  わたほうし  Cotton Spore  草  變化  —  100  40  
+179  起死回生  きしかいせい  Reversal  格鬥  物理  變化  100  15  
+180  痛恨  うらみ  Spite  幽靈  變化  —  100  10  
+181  細雪  こなゆき  Powder Snow  冰  特殊  40  100  25  
+182  守住  まもる  Protect  一般  變化  —  —  10  
+183  音速拳  マッハパンチ  Mach Punch  格鬥  物理  40  100  30  
+184  鬼臉  こわいかお  Scary Face  一般  變化  —  100  10  
+185  虛晃一招  だましうち  Feint Attack  惡  物理  60  —  20  
+186  天使之吻  てんしのキッス  Sweet Kiss  妖精*  變化  —  75  10  
+187  肚子大鼓  はらだいこ  Belly Drum  一般  變化  —  —  10  
+188  臭泥爆彈  ヘドロばくだん  Sludge Bomb  毒  特殊  90  100  10  
+189  泥湯  どろかけ  Mud-Slap  地上  特殊  20  100  10  
+190  章魚桶炮  オクタンほう  Octazooka  水  特殊  65  85  10  
+191  滿地星  まきびし  Spikes  地上  變化  —  —  20  
+192  電磁炮  でんじほう  Zap Cannon  電  特殊  120  50  5  
+193  看破  みやぶる  Foresight  一般  變化  —  —  40  
+194  同命  みちづれ  Destiny Bond  幽靈  變化  —  —  5  
+195  滅亡之歌  ほろびのうた  Perish Song  一般  變化  —  —  5  
+196  凍風  こごえるかぜ  Icy Wind  冰  特殊  55  95  15  
+197  先決  みきり  Detect  格鬥  變化  —  —  5  
+198  骨擊一氣  ボーンラッシュ  Bone Rush  地上  物理  25  80  10  
+199  鎖定  ロックオン  Lock-On  一般  變化  —  —  5  
+200  龍鱗之怒  げきりん  Outrage  龍  物理  120  100  15  
+201  沙雹  すなあらし  Sandstorm  岩石  變化  —  —  10  
+202  超級吸收  ギガドレイン  Giga Drain  草  特殊  75  100  10  
+203  忍耐  こらえる  Endure  一般  變化  —  —  10  
+204  撒嬌  あまえる  Charm  妖精*  變化  —  100  20  
+205  滾動  ころがる  Rollout  岩石  物理  30  90  20  
+206  刀背擊打  みねうち  False Swipe  一般  物理  40  100  40  
+207  裝腔作勢  いばる  Swagger  一般  變化  —  90  15  
+208  飲奶  ミルクのみ  Milk Drink  一般  變化  —  —  10  
+209  閃電  スパーク  Spark  電  物理  65  100  20  
+210  連切  れんぞくぎり  Fury Cutter  蟲  物理  40*  95  20  
+211  鋼翼  はがねのつばさ  Steel Wing  鋼  物理  70  90  25  
+212  黑色眼光  くろいまなざし  Mean Look  一般  變化  —  —  5  
+213  迷人  メロメロ  Attract  一般  變化  —  100  15  
+214  夢話  ねごと  Sleep Talk  一般  變化  —  —  10  
+215  治癒鈴聲  いやしのすず  Heal Bell  一般  變化  —  —  5  
+216  報恩  おんがえし  Return  一般  物理  變化  100  20  
+217  禮物  プレゼント  Present  一般  物理  變化  90  15  
+218  牽連  やつあたり  Frustration  一般  物理  變化  100  20  
+219  神秘護身  しんぴのまもり  Safeguard  一般  變化  —  —  25  
+220  分享痛楚  いたみわけ  Pain Split  一般  變化  —  —  20  
+221  聖之火  せいなるほのお  Sacred Fire  炎  物理  100  95  5  
+222  震級  マグニチュード  Magnitude  地上  物理  變化  100  30  
+223  爆裂拳  ばくれつパンチ  Dynamic Punch  格鬥  物理  100  50  5  
+224  百萬噸角擊  メガホーン  Megahorn  蟲  物理  120  85  10  
+225  龍吸  りゅうのいぶき  Dragon Breath  龍  特殊  60  100  20  
+226  接棒  バトンタッチ  Baton Pass  一般  變化  —  —  40  
+227  再來一次  アンコール  Encore  一般  變化  —  100  5  
+228  追打  おいうち  Pursuit  惡  物理  40  100  20  
+229  高速迴轉  こうそくスピン  Rapid Spin  一般  物理  20  100  40  
+230  甜氣  あまいかおり  Sweet Scent  一般  變化  —  100  20  
+231  鐵尾  アイアンテール  Iron Tail  鋼  物理  100  75  15  
+232  合金爪  メタルクロー  Metal Claw  鋼  物理  50  95  35  
+233  一招制敵  あてみなげ  Vital Throw  格鬥  物理  70  —  10  
+234  晨光  あさのひざし  Morning Sun  一般  變化  —  —  5  
+235  光學合成  こうごうせい  Synthesis  草  變化  —  —  5  
+236  月光  つきのひかり  Moonlight  妖精*  變化  —  —  5  
+237  催醒  めざめるパワー  Hidden Power  一般  特殊  60*  100  15  
+238  十字切  クロスチョップ  Cross Chop  格鬥  物理  100  80  5  
+239  龍捲風  たつまき  Twister  龍  特殊  40  100  20  
+240  乞雨  あまごい  Rain Dance  水  變化  —  —  5  
+241  大晴天  にほんばれ  Sunny Day  炎  變化  —  —  5  
+242  咬碎  かみくだく  Crunch  惡  物理  80  100  15  
+243  表面塗層  ミラーコート  Mirror Coat  超能力  特殊  變化  100  20  
+244  自我暗示  じこあんじ  Psych Up  一般  變化  —  —  10  
+245  神速  しんそく  Extreme Speed  一般  物理  80  100  5  
+246  原始之力  げんしのちから  Ancient Power  岩石  特殊  60  100  5  
+247  影子球  シャドーボール  Shadow Ball  幽靈  特殊  80  100  15  
+248  先知  みらいよち  Future Sight  超能力  特殊  120*  100*  10*  
+249  岩石粉碎  いわくだき  Rock Smash  格鬥  物理  40  100  15  
+250  潮旋  うずしお  Whirlpool  水  特殊  35  85  15  
+251  痛打一氣  ふくろだたき  Beat Up  惡  物理  變化  100  10  
+252  假動作  ねこだまし  Fake Out  一般  物理  40  100  10  
+253  吵鬧  さわぐ  Uproar  一般  特殊  90  100  10  
+254  儲存  たくわえる  Stockpile  一般  變化  —  —  20  
+255  噴出  はきだす  Spit Up  一般  特殊  變化  100  10  
+256  吞下  のみこむ  Swallow  一般  變化  —  —  10  
+257  熱風  ねっぷう  Heat Wave  炎  特殊  95*  90  10  
+258  冰雹  あられ  Hail  冰  變化  —  —  10  
+259  假指控  いちゃもん  Torment  惡  變化  —  100  15  
+260  煽惑  おだてる  Flatter  惡  變化  —  100  15  
+261  鬼火  おにび  Will-O-Wisp  炎  變化  —  85*  15  
+262  臨別禮物  おきみやげ  Memento  惡  變化  —  100  10  
+263  假勇敢  からげんき  Facade  一般  物理  70  100  20  
+264  集中猛擊  きあいパンチ  Focus Punch  格鬥  物理  150  100  20  
+265  甦醒  きつけ  Smelling Salts  一般  物理  70*  100  10  
+266  跟我來  このゆびとまれ  Follow Me  一般  變化  —  —  20  
+267  自然能力  しぜんのちから  Nature Power  一般  變化  —  —  20  
+268  充電  じゅうでん  Charge  電  變化  —  —  20  
+269  挑撥  ちょうはつ  Taunt  惡  變化  —  100  20  
+270  幫助  てだすけ  Helping Hand  一般  變化  —  —  20  
+271  騙術  トリック  Trick  超能力  變化  —  100  10  
+272  角色扮演  なりきり  Role Play  超能力  變化  —  —  10  
+273  祈求  ねがいごと  Wish  一般  變化  —  —  10  
+274  協助  ねこのて  Assist  一般  變化  —  —  20  
+275  根深蒂固  ねをはる  Ingrain  草  變化  —  —  20  
+276  蠻力  ばかぢから  Superpower  格鬥  物理  120  100  5  
+277  魔術外衣  マジックコート  Magic Coat  超能力  變化  —  —  15  
+278  回收  リサイクル  Recycle  一般  變化  —  —  10  
+279  報仇  リベンジ  Revenge  格鬥  物理  60  100  10  
+280  劈瓦  かわらわり  Brick Break  格鬥  物理  75  100  15  
+281  哈欠  あくび  Yawn  一般  變化  —  —  10  
+282  落拳  はたきおとす  Knock Off  惡  物理  65*  100  20  
+283  強攻  がむしゃら  Endeavor  一般  物理  變化  100  5  
+284  噴火  ふんか  Eruption  炎  特殊  150  100  5  
+285  交換絕招  スキルスワップ  Skill Swap  超能力  變化  —  —  10  
+286  封印  ふういん  Imprison  超能力  變化  —  —  10  
+287  清新  リフレッシュ  Refresh  一般  變化  —  —  20  
+288  怨恨  おんねん  Grudge  幽靈  變化  —  —  5  
+289  搶奪  よこどり  Snatch  惡  變化  —  —  10  
+290  神秘力量  ひみつのちから  Secret Power  一般  物理  70  100  20  
+291  潛水  ダイビング  Dive  水  物理  80  100  10  
+292  猛推  つっぱり  Arm Thrust  格鬥  物理  15  100  20  
+293  保護色  ほごしょく  Camouflage  一般  變化  —  —  20  
+294  螢火  ほたるび  Tail Glow  蟲  變化  —  —  20  
+295  潔淨光澤  ラスターパージ  Luster Purge  超能力  特殊  70  100  5  
+296  薄霧球  ミストボール  Mist Ball  超能力  特殊  70  100  5  
+297  羽毛舞  フェザーダンス  Feather Dance  飛行  變化  —  100  15  
+298  搖晃舞  フラフラダンス  Teeter Dance  一般  變化  —  100  20  
+299  火焰踢  ブレイズキック  Blaze Kick  炎  物理  85  90  10  
+300  玩泥巴  どろあそび  Mud Sport  地上  變化  —  —  15  
+301  冰球  アイスボール  Ice Ball  冰  物理  30  90  20  
+302  針葉暗器  ニードルアーム  Needle Arm  草  物理  60  100  15  
+303  懶惰  なまける  Slack Off  一般  變化  —  —  10  
+304  高音  ハイパーボイス  Hyper Voice  一般  特殊  90  100  10  
+305  毒液牙  どくどくのキバ  Poison Fang  毒  物理  50  100  15  
+306  突擊爪  ブレイククロー  Crush Claw  一般  物理  75  95  10  
+307  爆炸燃燒  ブラストバーン  Blast Burn  炎  特殊  150  90  5  
+308  水電炮  ハイドロカノン  Hydro Cannon  水  特殊  150  90  5  
+309  流星拳  コメットパンチ  Meteor Mash  鋼  物理  90*  90*  10  
+310  驚嚇  おどろかす  Astonish  幽靈  物理  30  100  15  
+311  氣象球  ウェザーボール  Weather Ball  一般  特殊  50  100  10  
+312  芳香治療  アロマセラピー  Aromatherapy  草  變化  —  —  5  
+313  假哭  うそなき  Fake Tears  惡  變化  —  100  20  
+314  破空斬  エアカッター  Air Cutter  飛行  特殊  60*  95  25  
+315  過熱  オーバーヒート  Overheat  炎  特殊  130*  90  5  
+316  氣味偵測  かぎわける  Odor Sleuth  一般  變化  —  —  40  
+317  岩石封閉  がんせきふうじ  Rock Tomb  岩石  物理  60*  95*  15*  
+318  銀色旋風  ぎんいろのかぜ  Silver Wind  蟲  特殊  60  100  5  
+319  金屬音  きんぞくおん  Metal Sound  鋼  變化  —  85  40  
+320  草笛魔音  くさぶえ  Grass Whistle  草  變化  —  55  15  
+321  搔癢  くすぐる  Tickle  一般  變化  —  100  20  
+322  無限能量  コスモパワー  Cosmic Power  超能力  變化  —  —  20  
+323  噴水  しおふき  Water Spout  水  特殊  150  100  5  
+324  信號光束  シグナルビーム  Signal Beam  蟲  特殊  75  100  15  
+325  影子拳  シャドーパンチ  Shadow Punch  幽靈  物理  60  —  20  
+326  神通力  じんつうりき  Extrasensory  超能力  特殊  80  100  20*  
+327  上天拳  スカイアッパー  Sky Uppercut  格鬥  物理  85  90  15  
+328  流沙地獄  すなじごく  Sand Tomb  地上  物理  35  85  15  
+329  絕對零度  ぜったいれいど  Sheer Cold  冰  特殊  變化  30  5  
+330  濁流  だくりゅう  Muddy Water  水  特殊  90*  85  10  
+331  種子機關槍  タネマシンガン  Bullet Seed  草  物理  25*  100  30  
+332  迴轉攻  つばめがえし  Aerial Ace  飛行  物理  60  —  20  
+333  冰針  つららばり  Icicle Spear  冰  物理  25*  100  30  
+334  鐵壁  てっぺき  Iron Defense  鋼  變化  —  —  15  
+335  擋路  とおせんぼう  Block  一般  變化  —  —  5  
+336  長嚎  とおぼえ  Howl  一般  變化  —  —  40  
+337  龍爪  ドラゴンクロー  Dragon Claw  龍  物理  80  100  15  
+338  瘋狂機器  ハードプラント  Frenzy Plant  草  特殊  150  90  5  
+339  健美  ビルドアップ  Bulk Up  格鬥  變化  —  —  20  
+340  飛跳  とびはねる  Bounce  飛行  物理  85  85  5  
+341  泥巴射擊  マッドショット  Mud Shot  地上  特殊  55  95  15  
+342  毒尾  ポイズンテール  Poison Tail  毒  物理  50  100  25  
+343  渴望  ほしがる  Covet  一般  物理  60  100  40  
+344  伏特攻擊  ボルテッカー  Volt Tackle  電  物理  120  100  15  
+345  魔法葉  マジカルリーフ  Magical Leaf  草  特殊  60  —  20  
+346  水之遊  みずあそび  Water Sport  水  變化  —  —  15  
+347  冥想  めいそう  Calm Mind  超能力  變化  —  —  20  
+348  刀葉  リーフブレード  Leaf Blade  草  物理  90  100  15  
+349  龍之舞  りゅうのまい  Dragon Dance  龍  變化  —  —  20  
+350  岩石爆破  ロックブラスト  Rock Blast  岩石  物理  25  90  10  
+351  電擊波  でんげきは  Shock Wave  電  特殊  60  —  20  
+352  水波動  みずのはどう  Water Pulse  水  特殊  60  100  20  
+353  破滅願望  はめつのねがい  Doom Desire  鋼  特殊  140  100  5  
+354  精神提升  サイコブースト  Psycho Boost  超能力  特殊  140  90  5  
+355  歇息  はねやすめ  Roost  飛行  變化  —  —  10  
+356  重力  じゅうりょく  Gravity  超能力  變化  —  —  5  
+357  奇蹟眼  ミラクルアイ  Miracle Eye  超能力  變化  —  —  40  
+358  甦醒巴掌  めざましビンタ  Wake-Up Slap  格鬥  物理  70*  100  10  
+359  臂力拳  アームハンマー  Hammer Arm  格鬥  物理  100  90  10  
+360  迴轉球  ジャイロボール  Gyro Ball  鋼  物理  變化  100  5  
+361  治癒願望  いやしのねがい  Healing Wish  超能力  變化  —  —  10  
+362  鹽水  しおみず  Brine  水  特殊  65  100  10  
+363  自然之恩  しぜんのめぐみ  Natural Gift  一般  物理  變化  100  15  
+364  佯攻  フェイント  Feint  一般  物理  50  100  10  
+365  啄食  ついばむ  Pluck  飛行  物理  60  100  20  
+366  順風  おいかぜ  Tailwind  飛行  變化  —  —  30  
+367  點穴  つぼをつく  Acupressure  一般  變化  —  —  30  
+368  合金爆裂  メタルバースト  Metal Burst  鋼  物理  變化  100  10  
+369  急速轉變  とんぼがえり  U-turn  蟲  物理  70  100  20  
+370  近身打  インファイト  Close Combat  格鬥  物理  120  100  5  
+371  報復  しっぺがえし  Payback  惡  物理  50  100  10  
+372  再三囑咐  ダメおし  Assurance  惡  物理  60*  100  10  
+373  徵收  さしおさえ  Embargo  惡  變化  —  100  15  
+374  投擲  なげつける  Fling  惡  物理  技能  100  10  
+375  幻象轉移  サイコシフト  Psycho Shift  超能力  變化  —  100*  10  
+376  王牌  きりふだ  Trump Card  一般  特殊  變化  —  5  
+377  回復阻擋  かいふくふうじ  Heal Block  超能力  變化  —  100  15  
+378  擰乾  しぼりとる  Wring Out  一般  特殊  變化  100  5  
+379  能量騙術  パワートリック  Power Trick  超能力  變化  —  —  10  
+380  胃液  いえき  Gastro Acid  毒  變化  —  100  10  
+381  幸運咒語  おまじない  Lucky Chant  一般  變化  —  —  30  
+382  先搶先贏  さきどり  Me First  一般  變化  變化  —  20  
+383  仿造  まねっこ  Copycat  一般  變化  —  —  20  
+384  力量交換  パワースワップ  Power Swap  超能力  變化  —  —  10  
+385  防禦交換  ガードスワップ  Guard Swap  超能力  變化  —  —  10  
+386  懲罰  おしおき  Punishment  惡  物理  變化  100  5  
+387  珍藏  とっておき  Last Resort  一般  物理  140  100  5  
+388  煩惱種子  なやみのタネ  Worry Seed  草  變化  —  100  10  
+389  突襲  ふいうち  Sucker Punch  惡  物理  80  100  5  
+390  毒尖釘  どくびし  Toxic Spikes  毒  變化  —  —  20  
+391  交換意志  ハートスワップ  Heart Swap  超能力  變化  —  —  10  
+392  水柱圈  アクアリング  Aqua Ring  水  變化  —  —  20  
+393  電磁浮遊  でんじふゆう  Magnet Rise  電  變化  —  —  10  
+394  爆炎電擊  フレアドライブ  Flare Blitz  炎  物理  120  100  15  
+395  發勁  はっけい  Force Palm  格鬥  物理  60  100  10  
+396  波導彈  はどうだん  Aura Sphere  格鬥  特殊  80*  —  20  
+397  磨光岩石  ロックカット  Rock Polish  岩石  變化  —  —  20  
+398  毒刺  どくづき  Poison Jab  毒  物理  80  100  20  
+399  惡波動  あくのはどう  Dark Pulse  惡  特殊  80  100  15  
+400  街頭試刀  つじぎり  Night Slash  惡  物理  70  100  15  
+401  水柱尾  アクアテール  Aqua Tail  水  物理  90  90  10  
+402  種子爆彈  タネばくだん  Seed Bomb  草  物理  80  100  15  
+403  空氣砍  エアスラッシュ  Air Slash  飛行  特殊  75  95  15*  
+404  剪刀十字拳  シザークロス  X-Scissor  蟲  物理  80  100  15  
+405  蟲鳴  むしのさざめき  Bug Buzz  蟲  特殊  90  100  10  
+406  龍波動  りゅうのはどう  Dragon Pulse  龍  特殊  85*  100  10  
+407  龍神俯衝  ドラゴンダイブ  Dragon Rush  龍  物理  100  75  10  
+408  力量寶石  パワージェム  Power Gem  岩石  特殊  80*  100  20  
+409  吸收拳  ドレインパンチ  Drain Punch  格鬥  物理  75  100  10  
+410  真空波  しんくうは  Vacuum Wave  格鬥  特殊  40  100  30  
+411  集氣彈  きあいだま  Focus Blast  格鬥  特殊  120  70  5  
+412  能源球  エナジーボール  Energy Ball  草  特殊  90*  100  10  
+413  神鳥特攻  ブレイブバード  Brave Bird  飛行  物理  120  100  15  
+414  大地之力  だいちのちから  Earth Power  地上  特殊  90  100  10  
+415  掉包  すりかえ  Switcheroo  惡  變化  —  100  10  
+416  超極衝擊  ギガインパクト  Giga Impact  一般  物理  150  90  5  
+417  詭計  わるだくみ  Nasty Plot  惡  變化  —  —  20  
+418  飛彈拳  バレットパンチ  Bullet Punch  鋼  物理  40  100  30  
+419  雪崩  ゆきなだれ  Avalanche  冰  物理  60  100  10  
+420  冰粒  こおりのつぶて  Ice Shard  冰  物理  40  100  30  
+421  影子鉤爪  シャドークロー  Shadow Claw  幽靈  物理  70  100  15  
+422  雷牙  かみなりのキバ  Thunder Fang  電  物理  65  95  15  
+423  冰牙  こおりのキバ  Ice Fang  冰  物理  65  95  15  
+424  炎牙  ほのおのキバ  Fire Fang  炎  物理  65  95  15  
+425  影子偷襲  かげうち  Shadow Sneak  幽靈  物理  40  100  30  
+426  泥巴爆彈  どろばくだん  Mud Bomb  地上  特殊  65  85  10  
+427  幻象斬  サイコカッター  Psycho Cut  超能力  物理  70  100  20  
+428  意念頭錘  しねんのずつき  Zen Headbutt  超能力  物理  80  90  15  
+429  鏡光射擊  ミラーショット  Mirror Shot  鋼  特殊  65  85  10  
+430  光澤電炮  ラスターカノン  Flash Cannon  鋼  特殊  80  100  10  
+431  攀登岩石  ロッククライム  Rock Climb  一般  物理  90  85  20  
+432  清除濃霧  きりばらい  Defog  飛行  變化  —  —  15  
+433  騙術空間  トリックルーム  Trick Room  超能力  變化  —  —  5  
+434  天龍流星  りゅうせいぐん  Draco Meteor  龍  特殊  130*  90  5  
+435  放電  ほうでん  Discharge  電  特殊  80  100  15  
+436  噴煙  ふんえん  Lava Plume  炎  特殊  80  100  15  
+437  葉暴風  リーフストーム  Leaf Storm  草  特殊  130*  90  5  
+438  能量鞭打  パワーウィップ  Power Whip  草  物理  120  85  10  
+439  岩石炮  がんせきほう  Rock Wrecker  岩石  物理  150  90  5  
+440  十字毒藥  クロスポイズン  Cross Poison  毒  物理  70  100  20  
+441  灰塵射擊  ダストシュート  Gunk Shot  毒  物理  120  80*  5  
+442  鐵頭  アイアンヘッド  Iron Head  鋼  物理  80  100  15  
+443  磁鐵爆彈  マグネットボム  Magnet Bomb  鋼  物理  60  —  20  
+444  尖石攻擊  ストーンエッジ  Stone Edge  岩石  物理  100  80  5  
+445  誘惑  ゆうわく  Captivate  一般  變化  —  100  20  
+446  隱形岩  ステルスロック  Stealth Rock  岩石  變化  —  —  20  
+447  打草結  くさむすび  Grass Knot  草  特殊  變化  100  20  
+448  喋喋不休  おしゃべり  Chatter  飛行  特殊  65*  100  20  
+449  制裁石礫  さばきのつぶて  Judgment  一般  特殊  100  100  10  
+450  蟲咬  むしくい  Bug Bite  蟲  物理  60  100  20  
+451  充電光束  チャージビーム  Charge Beam  電  特殊  50  90  10  
+452  木槌  ウッドハンマー  Wood Hammer  草  物理  120  100  15  
+453  噴射水柱  アクアジェット  Aqua Jet  水  物理  40  100  20  
+454  攻擊指令  こうげきしれい  Attack Order  蟲  物理  90  100  15  
+455  防禦指令  ぼうぎょしれい  Defend Order  蟲  變化  —  —  10  
+456  回復指令  かいふくしれい  Heal Order  蟲  變化  —  —  10  
+457  雙刃頭錘  もろはのずつき  Head Smash  岩石  物理  150  80  5  
+458  雙重攻擊  ダブルアタック  Double Hit  一般  物理  35  90  10  
+459  時間咆哮  ときのほうこう  Roar of Time  龍  特殊  150  90  5  
+460  隔空切斷  あくうせつだん  Spacial Rend  龍  特殊  100  95  5  
+461  新月舞  みかづきのまい  Lunar Dance  超能力  變化  —  —  10  
+462  捏碎  にぎりつぶす  Crush Grip  一般  物理  變化  100  5  
+463  岩漿暴風  マグマストーム  Magma Storm  炎  特殊  100*  75*  5  
+464  黑洞  ダークホール  Dark Void  惡  變化  —  80  10  
+465  種子閃光  シードフレア  Seed Flare  草  特殊  120  85  5  
+466  奇異之風  あやしいかぜ  Ominous Wind  幽靈  特殊  60  100  5  
+467  影子潛水  シャドーダイブ  Shadow Force  幽靈  物理  120  100  5  
+468  磨爪子  つめとぎ  Hone Claws  惡  變化  —  —  15  
+469  全體防禦  ワイドガード  Wide Guard  岩石  變化  —  —  10  
+470  防禦平分  ガードシェア  Guard Split  超能力  變化  —  —  10  
+471  力量平分  パワーシェア  Power Split  超能力  變化  —  —  10  
+472  奇妙空間  ワンダールーム  Wonder Room  超能力  變化  —  —  10  
+473  幻象攻擊  サイコショック  Psyshock  超能力  特殊  80  100  10  
+474  毒液攻擊  ベノムショック  Venoshock  毒  特殊  65  100  10  
+475  體重減輕  ボディパージ  Autotomize  鋼  變化  —  —  15  
+476  憤怒之粉  いかりのこな  Rage Powder  蟲  變化  —  —  20  
+477  心靈傳動術  テレキネシス  Telekinesis  超能力  變化  —  —  15  
+478  魔法空間  マジックルーム  Magic Room  超能力  變化  —  —  10  
+479  擊落  うちおとす  Smack Down  岩石  物理  50  100  15  
+480  山嵐  やまあらし  Storm Throw  格鬥  物理  60*  100  10  
+481  爆炸火焰  はじけるほのお  Flame Burst  炎  特殊  70  100  15  
+482  泥漿波  ヘドロウェーブ  Sludge Wave  毒  特殊  95  100  10  
+483  蝶之舞  ちょうのまい  Quiver Dance  蟲  變化  —  —  20  
+484  沉重轟炸  ヘビーボンバー  Heavy Slam  鋼  物理  變化  100  10  
+485  同步干擾  シンクロノイズ  Synchronoise  超能力  特殊  120*  100  10*  
+486  電球  エレキボール  Electro Ball  電  特殊  變化  100  10  
+487  浸水  みずびたし  Soak  水  變化  —  100  20  
+488  火焰襲擊  ニトロチャージ  Flame Charge  炎  物理  50  100  20  
+489  盤卷  とぐろをまく  Coil  毒  變化  —  —  20  
+490  低空踢  ローキック  Low Sweep  格鬥  物理  65*  100  20  
+491  酸液炸彈  アシッドボム  Acid Spray  毒  特殊  40  100  20  
+492  詐欺  イカサマ  Foul Play  惡  物理  95  100  15  
+493  單純光線  シンプルビーム  Simple Beam  一般  變化  —  100  15  
+494  變為同伴  なかまづくり  Entrainment  一般  變化  —  100  15  
+495  你先請  おさきにどうぞ  After You  一般  變化  —  —  15  
+496  輪唱  りんしょう  Round  一般  特殊  60  100  15  
+497  回音  エコーボイス  Echoed Voice  一般  特殊  40  100  15  
+498  循序漸進  なしくずし  Chip Away  一般  物理  70  100  20  
+499  清除迷霧  クリアスモッグ  Clear Smog  毒  特殊  50  —  15  
+500  協助力量  アシストパワー  Stored Power  超能力  特殊  20  100  10  
+501  先制防禦  ファストガード  Quick Guard  格鬥  變化  —  —  15  
+502  位置交換  サイドチェンジ  Ally Switch  超能力  變化  —  —  15  
+503  熱水  ねっとう  Scald  水  特殊  80  100  15  
+504  破殼  からをやぶる  Shell Smash  一般  變化  —  —  15  
+505  治癒波動  いやしのはどう  Heal Pulse  超能力  變化  —  —  10  
+506  厄運臨頭  たたりめ  Hex  幽靈  特殊  65*  100  10  
+507  自由落體  フリーフォール  Sky Drop  飛行  物理  60  100  10  
+508  交換齒輪  ギアチェンジ  Shift Gear  鋼  變化  —  —  10  
+509  巴投  ともえなげ  Circle Throw  格鬥  物理  60  90  10  
+510  燒盡  やきつくす  Incinerate  炎  特殊  60*  100  15  
+511  延後  さきおくり  Quash  惡  變化  —  100  15  
+512  特技演員  アクロバット  Acrobatics  飛行  物理  55  100  15  
+513  鏡子系  ミラータイプ  Reflect Type  一般  變化  —  —  15  
+514  討敵  かたきうち  Retaliate  一般  物理  70  100  5  
+515  賭命  いのちがけ  Final Gambit  格鬥  特殊  變化  100  5  
+516  禮物傳遞  ギフトパス  Bestow  一般  變化  —  —  15  
+517  煉獄  れんごく  Inferno  炎  特殊  100  50  5  
+518  水的誓約  みずのちかい  Water Pledge  水  特殊  80*  100  10  
+519  炎的誓約  ほのおのちかい  Fire Pledge  炎  特殊  80*  100  10  
+520  草的誓約  くさのちかい  Grass Pledge  草  特殊  80*  100  10  
+521  交換伏特  ボルトチェンジ  Volt Switch  電  特殊  70  100  20  
+522  蟲的抵抗  むしのていこう  Struggle Bug  蟲  特殊  50*  100  20  
+523  整地  じならし  Bulldoze  地上  物理  60  100  20  
+524  冰吸  こおりのいぶき  Frost Breath  冰  特殊  60*  90  10  
+525  龍尾  ドラゴンテール  Dragon Tail  龍  物理  60  90  10  
+526  自我激勵  ふるいたてる  Work Up  一般  變化  —  —  30  
+527  電網  エレキネット  Electroweb  電  特殊  55  95  15  
+528  瘋狂伏特  ワイルドボルト  Wild Charge  電  物理  90  100  15  
+529  低空鑽  ドリルライナー  Drill Run  地上  物理  80  95  10  
+530  雙重劈  ダブルチョップ  Dual Chop  龍  物理  40  90  15  
+531  愛心搗擊  ハートスタンプ  Heart Stamp  超能力  物理  60  100  25  
+532  木角  ウッドホーン  Horn Leech  草  物理  75  100  10  
+533  聖劍  せいなるつるぎ  Sacred Sword  格鬥  物理  90  100  20  
+534  貝殼刀  シェルブレード  Razor Shell  水  物理  75  95  10  
+535  高溫搗擊  ヒートスタンプ  Heat Crash  炎  物理  變化  100  10  
+536  青草攪拌器  グラスミキサー  Leaf Tornado  草  特殊  65  90  10  
+537  瘋狂滾動  ハードローラー  Steamroller  蟲  物理  65  100  20  
+538  棉花防禦  コットンガード  Cotton Guard  草  變化  —  —  10  
+539  黑夜爆裂  ナイトバースト  Night Daze  惡  特殊  85  95  10  
+540  精神破壞  サイコブレイク  Psystrike  超能力  特殊  100  100  10  
+541  掃巴掌  スイープビンタ  Tail Slap  一般  物理  25  85  10  
+542  暴風  ぼうふう  Hurricane  飛行  特殊  120  70  10  
+543  爆爆頭突擊  アフロブレイク  Head Charge  一般  物理  120  100  15  
+544  齒輪飛盤  ギアソーサー  Gear Grind  鋼  物理  50  85  15  
+545  火炎彈  かえんだん  Searing Shot  炎  特殊  100  100  5  
+546  破壞技術  テクノバスター  Techno Blast  一般  特殊  85  100  5  
+547  古老之歌  いにしえのうた  Relic Song  一般  特殊  75  100  10  
+548  神秘之劍  しんぴのつるぎ  Secret Sword  格鬥  特殊  85  100  10  
+549  冰凍世界  こごえるせかい  Glaciate  冰  特殊  65  95  10  
+550  雷擊  らいげき  Bolt Strike  電  物理  130  85  5  
+551  青炎  あおいほのお  Blue Flare  炎  特殊  130  85  5  
+552  炎之舞  ほのおのまい  Fiery Dance  炎  特殊  80  100  10  
+553  凍結伏特  フリーズボルト  Freeze Shock  冰  物理  140  90  5  
+554  寒冷閃光  コールドフレア  Ice Burn  冰  特殊  140  90  5  
+555  大聲咆哮  バークアウト  Snarl  惡  特殊  55  95  15  
+556  掉落冰柱  つららおとし  Icicle Crash  冰  物理  85  90  10  
+557  勝利V熱炎  Ｖジェネレート  V-create  炎  物理  180  95  5  
+558  十字交叉火焰  クロスフレイム  Fusion Flare  炎  特殊  100  100  5  
+559  十字交叉閃電  クロスサンダー  Fusion Bolt  電  物理  100  100  5  
+
+
+第六世代
+
+
+編號 
+
+中文名 
+
+日文名 
+
+英文名 
+
+屬性 
+
+分類 
+
+威力 
+
+命中率 
+
+PP 
+
+
+560  飛衝落地  フライングプレス  Flying Press  格鬥  物理  80  95  10  
+561  墊返  たたみがえし  Mat Block  格鬥  變化  —  —  15  
+562  打嗝  ゲップ  Belch  毒  特殊  120  90  10  
+563  耕地  たがやす  Rototiller  地上  變化  —  —  10  
+564  黏黏網  ねばねばネット  Sticky Web  蟲  物理  —  —  20  
+565  擊倒針刺  とどめばり  Fell Stinger  蟲  物理  30  100  25  
+566  幽靈潛水  ゴーストダイブ  Phantom Force  幽靈  物理  90  100  10  
+567  萬聖夜狂歡  ハロウィン  Trick-or-Treat  幽靈  變化  —  100  20  
+568  戰吼  おたけび  Noble Roar  一般  變化  —  100  30  
+569  電漿陣雨  プラズマシャワー  Ion Deluge  電  變化  —  25  25  
+570  拋物線充電  パラボラチャージ  Parabolic Charge  電  特殊  50  100  20  
+571  森林詛咒  もりののろい  Forest's Curse  草  變化  —  100  20  
+572  花瓣暴風雪  はなふぶき  Petal Blizzard  草  物理  90  100  15  
+573  冰凍乾燥  フリーズドライ  Freeze-Dry  冰  特殊  70  100  20  
+574  魅惑之音  チャームボイス  Disarming Voice  妖精  特殊  40  —  15  
+575  放狠話  すてゼリフ  Parting Shot  惡  變化  —  100  20  
+576  翻倒  ひっくりかえす  Topsy-Turvy  惡  變化  —  100  20  
+577  吸取之吻  ドレインキッス  Draining Kiss  妖精  特殊  50  100  20  
+578  狡猾防禦  トリックガード  Crafty Shield  妖精  變化  —  —  10  
+579  鮮花防禦  フラワーガード  Flower Shield  妖精  變化  —  —  10  
+580  草原場地  グラスフィールド  Grassy Terrain  草  變化  —  —  10  
+581  薄霧場地  ミストフィールド  Misty Terrain  妖精  變化  —  —  10  
+582  送電  そうでん  Electrify  電  變化  —  —  20  
+583  嬉戲  じゃれつく  Play Rough  妖精  物理  90  90  15  
+584  妖精之風  ようせいのかぜ  Fairy Wind  妖精  特殊  40  100  30  
+585  月亮攻擊  ムーンフォース  Moonblast  妖精  特殊  95  100  15  
+586  爆音波  ばくおんぱ  Boomburst  一般  特殊  140  100  10  
+587  妖精之鎖  フェアリーロック  Fairy Lock  妖精  變化  —  —  10  
+588  王者盾牌  キングシールド  King's Shield  鋼  變化  —  —  10  
+589  做朋友  なかよくする  Play Nice  一般  變化  —  —  20  
+590  悄悄話  ないしょばなし  Confide  一般  變化  —  —  20  
+591  鑽石暴風  ダイヤストーム  Diamond Storm  岩石  物理  100  95  5  
+592  蒸汽噴發  スチームバースト  Steam Eruption  水  特殊  110  95  5  
+593  異次元蟲洞  いじげんホール  Hyperspace Hole  超能力  特殊  80  —  5  
+594  水手裏劍  みずしゅりけん  Water Shuriken  水  物理  15  100  20  
+595  魔法火焰  マジカルフレイム  Mystical Fire  炎  特殊  65  100  10  
+596  刺針防禦  ニードルガード  Spiky Shield  草  變化  —  —  10  
+597  芳香薄霧  アロマミスト  Aromatic Mist  妖精  變化  —  100  20  
+598  怪電波  かいでんぱ  Eerie Impulse  電  變化  —  100  15  
+599  毒液陷阱  ベノムトラップ  Venom Drench  毒  變化  —  100  20  
+600  粉塵  ふんじん  Powder  蟲  變化  —  100  20  
+601  大地控制  ジオコントロール  Geomancy  妖精  變化  —  —  10  
+602  磁場操作  じばそうさ  Magnetic Flux  電  變化  —  —  20  
+603  快樂時光  ハッピータイム  Happy Hour  一般  變化  —  —  30  
+604  電氣場地  エレキフィールド  Electric Terrain  電  變化  —  —  10  
+605  魔法照耀  マジカルシャイン  Dazzling Gleam  妖精  特殊  80  100  10  
+606  慶祝  おいわい  Celebrate  一般  變化  —  —  40  
+607  牽手  てをつなぐ  Hold Hands  一般  變化  —  —  40  
+608  圓滑目光  つぶらなひとみ  Baby-Doll Eyes  妖精  變化  —  100  30  
+609  碰碰臉頰  ほっぺすりすり  Nuzzle  電  物理  20  100  20  
+610  手下留情  てかげん  Hold Back  一般  物理  40  100  40  
+611  纏身  まとわりつく  Infestation  蟲  特殊  20  100  35  
+612  增強拳  グロウパンチ  Power-Up Punch  格鬥  物理  40  100  30  
+613  死亡之翼  デスウイング  Oblivion Wing  飛行  特殊  80  100  10  
+614  萬波激震  サウザンウェーブ  Thousand Waves  地上  物理  90  100  10  
+615  萬箭齊發  サウザンアロー  Thousand Arrows  地上  物理  90  100  10  
+616  大地原力  グランドフォース  Land's Wrath  地上  物理  90  100  10  
+617  破滅之光  はめつのひかり  Light of Ruin  妖精  特殊  140  90  5  
+618  根源波動  こんげんのはどう  Origin Pulse  水  特殊  110  85  10  
+619  斷崖之劍  だんがいのつるぎ  Precipice Blades  地上  物理  120  85  10  
+620  畫龍點睛  ガリョウテンセイ  Dragon Ascent  飛行  物理  120  100  5  
+621  異次元衝鋒  いじげんラッシュ  Hyperspace Fury  惡  特殊  100  —  5  

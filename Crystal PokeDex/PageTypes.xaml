@@ -1,0 +1,1570 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Crystal_PokeDex.PageTypes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是放置所有頁面的根資料格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含應用程式的名稱和頁面標題-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="CRYSTAL POKEDEX" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="屬性相剋表" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="50"/>
+        </StackPanel>
+
+        <!--ContentPanel - 其他內容置於此-->
+        <Grid x:Name="ContentPanel" Margin="12,109,12,0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--<Image HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="704" Source="/Assets/PageTypes/Types.png" Stretch="Fill"/>-->
+            <Grid Grid.Row="0" Margin="12,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" Margin="0">
+                    <TextBlock Text="攻方\守方" TextWrapping="Wrap" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="#FFA5A57D">
+                    <TextBlock Foreground="White" Text="一般" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="#FFBE3228">
+                    <TextBlock Foreground="White" Text="格鬥" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="#FFA591F0">
+                    <TextBlock Foreground="White" Text="飛行" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="#FFA041A0">
+                    <TextBlock Foreground="White" Text="毒" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="#FFE1BE69">
+                    <TextBlock Foreground="White" Text="地面" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="#FFBAA037">
+                    <TextBlock Foreground="White" Text="岩石" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="#FFA5B91E">
+                    <TextBlock Foreground="White" Text="蟲" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="#FF6E5A96">
+                    <TextBlock Foreground="White" Text="幽靈" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="#FFB9B9D2">
+                    <TextBlock Foreground="White" Text="鋼" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="#FFF07D32">
+                    <TextBlock Foreground="White" Text="火" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="#FF6991F0">
+                    <TextBlock Foreground="White" Text="水" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="#FF78C850">
+                    <TextBlock Foreground="White" Text="草" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="#FFFAD232">
+                    <TextBlock Foreground="White" Text="電" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="#FFFA5A87">
+                    <TextBlock Foreground="White" Text="超能" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="#FF96E1E1">
+                    <TextBlock Foreground="White" Text="冰" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="#FF6E37FA">
+                    <TextBlock Foreground="White" Text="龍" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="#FF6E5A46">
+                    <TextBlock Foreground="White" Text="惡" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="#FFF0A5E1">
+                    <TextBlock Foreground="White" Text="妖精" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="19" Background="LightGray" Margin="1,1.5,1,2.5" Height="2.5"/>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Orientation="Vertical" Margin="12,0,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFA5A57D">
+                            <TextBlock Foreground="White" Text="一般" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFBE3228">
+                            <TextBlock Foreground="White" Text="格鬥" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFA591F0">
+                            <TextBlock Foreground="White" Text="飛行" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFA041A0">
+                            <TextBlock Foreground="White" Text="毒" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFE1BE69">
+                            <TextBlock Foreground="White" Text="地面" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFBAA037">
+                            <TextBlock Foreground="White" Text="岩石" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFA5B91E">
+                            <TextBlock Foreground="White" Text="蟲" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF6E5A96">
+                            <TextBlock Foreground="White" Text="幽靈" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFB9B9D2">
+                            <TextBlock Foreground="White" Text="鋼" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFF07D32">
+                            <TextBlock Foreground="White" Text="火" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF6991F0">
+                            <TextBlock Foreground="White" Text="水" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF78C850">
+                            <TextBlock Foreground="White" Text="草" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFFAD232">
+                            <TextBlock Foreground="White" Text="電" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFFA5A87">
+                            <TextBlock Foreground="White" Text="超能" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF96E1E1">
+                            <TextBlock Foreground="White" Text="冰" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF6E37FA">
+                            <TextBlock Foreground="White" Text="龍" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="#FF2D2D2D">
+                            <TextBlock Foreground="White" Text="0" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FF6E5A46">
+                            <TextBlock Foreground="White" Text="惡" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="1" Background="#FFF0A5E1">
+                            <TextBlock Foreground="White" Text="妖精" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="4" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="5" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="6" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="7" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="8" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="9" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="10" Margin="1" Background="Red">
+                            <TextBlock Foreground="White" Text="0.5" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="11" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="12" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="13" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="14" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="15" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="16" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="17" Margin="1" Background="Green">
+                            <TextBlock Foreground="White" Text="2" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="18" Margin="1" Background="DarkGray">
+                            <TextBlock Foreground="White" Text="1" TextWrapping="Wrap" FontSize="12.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.5"/>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

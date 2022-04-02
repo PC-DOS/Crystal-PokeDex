@@ -1,0 +1,158 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Crystal_PokeDex.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" 
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot 是放置所有頁面的根資料格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!-- 當地語系化注意事項: 
+            若要將顯示的字串當地語系化，請將其值複製到應用程式的中性語言資源檔
+            (AppResources.resx) 中已適當命名的機碼，然後
+            將屬性的引號之間硬式編碼的文字值取代
+            為其路徑指向該字串名稱的繫結子句。
+
+            例如: 
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            此繫結指向範本中名為 "ApplicationTitle" 的字串資源。
+
+            在 [專案屬性] 索引標籤中加入支援的語言將為
+            每種能承載 UI 字串翻譯值的每一種語言建立一個
+            新的 resx 檔案。這些範例中的繫結將導致在執行時從
+            與應用程式的 CurrentUICulture 相符的 .resx 檔案中
+            取得屬性的值。
+         -->
+
+        <!--Panorama 控制項-->
+        <phone:Panorama Title="神奇寶貝圖鑑" Margin="-1,0,1,0" Background="{StaticResource PhoneBackgroundBrush}">
+
+            <!--Panorama 項目 1-->
+            <phone:PanoramaItem Header="常用">
+                <ScrollViewer Margin="-1,-33,-1,0" >
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid x:Name="rectPokemons" Background="#FF3291E1" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtPokemos" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="神奇寶貝列表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgPokemons" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/PM.png"/>
+                        </Grid>
+                        <Grid x:Name="rectMoves" Background="#FFE1D932" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtMoves" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="技能列表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgMoves" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Moves.png"/>
+                        </Grid>
+                        <Grid x:Name="rectItems" Background="#FFE13A32" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtItems" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="道具列表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgItems" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Items.png"/>
+                        </Grid>
+                        <Button x:Name="Test" Content="Button" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Visibility="Collapsed"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <!--文字會換行的單行清單-->
+            </phone:PanoramaItem>
+
+            <!--Panorama 項目 2-->
+            <phone:PanoramaItem Header="屬性">
+                <!--文字會換行的單行清單-->
+                <ScrollViewer Margin="-1,-33,-1,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid x:Name="rectTypes" Background="#FFE1C932" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtTypes" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="屬性相剋表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgTypes" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/TypesICO.png"/>
+                        </Grid>
+                        <Grid x:Name="rectNatures" Background="#FFC7C7C7" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtNatures" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="性格效果表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgNatures" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Nature.png"/>
+                        </Grid>
+                        <Grid x:Name="rectAbilities" Background="#FFAE00FF" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtAbilities" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="特性表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgAbilities" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Abilities.png"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem Header="額外">
+                <!--文字會換行的單行清單-->
+                <ScrollViewer Margin="-1,-33,-1,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid x:Name="rectCalcBW" Background="#FF32E1C9" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtCalcBW" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="計算器 (BW)" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgCalcBW" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/CalcBW.png"/>
+                        </Grid>
+                        <Grid x:Name="rectCalcXY" Background="#FFE1A932" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtCalcXY" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="計算器 (XY)" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgCalcXY" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/CalcXY.png"/>
+                        </Grid>
+                        <Grid x:Name="rectCalcSM" Background="#FFF50000" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtCalcSM" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="計算器 (SM)" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgCalcSM" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/CalcSM.png"/>
+                        </Grid>
+                        <Grid x:Name="rectSettings" Background="#FF002EFF" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
+                            <TextBlock x:Name="txtSettings" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="設定" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <Image x:Name="imgSettings" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Settings.png"/>
+                        </Grid>
+                        <!--<Grid x:Name="rectNatures" Background="#FFC7C7C7" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374"/>
+                    <TextBlock x:Name="txtNatures" HorizontalAlignment="Left" Height="64" Margin="110,132,0,0" TextWrapping="Wrap" Text="性格效果表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                    <Image x:Name="imgNatures" HorizontalAlignment="Left" Height="92" Margin="17,120,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Nature.png"/>
+                    <Grid x:Name="rectAbilities" Background="#FFAE00FF" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374"/>
+                    <TextBlock x:Name="txtAbilities" HorizontalAlignment="Left" Height="64" Margin="110,236,0,0" TextWrapping="Wrap" Text="特性表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                    <Image x:Name="imgAbilities" HorizontalAlignment="Left" Height="92" Margin="17,224,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Abilities.png"/>-->
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PanoramaItem>
+            <!--Panorama 項目 3-->
+            <phone:PanoramaItem x:Name="pitAbout" Header="關於">
+                <ScrollViewer Margin="-1,-33,-1,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <TextBlock HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="Crystal PokeDex" VerticalAlignment="Top" FontSize="25" Margin="17,0,0,0"/>
+                        <TextBlock HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="PC-DOS Workshop" VerticalAlignment="Top" FontSize="25" Margin="17,0,0,0"/>
+                        <TextBlock HorizontalAlignment="Left" Height="366" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Margin="17,0,0,0">
+                    	<Run Text="幫助您收集和檢視神奇寶貝的資訊。"/>
+                    	<LineBreak/>
+                    	<Run/>
+                    	<LineBreak/>
+                    	<Run Text="感謝以下機構或個人提供的支援: "/>
+                    	<LineBreak/>
+                    	<Run Text="所有參與測試的使用者"/>
+                    	<LineBreak/>
+                    	<Run Text="Bing 網典"/>
+                    	<LineBreak/>
+                    	<Run Text="口袋百科"/>
+                    	<LineBreak/>
+                    	<Run Text="Smogon University &amp; Smogon WP"/>
+                    	<LineBreak/>
+                    	<Run Text="The Pokemon Company "/>
+                    	<LineBreak/>
+                    	<Run Text="Nintendo"/>
+                    	<LineBreak/>
+                    	<Run Text="Creatures Inc."/>
+                    	<LineBreak/>
+                    	<Run Text="Game Freak Inc.   "/>
+                        </TextBlock>
+                        <Button x:Name="btnMore" Content="其他資訊" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="150"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <!--文字會換行的單行清單-->
+            </phone:PanoramaItem>
+        </phone:Panorama>
+
+        <!--取消註解以查看對齊格線，協助確保您的控制項
+            皆對齊共同的邊界。當影像在系統匣中顯示時的
+            上方邊界為 -32px。如果隱藏了系統匣，則將此值設為 0
+            (或完全移除邊界)。
+
+            在送出之前請移除此 XAML 和影像本身。-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" IsHitTestVisible="False" />-->
+
+    </Grid>
+</phone:PhoneApplicationPage>

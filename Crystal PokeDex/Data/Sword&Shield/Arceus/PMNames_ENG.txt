@@ -1,0 +1,7 @@
+.Add("Wyrdeer")
+.Add("Kleavor")
+.Add("Ursaluna")
+.Add("Basculegion")
+.Add("Sneasler")
+.Add("Overqwil")
+.Add("Enamorus")

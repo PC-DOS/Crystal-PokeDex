@@ -1,0 +1,8 @@
+.Add("Kubfu")
+.Add("Urshifu")
+.Add("Zarude")
+.Add("Regieleki")
+.Add("Regidrago")
+.Add("Glastrier")
+.Add("Spectrier")
+.Add("Calyrex")
