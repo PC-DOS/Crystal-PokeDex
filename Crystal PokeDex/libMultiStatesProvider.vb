@@ -43,7 +43,7 @@
                     .lpWeight = "3.8 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "用門牙咬破大門侵入民宅。扯動鬍鬚尋找出食物然後偷走。太陽下山後才活動。為了幫群體的老大拉達尋找好的食物而在街上跑來跑去。"
-                    .lpImagePath = "/MS_PIC/019/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/019/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 30
                         .ATTACK = 56
@@ -67,7 +67,7 @@
                     .lpWeight = "25.5 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "率領小拉達組成團隊。每個團隊各有自己的地盤，會為了爭奪食物而發生爭鬥。對食物的味道和新鮮度非常講究的美食家寶可夢。據說有拉達棲息的餐廳肯定是好餐廳。"
-                    .lpImagePath = "/MS_PIC/020/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/020/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 71
@@ -91,7 +91,7 @@
                     .lpHeight = "0.7 m"
                     .lpWeight = "21.0 kg"
                     .lpUniqueDescription = "只有在阿羅拉地區才會進化成這個樣子。研究者說，其主要原因之一是食物。透過念力操縱電力。乘在尾巴上，利用精神力量浮起來進行移動。"
-                    .lpImagePath = "/MS_PIC/026/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/026/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 85
@@ -115,7 +115,7 @@
                     .lpWeight = "40.0 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "棲息在雪山。鋼鐵的甲殼非常堅固，但因為過於堅硬，身體沒法蜷縮起來。讓穿山鼠在冰上滑行，比賽滑行的距離。這是阿羅拉自古就有的慶典之一。"
-                    .lpImagePath = "/MS_PIC/027/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/027/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 75
@@ -139,7 +139,7 @@
                     .lpWeight = "55.0 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "從火山爆發逃難的最後，在雪山棲息定居下來。會濺起雪花在雪原上奔馳。鋼針被冰覆蓋著。被刺中時不但會造成很深的傷口，同時也會凍傷。"
-                    .lpImagePath = "/MS_PIC/028/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/028/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 100
@@ -163,7 +163,7 @@
                     .lpWeight = "9.9 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "會噴出零下５０度的冷氣。阿羅拉的老人也會用凱歐凱歐這個過去的名字稱呼牠。天氣熱的時候會用６根尾巴製造冰礫再撒向周圍，藉此讓身體冷卻下來。"
-                    .lpImagePath = "/MS_PIC/037/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/037/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 38
                         .ATTACK = 41
@@ -187,7 +187,7 @@
                     .lpHeight = "1.1 m"
                     .lpWeight = "19.9 kg"
                     .lpUniqueDescription = "從體毛中生出冰粒，潑向敵人。如果惹惱牠，一瞬間就會被冰鎮。性格穩重。被人知道是九尾的地區形態之前，一直被尊敬為神的化身。"
-                    .lpImagePath = "/MS_PIC/038/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/038/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 73
                         .ATTACK = 67
@@ -211,7 +211,7 @@
                     .lpWeight = "1.0 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "從頭上長出來的是鬍鬚變化而來的金屬物體。隨著擺動跟夥伴進行交流。金色的鬍子擁有感應器的功能。會從洞裡伸出，查探周圍的狀態。"
-                    .lpImagePath = "/MS_PIC/050/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/050/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 10
                         .ATTACK = 55
@@ -235,7 +235,7 @@
                     .lpWeight = "66.6 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "用金光閃爍的鬍子保護身體。聽說如果把脫落的鬍鬚帶回家，會招來不幸。被認為是大地女神們的化身，在阿羅拉地區非常受重視。"
-                    .lpImagePath = "/MS_PIC/051/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/051/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 35
                         .ATTACK = 100
@@ -259,7 +259,7 @@
                     .lpWeight = "4.2 kg"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "原本不棲息在阿羅拉，是人為引進後在野外繁殖而來的。性格聰明狡猾，自尊心很強。如果被傷到高傲的自尊心，或是額頭上的金幣被弄髒時，就會發狂般情緒失控。"
-                    .lpImagePath = "/MS_PIC/052/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/052/Alola.png"
                     With .lpBaseStatsValues
                         .HP = 40
                         .ATTACK = 35
@@ -281,7 +281,7 @@
                     .lpAbilityHidden = "155"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "圓圓的臉孔，比最高級的天鵝絨還光滑的毛髮，在阿羅拉是非常受歡迎的寶可夢。蔑視自己之外的一切。喜歡採用突襲和夜襲等卑劣無恥的戰法。"
-                    .lpImagePath = "/MS_PIC/053/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/053/Alola.png"
                     .lpHeight = "1.1 m"
                     .lpWeight = "33.0 kg"
                     With .lpBaseStatsValues
@@ -305,7 +305,7 @@
                     .lpAbilityHidden = "206"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "石頭身體帶有磁力。在磁力特別強的部分附著密密麻麻的鐵砂哦。如果踩到在地面睡覺的小拳石，就會發出叮──的響聲，全身會一下子變得麻痺。"
-                    .lpImagePath = "/MS_PIC/074/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/074/Alola.png"
                     .lpHeight = "0.4 m"
                     .lpWeight = "20.3 kg"
                     With .lpBaseStatsValues
@@ -329,7 +329,7 @@
                     .lpAbilityHidden = "206"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "很喜歡吃鎂電氣石，吃下的成分會變為結晶，在身體的一部分上浮現出來。為尋找吃的石頭而打架。隆隆石們每次互相碰撞都會發出爆炸聲和耀眼的光芒。"
-                    .lpImagePath = "/MS_PIC/075/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/075/Alola.png"
                     .lpHeight = "1.0 m"
                     .lpWeight = "110.0 kg"
                     With .lpBaseStatsValues
@@ -353,7 +353,7 @@
                     .lpAbilityHidden = "206"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "發射出帶著電的岩石。即使沒有擊中，只是擦到就能令對手因麻痺而失去意識。因無法連續發射岩石，所以有時候會捕捉附近的小拳石，裝在背上用來發射。"
-                    .lpImagePath = "/MS_PIC/076/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/076/Alola.png"
                     .lpHeight = "1.7 m"
                     .lpWeight = "316.0 kg"
                     With .lpBaseStatsValues
@@ -377,7 +377,7 @@
                     .lpAbilityHidden = "223"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "為了解決垃圾問題從其他地區帶來的臭泥不知不覺就變成了這個樣子。結晶是毒素塊。如果從臭泥的身上落下，就會流出足以致死的毒素。"
-                    .lpImagePath = "/MS_PIC/088/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/088/Alola.png"
                     .lpHeight = "0.7 m"
                     .lpWeight = "42.0 kg"
                     With .lpBaseStatsValues
@@ -401,7 +401,7 @@
                     .lpAbilityHidden = "223"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "極度鮮豔的身體顏色是因為吃下的垃圾不斷在體內引起化學反應。意外地沉穩且友善，但若一直不給牠垃圾吃，牠就會破壞傢具，把傢具當食物吃掉。"
-                    .lpImagePath = "/MS_PIC/089/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/089/Alola.png"
                     .lpHeight = "1.0 m"
                     .lpWeight = "52.0 kg"
                     With .lpBaseStatsValues
@@ -425,7 +425,7 @@
                     .lpAbilityHidden = "139"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "對牠來說，阿羅拉是最棒的環境。當地的人們誇讚說這才是椰蛋樹原本該有的樣子。悠悠地成長，變得不再需要精神力量，沉睡的龍之力也覺醒了。"
-                    .lpImagePath = "/MS_PIC/103/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/103/Alola.png"
                     .lpHeight = "10.9 m"
                     .lpWeight = "415.6 kg"
                     With .lpBaseStatsValues
@@ -449,7 +449,7 @@
                     .lpAbilityHidden = "069"
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "手裡的骨頭是母親的骸骨。死後還思念著孩子的母親帶著遺憾，化為火焰守護著嘎啦嘎啦。有哀悼夥伴的習性。若路邊有隆起的土，那是嘎啦嘎啦的墳墓。"
-                    .lpImagePath = "/MS_PIC/105/Alola.png"
+                    .lpImagePath = "/MultiStatesImages/105/Alola.png"
                     .lpHeight = "1.0 m"
                     .lpWeight = "34.0 kg"
                     With .lpBaseStatsValues
@@ -503,7 +503,7 @@
                         .lpHeight = "0.5 m"
                         .lpWeight = "5.0 kg"
                         .lpType = "[超能]"
-                        .lpImagePath = "/MS_PIC/201/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/201/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 48
                             .ATTACK = 72
@@ -529,7 +529,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.8 kg"
                     .lpType = "[火]"
-                    .lpImagePath = "/MS_PIC/351/1.png"
+                    .lpImagePath = "/MultiStatesImages/351/1.png"
                     With .lpBaseStatsValues
                         .HP = 70
                         .ATTACK = 70
@@ -548,7 +548,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.8 kg"
                     .lpType = "[水]"
-                    .lpImagePath = "/MS_PIC/351/2.png"
+                    .lpImagePath = "/MultiStatesImages/351/2.png"
                     With .lpBaseStatsValues
                         .HP = 70
                         .ATTACK = 70
@@ -567,7 +567,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.8 kg"
                     .lpType = "[冰]"
-                    .lpImagePath = "/MS_PIC/351/2.png"
+                    .lpImagePath = "/MultiStatesImages/351/2.png"
                     With .lpBaseStatsValues
                         .HP = 70
                         .ATTACK = 70
@@ -593,7 +593,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "60.8 kg"
                     .lpType = "[超能]"
-                    .lpImagePath = "/MS_PIC/386/1.png"
+                    .lpImagePath = "/MultiStatesImages/386/1.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 150
@@ -612,7 +612,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "60.8 kg"
                     .lpType = "[超能]"
-                    .lpImagePath = "/MS_PIC/386/2.png"
+                    .lpImagePath = "/MultiStatesImages/386/2.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 180
@@ -631,7 +631,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "60.8 kg"
                     .lpType = "[超能]"
-                    .lpImagePath = "/MS_PIC/386/3.png"
+                    .lpImagePath = "/MultiStatesImages/386/3.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 70
@@ -650,7 +650,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "60.8 kg"
                     .lpType = "[超能]"
-                    .lpImagePath = "/MS_PIC/386/4.png"
+                    .lpImagePath = "/MultiStatesImages/386/4.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 95
@@ -676,7 +676,7 @@
                         .lpHeight = "0.2 m"
                         .lpWeight = "3.4 kg"
                         .lpType = "[蟲]"
-                        .lpImagePath = "/MS_PIC/412/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/412/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 40
                             .ATTACK = 29
@@ -702,7 +702,7 @@
                     .lpHeight = "0.5 m"
                     .lpWeight = "6.5 kg"
                     .lpType = "[蟲]+[草]"
-                    .lpImagePath = "/MS_PIC/413/1.png"
+                    .lpImagePath = "/MultiStatesImages/413/1.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 59
@@ -721,7 +721,7 @@
                     .lpHeight = "0.5 m"
                     .lpWeight = "6.5 kg"
                     .lpType = "[蟲]+[地面]"
-                    .lpImagePath = "/MS_PIC/413/2.png"
+                    .lpImagePath = "/MultiStatesImages/413/2.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 79
@@ -740,7 +740,7 @@
                     .lpHeight = "0.5 m"
                     .lpWeight = "6.5 kg"
                     .lpType = "[蟲]+[鋼]"
-                    .lpImagePath = "/MS_PIC/413/3.png"
+                    .lpImagePath = "/MultiStatesImages/413/3.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 69
@@ -761,7 +761,7 @@
                         .lpHeight = "0.5 m"
                         .lpWeight = "9.3 kg"
                         .lpType = "[草]"
-                        .lpImagePath = "/MS_PIC/421/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/421/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 70
                             .ATTACK = 60
@@ -787,7 +787,7 @@
                         .lpHeight = "0.3 m"
                         .lpWeight = "6.3 kg"
                         .lpType = "[水]"
-                        .lpImagePath = "/MS_PIC/422/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/422/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 76
                             .ATTACK = 48
@@ -813,7 +813,7 @@
                         .lpHeight = "0.9 m"
                         .lpWeight = "29.9 kg"
                         .lpType = "[水]+[地面]"
-                        .lpImagePath = "/MS_PIC/423/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/423/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 111
                             .ATTACK = 83
@@ -841,7 +841,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[電]+[火]"
-                    .lpImagePath = "/MS_PIC/479/1.png"
+                    .lpImagePath = "/MultiStatesImages/479/1.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 65
@@ -860,7 +860,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[電]+[水]"
-                    .lpImagePath = "/MS_PIC/479/2.png"
+                    .lpImagePath = "/MultiStatesImages/479/2.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 65
@@ -879,7 +879,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[電]+[冰]"
-                    .lpImagePath = "/MS_PIC/479/3.png"
+                    .lpImagePath = "/MultiStatesImages/479/3.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 65
@@ -898,7 +898,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[電]+[飛行]"
-                    .lpImagePath = "/MS_PIC/479/4.png"
+                    .lpImagePath = "/MultiStatesImages/479/4.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 65
@@ -917,7 +917,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[電]+[草]"
-                    .lpImagePath = "/MS_PIC/479/5.png"
+                    .lpImagePath = "/MultiStatesImages/479/5.png"
                     With .lpBaseStatsValues
                         .HP = 50
                         .ATTACK = 65
@@ -941,7 +941,7 @@
                     .lpHeight = "4.5 m"
                     .lpWeight = "750.0 kg"
                     .lpType = "[幽靈]+[龍]"
-                    .lpImagePath = "/MS_PIC/487/1.png"
+                    .lpImagePath = "/MultiStatesImages/487/1.png"
                     With .lpBaseStatsValues
                         .HP = 150
                         .ATTACK = 100
@@ -960,7 +960,7 @@
                     .lpHeight = "6.9 m"
                     .lpWeight = "650.0 kg"
                     .lpType = "[幽靈]+[龍]"
-                    .lpImagePath = "/MS_PIC/487/2.png"
+                    .lpImagePath = "/MultiStatesImages/487/2.png"
                     With .lpBaseStatsValues
                         .HP = 150
                         .ATTACK = 120
@@ -984,7 +984,7 @@
                     .lpHeight = "0.2 m"
                     .lpWeight = "2.1 kg"
                     .lpType = "[草]"
-                    .lpImagePath = "/MS_PIC/492/1.png"
+                    .lpImagePath = "/MultiStatesImages/492/1.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 100
@@ -1003,7 +1003,7 @@
                     .lpHeight = "0.4 m"
                     .lpWeight = "5.2 kg"
                     .lpType = "[草]+[飛行]"
-                    .lpImagePath = "/MS_PIC/492/2.png"
+                    .lpImagePath = "/MultiStatesImages/492/2.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 103
@@ -1024,7 +1024,7 @@
                         .lpHeight = "3.2 m"
                         .lpWeight = "320.0 kg"
                         .lpType = "[" & PokemonTypes(UniversalLoopCounter) & "]"
-                        .lpImagePath = "/MS_PIC/493/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/493/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 120
                             .ATTACK = 120
@@ -1055,7 +1055,7 @@
                     .lpHeight = "1.0 m"
                     .lpWeight = "18.0 kg"
                     .lpType = "[水]"
-                    .lpImagePath = "/MS_PIC/550/1.png"
+                    .lpImagePath = "/MultiStatesImages/550/1.png"
                     With .lpBaseStatsValues
                         .HP = 70
                         .ATTACK = 92
@@ -1074,7 +1074,7 @@
                     .lpHeight = "1.0 m"
                     .lpWeight = "18.0 kg"
                     .lpType = "[水]"
-                    .lpImagePath = "/MS_PIC/550/2.png"
+                    .lpImagePath = "/MultiStatesImages/550/2.png"
                     With .lpBaseStatsValues
                         .HP = 70
                         .ATTACK = 92
@@ -1098,7 +1098,7 @@
                     .lpHeight = "1.3 m"
                     .lpWeight = "92.9 kg"
                     .lpType = "[火]"
-                    .lpImagePath = "/MS_PIC/555/1.png"
+                    .lpImagePath = "/MultiStatesImages/555/1.png"
                     With .lpBaseStatsValues
                         .HP = 105
                         .ATTACK = 140
@@ -1117,7 +1117,7 @@
                     .lpHeight = "1.3 m"
                     .lpWeight = "92.9 kg"
                     .lpType = "[火]+[超能]"
-                    .lpImagePath = "/MS_PIC/555/2.png"
+                    .lpImagePath = "/MultiStatesImages/555/2.png"
                     With .lpBaseStatsValues
                         .HP = 105
                         .ATTACK = 30
@@ -1144,7 +1144,7 @@
                         .lpHeight = "0.6 m"
                         .lpWeight = "19.5 kg"
                         .lpType = "[草]+[一般]"
-                        .lpImagePath = "/MS_PIC/585/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/585/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 60
                             .ATTACK = 60
@@ -1172,7 +1172,7 @@
                         .lpHeight = "1.9 m"
                         .lpWeight = "92.5 kg"
                         .lpType = "[草]+[一般]"
-                        .lpImagePath = "/MS_PIC/586/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/586/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 80
                             .ATTACK = 100
@@ -1197,7 +1197,7 @@
                     .lpHeight = "1.5 m"
                     .lpWeight = "63.0 kg"
                     .lpType = "[飛行]"
-                    .lpImagePath = "/MS_PIC/641/1.png"
+                    .lpImagePath = "/MultiStatesImages/641/1.png"
                     With .lpBaseStatsValues
                         .HP = 79
                         .ATTACK = 115
@@ -1216,7 +1216,7 @@
                     .lpHeight = "1.4 m"
                     .lpWeight = "63.0 kg"
                     .lpType = "[飛行]"
-                    .lpImagePath = "/MS_PIC/641/2.png"
+                    .lpImagePath = "/MultiStatesImages/641/2.png"
                     With .lpBaseStatsValues
                         .HP = 79
                         .ATTACK = 100
@@ -1240,7 +1240,7 @@
                     .lpHeight = "1.5 m"
                     .lpWeight = "61.0 kg"
                     .lpType = "[電]+[飛行]"
-                    .lpImagePath = "/MS_PIC/642/1.png"
+                    .lpImagePath = "/MultiStatesImages/642/1.png"
                     With .lpBaseStatsValues
                         .HP = 79
                         .ATTACK = 115
@@ -1259,7 +1259,7 @@
                     .lpHeight = "3.0 m"
                     .lpWeight = "61.0 kg"
                     .lpType = "[電]+[飛行]"
-                    .lpImagePath = "/MS_PIC/642/2.png"
+                    .lpImagePath = "/MultiStatesImages/642/2.png"
                     With .lpBaseStatsValues
                         .HP = 79
                         .ATTACK = 105
@@ -1279,7 +1279,7 @@
                     .lpHeight = "3.2 m"
                     .lpWeight = "330.0 kg"
                     .lpType = "[龍]+[火]"
-                    .lpImagePath = "/MS_PIC/643/1.png"
+                    .lpImagePath = "/MultiStatesImages/643/1.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 120
@@ -1299,7 +1299,7 @@
                     .lpHeight = "2.9 m"
                     .lpWeight = "345.0 kg"
                     .lpType = "[龍]+[電]"
-                    .lpImagePath = "/MS_PIC/644/1.png"
+                    .lpImagePath = "/MultiStatesImages/644/1.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 150
@@ -1323,7 +1323,7 @@
                     .lpHeight = "1.5 m"
                     .lpWeight = "68.0 kg"
                     .lpType = "[地面]+[飛行]"
-                    .lpImagePath = "/MS_PIC/645/1.png"
+                    .lpImagePath = "/MultiStatesImages/645/1.png"
                     With .lpBaseStatsValues
                         .HP = 89
                         .ATTACK = 125
@@ -1342,7 +1342,7 @@
                     .lpHeight = "1.3 m"
                     .lpWeight = "68.0 kg"
                     .lpType = "[地面]+[飛行]"
-                    .lpImagePath = "/MS_PIC/645/2.png"
+                    .lpImagePath = "/MultiStatesImages/645/2.png"
                     With .lpBaseStatsValues
                         .HP = 89
                         .ATTACK = 145
@@ -1366,7 +1366,7 @@
                     .lpHeight = "3.6 m"
                     .lpWeight = "325.0 kg"
                     .lpType = "[龍]+[冰]"
-                    .lpImagePath = "/MS_PIC/646/1.png"
+                    .lpImagePath = "/MultiStatesImages/646/1.png"
                     With .lpBaseStatsValues
                         .HP = 125
                         .ATTACK = 120
@@ -1385,7 +1385,7 @@
                     .lpHeight = "3.6 m"
                     .lpWeight = "325.0 kg"
                     .lpType = "[龍]+[冰]"
-                    .lpImagePath = "/MS_PIC/646/2.png"
+                    .lpImagePath = "/MultiStatesImages/646/2.png"
                     With .lpBaseStatsValues
                         .HP = 125
                         .ATTACK = 120
@@ -1404,7 +1404,7 @@
                     .lpHeight = "3.3 m"
                     .lpWeight = "325.0 kg"
                     .lpType = "[龍]+[冰]"
-                    .lpImagePath = "/MS_PIC/646/3.png"
+                    .lpImagePath = "/MultiStatesImages/646/3.png"
                     With .lpBaseStatsValues
                         .HP = 125
                         .ATTACK = 170
@@ -1423,7 +1423,7 @@
                     .lpHeight = "3.3 m"
                     .lpWeight = "325.0 kg"
                     .lpType = "[龍]+[冰]"
-                    .lpImagePath = "/MS_PIC/646/4.png"
+                    .lpImagePath = "/MultiStatesImages/646/4.png"
                     With .lpBaseStatsValues
                         .HP = 125
                         .ATTACK = 170
@@ -1447,7 +1447,7 @@
                     .lpHeight = "1.4 m"
                     .lpWeight = "48.5 kg"
                     .lpType = "[水]+[格鬥]"
-                    .lpImagePath = "/MS_PIC/647/1.png"
+                    .lpImagePath = "/MultiStatesImages/647/1.png"
                     With .lpBaseStatsValues
                         .HP = 91
                         .ATTACK = 72
@@ -1466,7 +1466,7 @@
                     .lpHeight = "1.4 m"
                     .lpWeight = "48.5 kg"
                     .lpType = "[水]+[格鬥]"
-                    .lpImagePath = "/MS_PIC/647/2.png"
+                    .lpImagePath = "/MultiStatesImages/647/2.png"
                     With .lpBaseStatsValues
                         .HP = 91
                         .ATTACK = 72
@@ -1490,7 +1490,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "6.5 kg"
                     .lpType = "[一般]+[超能]"
-                    .lpImagePath = "/MS_PIC/648/1.png"
+                    .lpImagePath = "/MultiStatesImages/648/1.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 77
@@ -1509,7 +1509,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "6.5 kg"
                     .lpType = "[一般]+[格鬥]"
-                    .lpImagePath = "/MS_PIC/648/2.png"
+                    .lpImagePath = "/MultiStatesImages/648/2.png"
                     With .lpBaseStatsValues
                         .HP = 100
                         .ATTACK = 128
@@ -1536,7 +1536,7 @@
                         .lpHeight = "1.5 m"
                         .lpWeight = "82.5 kg"
                         .lpType = "[蟲]+[鋼]"
-                        .lpImagePath = "/MS_PIC/649/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/649/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 71
                             .ATTACK = 120
@@ -1557,7 +1557,7 @@
                     .lpHeight = "1.5 m"
                     .lpWeight = "40.0 kg"
                     .lpType = "[水]+[惡]"
-                    .lpImagePath = "/MS_PIC/658/1.png"
+                    .lpImagePath = "/MultiStatesImages/658/1.png"
                     With .lpBaseStatsValues
                         .HP = 72
                         .ATTACK = 95
@@ -1600,7 +1600,7 @@
                         .lpHeight = "1.2 m"
                         .lpWeight = "17.0 kg"
                         .lpType = "[蟲]+[飛行]"
-                        .lpImagePath = "/MS_PIC/666/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/666/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 80
                             .ATTACK = 52
@@ -1629,7 +1629,7 @@
                         .lpHeight = "0.1 m"
                         .lpWeight = "0.1 kg"
                         .lpType = "[妖精]"
-                        .lpImagePath = "/MS_PIC/669/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/669/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 44
                             .ATTACK = 38
@@ -1659,7 +1659,7 @@
                         .lpHeight = "0.2 m"
                         .lpWeight = "0.9 kg"
                         .lpType = "[妖精]"
-                        .lpImagePath = "/MS_PIC/670/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/670/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 54
                             .ATTACK = 45
@@ -1679,7 +1679,7 @@
                     .lpHeight = "0.2 m"
                     .lpWeight = "0.9 kg"
                     .lpType = "[妖精]"
-                    .lpImagePath = "/MS_PIC/670/6.png"
+                    .lpImagePath = "/MultiStatesImages/670/6.png"
                     With .lpBaseStatsValues
                         .HP = 74
                         .ATTACK = 65
@@ -1707,7 +1707,7 @@
                         .lpHeight = "1.1 m"
                         .lpWeight = "10.0 kg"
                         .lpType = "[妖精]"
-                        .lpImagePath = "/MS_PIC/671/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/671/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 78
                             .ATTACK = 65
@@ -1740,7 +1740,7 @@
                         .lpHeight = "1.2 m"
                         .lpWeight = "28.0 kg"
                         .lpType = "[一般]"
-                        .lpImagePath = "/MS_PIC/676/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/676/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 75
                             .ATTACK = 80
@@ -1765,7 +1765,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "53.0 kg"
                     .lpType = "[鋼]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/681/1.png"
+                    .lpImagePath = "/MultiStatesImages/681/1.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 150
@@ -1784,7 +1784,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "53.0 kg"
                     .lpType = "[鋼]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/681/2.png"
+                    .lpImagePath = "/MultiStatesImages/681/2.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 50
@@ -1809,7 +1809,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "3.5 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/710/1.png"
+                    .lpImagePath = "/MultiStatesImages/710/1.png"
                     With .lpBaseStatsValues
                         .HP = 44
                         .ATTACK = 66
@@ -1828,7 +1828,7 @@
                     .lpHeight = "0.4 m"
                     .lpWeight = "5.0 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/710/2.png"
+                    .lpImagePath = "/MultiStatesImages/710/2.png"
                     With .lpBaseStatsValues
                         .HP = 49
                         .ATTACK = 66
@@ -1847,7 +1847,7 @@
                     .lpHeight = "0.5 m"
                     .lpWeight = "7.5 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/710/3.png"
+                    .lpImagePath = "/MultiStatesImages/710/3.png"
                     With .lpBaseStatsValues
                         .HP = 54
                         .ATTACK = 66
@@ -1866,7 +1866,7 @@
                     .lpHeight = "0.8 m"
                     .lpWeight = "15.0 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/710/4.png"
+                    .lpImagePath = "/MultiStatesImages/710/4.png"
                     With .lpBaseStatsValues
                         .HP = 59
                         .ATTACK = 66
@@ -1892,7 +1892,7 @@
                     .lpHeight = "0.7 m"
                     .lpWeight = "9.5 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/711/1.png"
+                    .lpImagePath = "/MultiStatesImages/711/1.png"
                     With .lpBaseStatsValues
                         .HP = 55
                         .ATTACK = 85
@@ -1911,7 +1911,7 @@
                     .lpHeight = "0.9 m"
                     .lpWeight = "12.5 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/711/2.png"
+                    .lpImagePath = "/MultiStatesImages/711/2.png"
                     With .lpBaseStatsValues
                         .HP = 65
                         .ATTACK = 90
@@ -1930,7 +1930,7 @@
                     .lpHeight = "1.1 m"
                     .lpWeight = "14.0 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/711/3.png"
+                    .lpImagePath = "/MultiStatesImages/711/3.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 95
@@ -1949,7 +1949,7 @@
                     .lpHeight = "1.7 m"
                     .lpWeight = "39.0 kg"
                     .lpType = "[草]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/711/4.png"
+                    .lpImagePath = "/MultiStatesImages/711/4.png"
                     With .lpBaseStatsValues
                         .HP = 85
                         .ATTACK = 100
@@ -1974,7 +1974,7 @@
                         .lpHeight = "3.0 m"
                         .lpWeight = "215.0 kg"
                         .lpType = "[妖精]"
-                        .lpImagePath = "/MS_PIC/716/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/716/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 126
                             .ATTACK = 131
@@ -1996,7 +1996,7 @@
                     .lpHeight = "<缺數據>"
                     .lpWeight = "<缺數據>"
                     .lpType = "[龍]+[地面]"
-                    .lpImagePath = "/MS_PIC/718/1.png"
+                    .lpImagePath = "/MultiStatesImages/718/1.png"
                     With .lpBaseStatsValues
                         .HP = 0
                         .ATTACK = 0
@@ -2016,7 +2016,7 @@
                     .lpHeight = "<缺數據>"
                     .lpWeight = "<缺數據>"
                     .lpType = "[龍]+[地面]"
-                    .lpImagePath = "/MS_PIC/718/2.png"
+                    .lpImagePath = "/MultiStatesImages/718/2.png"
                     With .lpBaseStatsValues
                         .HP = 0
                         .ATTACK = 0
@@ -2036,7 +2036,7 @@
                     .lpHeight = "1.2 m"
                     .lpWeight = "33.5 kg"
                     .lpType = "[龍]+[地面]"
-                    .lpImagePath = "/MS_PIC/718/3.png"
+                    .lpImagePath = "/MultiStatesImages/718/3.png"
                     With .lpBaseStatsValues
                         .HP = 54
                         .ATTACK = 100
@@ -2056,7 +2056,7 @@
                     .lpHeight = "5.0 m"
                     .lpWeight = "305.0 kg"
                     .lpType = "[龍]+[地面]"
-                    .lpImagePath = "/MS_PIC/718/4.png"
+                    .lpImagePath = "/MultiStatesImages/718/4.png"
                     With .lpBaseStatsValues
                         .HP = 108
                         .ATTACK = 100
@@ -2076,7 +2076,7 @@
                     .lpHeight = "4.5 m"
                     .lpWeight = "610.0 kg"
                     .lpType = "[龍]+[地面]"
-                    .lpImagePath = "/MS_PIC/718/5.png"
+                    .lpImagePath = "/MultiStatesImages/718/5.png"
                     With .lpBaseStatsValues
                         .HP = 216
                         .ATTACK = 100
@@ -2100,7 +2100,7 @@
                     .lpHeight = "0.5 m"
                     .lpWeight = "9.0 kg"
                     .lpType = "[超能]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/720/1.png"
+                    .lpImagePath = "/MultiStatesImages/720/1.png"
                     With .lpBaseStatsValues
                         .HP = 80
                         .ATTACK = 110
@@ -2119,7 +2119,7 @@
                     .lpHeight = "6.5 m"
                     .lpWeight = "490.0 kg"
                     .lpType = "[超能]+[惡]"
-                    .lpImagePath = "/MS_PIC/720/2.png"
+                    .lpImagePath = "/MultiStatesImages/720/2.png"
                     With .lpBaseStatsValues
                         .HP = 80
                         .ATTACK = 160
@@ -2146,7 +2146,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "3.4 kg"
                     .lpType = "[火]+[飛行]"
-                    .lpImagePath = "/MS_PIC/741/1.png"
+                    .lpImagePath = "/MultiStatesImages/741/1.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 70
@@ -2166,7 +2166,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "3.4 kg"
                     .lpType = "[電]+[飛行]"
-                    .lpImagePath = "/MS_PIC/741/2.png"
+                    .lpImagePath = "/MultiStatesImages/741/2.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 70
@@ -2186,7 +2186,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "3.4 kg"
                     .lpType = "[超能]+[飛行]"
-                    .lpImagePath = "/MS_PIC/741/3.png"
+                    .lpImagePath = "/MultiStatesImages/741/3.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 70
@@ -2206,7 +2206,7 @@
                     .lpHeight = "0.6 m"
                     .lpWeight = "3.4 kg"
                     .lpType = "[幽靈]+[飛行]"
-                    .lpImagePath = "/MS_PIC/741/4.png"
+                    .lpImagePath = "/MultiStatesImages/741/4.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 70
@@ -2231,7 +2231,7 @@
                     .lpHeight = "0.8 m"
                     .lpWeight = "25.0 kg"
                     .lpType = "[岩石]"
-                    .lpImagePath = "/MS_PIC/745/1.png"
+                    .lpImagePath = "/MultiStatesImages/745/1.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 115
@@ -2251,7 +2251,7 @@
                     .lpHeight = "1.1 m"
                     .lpWeight = "25.0 kg"
                     .lpType = "[岩石]"
-                    .lpImagePath = "/MS_PIC/745/2.png"
+                    .lpImagePath = "/MultiStatesImages/745/2.png"
                     With .lpBaseStatsValues
                         .HP = 85
                         .ATTACK = 115
@@ -2271,7 +2271,7 @@
                     .lpHeight = "0.8 m"
                     .lpWeight = "25.0 kg"
                     .lpType = "[岩石]"
-                    .lpImagePath = "/MS_PIC/745/3.png"
+                    .lpImagePath = "/MultiStatesImages/745/3.png"
                     With .lpBaseStatsValues
                         .HP = 75
                         .ATTACK = 117
@@ -2296,7 +2296,7 @@
                     .lpHeight = "0.2 m"
                     .lpWeight = "0.3 kg"
                     .lpType = "[水]"
-                    .lpImagePath = "/MS_PIC/746/1.png"
+                    .lpImagePath = "/MultiStatesImages/746/1.png"
                     With .lpBaseStatsValues
                         .HP = 45
                         .ATTACK = 20
@@ -2316,7 +2316,7 @@
                     .lpHeight = "8.2 m"
                     .lpWeight = "78.6 kg"
                     .lpType = "[水]"
-                    .lpImagePath = "/MS_PIC/746/2.png"
+                    .lpImagePath = "/MultiStatesImages/746/2.png"
                     With .lpBaseStatsValues
                         .HP = 45
                         .ATTACK = 140
@@ -2337,7 +2337,7 @@
                         .lpHeight = "2.3 m"
                         .lpWeight = "100.5 kg"
                         .lpType = "[" & PokemonTypes(UniversalLoopCounter) & "]"
-                        .lpImagePath = "/MS_PIC/773/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/773/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 95
                             .ATTACK = 95
@@ -2369,7 +2369,7 @@
                     .lpHeight = "0.3 m"
                     .lpWeight = "40.0 kg"
                     .lpType = "[岩石]+[飛行]"
-                    .lpImagePath = "/MS_PIC/774/1.png"
+                    .lpImagePath = "/MultiStatesImages/774/1.png"
                     With .lpBaseStatsValues
                         .HP = 60
                         .ATTACK = 60
@@ -2390,7 +2390,7 @@
                         .lpHeight = "0.3 m"
                         .lpWeight = "0.3 kg"
                         .lpType = "[岩石]+[飛行]"
-                        .lpImagePath = "/MS_PIC/774/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/774/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 60
                             .ATTACK = 100
@@ -2416,7 +2416,7 @@
                     .lpHeight = "0.2 m"
                     .lpWeight = "0.7 kg"
                     .lpType = "[幽靈]+[妖精]"
-                    .lpImagePath = "/MS_PIC/778/1.png"
+                    .lpImagePath = "/MultiStatesImages/778/1.png"
                     With .lpBaseStatsValues
                         .HP = 55
                         .ATTACK = 90
@@ -2436,7 +2436,7 @@
                     .lpHeight = "0.2 m"
                     .lpWeight = "0.7 kg"
                     .lpType = "[幽靈]+[妖精]"
-                    .lpImagePath = "/MS_PIC/778/2.png"
+                    .lpImagePath = "/MultiStatesImages/778/2.png"
                     With .lpBaseStatsValues
                         .HP = 55
                         .ATTACK = 90
@@ -2457,7 +2457,7 @@
                         .lpHeight = "3.4 m"
                         .lpWeight = "230.0 kg"
                         .lpType = "[超能]+[鋼]"
-                        .lpImagePath = "/MS_PIC/791/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/791/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 137
                             .ATTACK = 137
@@ -2479,7 +2479,7 @@
                         .lpHeight = "4.0 m"
                         .lpWeight = "120.0 kg"
                         .lpType = "[超能]+[幽靈]"
-                        .lpImagePath = "/MS_PIC/792/" & (UniversalLoopCounter + 1).ToString & ".png"
+                        .lpImagePath = "/MultiStatesImages/792/" & (UniversalLoopCounter + 1).ToString & ".png"
                         With .lpBaseStatsValues
                             .HP = 137
                             .ATTACK = 113
@@ -2505,7 +2505,7 @@
                     .lpHeight = "2.4 m"
                     .lpWeight = "230.0 kg"
                     .lpType = "[超能]"
-                    .lpImagePath = "/MS_PIC/800/1.png"
+                    .lpImagePath = "/MultiStatesImages/800/1.png"
                     With .lpBaseStatsValues
                         .HP = 97
                         .ATTACK = 107
@@ -2525,7 +2525,7 @@
                     .lpHeight = "3.8 m"
                     .lpWeight = "460.0 kg"
                     .lpType = "[超能]+[鋼]"
-                    .lpImagePath = "/MS_PIC/800/2.png"
+                    .lpImagePath = "/MultiStatesImages/800/2.png"
                     With .lpBaseStatsValues
                         .HP = 97
                         .ATTACK = 157
@@ -2545,7 +2545,7 @@
                     .lpHeight = "4.2 m"
                     .lpWeight = "350.0 kg"
                     .lpType = "[超能]+[幽靈]"
-                    .lpImagePath = "/MS_PIC/800/3.png"
+                    .lpImagePath = "/MultiStatesImages/800/3.png"
                     With .lpBaseStatsValues
                         .HP = 97
                         .ATTACK = 113
@@ -2565,7 +2565,7 @@
                     .lpHeight = "2.4 m"
                     .lpWeight = "230.0 kg"
                     .lpType = "[超能]+[龍]"
-                    .lpImagePath = "/MS_PIC/800/4.png"
+                    .lpImagePath = "/MultiStatesImages/800/4.png"
                     With .lpBaseStatsValues
                         .HP = 97
                         .ATTACK = 167

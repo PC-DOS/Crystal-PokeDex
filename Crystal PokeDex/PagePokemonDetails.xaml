@@ -428,6 +428,7 @@
                             <Button x:Name="btnXY" Content="第 6 世代 (X 版、Y 版)" Height="75" FontSize="15"/>
                             <Button x:Name="btnSM" Content="第 7 世代 (太陽版、月亮版)" Height="75" FontSize="15"/>
                             <Button x:Name="btnSS" Content="第 8 世代 (劍版、盾版)" Height="75" FontSize="15"/>
+                            <Button x:Name="btnSV" Content="第 9 世代 (朱版、紫版)" Height="75" FontSize="15"/>
                         </StackPanel>
                     </ScrollViewer>
                     <Grid x:Name="GridCon_Moves" HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="456" Background="{StaticResource PhoneBackgroundBrush}" Margin="0,0,0,-62" Visibility="Collapsed" >

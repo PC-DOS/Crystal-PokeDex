@@ -1,6 +1,6 @@
 ﻿Module libPokemon
     Public Const POKEMON_NO_IMAGE = "/Assets/PagePokemonDetails/NoImage.png"
-    Public Const CurrentPokemonCount = 905
+    Public Const CurrentPokemonCount = 1008
     Public Structure PokemonBaseStatsValues
         Dim HP As Integer
         Dim ATTACK As Integer
@@ -10,33 +10,9 @@
         Dim SPEED As Integer
         Dim TOTAL As Integer
     End Structure
-    Public Structure PokemonMegaInfo
-        Dim lpType As String
-        Dim lpAbility1 As String
-        Dim lpAbility2 As String
-        Dim lpAbilityHidden As String
-        Dim lpBaseStatsValues As PokemonBaseStatsValues
-    End Structure
-    Public Structure PokemonOriginalInfo
-        Dim lpType As String
-        Dim lpAbility1 As String
-        Dim lpAbility2 As String
-        Dim lpAbilityHidden As String
-        Dim lpBaseStatsValues As PokemonBaseStatsValues
-    End Structure
-    Public Structure PokemonMegaORASInfo
-        Dim lpType As String
-        Dim lpAbility1 As String
-        Dim lpAbility2 As String
-        Dim lpAbilityHidden As String
-        Dim lpBaseStatsValues As PokemonBaseStatsValues
-    End Structure
     Public Structure PokemonInfo
         Dim lpTitle As String
         Dim IsMissingNo As Boolean '缺號,設置錯誤,默認為False
-        Dim IsMegaAvailable As Boolean  '存在Mega進化,默認為False
-        Dim IsOriginalAvailable As Boolean '存在原始型態,默認為False
-        Dim IsMegaORASAvailable As Boolean '存在ORAS中的Mega進化,默認為False
         Dim lpNameCHT As String '繁体中文名字
         Dim lpNameCHS As String '简体中文名字
         Dim lpNameCHTO As String '官方繁體中文名字
@@ -71,38 +47,16 @@
         Dim lpBaseValues As PokemonBaseStatsValues '種族值
         Dim lpImageMaleUri As String '雄性圖像的URI
         Dim lpImageFemaleUri As String '雌性圖像的URI
-        Dim lpImageMegaXUri As String 'X中Mega進化圖像的URI
-        Dim lpImageMegaYUri As String 'Y中Mega進化圖像的URI
-        Dim lpImageMegaORASUri As String 'ORAS中Mega進化圖像的URI
-        Dim lpImageOriginalUri As String '原始型態圖像的URI
         Dim lpExtraInfoURI As String '擴展信息網頁URI
         Dim lpMultiStatesURI As String '多型態數據URI
-        Dim lpMegaXInfo As PokemonMegaInfo
-        Dim lpMegaYInfo As PokemonMegaInfo
-        Dim lpOriginalInfo As PokemonOriginalInfo
-        Dim lpMegaORASInfo As PokemonMegaORASInfo
     End Structure
     Public PokemonInformationShared As New PokemonInfo
     Public Function GenerateEmptyPokemonInfo() As PokemonInfo
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsMegaAvailable = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsMegaAvailable = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         With lpReturnValue
             .IsMissingNo = True
         End With
@@ -167,38 +121,6 @@
                     .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                 End With
             End With
-            .lpMegaYInfo = .lpMegaXInfo
-            With StateInformation(0)
-                .lpAbility1 = "ERROR"
-                .lpAbility2 = "ERROR"
-                .lpAbilityHidden = "ERROR"
-                .lpType = "[ERROR]"
-                .IsUniqueDescriptionAvailable = False
-                With .lpBaseStatsValues
-                    .HP = 255
-                    .ATTACK = 255
-                    .DEFEND = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                End With
-            End With
-            With .lpOriginalInfo
-                .lpAbility1 = "ERROR"
-                .lpAbility2 = "ERROR"
-                .lpAbilityHidden = "ERROR"
-                .lpType = "[ERROR]"
-                With .lpBaseStatsValues
-                    .HP = 255
-                    .ATTACK = 255
-                    .DEFEND = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                End With
-            End With
         End With
         Return lpReturnValue
     End Function
@@ -217,6 +139,8 @@
             Return GetPokemonInformationSM(lpPokemonNationalDexNumber)
         ElseIf lpPokemonNationalDexNumber > 809 And lpPokemonNationalDexNumber <= 905 Then
             Return GetPokemonInformationSS(lpPokemonNationalDexNumber)
+        ElseIf lpPokemonNationalDexNumber > 905 And lpPokemonNationalDexNumber <= 1008 Then
+            Return GetPokemonInformationSV(lpPokemonNationalDexNumber)
         Else
             Return GenerateEmptyPokemonInfo()
         End If
@@ -225,13 +149,6 @@
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsMegaAvailable = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             With lpReturnValue
                 .IsMissingNo = True
@@ -287,38 +204,6 @@
                     .lpAbilityHidden = "ERROR"
                     .lpType = "[ERROR]"
                     .IsUniqueDescriptionAvailable = False
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                .lpMegaYInfo = .lpMegaXInfo
-                With StateInformation(0)
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    .IsUniqueDescriptionAvailable = False
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                With .lpOriginalInfo
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
                     With .lpBaseStatsValues
                         .HP = 255
                         .ATTACK = 255
@@ -466,7 +351,6 @@
                     .lpImageFemaleUri = "/Pokemons/003.png"
                     StateInformation(0).lpImagePath = "/Pokemons/003.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/003.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 47
@@ -620,7 +504,6 @@
                     .lpImageFemaleUri = "/Pokemons/006.png"
                     StateInformation(0).lpImagePath = "/Pokemons/006.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/006.02.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 181
@@ -774,7 +657,6 @@
                     .lpImageFemaleUri = "/Pokemons/009.png"
                     StateInformation(0).lpImagePath = "/Pokemons/009.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/009.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 178
@@ -793,7 +675,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 10
                 With lpReturnValue
@@ -994,7 +875,6 @@
                 With lpReturnValue
                     .IsMissingNo = False
                     .IsNoSex = False
-                    .IsMegaORASAvailable = True
                     .lpAbility1 = 68
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 97
@@ -1029,7 +909,6 @@
                     .lpImageFemaleUri = "/Pokemons/015.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/015.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -1160,7 +1039,6 @@
                     .lpImageFemaleUri = "/Pokemons/018.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/018.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -2919,7 +2797,6 @@
                     .lpImageFemaleUri = "/Pokemons/065.png"
                     StateInformation(0).lpImagePath = "/Pokemons/065.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/065.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 36
@@ -2938,7 +2815,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 66
                 With lpReturnValue
@@ -3494,7 +3370,6 @@
                     .lpImageFemaleUri = "/Pokemons/080.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/080.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -4032,7 +3907,6 @@
                     .lpImageFemaleUri = "/Pokemons/094.png"
                     StateInformation(0).lpImagePath = "/Pokemons/094.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/094.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 23
@@ -4051,7 +3925,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 95
                 With lpReturnValue
@@ -4829,7 +4702,6 @@
                     .lpImageFemaleUri = "/Pokemons/115.png"
                     StateInformation(0).lpImagePath = "/Pokemons/115.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/115.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 185
@@ -4848,7 +4720,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 116
                 With lpReturnValue
@@ -5293,7 +5164,6 @@
                     .lpImageFemaleUri = "/Pokemons/127.png"
                     StateInformation(0).lpImagePath = "/Pokemons/127.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/127.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 184
@@ -5312,7 +5182,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 128
                 With lpReturnValue
@@ -5424,7 +5293,6 @@
                     .lpImageFemaleUri = "/Pokemons/130.png"
                     StateInformation(0).lpImagePath = "/Pokemons/130.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/130.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 104
@@ -5443,7 +5311,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 131
                 With lpReturnValue
@@ -5888,7 +5755,6 @@
                     .lpImageFemaleUri = "/Pokemons/142.png"
                     StateInformation(0).lpImagePath = "/Pokemons/142.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/142.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 181
@@ -5907,7 +5773,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 143
                 With lpReturnValue
@@ -6204,7 +6069,6 @@
                     .lpImageFemaleUri = "/Pokemons/150.png"
                     StateInformation(0).lpImagePath = "/Pokemons/150.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/150.02.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 80
@@ -7388,7 +7252,6 @@
                     .lpImageFemaleUri = "/Pokemons/181.png"
                     StateInformation(0).lpImagePath = "/Pokemons/181.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/181.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 104
@@ -7407,7 +7270,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 182
                 With lpReturnValue
@@ -8407,7 +8269,6 @@
                     .lpImageFemaleUri = "/Pokemons/208.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/208.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -8649,7 +8510,6 @@
                     .lpImageFemaleUri = "/Pokemons/214.png"
                     StateInformation(0).lpImagePath = "/Pokemons/214.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/214.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 92
@@ -8668,7 +8528,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 215
                 With lpReturnValue
@@ -9224,7 +9083,6 @@
                     .lpImageFemaleUri = "/Pokemons/229.png"
                     StateInformation(0).lpImagePath = "/Pokemons/229.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/229.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 94
@@ -9243,7 +9101,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 230
                 With lpReturnValue
@@ -9947,7 +9804,6 @@
                     .lpImageFemaleUri = "/Pokemons/248.png"
                     StateInformation(0).lpImagePath = "/Pokemons/248.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/248.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 45
@@ -9966,7 +9822,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 249
                 With lpReturnValue
@@ -10189,7 +10044,6 @@
                     .lpImageFemaleUri = "/Pokemons/254.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/254.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -10320,7 +10174,6 @@
                     .lpImageFemaleUri = "/Pokemons/257.png"
                     StateInformation(0).lpImagePath = "/Pokemons/257.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/257.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 3
@@ -10339,7 +10192,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 258
                 With lpReturnValue
@@ -10451,7 +10303,6 @@
                     .lpImageFemaleUri = "/Pokemons/260.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/260.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -11285,7 +11136,6 @@
                     .lpImageFemaleUri = "/Pokemons/282.png"
                     StateInformation(0).lpImagePath = "/Pokemons/282.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/282.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 182
@@ -11304,7 +11154,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 283
                 With lpReturnValue
@@ -12045,7 +11894,6 @@
                     .lpImageFemaleUri = "/Pokemons/302.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/302.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -12102,7 +11950,6 @@
                     .lpImageFemaleUri = "/Pokemons/303.png"
                     StateInformation(0).lpImagePath = "/Pokemons/303.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/303.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 37
@@ -12121,7 +11968,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 304
                 With lpReturnValue
@@ -12233,7 +12079,6 @@
                     .lpImageFemaleUri = "/Pokemons/306.png"
                     StateInformation(0).lpImagePath = "/Pokemons/306.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/306.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 111
@@ -12252,7 +12097,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 307
                 With lpReturnValue
@@ -12327,7 +12171,6 @@
                     .lpImageFemaleUri = "/Pokemons/308.png"
                     StateInformation(0).lpImagePath = "/Pokemons/308.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/308.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 74
@@ -12346,7 +12189,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 309
                 With lpReturnValue
@@ -12421,7 +12263,6 @@
                     .lpImageFemaleUri = "/Pokemons/310.png"
                     StateInformation(0).lpImagePath = "/Pokemons/310.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/310.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 22
@@ -12440,7 +12281,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 311
                 With lpReturnValue
@@ -12774,7 +12614,6 @@
                     .lpImageFemaleUri = "/Pokemons/319.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/319.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -12942,7 +12781,6 @@
                     .lpImageFemaleUri = "/Pokemons/323.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/323.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -13369,7 +13207,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/334.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -14129,7 +13966,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/354.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/354.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 158
@@ -14148,7 +13984,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 355
                 With lpReturnValue
@@ -14334,7 +14169,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/359.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/359.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 156
@@ -14353,7 +14187,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 360
                 With lpReturnValue
@@ -14465,7 +14298,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/362.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -14892,7 +14724,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/373.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -15023,7 +14854,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/376.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -15191,7 +15021,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/380.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/380.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 26
@@ -15210,7 +15039,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 381
                 With lpReturnValue
@@ -15248,7 +15076,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/381.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/381.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 26
@@ -15267,13 +15094,11 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 382
                 With lpReturnValue
                     .IsMissingNo = False
                     .IsNoSex = True
-                    .IsOriginalAvailable = True
                     .lpNumber = lpPokemonNationalDexNumber
                     .lpType = "[水]"
                     .lpDescription = "據說它用降雨的能力讓海洋變得更加寬廣。沉眠在海溝深處。"
@@ -15332,7 +15157,6 @@
                 With lpReturnValue
                     .IsMissingNo = False
                     .IsNoSex = True
-                    .IsOriginalAvailable = True
                     .lpNumber = lpPokemonNationalDexNumber
                     .lpType = "[地面]"
                     .lpDescription = "遠古時期曾與[蓋歐卡]發生過殊死搏鬥，此後就沉眠於地下的岩漿中。"
@@ -15423,7 +15247,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/384.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -15527,12 +15350,6 @@
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             With lpReturnValue
                 .IsMissingNo = True
@@ -15583,38 +15400,6 @@
                 .lpNameFRA = "ERROR"
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                .lpMegaYInfo = .lpMegaXInfo
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                With .lpOriginalInfo
                     .lpAbility1 = "ERROR"
                     .lpAbility2 = "ERROR"
                     .lpAbilityHidden = "ERROR"
@@ -15692,7 +15477,6 @@
                         .SPEED = 255
                     End With
                 End With
-                .lpMegaYInfo = .lpMegaXInfo
             End With
             Return lpReturnValue
             Exit Function
@@ -17117,7 +16901,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/531.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -24093,7 +23876,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/719.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -24197,12 +23979,6 @@
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             With lpReturnValue
                 .IsMissingNo = True
@@ -24253,38 +24029,6 @@
                 .lpNameFRA = "ERROR"
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                .lpMegaYInfo = .lpMegaXInfo
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                With .lpOriginalInfo
                     .lpAbility1 = "ERROR"
                     .lpAbility2 = "ERROR"
                     .lpAbilityHidden = "ERROR"
@@ -27496,13 +27240,6 @@
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsMegaAvailable = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             With lpReturnValue
                 .IsMissingNo = True
@@ -27553,38 +27290,6 @@
                 .lpNameFRA = "ERROR"
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                .lpMegaYInfo = .lpMegaXInfo
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                With .lpOriginalInfo
                     .lpAbility1 = "ERROR"
                     .lpAbility2 = "ERROR"
                     .lpAbilityHidden = "ERROR"
@@ -29171,7 +28876,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/428.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -29820,7 +29524,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/445.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/445.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 159
@@ -29839,7 +29542,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 446
                 With lpReturnValue
@@ -29951,7 +29653,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/448.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/448.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 91
@@ -29970,7 +29671,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 449
                 With lpReturnValue
@@ -30415,7 +30115,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = "/Pokemons/460.01.png"
                     StateInformation(1).lpImagePath = "/Pokemons/460.01.png"
-                    .IsMegaAvailable = True
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
                         .lpAbility1 = 117
@@ -30434,7 +30133,6 @@
                             .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                         End With
                     End With
-                    .lpMegaYInfo = .lpMegaXInfo
                 End With
             Case 461
                 With lpReturnValue
@@ -30990,7 +30688,6 @@
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
-                    .IsMegaORASAvailable = True
                     StateInformation(0).lpImagePath = "/Pokemons/475.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -31686,13 +31383,6 @@
         Dim lpReturnValue As PokemonInfo
         lpReturnValue = New PokemonInfo
         lpReturnValue.IsMissingNo = False
-        lpReturnValue.IsMegaAvailable = False
-        lpReturnValue.IsOriginalAvailable = False
-        lpReturnValue.IsMegaORASAvailable = False
-        lpReturnValue.lpImageMegaORASUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaXUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageMegaYUri = POKEMON_NO_IMAGE
-        lpReturnValue.lpImageOriginalUri = POKEMON_NO_IMAGE
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             With lpReturnValue
                 .IsMissingNo = True
@@ -31748,38 +31438,6 @@
                     .lpAbilityHidden = "ERROR"
                     .lpType = "[ERROR]"
                     .IsUniqueDescriptionAvailable = False
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                .lpMegaYInfo = .lpMegaXInfo
-                With StateInformation(0)
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    .IsUniqueDescriptionAvailable = False
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
-                With .lpOriginalInfo
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
                     With .lpBaseStatsValues
                         .HP = 255
                         .ATTACK = 255
@@ -35361,6 +35019,97 @@
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
                 End With
+        End Select
+        Return lpReturnValue
+    End Function
+    Private Function GetPokemonInformationSV(lpPokemonNationalDexNumber As Integer) As PokemonInfo
+        Dim lpReturnValue As PokemonInfo
+        lpReturnValue = New PokemonInfo
+        lpReturnValue.IsMissingNo = False
+        If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
+            With lpReturnValue
+                .IsMissingNo = True
+            End With
+            With lpReturnValue
+                .lpTitle = "ERROR"
+                .IsNoSex = True
+                .IsMissingNo = True
+                .lpAbility1 = "ERROR"
+                .lpAbility2 = "ERROR"
+                .lpAbilityHidden = "ERROR"
+                With .lpBaseValues
+                    .ATTACK = 255
+                    .DEFEND = 255
+                    .HP = 255
+                    .SPATTACK = 255
+                    .SPDEFEND = 255
+                    .SPEED = 255
+                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                End With
+                .lpBasicExpPoint = "ERROR"
+                .lpBornStepsCount = "ERROR"
+                .lpCatchRate = "ERROR"
+                .lpClass = "ERROR"
+                .lpColor = "ERROR"
+                .lpDescription = "ERROR"
+                .lpEggGroup1 = "ERROR"
+                .lpFullLevelExpPoint = "ERROR"
+                .lpHeight = "ERROR"
+                .lpImageFemaleUri = POKEMON_NO_IMAGE
+                .lpImageMaleUri = POKEMON_NO_IMAGE
+                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpNumber = "000"
+                .lpSexRatio = "ERROR"
+                .lpSheleter = "ERROR"
+                .lpStandardFriendlyRate = "ERROR"
+                .lpType = "[ERROR]"
+                .lpWeight = "ERROR"
+                .lpNameCHS = "ERROR"
+                .lpNameCHT = "ERROR"
+                .lpNameENG = "ERROR"
+                .lpNameJPN = "ERROR"
+                .lpNameKOR = "ERROR"
+                .lpNameCHSO = "ERROR"
+                .lpNameCHTO = "ERROR"
+                .lpNameGER = "ERROR"
+                .lpNameFRA = "ERROR"
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = "ERROR"
+                    .lpAbility2 = "ERROR"
+                    .lpAbilityHidden = "ERROR"
+                    .lpType = "[ERROR]"
+                    .IsUniqueDescriptionAvailable = False
+                    With .lpBaseStatsValues
+                        .HP = 255
+                        .ATTACK = 255
+                        .DEFEND = 255
+                        .SPATTACK = 255
+                        .SPDEFEND = 255
+                        .SPEED = 255
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            End With
+            Return lpReturnValue
+            Exit Function
+        End If
+        With lpReturnValue
+            .lpNameCHT = PokemonNamesCHT.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameCHS = PokemonNamesCHS.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameENG = PokemonNamesENG.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameJPN = PokemonNamesJPN.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameKOR = PokemonNamesKOR.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameGER = PokemonNamesGER.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameFRA = PokemonNamesFRA.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameCHTO = PokemonNamesCHTO.Item(lpPokemonNationalDexNumber - 1)
+            .lpNameCHSO = PokemonNamesCHSO.Item(lpPokemonNationalDexNumber - 1)
+            .lpTitle = CurrentTranslationForCommonUse(lpPokemonNationalDexNumber - 1)
+            .lpExtraInfoURI = "" 'TODO:完成網頁後修改
+            .lpMultiStatesURI = ""
+        End With
+        Select Case lpPokemonNationalDexNumber
         End Select
         Return lpReturnValue
     End Function

@@ -106,11 +106,6 @@ Partial Public Class MainPage
         'End If
         InitializeTileIndexServer()
     End Sub
-
-    'Private Sub chkUseCHS_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS.Tap
-
-    'End Sub
-
     Private Sub imgMoves_Tap(sender As Object, e As GestureEventArgs) Handles imgMoves.Tap
         NavigationService.Navigate(New Uri("/PageMoves.xaml", UriKind.RelativeOrAbsolute))
     End Sub

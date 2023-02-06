@@ -191,6 +191,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 251
                     btnRGBY.IsEnabled = False
@@ -201,6 +202,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 386
                     btnRGBY.IsEnabled = False
@@ -211,6 +213,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 493
                     btnRGBY.IsEnabled = False
@@ -221,6 +224,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 649
                     btnRGBY.IsEnabled = False
@@ -231,6 +235,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 721
                     btnRGBY.IsEnabled = False
@@ -241,6 +246,7 @@
                     btnXY.IsEnabled = True
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 809
                     btnRGBY.IsEnabled = False
@@ -251,6 +257,7 @@
                     btnXY.IsEnabled = False
                     btnSM.IsEnabled = True
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
                     Exit Select
                 Case Is <= 898
                     btnRGBY.IsEnabled = False
@@ -261,6 +268,19 @@
                     btnXY.IsEnabled = False
                     btnSM.IsEnabled = False
                     btnSS.IsEnabled = True
+                    btnSV.IsEnabled = True
+                    Exit Select
+                Case Is <= 1008
+                    btnRGBY.IsEnabled = False
+                    btnGSC.IsEnabled = False
+                    btnRSE.IsEnabled = False
+                    btnDPT.IsEnabled = False
+                    btnBW.IsEnabled = False
+                    btnXY.IsEnabled = False
+                    btnSM.IsEnabled = False
+                    btnSS.IsEnabled = False
+                    btnSV.IsEnabled = True
+                    Exit Select
                 Case Else
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
@@ -270,6 +290,7 @@
                     btnXY.IsEnabled = False
                     btnSM.IsEnabled = False
                     btnSS.IsEnabled = False
+                    btnSV.IsEnabled = False
                     Exit Select
             End Select
             If .IsMissingNo Then
@@ -611,6 +632,12 @@
             GeneratePokemonMovesIDListByPMID_SM(PokemonInformationShared.lpNumber)
         End If
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
+    End Sub
+    Private Sub btnSS_Tap(sender As Object, e As GestureEventArgs) Handles btnSS.Tap
+        MessageBox.Show("離線資訊目前尚不可用，請嘗試連線到線上資料庫。", "錯誤", MessageBoxButton.OK)
+    End Sub
+    Private Sub btnSV_Tap(sender As Object, e As GestureEventArgs) Handles btnSV.Tap
+        MessageBox.Show("離線資訊目前尚不可用，請嘗試連線到線上資料庫。", "錯誤", MessageBoxButton.OK)
     End Sub
 
     Private Sub imgPokemon_Tap(sender As Object, e As GestureEventArgs) Handles imgPokemon.Tap
