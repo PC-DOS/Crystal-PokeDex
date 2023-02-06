@@ -1081,7 +1081,7 @@
                     .lpColor = "紫"
                     .lpType = "[一般]"
                     .lpDescription = "一天到晚都在尋找食物。由於門牙一生都在不斷長長，必須不停地啃咬硬物。"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "0.3 m"
@@ -1111,7 +1111,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "145"
@@ -1222,7 +1222,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "58"
@@ -1259,7 +1259,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "153"
@@ -1296,7 +1296,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "105"
@@ -1333,7 +1333,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "214"
@@ -1370,7 +1370,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "60"
@@ -1407,7 +1407,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "158"
@@ -1445,7 +1445,7 @@
                     .lpCatchRate = "235"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
@@ -1556,7 +1556,7 @@
                     .lpCatchRate = "235"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
@@ -1593,7 +1593,7 @@
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "128"
                     .lpFullLevelExpPoint = "1059860"
@@ -1630,7 +1630,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "223"
                     .lpFullLevelExpPoint = "1059860"
@@ -1740,7 +1740,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "60"
@@ -1777,7 +1777,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "177"
@@ -2221,7 +2221,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "53"
@@ -2258,7 +2258,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "50"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -2295,7 +2295,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "58"
@@ -2332,7 +2332,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "154"
@@ -2370,7 +2370,7 @@
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
@@ -2407,7 +2407,7 @@
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
@@ -2443,7 +2443,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "61"
@@ -2480,7 +2480,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "159"
@@ -2517,7 +2517,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "70"
@@ -2554,7 +2554,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "194"
@@ -3238,7 +3238,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "82"
@@ -3275,7 +3275,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
@@ -3480,7 +3480,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "123"
                     .lpFullLevelExpPoint = "1000000"
@@ -3591,7 +3591,7 @@
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
@@ -3628,7 +3628,7 @@
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
@@ -4534,7 +4534,7 @@
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "69"
                     .lpFullLevelExpPoint = "1250000"
@@ -4571,7 +4571,7 @@
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1250000"
@@ -5198,7 +5198,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "172"
@@ -5401,7 +5401,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "65"
@@ -5438,7 +5438,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -5475,7 +5475,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -5512,7 +5512,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -6269,7 +6269,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "62"
@@ -6306,7 +6306,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -6343,7 +6343,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "240"
@@ -6491,7 +6491,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "43"
@@ -6528,7 +6528,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "145"
@@ -7158,7 +7158,7 @@
                     .lpCatchRate = "235"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1059860"
@@ -7195,7 +7195,7 @@
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "128"
                     .lpFullLevelExpPoint = "1059860"
@@ -7232,7 +7232,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
@@ -7582,7 +7582,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "72"
@@ -7731,7 +7731,7 @@
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "42"
                     .lpFullLevelExpPoint = "1000000"
@@ -7768,7 +7768,7 @@
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "151"
                     .lpFullLevelExpPoint = "1000000"
@@ -7804,7 +7804,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -7841,7 +7841,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "35"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -8063,7 +8063,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -8174,7 +8174,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "145"
@@ -8304,7 +8304,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "60"
@@ -8341,7 +8341,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "158"
@@ -8544,7 +8544,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "35"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "86"
@@ -8581,7 +8581,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
@@ -8618,7 +8618,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
@@ -8729,7 +8729,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "225"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "50"
@@ -8766,7 +8766,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "158"
@@ -8915,7 +8915,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "116"
                     .lpFullLevelExpPoint = "800000"
@@ -9025,7 +9025,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "35"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
@@ -9062,7 +9062,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "35"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
@@ -9154,7 +9154,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
@@ -9191,7 +9191,7 @@
                     .lpSheleter = "荒地"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
@@ -9265,7 +9265,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "163"
@@ -9302,7 +9302,7 @@
                     .lpSheleter = "城市"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "88"
@@ -9524,7 +9524,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "172"
@@ -9602,7 +9602,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "20655"
                     .lpBasicExpPoint = "261"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 10
@@ -9639,7 +9639,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "20655"
                     .lpBasicExpPoint = "261"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 18
@@ -9676,7 +9676,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "20655"
                     .lpBasicExpPoint = "261"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 11
@@ -9713,7 +9713,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "10455"
                     .lpBasicExpPoint = "60"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 62
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 8
@@ -9750,7 +9750,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "10455"
                     .lpBasicExpPoint = "144"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 61
                     .lpAbility2 = "---"
                     .lpAbilityHidden = "---"
@@ -9787,7 +9787,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "10455"
                     .lpBasicExpPoint = "270"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 45
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 127
@@ -9842,7 +9842,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30855"
                     .lpBasicExpPoint = "306"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 136
@@ -9879,7 +9879,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30855"
                     .lpBasicExpPoint = "306"
-                    .lpFullLevelExpPoint = "12500000"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 144
@@ -10079,7 +10079,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "62"
@@ -10116,7 +10116,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -10153,7 +10153,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "239"
@@ -10338,7 +10338,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "44"
@@ -10375,7 +10375,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "147"
@@ -10412,7 +10412,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "48"
@@ -10449,7 +10449,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "147"
@@ -10782,7 +10782,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "44"
@@ -10819,7 +10819,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "119"
@@ -10856,7 +10856,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "216"
@@ -11318,7 +11318,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "56"
@@ -11355,7 +11355,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "154"
@@ -11392,7 +11392,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "252"
@@ -11541,7 +11541,7 @@
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "48"
                     .lpFullLevelExpPoint = "1059860"
@@ -11578,7 +11578,7 @@
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "126"
                     .lpFullLevelExpPoint = "1059860"
@@ -11615,7 +11615,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
@@ -11799,7 +11799,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "52"
@@ -11836,7 +11836,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "133"
@@ -11929,7 +11929,7 @@
                     .lpSheleter = "洞穴"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "133"
@@ -12205,7 +12205,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "59"
@@ -12242,7 +12242,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "166"
@@ -12649,7 +12649,7 @@
                     .lpSheleter = "大海"
                     .lpCatchRate = "125"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "水二組"
                     .lpBornStepsCount = "10455"
                     .lpBasicExpPoint = "80"
@@ -12686,7 +12686,7 @@
                     .lpSheleter = "大海"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "水二組"
                     .lpBornStepsCount = "10455"
                     .lpBasicExpPoint = "175"
@@ -12723,7 +12723,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "61"
@@ -12760,7 +12760,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "150"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "161"
@@ -12816,7 +12816,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "165"
@@ -12853,7 +12853,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
@@ -12890,7 +12890,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "165"
@@ -12927,7 +12927,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "126"
@@ -13242,7 +13242,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "160"
@@ -13279,7 +13279,7 @@
                     .lpSheleter = "草原"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "160"
@@ -13871,7 +13871,7 @@
                     .lpSheleter = "森林"
                     .lpCatchRate = "200"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "154"
@@ -14148,7 +14148,7 @@
                     .lpSheleter = "山丘"
                     .lpCatchRate = "30"
                     .lpStandardFriendlyRate = "35"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "163"
@@ -14334,7 +14334,7 @@
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
@@ -14371,7 +14371,7 @@
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1059860"
@@ -14408,7 +14408,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
@@ -19933,7 +19933,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "61"
@@ -19970,7 +19970,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "170"
@@ -20155,7 +20155,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "180"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "70"
@@ -20192,7 +20192,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "179"
@@ -20414,7 +20414,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "172"
@@ -20599,7 +20599,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "169"
@@ -21302,7 +21302,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "63"
@@ -21339,7 +21339,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -21376,7 +21376,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "239"
@@ -21413,7 +21413,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "61"
@@ -21450,7 +21450,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "143"
@@ -21487,7 +21487,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "240"
@@ -21635,7 +21635,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "47"
@@ -21672,7 +21672,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "148"
@@ -21931,7 +21931,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "220"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "74"
@@ -21968,7 +21968,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "65"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "177"
@@ -22116,7 +22116,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "200"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "70"
@@ -22153,7 +22153,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "186"
@@ -22190,7 +22190,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "220"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "70"
@@ -22227,7 +22227,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "65"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "173"
@@ -22264,7 +22264,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "160"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "6630"
                     .lpBasicExpPoint = "165"
@@ -22301,7 +22301,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "71"
@@ -22338,7 +22338,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "163"
@@ -23152,7 +23152,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "9180"
                     .lpBasicExpPoint = "184"
@@ -23226,7 +23226,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "100"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "151"
@@ -24188,7 +24188,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "64"
@@ -24225,7 +24225,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "147"
@@ -24262,7 +24262,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "239"
@@ -24337,7 +24337,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1059860"
@@ -24374,7 +24374,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
@@ -24521,7 +24521,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "51"
@@ -24558,7 +24558,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3840"
                     .lpBasicExpPoint = "146"
@@ -24890,7 +24890,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "56"
@@ -24927,7 +24927,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "170"
@@ -25075,7 +25075,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "77"
@@ -25112,7 +25112,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "175"
@@ -25445,7 +25445,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "140"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "68"
@@ -25482,7 +25482,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "70"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "175"
@@ -25667,7 +25667,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "172"
@@ -25704,7 +25704,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "2805"
                     .lpBasicExpPoint = "172"
@@ -26023,7 +26023,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "168"
@@ -26093,7 +26093,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "180"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "2805"
                     .lpBasicExpPoint = "152"
@@ -27449,7 +27449,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "62"
@@ -27486,7 +27486,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
@@ -27523,7 +27523,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "240"
@@ -27561,7 +27561,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
@@ -27598,7 +27598,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
@@ -27635,7 +27635,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
@@ -27783,7 +27783,7 @@
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1000000"
@@ -27820,7 +27820,7 @@
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "4080"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1000000"
@@ -27930,7 +27930,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "235"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "53"
@@ -27967,7 +27967,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "100"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "127"
@@ -28004,7 +28004,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "235"
@@ -28448,7 +28448,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "200"
                     .lpStandardFriendlyRate = "100"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "2805"
                     .lpBasicExpPoint = "142"
@@ -28486,7 +28486,7 @@
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
@@ -28523,7 +28523,7 @@
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
@@ -28707,7 +28707,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "100"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "169"
@@ -28818,7 +28818,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "0"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "70"
@@ -28855,7 +28855,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "140"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "168"
@@ -28985,7 +28985,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "62"
@@ -29022,7 +29022,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "75"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "158"
@@ -29096,7 +29096,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "225"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "66"
@@ -29133,7 +29133,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "70"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "168"
@@ -30261,7 +30261,7 @@
                     .lpCatchRate = "30"
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸组"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5355"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1250000"
@@ -31482,7 +31482,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "62"
@@ -31519,7 +31519,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "147"
@@ -31556,7 +31556,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "265"
@@ -31593,7 +31593,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "62"
@@ -31630,7 +31630,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "147"
@@ -31667,7 +31667,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "265"
@@ -31705,7 +31705,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
@@ -31742,7 +31742,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1059860"
@@ -31779,7 +31779,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "265"
                     .lpFullLevelExpPoint = "1059860"
@@ -31815,7 +31815,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "55"
@@ -31852,7 +31852,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "161"
@@ -32111,7 +32111,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3855"
                     .lpBasicExpPoint = "49"
@@ -32148,7 +32148,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3855"
                     .lpBasicExpPoint = "159"
@@ -32259,7 +32259,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3855"
                     .lpBasicExpPoint = "122"
@@ -32296,7 +32296,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "127"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3855"
                     .lpBasicExpPoint = "172"
@@ -32407,7 +32407,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "54"
@@ -32444,7 +32444,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "172"
@@ -32703,7 +32703,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "255"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "63"
@@ -32740,7 +32740,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "120"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "179"
@@ -33406,7 +33406,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "3855"
                     .lpBasicExpPoint = "260"
@@ -33443,7 +33443,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "154"
@@ -33518,7 +33518,7 @@
                     .lpCatchRate = "45"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "飛行組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1000000"
@@ -33888,7 +33888,7 @@
                     .lpCatchRate = "60"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
-                    .lpEggGroup2 = "陸地組"
+                    .lpEggGroup2 = "陸上組"
                     .lpBornStepsCount = "6425"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1250000"
@@ -33961,7 +33961,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "180"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
                     .lpBornStepsCount = "2570"
                     .lpBasicExpPoint = "153"
@@ -33998,7 +33998,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "190"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "礦物組"
                     .lpBornStepsCount = "6425"
                     .lpBasicExpPoint = "66"
@@ -34035,7 +34035,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "90"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "陸地組"
+                    .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "礦物組"
                     .lpBornStepsCount = "6425"
                     .lpBasicExpPoint = "175"
@@ -34482,7 +34482,7 @@
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30840"
-                    .lpBasicExpPoint = "未知" '未知
+                    .lpBasicExpPoint = "77"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 39
                     .lpAbility2 = "---"
@@ -34519,7 +34519,7 @@
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30840"
-                    .lpBasicExpPoint = "未知" '未知
+                    .lpBasicExpPoint = "275"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 260
                     .lpAbility2 = "---"
@@ -34612,7 +34612,7 @@
                     StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
                     StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
                 End With
-            Case 895 '從此處開始大量未知
+            Case 895
                 With lpReturnValue
                     .IsMissingNo = False
                     .IsNoSex = True
@@ -34623,15 +34623,15 @@
                     .lpHeight = "2.1 m"
                     .lpWeight = "200.0 kg"
                     .lpClass = "龍玉神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "綠"
                     .lpSheleter = "---"
-                    .lpCatchRate = "未知"
+                    .lpCatchRate = "3"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "未知組"
+                    .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
-                    .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpBornStepsCount = "30840"
+                    .lpBasicExpPoint = "290"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 263
                     .lpAbility2 = "---"
                     .lpAbilityHidden = "---"
@@ -34730,7 +34730,7 @@
                     .lpNumber = lpPokemonNationalDexNumber
                     .lpType = "[超能力]+[草]"
                     .lpDescription = "擁有治癒與賜恩之力，且滿懷慈愛的寶可夢。在遠古時代曾統治伽勒爾。曾在很久以前統治伽勒爾的傳說之王。擁有治癒心靈，讓草木發芽的力量。"
-                    .lpSexRatio = "未知"
+                    .lpSexRatio = "無性別"
                     .lpHeight = "1.1 m"
                     .lpWeight = "7.7 kg"
                     .lpClass = "國王神奇寶貝"
@@ -34738,7 +34738,7 @@
                     .lpSheleter = "---"
                     .lpCatchRate = "3"
                     .lpStandardFriendlyRate = "---"
-                    .lpEggGroup1 = "未知組"
+                    .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30840"
                     .lpBasicExpPoint = "0"
@@ -34771,15 +34771,15 @@
                     .lpHeight = "1.8 m"
                     .lpWeight = "95.1 kg"
                     .lpClass = "大角神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "白"
                     .lpSheleter = "---"
                     .lpCatchRate = "135"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
+                    .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
                     .lpAbility2 = 119
                     .lpAbilityHidden = 157
@@ -34808,15 +34808,15 @@
                     .lpHeight = "1.8 m"
                     .lpWeight = "89.0 kg"
                     .lpClass = "斧鉞神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "褐"
                     .lpSheleter = "---"
                     .lpCatchRate = "115"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
+                    .lpBornStepsCount = "6425"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
                     .lpAbility2 = 125
                     .lpAbilityHidden = 80
@@ -34845,15 +34845,15 @@
                     .lpHeight = "2.4 m"
                     .lpWeight = "290 kg"
                     .lpClass = "泥炭神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "褐"
                     .lpSheleter = "---"
-                    .lpCatchRate = "75"
+                    .lpCatchRate = "20"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
+                    .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 62
                     .lpAbility2 = 171
                     .lpAbilityHidden = 127
@@ -34882,15 +34882,15 @@
                     .lpHeight = "3.0 m"
                     .lpWeight = "110.0 kg"
                     .lpClass = "大魚神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "綠"
                     .lpSheleter = "---"
                     .lpCatchRate = "135"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
+                    .lpBornStepsCount = "10280"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 155
                     .lpAbility2 = 91
                     .lpAbilityHidden = 104
@@ -34919,15 +34919,15 @@
                     .lpHeight = "1.3 m"
                     .lpWeight = "43 kg"
                     .lpClass = "攀崖神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "紫"
                     .lpSheleter = "---"
                     .lpCatchRate = "135"
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "未知"
+                    .lpBornStepsCount = "5140"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 46
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 143
@@ -34956,7 +34956,7 @@
                     .lpHeight = "2.5 m"
                     .lpWeight = "60.5 kg"
                     .lpClass = "劍山神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "灰"
                     .lpSheleter = "---"
                     .lpCatchRate = "135"
                     .lpStandardFriendlyRate = "---"
@@ -34964,7 +34964,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "135"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
                     .lpAbility2 = 33
                     .lpAbilityHidden = 22
@@ -34993,7 +34993,7 @@
                     .lpHeight = "1.6 m"
                     .lpWeight = "48.0 kg"
                     .lpClass = "愛憎神奇寶貝"
-                    .lpColor = "未知"
+                    .lpColor = "粉"
                     .lpSheleter = "---"
                     .lpCatchRate = "3"
                     .lpStandardFriendlyRate = "---"
@@ -35001,7 +35001,7 @@
                     .lpEggGroup2 = "---"
                     .lpBornStepsCount = "30840"
                     .lpBasicExpPoint = "0"
-                    .lpFullLevelExpPoint = "未知"
+                    .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 131
                     .lpAbility2 = "---"
                     .lpAbilityHidden = 126
@@ -35110,6 +35110,3817 @@
             .lpMultiStatesURI = ""
         End With
         Select Case lpPokemonNationalDexNumber
+            Case 906
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]"
+                    .lpDescription = "毛茸茸的體毛有著近似於植物的成分。會勤快地洗臉以防止乾燥。會用身體發出甜甜香氣，讓周圍的一切為之傾倒。照到陽光後香氣會變得更濃郁。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "4.1 kg"
+                    .lpClass = "草貓神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "植物組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 65
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 168
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 61
+                        .DEFEND = 54
+                        .SPATTACK = 45
+                        .SPDEFEND = 45
+                        .SPEED = 65
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 907
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]"
+                    .lpDescription = "會靈巧操控長長的體毛下隱藏的藤蔓，將堅硬的花苞甩向敵人猛打。體毛的硬度會隨心情而變。進入迎戰狀態時，體毛會變得如針般尖銳。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "0.9 m"
+                    .lpWeight = "12.2 kg"
+                    .lpClass = "草貓神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "植物組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 65
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 168
+                    With .lpBaseValues
+                        .HP = 61
+                        .ATTACK = 80
+                        .DEFEND = 63
+                        .SPATTACK = 60
+                        .SPDEFEND = 63
+                        .SPEED = 83
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 908
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[惡]"
+                    .lpDescription = "看似浮在空中的花，是牠利用斗蓬內側的毛的反射將莖隱藏後呈現出的假象。會巧妙引開敵人的注意力，然後引爆牠在神不知鬼不覺間設置好的裝滿花粉的花炸彈。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "1.5 m"
+                    .lpWeight = "31.2 kg"
+                    .lpClass = "魔術師神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "植物組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 65
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 168
+                    With .lpBaseValues
+                        .HP = 76
+                        .ATTACK = 110
+                        .DEFEND = 70
+                        .SPATTACK = 81
+                        .SPDEFEND = 70
+                        .SPEED = 123
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 909
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]"
+                    .lpDescription = "會躺在溫熱的岩石上，用四角形的鱗片所吸收的熱能來製造火之能量。火囊很小，因此能量會溢出來，在牠頭上的凹槽那裡搖曳晃動。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "9.8 kg"
+                    .lpClass = "火鱷神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 66
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 109
+                    With .lpBaseValues
+                        .HP = 67
+                        .ATTACK = 45
+                        .DEFEND = 59
+                        .SPATTACK = 63
+                        .SPDEFEND = 40
+                        .SPEED = 36
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 910
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]"
+                    .lpDescription = "火之能量與過剩的生命力相互結合，使得牠頭上出現了蛋狀的火球。聲帶和火囊的閥緊鄰在一起。會一邊發出嘶啞的聲音，一邊噴灑火焰。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "1.0 m"
+                    .lpWeight = "30.7 kg"
+                    .lpClass = "火鱷神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 66
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 109
+                    With .lpBaseValues
+                        .HP = 81
+                        .ATTACK = 55
+                        .DEFEND = 78
+                        .SPATTACK = 90
+                        .SPDEFEND = 58
+                        .SPEED = 49
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 911
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]+[幽靈]"
+                    .lpDescription = "可以透過歌聲改變外形的火鳥，據說是靈魂寄宿在頭上的火球所形成的。溫柔的歌聲能療癒聽者的靈魂。會使用３０００度的火焰將敵人燒成灰燼。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "326.5 kg"
+                    .lpClass = "歌手神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 66
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 109
+                    With .lpBaseValues
+                        .HP = 104
+                        .ATTACK = 75
+                        .DEFEND = 100
+                        .SPATTACK = 110
+                        .SPDEFEND = 75
+                        .SPEED = 66
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 912
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "很久以前從遠方來到了這裡棲息。羽毛分泌出的凝膠有防水和防污的效果。擁有在水流湍急的河川也能自在游動的腳力。愛乾淨，個性不知變通。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "6.1 kg"
+                    .lpClass = "小鴨神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "水一組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 67
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 153
+                    With .lpBaseValues
+                        .HP = 55
+                        .ATTACK = 65
+                        .DEFEND = 45
+                        .SPATTACK = 50
+                        .SPDEFEND = 45
+                        .SPEED = 50
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 913
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "會在淺灘不斷跑步來鍛鍊下盤的筋骨，好跟夥伴們競爭誰的腿技最為華麗。個性勤奮，會觀察各地區的人和寶可夢，並將其動作融入自己的舞蹈裡。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "21.5 kg"
+                    .lpClass = "習藝神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "水一組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 67
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 153
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 85
+                        .DEFEND = 65
+                        .SPATTACK = 65
+                        .SPDEFEND = 60
+                        .SPEED = 65
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 914
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]+[格鬥]"
+                    .lpDescription = "會善用只要一踢就能踢翻卡車的強韌腳力，展現充滿異國風情的舞蹈。會用充滿異國情調的舞蹈迷倒看到的對手，然後揮舞以水構成的羽飾將其劈裂。"
+                    .lpSexRatio = "7:1"
+                    .lpHeight = "1.8 m"
+                    .lpWeight = "61.9 kg"
+                    .lpClass = "舞者神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "水一組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 67
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 153
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 120
+                        .DEFEND = 80
+                        .SPATTACK = 85
+                        .SPDEFEND = 75
+                        .SPEED = 85
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 915
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]"
+                    .lpDescription = "一整天都在覓食。雖然擁有優秀的嗅覺，但卻只被用在覓食上。只吃精挑細選過的食物。蟲寶可夢很討厭牠身上散發的那種聞起來像是香草的氣味。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "10.2 kg"
+                    .lpClass = "豬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "255"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 165
+                    .lpAbility2 = 82
+                    .lpAbilityHidden = 47
+                    With .lpBaseValues
+                        .HP = 54
+                        .ATTACK = 45
+                        .DEFEND = 40
+                        .SPATTACK = 35
+                        .SPDEFEND = 45
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 916
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]"
+                    .lpDescription = "以自己細緻透亮的肌膚為傲。會從尾巴的前端釋放出凝縮的香氣。會從全身散發出香甜妖豔的氣味，令雌性的寶可夢為牠神魂顛倒。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.0 m"
+                    .lpWeight = "120.0 kg"
+                    .lpClass = "豬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "100"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 268
+                    .lpAbility2 = 82
+                    .lpAbilityHidden = 47
+                    With .lpBaseValues
+                        .HP = 110
+                        .ATTACK = 100
+                        .DEFEND = 75
+                        .SPATTACK = 59
+                        .SPDEFEND = 80
+                        .SPEED = 65
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 917
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]"
+                    .lpDescription = "包裹著身體的線球擁有足以把天敵飛天螳螂的鐮刀反彈回去的彈力。從臀部射出的絲線，強度足以與金屬絲匹敵。強度的秘密仍在研究中。 "
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "4.0 kg"
+                    .lpClass = "線球神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "255"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "600000"
+                    .lpAbility1 = 15
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 198
+                    With .lpBaseValues
+                        .HP = 35
+                        .ATTACK = 41
+                        .DEFEND = 45
+                        .SPATTACK = 29
+                        .SPDEFEND = 40
+                        .SPEED = 20
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 918
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]"
+                    .lpDescription = "用絲線吸附在樹枝或天花板上無聲無息地移動。會在自己被察覺到之前將獵物打倒。會在自己的地盤裡布下既堅固又黏答答的絲線，作為捕捉入侵者的陷阱。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.0 m"
+                    .lpWeight = "16.5 kg"
+                    .lpClass = "陷阱神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "600000"
+                    .lpAbility1 = 15
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 198
+                    With .lpBaseValues
+                        .HP = 60
+                        .ATTACK = 79
+                        .DEFEND = 92
+                        .SPATTACK = 52
+                        .SPDEFEND = 86
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 919
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]"
+                    .lpDescription = "總是將第３對腳折起來。擁有在遇到危機時能夠跳超過１０公尺的跳躍力。活用跳躍力閃避攻擊並同時給予對手傷害，是牠很擅長的戰鬥方式。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.2 m"
+                    .lpWeight = "1.0 kg"
+                    .lpClass = "蝗蟲神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 68
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 110
+                    With .lpBaseValues
+                        .HP = 33
+                        .ATTACK = 46
+                        .DEFEND = 40
+                        .SPATTACK = 21
+                        .SPDEFEND = 25
+                        .SPEED = 45
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 920
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]+[惡]"
+                    .lpDescription = "認真起來時會用折起的腳站起來，進入決戰模式。會在短時間內鎮壓住敵人。進入決戰模式時會使用折疊起的第３對腳，但由於會造成身體很大的負擔，因此無法久戰。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.0 m"
+                    .lpWeight = "17.5 kg"
+                    .lpClass = "蝗蟲神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 68
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 110
+                    With .lpBaseValues
+                        .HP = 71
+                        .ATTACK = 102
+                        .DEFEND = 78
+                        .SPATTACK = 52
+                        .SPDEFEND = 55
+                        .SPEED = 92
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 921
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]"
+                    .lpDescription = "臉頰上的電囊尚未發達。必須拼命摩擦前腳的肉球，才終於能製造出電力。手的肉球是放電的器官。會費勁地用後腳站起來，然後從手掌釋放出電擊。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "2.5 kg"
+                    .lpClass = "鼠神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 9
+                    .lpAbility2 = 30
+                    .lpAbilityHidden = 89
+                    With .lpBaseValues
+                        .HP = 45
+                        .ATTACK = 50
+                        .DEFEND = 20
+                        .SPATTACK = 40
+                        .SPDEFEND = 25
+                        .SPEED = 60
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 922
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[格鬥]"
+                    .lpDescription = "當群體受到襲擊的時候，會率先挑起戰鬥，以結合了電擊的格鬥技撂倒敵人。使用的格鬥技非常獨特，會一邊用手掌給予打擊，並一邊用肉球施放電擊。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "6.5 kg"
+                    .lpClass = "鼠神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "80"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 9
+                    .lpAbility2 = 30
+                    .lpAbilityHidden = 89
+                    With .lpBaseValues
+                        .HP = 60
+                        .ATTACK = 75
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 40
+                        .SPEED = 85
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 923
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[格鬥]"
+                    .lpDescription = "雖然平時動作慢吞吞的，但在逼不得已要面對戰鬥時，會用迅雷不及掩耳的身手擊潰敵人。膨鬆的體毛是蓄電池，可以積蓄與電動汽車等量的電力。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.9 m"
+                    .lpWeight = "41.0 kg"
+                    .lpClass = "押掌神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 9
+                    .lpAbility2 = 30
+                    .lpAbilityHidden = 89
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 115
+                        .DEFEND = 70
+                        .SPATTACK = 70
+                        .SPDEFEND = 60
+                        .SPEED = 105
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 924
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]"
+                    .lpDescription = "會以絕佳的團隊合作，把能當成巢穴建材的東西用門牙切斷後搬走。無論何時２隻都待在一起。會把尋獲的食物均分成兩半，親密無間地一同進食。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "1.8 kg"
+                    .lpClass = "成對神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "150"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "妖精組"
+                    .lpBornStepsCount = "2570"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "800000"
+                    .lpAbility1 = 50
+                    .lpAbility2 = 53
+                    .lpAbilityHidden = 20
+                    With .lpBaseValues
+                        .HP = 50
+                        .ATTACK = 50
+                        .DEFEND = 45
+                        .SPATTACK = 40
+                        .SPDEFEND = 45
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 925
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]"
+                    .lpDescription = "在不知不覺間多了小孩。看起來像是一個家族，但真相如何無人知曉。身型大的２隻會在戰鬥的同時保護著孩子。對抗實力強大的對手時會集體出陣。在自己所建的巨大巢穴裡，會有配合睡眠和用餐等用途所分出的多個房間。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "2.8 kg"
+                    .lpClass = "家族神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "75"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "妖精組"
+                    .lpBornStepsCount = "2570"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "800000"
+                    .lpAbility1 = 132
+                    .lpAbility2 = 167
+                    .lpAbilityHidden = 101
+                    With .lpBaseValues
+                        .HP = 74
+                        .ATTACK = 75
+                        .DEFEND = 70
+                        .SPATTACK = 65
+                        .SPDEFEND = 75
+                        .SPEED = 111
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 926
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]"
+                    .lpDescription = "摸起來既濕潤又絲滑。吐出的氣息裡含有酵母，可以使周圍的東西發酵。能在製作料理時派上用場，因此自古以來就受到人們保護。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "10.9 kg"
+                    .lpClass = "小狗神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "礦物組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 20
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 103
+                    With .lpBaseValues
+                        .HP = 37
+                        .ATTACK = 55
+                        .DEFEND = 70
+                        .SPATTACK = 30
+                        .SPDEFEND = 55
+                        .SPEED = 65
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 927
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]"
+                    .lpDescription = "身體散發出的迷人香氣能有助於小麥的成長，因此一直都備受農村人家的珍視。牠的皮膚的表面擁有著遇到高溫就會變硬的性質。身體聞起來香噴噴的。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "14.9 kg"
+                    .lpClass = "小狗神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "礦物組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 273
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 165
+                    With .lpBaseValues
+                        .HP = 57
+                        .ATTACK = 80
+                        .DEFEND = 115
+                        .SPATTACK = 50
+                        .SPDEFEND = 80
+                        .SPEED = 95
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 928
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[一般]"
+                    .lpDescription = "會從頭上的果實噴出油來保護自己不受敵人攻擊。油的味道苦澀到會讓人跳起來。會把營養轉換成油，儲存在頭部的果實裡。１個星期不吃不喝也無所謂。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "6.5 kg"
+                    .lpClass = "橄欖神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "255"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 48
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 139
+                    With .lpBaseValues
+                        .HP = 41
+                        .ATTACK = 35
+                        .DEFEND = 45
+                        .SPATTACK = 58
+                        .SPDEFEND = 51
+                        .SPEED = 30
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 929
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[一般]"
+                    .lpDescription = "會分享自己香氣新鮮、美味可口的油。自古以來就與人類共存，直到現在。當頭上的果實沐浴了充分的陽光而開始成熟時，就會遠離人煙，踏上旅途。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "11.9 kg"
+                    .lpClass = "橄欖神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 48
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 139
+                    With .lpBaseValues
+                        .HP = 52
+                        .ATTACK = 53
+                        .DEFEND = 60
+                        .SPATTACK = 78
+                        .SPDEFEND = 78
+                        .SPEED = 33
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 930
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[一般]"
+                    .lpDescription = "性情溫和，慈悲為懷。會把營養豐富且美味可口的油分給虛弱的寶可夢。會把香醇濃郁的油以連岩石都能粉碎的力道發射出去，擊退敵人。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "48.2 kg"
+                    .lpClass = "橄欖神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 269
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 139
+                    With .lpBaseValues
+                        .HP = 78
+                        .ATTACK = 69
+                        .DEFEND = 90
+                        .SPATTACK = 125
+                        .SPDEFEND = 109
+                        .SPEED = 39
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 931
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]+[飛行]"
+                    .lpDescription = "喜歡棲息在街上。會以羽毛的顏色組隊，展開爭奪地盤之戰。綠色羽毛的怒鸚哥勢力最為龐大。在覓食時段的早晨和夜晚會非常吵鬧。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "2.4 kg"
+                    .lpClass = "鸚鵡神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "飛行組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "3855"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "600000"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 55
+                    .lpAbilityHidden = 62
+                    With .lpBaseValues
+                        .HP = 82
+                        .ATTACK = 96
+                        .DEFEND = 51
+                        .SPATTACK = 45
+                        .SPDEFEND = 51
+                        .SPEED = 92
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 932
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]"
+                    .lpDescription = "出生在地底的岩鹽層。會願意分享貴重的鹽巴，因此在過去更是受到重視。身體會受到地面磨損，因此凡走過必留下鹽跡。鹽隨時都會在體內被製造出來補充。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "16.0 kg"
+                    .lpClass = "岩鹽神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "255"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 272
+                    .lpAbility2 = 5
+                    .lpAbilityHidden = 29
+                    With .lpBaseValues
+                        .HP = 55
+                        .ATTACK = 55
+                        .DEFEND = 75
+                        .SPATTACK = 35
+                        .SPDEFEND = 35
+                        .SPEED = 25
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 933
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]"
+                    .lpDescription = "會將鹽噴向獵物，將其做成醃漬物。獵物體內的水分會在醃漬過程中被奪走。會在體內壓縮岩鹽形成硬梆梆的鹽彈。一旦發射，其威力就連鐵板都能貫穿。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "105.0 kg"
+                    .lpClass = "岩鹽神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 272
+                    .lpAbility2 = 5
+                    .lpAbilityHidden = 29
+                    With .lpBaseValues
+                        .HP = 60
+                        .ATTACK = 60
+                        .DEFEND = 100
+                        .SPATTACK = 35
+                        .SPDEFEND = 65
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 934
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]"
+                    .lpDescription = "只要合起指尖，搓出鹽來灑在受傷的寶可夢身上，就算再重的傷都會瞬間痊癒。為了舔牠富含礦物質的鹽，鹽石巨靈的周圍總是會有大量的寶可夢聚集而來。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.3 m"
+                    .lpWeight = "240.0 kg"
+                    .lpClass = "岩鹽神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 272
+                    .lpAbility2 = 5
+                    .lpAbilityHidden = 29
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 100
+                        .DEFEND = 130
+                        .SPATTACK = 45
+                        .SPDEFEND = 90
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 935
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]"
+                    .lpDescription = "生命寄宿在燃燒的木炭上變成了寶可夢。即使敵人再強，也會以燃燒的鬥志迎面而戰。在進入戰鬥狀態後，火力會上升至攝氏１０００度。喜歡吃油脂含量高的樹果。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "10.5 kg"
+                    .lpClass = "小火星神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "人形組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 18
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 49
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 50
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 40
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 936
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]+[超能力]"
+                    .lpDescription = "藉由立下眾多勛績的戰士所穿的鎧甲進化成的樣子。是忠心耿耿的寶可夢。身上包裹著受到超能力和火焰能量強化的鎧甲。會釋放熾熱的火球。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.5 m"
+                    .lpWeight = "85.0 kg"
+                    .lpClass = "火戰士神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "人形組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 18
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 133
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 60
+                        .DEFEND = 100
+                        .SPATTACK = 125
+                        .SPDEFEND = 80
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 937
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]+[幽靈]"
+                    .lpDescription = "雙臂的火焰之劍靠著在得志前就亡命的劍士怨念而燃燒。憑藉滲進怨念的舊鎧甲而進化成的樣子。會毫不留情地斬斷敵人。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "62.0 kg"
+                    .lpClass = "火劍士神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "人形組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 18
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 133
+                    With .lpBaseValues
+                        .HP = 75
+                        .ATTACK = 125
+                        .DEFEND = 80
+                        .SPATTACK = 60
+                        .SPDEFEND = 100
+                        .SPEED = 85
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 938
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]"
+                    .lpDescription = "會搖尾巴來發電。感覺到有危險時，會閃爍頭部通知夥伴。會用蓄積在體內的電力浮在空中。出現雷雲時則能浮得比平時還要高。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "0.4 kg"
+                    .lpClass = "電蝌蚪神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水一組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 20
+                    .lpAbility2 = 9
+                    .lpAbilityHidden = 6
+                    With .lpBaseValues
+                        .HP = 61
+                        .ATTACK = 31
+                        .DEFEND = 41
+                        .SPATTACK = 59
+                        .SPDEFEND = 35
+                        .SPEED = 45
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 939
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]"
+                    .lpDescription = "只要伸縮肥嘟嘟的身體，就能讓肚子上的發電臍產生大量的電氣。看似眼球的部位其實是放電器官，能夠用來發射腹部的發電臍製造的電力。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "113.0 kg"
+                    .lpClass = "電蛙神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水一組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 280
+                    .lpAbility2 = 9
+                    .lpAbilityHidden = 6
+                    With .lpBaseValues
+                        .HP = 109
+                        .ATTACK = 64
+                        .DEFEND = 91
+                        .SPATTACK = 103
+                        .SPDEFEND = 83
+                        .SPEED = 45
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 940
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[飛行]"
+                    .lpDescription = "當翅膀的骨頭受到風吹時，就能製造出電力。會衝進海裡讓獵物觸電後將其捕獲。會在海岸的懸崖上築巢。吃起來劈哩啪啦跳的神奇口感，讓牠的巢成了受歡迎的珍奇美食。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "3.6 kg"
+                    .lpClass = "海燕神奇寶貝"
+                    .lpColor = "黑"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "180"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水一組"
+                    .lpEggGroup2 = "飛行組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 277
+                    .lpAbility2 = 10
+                    .lpAbilityHidden = 172
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 40
+                        .DEFEND = 35
+                        .SPATTACK = 55
+                        .SPDEFEND = 40
+                        .SPEED = 70
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 941
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[飛行]"
+                    .lpDescription = "會膨脹喉囊來增強電力。可以乘著風在１天內就飛上７００公里。會把翅膀製造的電儲存到喉囊裡。由於羽毛含的油脂少之又少，導致牠不是很擅長游泳。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "38.6 kg"
+                    .lpClass = "軍艦鳥神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水一組"
+                    .lpEggGroup2 = "飛行組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 277
+                    .lpAbility2 = 10
+                    .lpAbilityHidden = 172
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 70
+                        .DEFEND = 60
+                        .SPATTACK = 105
+                        .SPDEFEND = 60
+                        .SPEED = 125
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 942
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]"
+                    .lpDescription = "為了不被對手看扁而總是皺著的那張臉，卻反而會讓哭泣的孩子破涕為笑。發達的顎部和獠牙擁有能咬碎岩石的強大威力。厚厚的脂肪使牠防禦力超群。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "16.0 kg"
+                    .lpClass = "小輩神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "150"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 50
+                    .lpAbilityHidden = 198
+                    With .lpBaseValues
+                        .HP = 60
+                        .ATTACK = 78
+                        .DEFEND = 60
+                        .SPATTACK = 40
+                        .SPDEFEND = 51
+                        .SPEED = 51
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 943
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]"
+                    .lpDescription = "大大的喉囊裡可以儲存能量。會一口氣釋放出去把敵人轟飛。非常喜歡和小孩玩耍。平時性情溫和，但在保護家族時表情會為之一變。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.1 m"
+                    .lpWeight = "61.0 kg"
+                    .lpClass = "大佬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "75"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 275
+                    .lpAbilityHidden = 198
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 120
+                        .DEFEND = 90
+                        .SPATTACK = 60
+                        .SPDEFEND = 70
+                        .SPEED = 85
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 944
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[毒]+[一般]"
+                    .lpDescription = "雖然性情溫馴，但一旦被激怒，就會用滲入了毒素的尖銳門牙過來咬住你，讓你全身麻痺不已。為了不讓敵人靠近地盤，會用有刺鼻臭味的毒液，在巢的周圍描繪圖形。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.2 m"
+                    .lpWeight = "0.7 kg"
+                    .lpClass = "毒鼠神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 84
+                    .lpAbility2 = 124
+                    .lpAbilityHidden = 158
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 65
+                        .DEFEND = 35
+                        .SPATTACK = 40
+                        .SPDEFEND = 35
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 945
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[毒]+[一般]"
+                    .lpDescription = "會將能隨著吃下的食物而變色的毒唾液塗在指頭上，在森林的樹木描繪上圖案。塗標客畫的圖案會依個體而有所不同。一生不斷畫著相同圖案。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.7 m"
+                    .lpWeight = "27.2 kg"
+                    .lpClass = "毒猴神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 143
+                    .lpAbilityHidden = 198
+                    With .lpBaseValues
+                        .HP = 63
+                        .ATTACK = 95
+                        .DEFEND = 65
+                        .SPATTACK = 80
+                        .SPDEFEND = 72
+                        .SPEED = 110
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 946
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[幽靈]"
+                    .lpDescription = "無法升天的靈魂在風的吹拂下被捲進枯草裡，變成了寶可夢。在風的吹拂下滾動於荒野間，就連自己也不知道會滾到哪裡去。最討厭身體被弄得濕答答的。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "0.6 kg"
+                    .lpClass = "滾草神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 274
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 151
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 65
+                        .DEFEND = 30
+                        .SPATTACK = 45
+                        .SPDEFEND = 35
+                        .SPEED = 60
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 947
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[幽靈]"
+                    .lpDescription = "會張開頭的樹枝吞沒獵物。把精氣吸得淋漓盡致後，就會吐出來丟掉。會在乾燥地帶流浪。有極低的機率會大量出現，把一整座城鎮塞得滿滿滿。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "6.0 kg"
+                    .lpClass = "滾草神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 274
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 151
+                    With .lpBaseValues
+                        .HP = 55
+                        .ATTACK = 115
+                        .DEFEND = 70
+                        .SPATTACK = 80
+                        .SPDEFEND = 70
+                        .SPEED = 90
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 948
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[地面]+[草]"
+                    .lpDescription = "棲息在潮濕的森林裡。從身體上剝落的薄片富有嚼勁，極為美味。看起來像瑪瑙水母，其實是截然不同的種類。雖然腳很細，但跑起來能達到時速５０公里。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.9 m"
+                    .lpWeight = "33.0 kg"
+                    .lpClass = "木耳神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 298
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 40
+                        .ATTACK = 40
+                        .DEFEND = 35
+                        .SPATTACK = 50
+                        .SPDEFEND = 100
+                        .SPEED = 70
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 949
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[地面]+[草]"
+                    .lpDescription = "會在森林深處建造集體生活用的聚落。極為厭惡有外來者靠近。會用自己的１０根觸手纏住敵人，並吸取養分來折磨對方。下擺的摺皺是很受歡迎的珍味佳餚。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.9 m"
+                    .lpWeight = "58.0 kg"
+                    .lpClass = "木耳神奇寶貝"
+                    .lpColor = "黑"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 298
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 70
+                        .DEFEND = 65
+                        .SPATTACK = 80
+                        .SPDEFEND = 120
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 950
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]"
+                    .lpDescription = "會倒立在懸崖上等獵物上門，但由於那會讓牠的血液倒流，因此等不了太長的時間。生活在陡峭的懸崖上。會左右移動閃避攻擊，然後用鉗子瞄準對手的要害。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.3 m"
+                    .lpWeight = "79.0 kg"
+                    .lpClass = "埋伏神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水三組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 271
+                    .lpAbility2 = 75
+                    .lpAbilityHidden = 144
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 100
+                        .DEFEND = 115
+                        .SPATTACK = 35
+                        .SPDEFEND = 55
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 951
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]"
+                    .lpDescription = "沐浴在太陽下越久，體內的辣味成分就會增加得越多，招式也會變得越來越辣。帕底亞當地會用熱辣娃掉落的門牙來做料理，所以超級無敵霹靂辣。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "3.0 kg"
+                    .lpClass = "熱辣神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 34
+                    .lpAbility2 = 15
+                    .lpAbilityHidden = 103
+                    With .lpBaseValues
+                        .HP = 50
+                        .ATTACK = 62
+                        .DEFEND = 40
+                        .SPATTACK = 62
+                        .SPDEFEND = 40
+                        .SPEED = 50
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 952
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[火]"
+                    .lpDescription = "會把辣味成分轉換成火之能量，然後從紅色的頭朝著四周噴灑出辣到爆炸的火焰。綠色的頭因為腦部受到了辣味成分的刺激而變得凶暴。一旦暴怒起來就會一發不可收拾。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.9 m"
+                    .lpWeight = "15.0 kg"
+                    .lpClass = "熱辣神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "75"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "植物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 34
+                    .lpAbility2 = 15
+                    .lpAbilityHidden = 141
+                    With .lpBaseValues
+                        .HP = 65
+                        .ATTACK = 108
+                        .DEFEND = 65
+                        .SPATTACK = 108
+                        .SPDEFEND = 65
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 953
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]"
+                    .lpDescription = "會將超能力混進泥土和沙子裡製作出泥球。泥球比自己的命還重要。會一邊滾著泥巴球，一邊使進化的能量成熟。最終會迎接進化的時刻。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.2 m"
+                    .lpWeight = "1.0 kg"
+                    .lpClass = "滾動神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "800000"
+                    .lpAbility1 = 14
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 61
+                    With .lpBaseValues
+                        .HP = 41
+                        .ATTACK = 50
+                        .DEFEND = 60
+                        .SPATTACK = 31
+                        .SPDEFEND = 58
+                        .SPEED = 30
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 954
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]+[超能力]"
+                    .lpDescription = "支撐球的身體幾乎不動，因此人們認為牠的本體其實是在球裡面。為了讓在球裡睡覺的寶寶可以睡得更加香甜，會用腳轉著球，讓寶寶感到安穩。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "3.5 kg"
+                    .lpClass = "滾動神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "蟲組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "800000"
+                    .lpAbility1 = 28
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 140
+                    With .lpBaseValues
+                        .HP = 75
+                        .ATTACK = 50
+                        .DEFEND = 85
+                        .SPATTACK = 115
+                        .SPDEFEND = 100
+                        .SPEED = 45
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 955
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[超能力]"
+                    .lpDescription = "從肚子的褶邊放射出的精神力量，能夠讓牠浮在腳尖和地面距離僅有區區１公分的空中。會在荒地跑來跑去生活。如果最喜歡的樹果被搶走，就會窮追不捨地展開報復。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.2 m"
+                    .lpWeight = "1.5 kg"
+                    .lpClass = "褶邊神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "飛行組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 107
+                    .lpAbility2 = 119
+                    .lpAbilityHidden = 3
+                    With .lpBaseValues
+                        .HP = 30
+                        .ATTACK = 35
+                        .DEFEND = 30
+                        .SPATTACK = 55
+                        .SPDEFEND = 30
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 956
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[超能力]"
+                    .lpDescription = "會從大大的眼睛放出精神力量讓對手無法動彈。有別外表，性格非常粗暴。會從鮮豔褶邊的縫隙間釋放出精神力量，藉此以時速２００公里的速度狂奔。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.9 m"
+                    .lpWeight = "90.0 kg"
+                    .lpClass = "鴕鳥神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "60"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "飛行組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 290
+                    .lpAbility2 = 119
+                    .lpAbilityHidden = 3
+                    With .lpBaseValues
+                        .HP = 95
+                        .ATTACK = 60
+                        .DEFEND = 60
+                        .SPATTACK = 101
+                        .SPDEFEND = 60
+                        .SPEED = 105
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 957
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]+[鋼]"
+                    .lpDescription = "雖然會揮舞著手工打造的錘子來保護自己，但卻常被以金屬為食的寶可夢搶走。敲打鐵屑來製作錘子。直到做出自己滿意的作品前，會一次又一次地重做。"
+                    .lpSexRatio = "0:1"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "8.9 kg"
+                    .lpClass = "錘鍊神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "妖精組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 104
+                    .lpAbility2 = 20
+                    .lpAbilityHidden = 124
+                    With .lpBaseValues
+                        .HP = 50
+                        .ATTACK = 45
+                        .DEFEND = 45
+                        .SPATTACK = 35
+                        .SPDEFEND = 64
+                        .SPEED = 58
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 958
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]+[鋼]"
+                    .lpDescription = "為了製作又大又堅固的錘子，會去襲擊劈斬司令的群體，藉以收集金屬。棲息在堆滿破銅爛鐵的地方。為了測試錘子的強度，會和夥伴們激烈地敲打彼此。"
+                    .lpSexRatio = "0:1"
+                    .lpHeight = "0.7 m"
+                    .lpWeight = "59.1 kg"
+                    .lpClass = "錘子神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "妖精組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 104
+                    .lpAbility2 = 20
+                    .lpAbilityHidden = 124
+                    With .lpBaseValues
+                        .HP = 65
+                        .ATTACK = 55
+                        .DEFEND = 55
+                        .SPATTACK = 45
+                        .SPDEFEND = 82
+                        .SPEED = 78
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 959
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]+[鋼]"
+                    .lpDescription = "智商高超，性格豪邁。會用錘子打飛岩石來攻擊飛在空中的鋼鎧鴉。會輕鬆地揮舞著超過１００公斤的錘子來奪取想要的東西，然後帶回自己的住處。"
+                    .lpSexRatio = "0:1"
+                    .lpHeight = "0.7 m"
+                    .lpWeight = "112.8 kg"
+                    .lpClass = "錘子神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "妖精組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 104
+                    .lpAbility2 = 20
+                    .lpAbilityHidden = 124
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 75
+                        .DEFEND = 77
+                        .SPATTACK = 70
+                        .SPDEFEND = 105
+                        .SPEED = 94
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 960
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "就算身處於２０公尺外，牠都能嗅出輕身鱈散發出的氣味，躲進沙子裡面藏身。雖然長得像地鼠，但卻是完全不同的種類。據說是為了適應生活環境，才偶然變得相像。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "1.8 kg"
+                    .lpClass = "糯鰻神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "255"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水三組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 183
+                    .lpAbility2 = 155
+                    .lpAbilityHidden = 8
+                    With .lpBaseValues
+                        .HP = 10
+                        .ATTACK = 55
+                        .DEFEND = 25
+                        .SPATTACK = 35
+                        .SPDEFEND = 25
+                        .SPEED = 95
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 961
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "有別於外表，性格非常粗暴。會用長長的身體勒緊獵物，然後拖進自己的巢穴裡。魚寶可夢的一種。曾經也有人認為牠是三地鼠的地區形態。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "5.4 kg"
+                    .lpClass = "糯鰻神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水三組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 183
+                    .lpAbility2 = 155
+                    .lpAbilityHidden = 8
+                    With .lpBaseValues
+                        .HP = 35
+                        .ATTACK = 100
+                        .DEFEND = 50
+                        .SPATTACK = 50
+                        .SPDEFEND = 70
+                        .SPEED = 120
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 962
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[飛行]+[惡]"
+                    .lpDescription = "會把東西裝在用胸部的絨羽和脫落的羽毛做成的袋子裡，然後從高處往下丟來玩耍。會用胸口的袋子包住食物，然後帶回巢裡。以弄掉會發出響亮聲音的東西為樂。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.5 m"
+                    .lpWeight = "42.9 kg"
+                    .lpClass = "掉東西神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "飛行組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 183
+                    .lpAbility2 = 155
+                    .lpAbilityHidden = 8
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 103
+                        .DEFEND = 85
+                        .SPATTACK = 60
+                        .SPDEFEND = 85
+                        .SPEED = 82
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 963
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "喜歡用尾鰭的水環和夥伴一起玩耍。能透過超音波察覺生物的心情。牠的水環是頭部的洞冒出來的黏膠與海水混合後製造出來的。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.3 m"
+                    .lpWeight = "60.2 kg"
+                    .lpClass = "海豚神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "200"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "水二組"
+                    .lpBornStepsCount = "10280"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 41
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 45
+                        .DEFEND = 40
+                        .SPATTACK = 45
+                        .SPDEFEND = 40
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 964
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "只要聽見夥伴求助的聲音，就會改變自己的樣子。那瞬間絕不會讓誰看見。體能與波普海豚不相上下，但一旦夥伴陷入了危機，就會變身來提高自己的力量。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.3 m"
+                    .lpWeight = "60.2 kg"
+                    .lpClass = "海豚神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "水二組"
+                    .lpBornStepsCount = "10280"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 278
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 70
+                        .DEFEND = 72
+                        .SPATTACK = 53
+                        .SPDEFEND = 62
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 965
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[鋼]+[毒]"
+                    .lpDescription = "據說牠是神秘的毒寶可夢鑽進了被放置在廢鐵工廠的引擎裡而誕生的。鋼鐵身軀才是本體。會貼在岩石上將其成分轉換成活動用的能量。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.0 m"
+                    .lpWeight = "35.0 kg"
+                    .lpClass = "單汽缸神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 142
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 112
+                    With .lpBaseValues
+                        .HP = 45
+                        .ATTACK = 70
+                        .DEFEND = 63
+                        .SPATTACK = 30
+                        .SPDEFEND = 45
+                        .SPEED = 47
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 966
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[鋼]+[毒]"
+                    .lpDescription = "在增加到了８個的汽缸裡引爆混有毒素和岩石成分的氣體來製造能量。用排氣聲猛烈威嚇對手。會從圓筒形的嘴巴吐出舌頭並噴灑毒液。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.8 m"
+                    .lpWeight = "120.0 kg"
+                    .lpClass = "多汽缸神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "75"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 142
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 111
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 119
+                        .DEFEND = 90
+                        .SPATTACK = 54
+                        .SPDEFEND = 67
+                        .SPEED = 90
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 967
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[一般]"
+                    .lpDescription = "似乎自古就會讓人類坐在背上。１萬年前的壁畫上描繪著該模樣。會以時速１２０公里載著人類飛馳，並藉著人類的體溫來溫熱背部，恢復活力。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "63.0 kg"
+                    .lpClass = "坐騎神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "190"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "7710"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 61
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 144
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 95
+                        .DEFEND = 65
+                        .SPATTACK = 85
+                        .SPDEFEND = 65
+                        .SPEED = 121
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 968
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[鋼]"
+                    .lpDescription = "遭到攻擊的時候，會把體毛如拳頭般地使用，朝著敵人奉上拳擊風暴。棲息在乾燥的沙地上。會以土中的鐵質為食，來維持由金屬構成的身體。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.5 m"
+                    .lpWeight = "310.0 kg"
+                    .lpClass = "蚯蚓神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 61
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 144
+                    With .lpBaseValues
+                        .HP = 70
+                        .ATTACK = 85
+                        .DEFEND = 145
+                        .SPATTACK = 60
+                        .SPDEFEND = 55
+                        .SPEED = 65
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 969
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]+[毒]"
+                    .lpDescription = "會從洞窟的壁上吸取養分。包覆在身上的花瓣是用毒的結晶做成的。以毒構成的結晶看似花瓣。會如灑花粉般地灑出毒粉來保護自身安全。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.7 m"
+                    .lpWeight = "8.0 kg"
+                    .lpClass = "礦石神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "70"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "7710"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 295
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 212
+                    With .lpBaseValues
+                        .HP = 48
+                        .ATTACK = 35
+                        .DEFEND = 42
+                        .SPATTACK = 105
+                        .SPDEFEND = 60
+                        .SPEED = 60
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 970
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]+[毒]"
+                    .lpDescription = "只要察覺到危險，就會張開結晶的花瓣，從圓錐形的身體發射光束。最近發現牠的毒能量結晶化後所形成的花瓣與太晶的寶石類似。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.5 m"
+                    .lpWeight = "45.0 kg"
+                    .lpClass = "礦石神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "礦物組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "7710"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 295
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 212
+                    With .lpBaseValues
+                        .HP = 83
+                        .ATTACK = 55
+                        .DEFEND = 90
+                        .SPATTACK = 130
+                        .SPDEFEND = 81
+                        .SPEED = 86
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 971
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[幽靈]"
+                    .lpDescription = "據說牠是不曾接觸過人類就死去的流浪犬寶可夢轉生而來的。愛親近人，害怕寂寞。就算只跟牠玩了一下下，牠也會一直跟在後面。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "35.0 kg"
+                    .lpClass = "鬼犬神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "120"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 53
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 218
+                    With .lpBaseValues
+                        .HP = 50
+                        .ATTACK = 61
+                        .DEFEND = 60
+                        .SPATTACK = 30
+                        .SPDEFEND = 55
+                        .SPEED = 34
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 972
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[幽靈]"
+                    .lpDescription = "平時都在墳場裡睡覺。在為數眾多的犬寶可夢中，牠是對主人最為忠實的。受到深摯悼念的寶可夢轉生而成的樣子。不喜歡被摸到頭上的突起物。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "15.0 kg"
+                    .lpClass = "鬼犬神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "60"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 146
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 218
+                    With .lpBaseValues
+                        .HP = 72
+                        .ATTACK = 101
+                        .DEFEND = 100
+                        .SPATTACK = 50
+                        .SPDEFEND = 97
+                        .SPEED = 68
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 973
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[飛行]+[格鬥]"
+                    .lpDescription = "為了避免積蓄在肚子裡的能量外流，似乎會把自己的脖子繫在頸根部上。擁有被稱為同步的習性，因此攻擊時整個群體會有條不紊地一起衝過來。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "37.0 kg"
+                    .lpClass = "同步神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "100"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "飛行組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 113
+                    .lpAbility2 = 77
+                    .lpAbilityHidden = 294
+                    With .lpBaseValues
+                        .HP = 82
+                        .ATTACK = 115
+                        .DEFEND = 74
+                        .SPATTACK = 75
+                        .SPDEFEND = 64
+                        .SPEED = 90
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 974
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[冰]"
+                    .lpDescription = "遠古時代自大海上岸後，就開始在陸地上生活。似乎與吼吼鯨是相近的物種。在寒冷地帶會組成約５隻規模的群體來生活。喜歡雪或冰所含的礦物質。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "45.0 kg"
+                    .lpClass = "陸鯨神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "150"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "6425"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 47
+                    .lpAbility2 = 81
+                    .lpAbilityHidden = 125
+                    With .lpBaseValues
+                        .HP = 108
+                        .ATTACK = 68
+                        .DEFEND = 45
+                        .SPATTACK = 30
+                        .SPDEFEND = 40
+                        .SPEED = 43
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 975
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[冰]"
+                    .lpDescription = "迴游在冰雪地帶的寶可夢。會用強韌的肌肉和厚實的皮下脂肪保護自己的身體。會集中冰能量使上顎的角變得超低溫，然後將自己附近的一切都凍成冰塊。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "4.5 m"
+                    .lpWeight = "700.0 kg"
+                    .lpClass = "陸鯨神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "6425"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 47
+                    .lpAbility2 = 81
+                    .lpAbilityHidden = 125
+                    With .lpBaseValues
+                        .HP = 170
+                        .ATTACK = 113
+                        .DEFEND = 65
+                        .SPATTACK = 45
+                        .SPDEFEND = 55
+                        .SPEED = 73
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 976
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]+[超能力]"
+                    .lpDescription = "捨棄不必要的肉，能使其心靈受到磨練，精神力量得以提升。贅肉滋味清淡，但卻相當可口。擁有強大的再生能力。會丟棄身上的贅肉讓自己變得輕盈後突擊獵物。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.5 m"
+                    .lpWeight = "90.0 kg"
+                    .lpClass = "卸除神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水二組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "800000"
+                    .lpAbility1 = 104
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 292
+                    With .lpBaseValues
+                        .HP = 90
+                        .ATTACK = 102
+                        .DEFEND = 73
+                        .SPATTACK = 78
+                        .SPDEFEND = 65
+                        .SPEED = 70
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 977
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[水]"
+                    .lpDescription = "雖然是個大胃王，但不擅長捕食。會和米立龍聯手捕捉獵物。將米立龍當成頭領般敬重。雖然是個大力士，但頭腦似乎不是很聰明。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "12.0 m"
+                    .lpWeight = "220.0 kg"
+                    .lpClass = "大鯰神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水二組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 109
+                    .lpAbility2 = 12
+                    .lpAbilityHidden = 41
+                    With .lpBaseValues
+                        .HP = 150
+                        .ATTACK = 100
+                        .DEFEND = 115
+                        .SPATTACK = 65
+                        .SPDEFEND = 65
+                        .SPEED = 35
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 978
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[水]"
+                    .lpDescription = "小型的龍寶可夢。會住在吃吼霸嘴裡，保護自己免於外敵襲擊。極為奸詐狡猾的寶可夢。會假裝虛弱來吸引獵物接近，接著讓同夥的寶可夢發動攻擊。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "8.0 kg"
+                    .lpClass = "擬態神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "100"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水二組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "8995"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1059860"
+                    .lpAbility1 = 279
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 114
+                    With .lpBaseValues
+                        .HP = 68
+                        .ATTACK = 50
+                        .DEFEND = 60
+                        .SPATTACK = 120
+                        .SPDEFEND = 95
+                        .SPEED = 82
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 979
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[格鬥]+[幽靈]"
+                    .lpDescription = "在怒氣突破臨界點時，獲得了能夠擺脫肉體束縛的力量。會將隱藏在心中的憤怒之力注入拳頭發動攻擊，其威力會深入骨髓，將對手打個粉碎。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "56.0 kg"
+                    .lpClass = "憤怒神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 72
+                    .lpAbility2 = 39
+                    .lpAbilityHidden = 128
+                    With .lpBaseValues
+                        .HP = 110
+                        .ATTACK = 115
+                        .DEFEND = 80
+                        .SPATTACK = 50
+                        .SPDEFEND = 90
+                        .SPEED = 90
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 980
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[毒]+[地面]"
+                    .lpDescription = "一旦遭到敵人襲擊，就會從胴體伸出粗壯的刺來反擊。是需有覺悟承受劇痛的危險招式。棲息在池塘和沼澤底部。會讓烏波坐在自己背上，然後游泳送到對岸去。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "1.8 m"
+                    .lpWeight = "223.0 kg"
+                    .lpClass = "刺魚神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "90"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "水一組"
+                    .lpEggGroup2 = "陸上組"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 38
+                    .lpAbility2 = 11
+                    .lpAbilityHidden = 109
+                    With .lpBaseValues
+                        .HP = 130
+                        .ATTACK = 75
+                        .DEFEND = 60
+                        .SPATTACK = 45
+                        .SPDEFEND = 100
+                        .SPEED = 20
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 981
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]+[超能力]"
+                    .lpDescription = "透過同步頭部和尾巴的腦波，使得牠的超能力提升到了有麒麟奇的１０倍之高。會用堅硬的尾巴頭保護著本體的頭，並揮甩長長的脖子讓對手吃牠一記頭錘。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "3.2 m"
+                    .lpWeight = "160.0 kg"
+                    .lpClass = "長頸神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 291
+                    .lpAbility2 = 296
+                    .lpAbilityHidden = 157
+                    With .lpBaseValues
+                        .HP = 120
+                        .ATTACK = 90
+                        .DEFEND = 70
+                        .SPATTACK = 110
+                        .SPDEFEND = 70
+                        .SPEED = 60
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 982
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[一般]"
+                    .lpDescription = "會用堅硬的尾巴挖穿地下深處的岩盤來築巢。巢穴可以長達１０公里。性格溫馴，會讓誤闖進巢穴的寶可夢乘在自己的背上，將其送到入口。會吸進空氣充滿細長的肺部，然後掀起強烈的爆炸氣浪將敵人趕出自己的巢穴。最近的研究發現，牠的身體會有幾節，全是由基因決定的。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "3.6 m"
+                    .lpWeight = "39.2 kg"
+                    .lpClass = "地蛇神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "陸上組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 32
+                    .lpAbility2 = 50
+                    .lpAbilityHidden = 155
+                    With .lpBaseValues
+                        .HP = 125
+                        .ATTACK = 100
+                        .DEFEND = 80
+                        .SPATTACK = 85
+                        .SPDEFEND = 75
+                        .SPEED = 55
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 983
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[鋼]"
+                    .lpDescription = "在勢力浩大的軍團中，唯有站上頂點的那１隻劈斬司令，才能進化成仆斬將軍。會引領大軍戰鬥，卻不擅長有難度的戰術，只會靠蠻力來壓制對手。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "120.0 kg"
+                    .lpClass = "大刀神奇寶貝"
+                    .lpColor = "黑"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "人形組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "5140"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1000000"
+                    .lpAbility1 = 128
+                    .lpAbility2 = 293
+                    .lpAbilityHidden = 46
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 135
+                        .DEFEND = 120
+                        .SPATTACK = 60
+                        .SPDEFEND = 85
+                        .SPEED = 50
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 984
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[地面]+[格鬥]"
+                    .lpDescription = "近年曾經有人目擊到牠。雄偉牙這個名字來自於某本書裡記載的生物。長得就像是超自然雜誌曾介紹的自太古以來就存活至今的謎之寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "2.2 m"
+                    .lpWeight = "320.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "紫"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 115
+                        .ATTACK = 131
+                        .DEFEND = 131
+                        .SPATTACK = 53
+                        .SPDEFEND = 53
+                        .SPEED = 87
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 985
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]+[超能力]"
+                    .lpDescription = "過去只有過１次目擊紀錄。是與古老的探險記裡記載的神秘生物長得很像的寶可夢。與超自然雜誌裡被當成１０億年前的胖丁來介紹的謎之寶可夢長得很相似。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "8.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "粉紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 115
+                        .ATTACK = 65
+                        .DEFEND = 99
+                        .SPATTACK = 65
+                        .SPDEFEND = 115
+                        .SPEED = 111
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 986
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[草]+[惡]"
+                    .lpDescription = "某本書裡記載的一種叫做猛惡菇的生物，有可能就是這隻寶可夢。與可疑的雜誌裡被介紹成由恐龍與蘑菇融合而成的寶可夢有點相似。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "21.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 111
+                        .ATTACK = 127
+                        .DEFEND = 99
+                        .SPATTACK = 79
+                        .SPDEFEND = 99
+                        .SPEED = 55
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 987
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[幽靈]+[妖精]"
+                    .lpDescription = "與某本書裡記載的一種叫做振翼髮的生物有著相似特徵的寶可夢。只有特徵長得像是超自然雜誌所報導的翼龍的幽靈。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "4.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 55
+                        .ATTACK = 55
+                        .DEFEND = 55
+                        .SPATTACK = 135
+                        .SPDEFEND = 135
+                        .SPEED = 135
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 988
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[蟲]+[格鬥]"
+                    .lpDescription = "與古老書籍裡介紹的一種叫做爬地翅的生物有著相似點的神秘寶可夢。與可疑的雜誌介紹的火神蛾太古時代的樣子長得有點像的寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "3.2 m"
+                    .lpWeight = "92.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 135
+                        .DEFEND = 79
+                        .SPATTACK = 85
+                        .SPDEFEND = 105
+                        .SPEED = 81
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 989
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[地面]"
+                    .lpDescription = "無捕獲紀錄。資料不足。其特徵與某本探險記裡所記載的生物一致。與超自然雜誌所報導的活了１萬年的三合一磁怪長得稍微有那麼一點相似。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "2.3 m"
+                    .lpWeight = "60.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 81
+                        .DEFEND = 97
+                        .SPATTACK = 121
+                        .SPDEFEND = 85
+                        .SPEED = 101
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 990
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[地面]+[鋼]"
+                    .lpDescription = "與超自然雜誌裡介紹的外星人送來的科學兵器長得極為相似。近年曾經有人目擊到牠。是與古老的探險記裡記載的不明物體長得很像的寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.9 m"
+                    .lpWeight = "240.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 90
+                        .ATTACK = 112
+                        .DEFEND = 120
+                        .SPATTACK = 72
+                        .SPDEFEND = 70
+                        .SPEED = 106
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 991
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[冰]+[水]"
+                    .lpDescription = "身形長得很像超自然雜誌所報導的在太古時代的文明下誕生的機器人。與古書裡記載的神秘物體長得很相像的寶可夢。過去只被目擊過２次。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "11.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 56
+                        .ATTACK = 80
+                        .DEFEND = 114
+                        .SPATTACK = 124
+                        .SPDEFEND = 60
+                        .SPEED = 136
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 992
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[格鬥]+[電]"
+                    .lpDescription = "長相近似於超自然雜誌以頭條來報導的某運動選手被改造成生化人後的樣子。與某本探險記裡記載的一種叫做鐵臂膀的物體有許多相似處的寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.6 m"
+                    .lpWeight = "11.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 154
+                        .ATTACK = 140
+                        .DEFEND = 108
+                        .SPATTACK = 50
+                        .SPDEFEND = 68
+                        .SPEED = 50
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 993
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[飛行]"
+                    .lpDescription = "牠與超自然雜誌曾報導過的寶可夢很相似。報導中的寶可夢是愛上機器人的三首惡龍所生的孩子。古書裡所記載的叫做鐵脖頸的物體，說不定就是這隻寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.3 m"
+                    .lpWeight = "111.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 94
+                        .ATTACK = 80
+                        .DEFEND = 86
+                        .SPATTACK = 122
+                        .SPDEFEND = 80
+                        .SPEED = 108
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 994
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[火]+[毒]"
+                    .lpDescription = "與超自然雜誌裡以監視人類的ＵＦＯ來介紹的未知物體長得很相似。無捕獲紀錄。資料不足。其特徵與古書裡所記載的物體一致。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "36.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "50"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 70
+                        .DEFEND = 60
+                        .SPATTACK = 140
+                        .SPDEFEND = 110
+                        .SPEED = 110
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 995
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[岩石]+[電]"
+                    .lpDescription = "有部分特徵與可疑雜誌當成１０億年後的班基拉斯來報導的寶可夢很相似。有一部分的特徵與某本探險記裡以鐵荊棘來介紹的物體一致。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "303.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "30"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 134
+                        .DEFEND = 110
+                        .SPATTACK = 70
+                        .SPDEFEND = 84
+                        .SPEED = 72
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 996
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[冰]"
+                    .lpDescription = "會用背鰭吸收熱能以轉換成冰之能量。溫度越高，累積的能量就越多。棲息在岩石地帶或森林裡。會用背鰭的力量將巢穴裡的溫度降到如冷凍庫般寒冷。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "17.0 kg"
+                    .lpClass = "冰鰭神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "龍組"
+                    .lpEggGroup2 = "礦物組"
+                    .lpBornStepsCount = "10280"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 270
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 115
+                    With .lpBaseValues
+                        .HP = 65
+                        .ATTACK = 75
+                        .DEFEND = 45
+                        .SPATTACK = 35
+                        .SPDEFEND = 45
+                        .SPEED = 55
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 997
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[冰]"
+                    .lpDescription = "凍結周圍的空氣，以冰之面罩保護臉部，並將背鰭變成冰劍。會使出前空翻，並利用凍住背鰭形成的劍來攻擊對手。唯有具備強健的下盤才能練就此功夫。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "30.0 kg"
+                    .lpClass = "冰鰭神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "25"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "龍組"
+                    .lpEggGroup2 = "礦物組"
+                    .lpBornStepsCount = "10280"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 270
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 115
+                    With .lpBaseValues
+                        .HP = 90
+                        .ATTACK = 95
+                        .DEFEND = 66
+                        .SPATTACK = 45
+                        .SPDEFEND = 65
+                        .SPEED = 62
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 998
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = False
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[冰]"
+                    .lpDescription = "會從嘴裡噴射極低溫的冷氣。即使是灼熱的熔岩也能使其在一瞬間變成冰塊。會倒轉身體並從口中吐出冷氣，然後利用其推力朝敵人猛衝，以背鰭的劍給予致命一擊。"
+                    .lpSexRatio = "1:1"
+                    .lpHeight = "2.1 m"
+                    .lpWeight = "210.0 kg"
+                    .lpClass = "冰龍神奇寶貝"
+                    .lpColor = "灰"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "10"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "龍組"
+                    .lpEggGroup2 = "礦物組"
+                    .lpBornStepsCount = "10280"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 270
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 115
+                    With .lpBaseValues
+                        .HP = 115
+                        .ATTACK = 145
+                        .DEFEND = 92
+                        .SPATTACK = 75
+                        .SPDEFEND = 86
+                        .SPEED = 87
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 999
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[幽靈]"
+                    .lpDescription = "約１５００年前出生在寶箱裡。如果有惡棍打算偷走寶藏，就會被牠吸走精氣。棲息在老舊的寶箱中。有時會因沒人注意到自己是寶可夢，而被擱置在道具店的角落。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.3 m"
+                    .lpWeight = "5.0 kg"
+                    .lpClass = "寶箱神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 155
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 45
+                        .ATTACK = 30
+                        .DEFEND = 70
+                        .SPATTACK = 75
+                        .SPDEFEND = 70
+                        .SPEED = 10
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1000
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[鋼]+[幽靈]"
+                    .lpDescription = "據說身體是由１０００枚硬幣所組成的。喜歡與人親近，不管與誰都能馬上變得融洽。堆疊硬幣而形成的身體結實堅固。會連續發射硬幣來壓制敵人。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "30.0 kg"
+                    .lpClass = "寶者神奇寶貝"
+                    .lpColor = "黃"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "45"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 283
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 87
+                        .ATTACK = 60
+                        .DEFEND = 95
+                        .SPATTACK = 133
+                        .SPDEFEND = 91
+                        .SPEED = 84
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1001
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[草]"
+                    .lpDescription = "將王所行之惡事記於木簡而遭懲罰者的恨意裹上了枯落的葉子，變成了寶可夢。會吸取草木的能量，使周圍的森林霎時乾枯，田地的農作物歉收。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.5 m"
+                    .lpWeight = "74.2 kg"
+                    .lpClass = "災厄神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "6"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 286
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 85
+                        .ATTACK = 85
+                        .DEFEND = 100
+                        .SPATTACK = 95
+                        .SPDEFEND = 135
+                        .SPEED = 70
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1002
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[冰]"
+                    .lpDescription = "能操控１００噸的積雪。會自由進出在自己引起的雪崩裡，天真無邪地玩耍。遙遠過去喪命於劍下者的憎恨之情纏繞在雪上，變成了寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.9 m"
+                    .lpWeight = "152.2 kg"
+                    .lpClass = "災厄神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "6"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 285
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 80
+                        .ATTACK = 120
+                        .DEFEND = 80
+                        .SPATTACK = 90
+                        .SPDEFEND = 65
+                        .SPEED = 135
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1003
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[地面]"
+                    .lpDescription = "古老儀式用的容器中注入的恐懼把土石裹在自己身上，變成了寶可夢。當牠緩緩揮下自己笨重的頭部時，會造成地面出現深度達５０公尺的巨大裂縫。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "2.7 m"
+                    .lpWeight = "699.7 kg"
+                    .lpClass = "災厄神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "6"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 284
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 155
+                        .ATTACK = 110
+                        .DEFEND = 125
+                        .SPATTACK = 55
+                        .SPDEFEND = 80
+                        .SPEED = 45
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1004
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[惡]+[火]"
+                    .lpDescription = "能操控３０００度的火焰。會熔化岩石和沙礫做成熔岩海，並在裡面悠閒自在地游泳。曾引起無數鬥爭的勾玉聚集了嫉妒之情。這些嫉妒之情纏繞了火焰，變成了寶可夢。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "4.9 kg"
+                    .lpClass = "災厄神奇寶貝"
+                    .lpColor = "褐"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "6"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 287
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 55
+                        .ATTACK = 80
+                        .DEFEND = 80
+                        .SPATTACK = 135
+                        .SPDEFEND = 120
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1005
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[龍]+[惡]"
+                    .lpDescription = "牠有可能就是在謎團重重的探險記裡，以轟鳴月這個名字被記載下來的生物。根據可疑雜誌的報導來看，這種寶可夢好像跟某個地區會發生的現象有關連。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "380.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "綠"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "10"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 281
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 105
+                        .ATTACK = 139
+                        .DEFEND = 71
+                        .SPATTACK = 55
+                        .SPDEFEND = 101
+                        .SPEED = 119
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1006
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[妖精]+[格鬥]"
+                    .lpDescription = "有幾項特徵與超自然雜誌所報導的瘋狂科學家的發明很相似。牠有可能就是在某本探險記裡，以鐵武者這個名字被記載下來的物體。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "35.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "白"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "10"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 282
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 74
+                        .ATTACK = 130
+                        .DEFEND = 90
+                        .SPATTACK = 120
+                        .SPDEFEND = 60
+                        .SPEED = 116
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1007
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[格鬥]+[龍]"
+                    .lpDescription = "牠似乎就是古老的探險記裡提到的翼大王的真面目。據記載，牠曾以拳頭擊裂大地。雖然長相相似，但頑強凶暴的程度卻是凌駕於摩托蜥之上。牠的生態等資訊目前一切不明。生態等詳情仍然不明。故勒頓這個名字是發現牠的博士所命名的。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "2.5 m"
+                    .lpWeight = "303.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "紅"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "3"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 288
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 135
+                        .DEFEND = 115
+                        .SPATTACK = 85
+                        .SPDEFEND = 100
+                        .SPEED = 135
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
+            Case 1008
+                With lpReturnValue
+                    .IsMissingNo = False
+                    .IsNoSex = True
+                    .lpNumber = lpPokemonNationalDexNumber
+                    .lpType = "[電]+[龍]"
+                    .lpDescription = "詳情目前仍然不明。雖然給人貌似摩托蜥的印象，但力量和冷酷的程度可說是天壤之別。牠似乎就是古書裡所提及的鐵大蛇。傳說牠曾用雷電將大地化成了一片灰。密勒頓這個名字是發現牠的博士所命名的。生態等詳情仍然不明。"
+                    .lpSexRatio = "無性別"
+                    .lpHeight = "3.5 m"
+                    .lpWeight = "240.0 kg"
+                    .lpClass = "悖謬神奇寶貝"
+                    .lpColor = "藍"
+                    .lpSheleter = "---"
+                    .lpCatchRate = "3"
+                    .lpStandardFriendlyRate = "---"
+                    .lpEggGroup1 = "未發現組"
+                    .lpEggGroup2 = "---"
+                    .lpBornStepsCount = "12850"
+                    .lpBasicExpPoint = "0"
+                    .lpFullLevelExpPoint = "1250000"
+                    .lpAbility1 = 289
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    With .lpBaseValues
+                        .HP = 100
+                        .ATTACK = 85
+                        .DEFEND = 100
+                        .SPATTACK = 135
+                        .SPDEFEND = 115
+                        .SPEED = 135
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                    .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
+                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                End With
         End Select
         Return lpReturnValue
     End Function

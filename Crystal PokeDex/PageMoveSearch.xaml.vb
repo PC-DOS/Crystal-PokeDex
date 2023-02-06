@@ -1,16 +1,33 @@
 ﻿Partial Public Class PageMoveSearch
     Inherits PhoneApplicationPage
+    Dim ResultList As New List(Of String)
 
     Public Sub New()
         InitializeComponent()
     End Sub
 
     Private Sub PageMoveSearch_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        ResultList.Clear()
+        gridNoResult.Visibility = System.Windows.Visibility.Collapsed
         txtTitle.Text = lpSearchRequest & " 的搜尋結果"
         If lpSearchRequest = "" Then
             lstMoves.ItemsSource = CurrentMovesList
         Else
-            lstMoves.ItemsSource = (From x In CurrentMovesList Where x.Contains(lpSearchRequest) Select x).ToArray()
+            'lstMoves.ItemsSource = (From x In CurrentMovesList Where x.Contains(lpSearchRequest) Select x).ToArray()
+            Dim i As Integer
+            'Search Chinese, English, Japanese
+            For i = 0 To CurrentAbilityList.Count - 1
+                If MoveNamesInformalCHT(i).Contains(lpSearchRequest) Or _
+                    MoveNamesOfficialCHT(i).Contains(lpSearchRequest) Or _
+                    MoveNamesInformalCHS(i).Contains(lpSearchRequest) Or _
+                    MoveNamesOfficialCHS(i).Contains(lpSearchRequest) Or _
+                    MoveNamesENG(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
+                    MoveNamesJPN(i).Contains(lpSearchRequest) Or _
+                    CurrentMovesList(i).Contains(lpSearchRequest) Then
+                    ResultList.Add(CurrentMovesList(i))
+                End If
+            Next
+            lstMoves.ItemsSource = ResultList
         End If
         If lstMoves.Items.Count = 0 Then
             gridNoResult.Visibility = System.Windows.Visibility.Visible

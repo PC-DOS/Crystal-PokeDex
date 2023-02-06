@@ -8,16 +8,20 @@
     Public PokemonNamesJPN As New List(Of String)
     Public PokemonNamesFRA As New List(Of String)
     Public PokemonNamesGER As New List(Of String)
+    Dim IsPokemonNamesListsInitialized As Boolean = False
     Public Sub InitPokemonNameList()
-        InitializePokemonNamesCHT()
-        InitializePokemonNamesCHS()
-        InitializePokemonNamesCHTO()
-        InitializePokemonNamesCHSO()
-        InitializePokemonNamesENG()
-        InitializePokemonNamesKOR()
-        InitializePokemonNamesJPN()
-        InitializePokemonNamesFRA()
-        InitializePokemonNamesGER()
+        If Not IsPokemonNamesListsInitialized Then
+            InitializePokemonNamesCHT()
+            InitializePokemonNamesCHS()
+            InitializePokemonNamesCHTO()
+            InitializePokemonNamesCHSO()
+            InitializePokemonNamesENG()
+            InitializePokemonNamesKOR()
+            InitializePokemonNamesJPN()
+            InitializePokemonNamesFRA()
+            InitializePokemonNamesGER()
+            IsPokemonNamesListsInitialized = True
+        End If
     End Sub
     Private Sub InitializePokemonNamesCHT()
         PokemonNamesCHT.Clear()

@@ -1,20 +1,37 @@
 ﻿Partial Public Class PagePokeSearch
     Inherits PhoneApplicationPage
-    Dim itemPokemons As New List(Of String)
+    Dim ResultList As New List(Of String)
 
     Public Sub New()
-        itemPokemons.Clear()
-        itemPokemons = CurrentTranslationForList
         InitializeComponent()
     End Sub
 
     Private Sub PagePokeSearch_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        ResultList.Clear()
         gridNoResult.Visibility = System.Windows.Visibility.Collapsed
         txtTitle.Text = lpSearchRequest & " 的搜尋結果"
         If lpSearchRequest = "" Then
-            lstPokemons.ItemsSource = itemPokemons
+            lstPokemons.ItemsSource = CurrentTranslationForList
         Else
-            lstPokemons.ItemsSource = (From x In itemPokemons Where x.Contains(lpSearchRequest) Select x).ToArray()
+            'lstPokemons.ItemsSource = (From x In ResultList Where x.Contains(lpSearchRequest) Select x).ToArray()
+            Dim i As Integer
+            'Search Chinese, English, Japanese or Korean
+            InitPokemonNameList()
+            For i = 0 To CurrentTranslationForList.Count - 1
+                If PokemonNamesCHT(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHTO(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHS(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHSO(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesENG(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
+                    PokemonNamesFRA(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
+                    PokemonNamesGER(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
+                    PokemonNamesJPN(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesKOR(i).Contains(lpSearchRequest) Or _
+                    CurrentTranslationForList(i).Contains(lpSearchRequest) Then
+                    ResultList.Add(CurrentTranslationForList(i))
+                End If
+            Next
+            lstPokemons.ItemsSource = ResultList
         End If
         If lstPokemons.Items.Count = 0 Then
             gridNoResult.Visibility = System.Windows.Visibility.Visible
