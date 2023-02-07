@@ -220,9 +220,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[雷之石]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("026")
+                    .Add("172")
                 End With
             Case 26
                 IsEvolutionsAvailableTemp = False
@@ -278,9 +280,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[月之石]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("036")
+                    .Add("173")
                 End With
             Case 36
                 IsEvolutionsAvailableTemp = False
@@ -300,9 +304,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[月之石]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("040")
+                    .Add("174")
                 End With
             Case 40
                 IsEvolutionsAvailableTemp = False
@@ -800,14 +806,16 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("(伽勒爾的樣子)升級到LV42")
+                    .Add("第九世代以前攜帶[幸運薰香]生蛋或(第九世代及以後)生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("866")
+                    .Add("439")
                 End With
             Case 123
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[金屬外套]通信進化")
+                    .Add("攜帶[金屬膜]通信進化或在《傳說 阿爾宙斯》版中使用[金屬膜]")
                     .Add("使用[黑奇石]")
                 End With
                 With EvoluteToNumersTemp
@@ -815,22 +823,32 @@
                     .Add("900")
                 End With
             Case 124
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("238")
+                End With
             Case 125
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[電力發動機]通信進化")
+                    .Add("攜帶[電力增幅器]通信進化或在《傳說 阿爾宙斯》版中使用[電力增幅器]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("466")
+                    .Add("239")
                 End With
             Case 126
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[火力發動機]通信進化")
+                    .Add("攜帶[熔岩增幅器]通信進化或在《傳說 阿爾宙斯》版中使用[熔岩增幅器]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("467")
+                    .Add("240")
                 End With
             Case 127
                 IsEvolutionsAvailableTemp = False
@@ -856,11 +874,11 @@
                     .Add("使用[水之石]")
                     .Add("使用[雷之石]")
                     .Add("使用[火之石]")
-                    .Add("白天親密度進化")
-                    .Add("夜晚親密度進化")
-                    .Add("苔蘚石附近升級進化")
-                    .Add("冰雪石附近升級進化")
-                    .Add("羈絆值2心及以上且有妖精屬性技能時升級進化")
+                    .Add("白天親密度220以上或友好度158以上提升等級")
+                    .Add("夜晚親密度220以上或友好度158以上提升等級")
+                    .Add("苔蘚石附近升級進化或第八世代之後使用[葉之石]")
+                    .Add("冰雪石附近升級進化或第八世代之後使用[冰之石]")
+                    .Add("羈絆值2心及以上(友好度50或158以上)且有妖精屬性技能時升級進化")
                 End With
                 With EvoluteToNumersTemp
                     .Add("134")
@@ -881,7 +899,7 @@
             Case 137
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[升級資料]通信進化")
+                    .Add("攜帶[升級資料]通信進化或在《傳說 阿爾宙斯》版中使用[升級資料]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("233")
@@ -909,7 +927,13 @@
             Case 142
                 IsEvolutionsAvailableTemp = False
             Case 143
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("第九世代以前攜帶[幸運薰香]生蛋或(第九世代及以後)生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("446")
+                End With
             Case 144
                 IsEvolutionsAvailableTemp = False
             Case 145
@@ -1055,7 +1079,7 @@
             Case 172
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("025")
@@ -1063,7 +1087,7 @@
             Case 173
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("035")
@@ -1071,7 +1095,7 @@
             Case 174
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("039")
@@ -1079,7 +1103,7 @@
             Case 175
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("176")
@@ -1088,9 +1112,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[光之石]")
+                    .Add("生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("468")
+                    .Add("175")
                 End With
             Case 177
                 IsEvolutionsAvailableTemp = True
@@ -1128,14 +1154,22 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV18")
+                    .Add("第九世代以前攜帶[海潮薰香]生蛋或(第九世代及以後)生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("184")
+                    .Add("298")
                 End With
             Case 184
                 IsEvolutionsAvailableTemp = False
             Case 185
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("第九世代以前攜帶[岩石薰香]生蛋或(第九世代及以後)生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("438")
+                End With
             Case 186
                 IsEvolutionsAvailableTemp = False
             Case 187
@@ -1215,7 +1249,13 @@
             Case 201
                 IsEvolutionsAvailableTemp = False
             Case 202
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("第九世代以前攜帶[悠閒薰香]生蛋或(第九世代及以後)生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("360")
+                End With
             Case 203
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1245,7 +1285,7 @@
             Case 207
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("夜晚持有道具[尖牙]升級進化")
+                    .Add("夜晚持有道具[銳利之牙]升級進化或夜晚在《傳說 阿爾宙斯》版中使用[銳利之牙]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("472")
@@ -1349,7 +1389,13 @@
             Case 225
                 IsEvolutionsAvailableTemp = False
             Case 226
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("第九世代以前攜帶[漣漪薰香]生蛋或(第九世代及以後)生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("458")
+                End With
             Case 227
                 IsEvolutionsAvailableTemp = False
             Case 228
@@ -1377,7 +1423,7 @@
             Case 233
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[奇異更新]通信進化")
+                    .Add("攜帶[可疑修正檔]通信進化或在《傳說 阿爾宙斯》版中使用[可疑修正檔]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("474")
@@ -1405,7 +1451,13 @@
                     .Add("237")
                 End With
             Case 237
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("236")
+                End With
             Case 238
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1470,7 +1522,7 @@
                 IsEvolutionsAvailableTemp = False
             Case 249
                 IsEvolutionsAvailableTemp = False
-            Case 250
+            Case 250 '塔主
                 IsEvolutionsAvailableTemp = False
             Case 251
                 IsEvolutionsAvailableTemp = False
@@ -1753,7 +1805,7 @@
             Case 298
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("183")
@@ -2273,7 +2325,7 @@
             Case 406
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("白天親密度進化")
+                    .Add("白天親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("315")
@@ -2371,7 +2423,7 @@
             Case 427
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("428")
@@ -2395,7 +2447,7 @@
             Case 433
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("夜晚親密度進化")
+                    .Add("夜晚親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("358")
@@ -2471,7 +2523,7 @@
             Case 446
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("143")
@@ -2479,7 +2531,7 @@
             Case 447
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("白天親密度進化")
+                    .Add("白天親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("448")
@@ -2805,7 +2857,7 @@
             Case 527
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("528")
@@ -2875,7 +2927,7 @@
             Case 541
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("542")
@@ -4023,7 +4075,7 @@
             Case 772
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("773")
