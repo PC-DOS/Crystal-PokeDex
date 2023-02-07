@@ -141,6 +141,11 @@
             txtExpBasic.Text = .lpBasicExpPoint
             txtExpFullLV.Text = .lpFullLevelExpPoint
             txtHatch.Text = .lpBornStepsCount
+            If .lpBornStepsCount <> "---" And .lpBornStepsCount <> "ERROR" Then
+                txtHatch.Text = .lpBornStepsCount & "週期 (約合" & CInt(.lpBornStepsCount) * 257 & "步)"
+            Else
+                txtHatch.Text = .lpBornStepsCount
+            End If
             txtHeight.Text = .lpHeight
             txtName.Text = CurrentTranslationForCommonUse(CInt(.lpNumber) - 1)
             txtName_EVOBasic.Text = CurrentTranslationForCommonUse(CInt(.lpNumber) - 1)

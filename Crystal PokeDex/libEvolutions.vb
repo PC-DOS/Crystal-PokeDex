@@ -43,6 +43,8 @@
         EvolutionRoutinsTemp.Clear()
         If lpPokemonNumber <= TotalPokemonCountPerVersion.SM Then
             GenerateSingleLinkEvolutionDataPreSS(lpPokemonNumber)
+        ElseIf lpPokemonNumber <= TotalPokemonCountPerVersion.SV Then
+            GenerateSingleLinkEvolutionDataSSSV(lpPokemonNumber)
             'ElseIf lpPokemonNumber <= {$SS_PMINDEX_MAX} Then
             'GenerateSingleLinkEvolutionDataSS(lpPokemonNumber)
         End If
@@ -185,11 +187,11 @@
             Case 19
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    '.Add("升級到LV7")
                     .Add("升級到LV20")
+                    .Add("(阿羅拉的樣子)在夜晚升級到LV20")
                 End With
                 With EvoluteToNumersTemp
-                    '.Add("")
+                    .Add("020")
                     .Add("020")
                 End With
             Case 20
@@ -198,11 +200,9 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV20")
-                    '.Add("升級到LV10")
                 End With
                 With EvoluteToNumersTemp
                     .Add("022")
-                    '.Add("")
                 End With
             Case 22
                 IsEvolutionsAvailableTemp = False
@@ -230,8 +230,10 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV22")
+                    .Add("(阿羅拉的樣子)使用[冰之石]")
                 End With
                 With EvoluteToNumersTemp
+                    .Add("028")
                     .Add("028")
                 End With
             Case 28
@@ -286,8 +288,10 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[火之石]")
+                    .Add("(阿羅拉的樣子)使用[冰之石]")
                 End With
                 With EvoluteToNumersTemp
+                    .Add("038")
                     .Add("038")
                 End With
             Case 38
@@ -313,7 +317,7 @@
             Case 42
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("169")
@@ -372,9 +376,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV28")
+                    .Add("(伽勒爾的樣子)升級到LV28")
                 End With
                 With EvoluteToNumersTemp
                     .Add("053")
+                    .Add("863")
                 End With
             Case 53
                 IsEvolutionsAvailableTemp = False
@@ -397,7 +403,13 @@
                     .Add("057")
                 End With
             Case 57
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使出20次[憤怒之拳]後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("979")
+                End With
             Case 58
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -525,8 +537,12 @@
                 With EvolutionRoutinsTemp
                     .Add("升級到LV37")
                     .Add("攜帶[王者之印]通信進化")
+                    .Add("(伽勒爾的樣子)使用[伽勒荳蔻手環]")
+                    .Add("(伽勒爾的樣子)使用[伽勒荳蔻花圈]")
                 End With
                 With EvoluteToNumersTemp
+                    .Add("080")
+                    .Add("199")
                     .Add("080")
                     .Add("199")
                 End With
@@ -544,12 +560,20 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("強磁場區域升級進化")
+                    .Add("使用[雷之石](第八世代起)")
                 End With
                 With EvoluteToNumersTemp
                     .Add("462")
+                    .Add("462")
                 End With
             Case 83
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("(伽勒爾的樣子)對戰中擊中要害3次或以上結束對戰")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("865")
+                End With
             Case 84
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -599,7 +623,7 @@
             Case 93
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("通信進化")
+                    .Add("通信進化或使用[聯繫繩]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("094")
@@ -609,7 +633,7 @@
             Case 95
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[金屬外套]通信進化")
+                    .Add("攜帶[金屬膜]通信進化或在《傳說 阿爾宙斯》版中使用[金屬膜]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("208")
@@ -638,8 +662,10 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV30")
+                    .Add("(洗翠的樣子)使用[葉之石]")
                 End With
                 With EvoluteToNumersTemp
+                    .Add("101")
                     .Add("101")
                 End With
             Case 101
@@ -665,9 +691,21 @@
             Case 105
                 IsEvolutionsAvailableTemp = False
             Case 106
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("236")
+                End With
             Case 107
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("236")
+                End With
             Case 108
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -697,7 +735,7 @@
             Case 112
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[鐵衣甲]通信進化")
+                    .Add("攜帶[護具]通信進化或在《傳說 阿爾宙斯》版中使用[護具]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("464")
@@ -705,15 +743,17 @@
             Case 113
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("親密度進化")
+                    .Add("親密度220以上或友好度158以上提升等級")
+                    .Add("第九世代以前攜帶[幸運薰香]生蛋或(第九世代及以後)生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("242")
+                    .Add("440")
                 End With
             Case 114
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("習得技能[原始之力]")
+                    .Add("習得技能[原始之力]時提升等級")
                 End With
                 With EvoluteToNumersTemp
                     .Add("465")
@@ -757,14 +797,22 @@
             Case 121
                 IsEvolutionsAvailableTemp = False
             Case 122
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("(伽勒爾的樣子)升級到LV42")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("866")
+                End With
             Case 123
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("攜帶[金屬外套]通信進化")
+                    .Add("使用[黑奇石]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("212")
+                    .Add("900")
                 End With
             Case 124
                 IsEvolutionsAvailableTemp = False
@@ -1140,9 +1188,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV20")
+                    .Add("(帕底亞的樣子)升級到LV20")
                 End With
                 With EvoluteToNumersTemp
                     .Add("195")
+                    .Add("980")
                 End With
             Case 195
                 IsEvolutionsAvailableTemp = False
@@ -1167,7 +1217,13 @@
             Case 202
                 IsEvolutionsAvailableTemp = False
             Case 203
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("學會[雙光束]時提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("981")
+                End With
             Case 204
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1179,7 +1235,13 @@
             Case 205
                 IsEvolutionsAvailableTemp = False
             Case 206
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("學會[強力鑽]時提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("982")
+                End With
             Case 207
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1201,7 +1263,13 @@
             Case 210
                 IsEvolutionsAvailableTemp = False
             Case 211
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("(洗翠的樣子)以剛猛的方式使出20次[毒千針]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("904")
+                End With
             Case 212
                 IsEvolutionsAvailableTemp = False
             Case 213
@@ -1212,9 +1280,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("夜晚持有道具[尖牙]升級進化")
+                    .Add("(洗翠的樣子)在白天攜帶[銳利之爪]提升等級，或在《傳說 阿爾宙斯》版中使用[銳利之爪]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("461")
+                    .Add("903")
                 End With
             Case 216
                 IsEvolutionsAvailableTemp = True
@@ -1225,7 +1295,13 @@
                     .Add("217")
                 End With
             Case 217
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("滿月的夜晚使用[泥炭塊]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("901")
+                End With
             Case 218
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1253,7 +1329,13 @@
                     .Add("473")
                 End With
             Case 222
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("(伽勒爾的樣子)升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("864")
+                End With
             Case 223
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1301,7 +1383,13 @@
                     .Add("474")
                 End With
             Case 234
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("以迅疾的方式使出20次[屏障猛攻]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("899")
+                End With
             Case 235
                 IsEvolutionsAvailableTemp = False
             Case 236
@@ -1465,7 +1553,13 @@
                     .Add("264")
                 End With
             Case 264
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("(伽勒爾的樣子)夜晚升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("862")
+                End With
             Case 265
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -2345,7 +2439,7 @@
             Case 440
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("白天攜帶[圓石]升級進化")
+                    .Add("白天攜帶[渾圓之石]升級進化或白天在《傳說 阿爾宙斯》版中使用[渾圓之石]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("113")
@@ -2829,7 +2923,13 @@
             Case 549
                 IsEvolutionsAvailableTemp = False
             Case 550
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("累計受到至少294點反作用力傷害(不計造成自己瀕死的傷害)")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("902")
+                End With
             Case 551
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -2888,9 +2988,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV34")
+                    .Add("(伽勒爾的樣子)受到至少50傷害後來到沙塵窪地岩門附近")
                 End With
                 With EvoluteToNumersTemp
                     .Add("563")
+                    .Add("867")
                 End With
             Case 563
                 IsEvolutionsAvailableTemp = False
@@ -3219,7 +3321,13 @@
                     .Add("625")
                 End With
             Case 625
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("擊倒3隻群體中攜帶有[頭領憑證]的[劈斬司令]後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("983")
+                End With
             Case 626
                 IsEvolutionsAvailableTemp = False
             Case 627
@@ -4025,8 +4133,925 @@
             Case 807
                 IsEvolutionsAvailableTemp = False
             Case 808
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("在Pokémon GO中消耗400個美錄坦的糖果")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("809")
+                End With
             Case 809
+                IsEvolutionsAvailableTemp = False
+        End Select
+    End Sub
+    Private Sub GenerateSingleLinkEvolutionDataSSSV(lpPokemonNumber As Integer)
+        IsEvolutionsAvailableTemp = False
+        EvoluteToNumersTemp.Clear()
+        EvolutionRoutinsTemp.Clear()
+        Select Case lpPokemonNumber
+            Case 810
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("811")
+                    .Add("812")
+                End With
+            Case 811
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("811")
+                    .Add("812")
+                End With
+            Case 812
+                IsEvolutionsAvailableTemp = False
+            Case 813
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("814")
+                    .Add("815")
+                End With
+            Case 814
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("814")
+                    .Add("815")
+                End With
+            Case 815
+                IsEvolutionsAvailableTemp = False
+            Case 816
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("817")
+                    .Add("818")
+                End With
+            Case 817
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("817")
+                    .Add("818")
+                End With
+            Case 818
+                IsEvolutionsAvailableTemp = False
+            Case 819
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("820")
+                End With
+            Case 820
+                IsEvolutionsAvailableTemp = False
+            Case 821
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV18")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("822")
+                    .Add("823")
+                End With
+            Case 822
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV18")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("822")
+                    .Add("823")
+                End With
+            Case 823
+                IsEvolutionsAvailableTemp = False
+            Case 824
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV10")
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("825")
+                    .Add("826")
+                End With
+            Case 825
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV10")
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("825")
+                    .Add("826")
+                End With
+            Case 826
+                IsEvolutionsAvailableTemp = False
+            Case 827
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV18")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("828")
+                End With
+            Case 828
+                IsEvolutionsAvailableTemp = False
+            Case 829
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV20")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("830")
+                End With
+            Case 830
+                IsEvolutionsAvailableTemp = False
+            Case 831
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("832")
+                End With
+            Case 832
+                IsEvolutionsAvailableTemp = False
+            Case 833
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV22")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("834")
+                End With
+            Case 834
+                IsEvolutionsAvailableTemp = False
+            Case 835
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV25")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("836")
+                End With
+            Case 836
+                IsEvolutionsAvailableTemp = False
+            Case 837
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV18")
+                    .Add("升級到LV34")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("838")
+                    .Add("839")
+                End With
+            Case 838
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV18")
+                    .Add("升級到LV34")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("838")
+                    .Add("839")
+                End With
+            Case 839
+                IsEvolutionsAvailableTemp = False
+            Case 840
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用酸酸蘋果")
+                    .Add("使用甜甜蘋果")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("841")
+                    .Add("842")
+                End With
+            Case 841
+                IsEvolutionsAvailableTemp = False
+            Case 842
+                IsEvolutionsAvailableTemp = False
+            Case 843
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV36")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("844")
+                End With
+            Case 844
+                IsEvolutionsAvailableTemp = False
+            Case 845
+                IsEvolutionsAvailableTemp = False
+            Case 846
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV26")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("847")
+                End With
+            Case 847
+                IsEvolutionsAvailableTemp = False
+            Case 848
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("849")
+                End With
+            Case 849
+                IsEvolutionsAvailableTemp = False
+            Case 850
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV28")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("851")
+                End With
+            Case 851
+                IsEvolutionsAvailableTemp = False
+            Case 852
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("學會[挑釁]時提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("853")
+                End With
+            Case 853
+                IsEvolutionsAvailableTemp = False
+            Case 854
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[破裂的茶壺]或[缺損的茶壺]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("855")
+                End With
+            Case 855
+                IsEvolutionsAvailableTemp = False
+            Case 856
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV32")
+                    .Add("升級到LV42")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("857")
+                    .Add("858")
+                End With
+            Case 857
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV32")
+                    .Add("升級到LV42")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("857")
+                    .Add("858")
+                End With
+            Case 858
+                IsEvolutionsAvailableTemp = False
+            Case 859
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV32")
+                    .Add("升級到LV42")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("860")
+                    .Add("861")
+                End With
+            Case 860
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV32")
+                    .Add("升級到LV42")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("860")
+                    .Add("861")
+                End With
+            Case 861
+                IsEvolutionsAvailableTemp = False
+            Case 862
+                IsEvolutionsAvailableTemp = False
+            Case 863
+                IsEvolutionsAvailableTemp = False
+            Case 864
+                IsEvolutionsAvailableTemp = False
+            Case 865
+                IsEvolutionsAvailableTemp = False
+            Case 866
+                IsEvolutionsAvailableTemp = False
+            Case 867
+                IsEvolutionsAvailableTemp = False
+            Case 868
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("攜帶[糖飾]的條件下主角結束原地旋轉")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("869")
+                End With
+            Case 869
+                IsEvolutionsAvailableTemp = False
+            Case 870
+                IsEvolutionsAvailableTemp = False
+            Case 871
+                IsEvolutionsAvailableTemp = False
+            Case 872
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("親密度158以上或友好度158以上在夜晚提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("873")
+                End With
+            Case 873
+                IsEvolutionsAvailableTemp = False
+            Case 874
+                IsEvolutionsAvailableTemp = False
+            Case 875
+                IsEvolutionsAvailableTemp = False
+            Case 876
+                IsEvolutionsAvailableTemp = False
+            Case 877
+                IsEvolutionsAvailableTemp = False
+            Case 878
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV34")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("879")
+                End With
+            Case 879
+                IsEvolutionsAvailableTemp = False
+            Case 880
+                IsEvolutionsAvailableTemp = False
+            Case 881
+                IsEvolutionsAvailableTemp = False
+            Case 882
+                IsEvolutionsAvailableTemp = False
+            Case 883
+                IsEvolutionsAvailableTemp = False
+            Case 884
+                IsEvolutionsAvailableTemp = False
+            Case 885
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV50")
+                    .Add("升級到LV60")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("886")
+                    .Add("887")
+                End With
+            Case 886
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV50")
+                    .Add("升級到LV60")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("886")
+                    .Add("887")
+                End With
+            Case 887
+                IsEvolutionsAvailableTemp = False
+            Case 888
+                IsEvolutionsAvailableTemp = False
+            Case 889
+                IsEvolutionsAvailableTemp = False
+            Case 890
+                IsEvolutionsAvailableTemp = False
+            Case 891
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用/查看[惡之掛軸]或[水之掛軸]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("892")
+                End With
+            Case 892
+                IsEvolutionsAvailableTemp = False
+            Case 893
+                IsEvolutionsAvailableTemp = False
+            Case 894
+                IsEvolutionsAvailableTemp = False
+            Case 895
+                IsEvolutionsAvailableTemp = False
+            Case 896
+                IsEvolutionsAvailableTemp = False
+            Case 897
+                IsEvolutionsAvailableTemp = False
+            Case 898
+                IsEvolutionsAvailableTemp = False
+            Case 899
+                IsEvolutionsAvailableTemp = False
+            Case 900
+                IsEvolutionsAvailableTemp = False
+            Case 901
+                IsEvolutionsAvailableTemp = False
+            Case 902
+                IsEvolutionsAvailableTemp = False
+            Case 903
+                IsEvolutionsAvailableTemp = False
+            Case 904
+                IsEvolutionsAvailableTemp = False
+            Case 905
+                IsEvolutionsAvailableTemp = False
+            Case 906
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV36")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("907")
+                    .Add("908")
+                End With
+            Case 907
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("907")
+                    .Add("908")
+                End With
+            Case 908
+                IsEvolutionsAvailableTemp = False
+            Case 909
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV36")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("910")
+                    .Add("911")
+                End With
+            Case 910
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("910")
+                    .Add("911")
+                End With
+            Case 911
+                IsEvolutionsAvailableTemp = False
+            Case 912
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV16")
+                    .Add("升級到LV36")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("913")
+                    .Add("914")
+                End With
+            Case 913
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV16")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("913")
+                    .Add("914")
+                End With
+            Case 914
+                IsEvolutionsAvailableTemp = False
+            Case 915
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV18")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("916")
+                End With
+            Case 916
+                IsEvolutionsAvailableTemp = False
+            Case 917
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV15")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("918")
+                End With
+            Case 918
+                IsEvolutionsAvailableTemp = False
+            Case 919
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("920")
+                End With
+            Case 920
+                IsEvolutionsAvailableTemp = False
+            Case 921
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV18")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("922")
+                End With
+            Case 922
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("在Let's Go模式中行走1000步後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("923")
+                End With
+            Case 923
+                IsEvolutionsAvailableTemp = False
+            Case 924
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("等級通過對戰達到25以上")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("925")
+                End With
+            Case 925
+                IsEvolutionsAvailableTemp = False
+            Case 926
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV26")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("927")
+                End With
+            Case 927
+                IsEvolutionsAvailableTemp = False
+            Case 928
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV25")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("929")
+                    .Add("930")
+                End With
+            Case 929
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV25")
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("929")
+                    .Add("930")
+                End With
+            Case 930
+                IsEvolutionsAvailableTemp = False
+            Case 931
+                IsEvolutionsAvailableTemp = False
+            Case 932
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("933")
+                    .Add("934")
+                End With
+            Case 933
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("933")
+                    .Add("934")
+                End With
+            Case 934
+                IsEvolutionsAvailableTemp = False
+            Case 935
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[慶祝之鎧]")
+                    .Add("使用[詛咒之鎧]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("936")
+                    .Add("937")
+                End With
+            Case 936
+                IsEvolutionsAvailableTemp = False
+            Case 937
+                IsEvolutionsAvailableTemp = False
+            Case 938
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[雷之石]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("939")
+                End With
+            Case 939
+                IsEvolutionsAvailableTemp = False
+            Case 940
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV25")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("941")
+                End With
+            Case 941
+                IsEvolutionsAvailableTemp = False
+            Case 942
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("943")
+                End With
+            Case 943
+                IsEvolutionsAvailableTemp = False
+            Case 944
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV28")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("945")
+                End With
+            Case 945
+                IsEvolutionsAvailableTemp = False
+            Case 946
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("在Let's Go模式中行走1000步後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("947")
+                End With
+            Case 947
+                IsEvolutionsAvailableTemp = False
+            Case 948
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("949")
+                End With
+            Case 949
+                IsEvolutionsAvailableTemp = False
+            Case 950
+                IsEvolutionsAvailableTemp = False
+            Case 951
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[火之石]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("952")
+                End With
+            Case 952
+                IsEvolutionsAvailableTemp = False
+            Case 953
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("在Let's Go模式中行走1000步後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("954")
+                End With
+            Case 954
+                IsEvolutionsAvailableTemp = False
+            Case 955
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("956")
+                End With
+            Case 956
+                IsEvolutionsAvailableTemp = False
+            Case 957
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("958")
+                    .Add("959")
+                End With
+            Case 958
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("958")
+                    .Add("959")
+                End With
+            Case 959
+                IsEvolutionsAvailableTemp = False
+            Case 960
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV26")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("961")
+                End With
+            Case 961
+                IsEvolutionsAvailableTemp = False
+            Case 962
+                IsEvolutionsAvailableTemp = False
+            Case 963
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("在聯機遊玩中升級到LV28")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("964")
+                End With
+            Case 964
+                IsEvolutionsAvailableTemp = False
+            Case 965
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV40")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("966")
+                End With
+            Case 966
+                IsEvolutionsAvailableTemp = False
+            Case 967
+                IsEvolutionsAvailableTemp = False
+            Case 968
+                IsEvolutionsAvailableTemp = False
+            Case 969
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV35")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("970")
+                End With
+            Case 970
+                IsEvolutionsAvailableTemp = False
+            Case 971
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV30")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("972")
+                End With
+            Case 972
+                IsEvolutionsAvailableTemp = False
+            Case 973
+                IsEvolutionsAvailableTemp = False
+            Case 974
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[冰之石]")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("975")
+                End With
+            Case 975
+                IsEvolutionsAvailableTemp = False
+            Case 976
+                IsEvolutionsAvailableTemp = False
+            Case 977
+                IsEvolutionsAvailableTemp = False
+            Case 978
+                IsEvolutionsAvailableTemp = False
+            Case 979
+                IsEvolutionsAvailableTemp = False
+            Case 980
+                IsEvolutionsAvailableTemp = False
+            Case 981
+                IsEvolutionsAvailableTemp = False
+            Case 982
+                IsEvolutionsAvailableTemp = False
+            Case 983
+                IsEvolutionsAvailableTemp = False
+            Case 984
+                IsEvolutionsAvailableTemp = False
+            Case 985
+                IsEvolutionsAvailableTemp = False
+            Case 986
+                IsEvolutionsAvailableTemp = False
+            Case 987
+                IsEvolutionsAvailableTemp = False
+            Case 988
+                IsEvolutionsAvailableTemp = False
+            Case 989
+                IsEvolutionsAvailableTemp = False
+            Case 990
+                IsEvolutionsAvailableTemp = False
+            Case 991
+                IsEvolutionsAvailableTemp = False
+            Case 992
+                IsEvolutionsAvailableTemp = False
+            Case 993
+                IsEvolutionsAvailableTemp = False
+            Case 994
+                IsEvolutionsAvailableTemp = False
+            Case 995
+                IsEvolutionsAvailableTemp = False
+            Case 996
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("997")
+                    .Add("998")
+                End With
+            Case 997
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    '.Add("升級到LV24")
+                    .Add("升級到LV38")
+                End With
+                With EvoluteToNumersTemp
+                    '.Add("997")
+                    .Add("998")
+                End With
+            Case 998
+                IsEvolutionsAvailableTemp = False
+            Case 999
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("收集[索財靈的硬幣]×999後提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("1000")
+                End With
+            Case 1000
+                IsEvolutionsAvailableTemp = False
+            Case 1001
+                IsEvolutionsAvailableTemp = False
+            Case 1002
+                IsEvolutionsAvailableTemp = False
+            Case 1003
+                IsEvolutionsAvailableTemp = False
+            Case 1004
+                IsEvolutionsAvailableTemp = False
+            Case 1005
+                IsEvolutionsAvailableTemp = False
+            Case 1006
+                IsEvolutionsAvailableTemp = False
+            Case 1007
+                IsEvolutionsAvailableTemp = False
+            Case 1008
                 IsEvolutionsAvailableTemp = False
         End Select
     End Sub

@@ -33,8 +33,6 @@
         Dim lpNameJPN As String '日語名字
         Dim lpNameGER As String '德語名字
         Dim lpNameFRA As String '法語名字
-        Dim lpNameITA As String '義大利語名字
-        Dim lpNameESP As String '西班牙語名字
         Dim lpNameKOR As String '韓文名字
         Dim lpNumber As String '图鉴编号
         Dim lpDescription As String '圖鑑介紹
@@ -48,7 +46,7 @@
         Dim lpSheleter As String '栖息地
         Dim lpEggGroup1 As String '生蛋分組1
         Dim lpEggGroup2 As String '生蛋分組2
-        Dim lpBornStepsCount As String '孵化步數
+        Dim lpBornStepsCount As String '孵化週期數，步數=週期數*257
         Dim lpCatchRate As String '捕獲率
         Dim lpStandardFriendlyRate As String '初始親密度
         Dim lpBasicExpPoint As String '初始經驗值
@@ -245,7 +243,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "64"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "綠"
                     .lpType = "[草]+[毒]"
@@ -254,8 +252,6 @@
                     .lpEggGroup2 = "植物組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "0.7 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "001"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "草原"
@@ -264,10 +260,6 @@
                     .lpWeight = "6.9 kg"
                     .lpImageMaleUri = "/Pokemons/001.png"
                     .lpImageFemaleUri = "/Pokemons/001.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(0).IsUniqueDescriptionAvailable = False
-                    StateInformation(1).IsUniqueDescriptionAvailable = False
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 2
                 With lpReturnValue
@@ -286,7 +278,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "142"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "綠"
                     .lpType = "[草]+[毒]"
@@ -295,8 +287,6 @@
                     .lpEggGroup2 = "植物組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "1.0 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "002"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "草原"
@@ -305,8 +295,6 @@
                     .lpWeight = "13.0 kg"
                     .lpImageMaleUri = "/Pokemons/002.png"
                     .lpImageFemaleUri = "/Pokemons/002.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 3
                 With lpReturnValue
@@ -325,7 +313,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "236"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "綠"
                     .lpType = "[草]+[毒]"
@@ -334,8 +322,6 @@
                     .lpEggGroup2 = "植物組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "2.0 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "003"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "草原"
@@ -344,44 +330,6 @@
                     .lpWeight = "100.0 kg"
                     .lpImageMaleUri = "/Pokemons/003.png"
                     .lpImageFemaleUri = "/Pokemons/003.png"
-                    StateInformation(0).lpImagePath = "/Pokemons/003.01.png"
-                    StateInformation(1).lpImagePath = "/Pokemons/003.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 47
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "2.4 m"
-                        .lpWeight = "155.5 kg"
-                        .lpType = "[草]+[毒]"
-                        With .lpBaseStatsValues
-                            .HP = 80
-                            .ATTACK = 100
-                            .DEFEND = 123
-                            .SPATTACK = 122
-                            .SPDEFEND = 120
-                            .SPEED = 80
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
-                    With StateInformation(1)
-                        .lpAbility1 = 47
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpType = "[草]+[毒]"
-                        .lpHeight = "2.4 m"
-                        .lpWeight = "155.5 kg"
-                        With .lpBaseStatsValues
-                            .HP = 80
-                            .ATTACK = 100
-                            .DEFEND = 123
-                            .SPATTACK = 122
-                            .SPDEFEND = 120
-                            .SPEED = 80
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 4
                 With lpReturnValue
@@ -400,7 +348,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "62"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "紅"
                     .lpType = "[火]"
@@ -409,8 +357,6 @@
                     .lpEggGroup2 = "龍組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "0.6 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "004"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "山丘"
@@ -419,8 +365,6 @@
                     .lpWeight = "8.5 kg"
                     .lpImageMaleUri = "/Pokemons/004.png"
                     .lpImageFemaleUri = "/Pokemons/004.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 5
                 With lpReturnValue
@@ -439,7 +383,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "142"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "紅"
                     .lpType = "[火]"
@@ -448,8 +392,6 @@
                     .lpEggGroup2 = "龍組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "1.1 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "005"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "山丘"
@@ -458,8 +400,6 @@
                     .lpWeight = "19.0 kg"
                     .lpImageMaleUri = "/Pokemons/005.png"
                     .lpImageFemaleUri = "/Pokemons/005.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 6
                 With lpReturnValue
@@ -478,7 +418,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "240"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "紅"
                     .lpType = "[火]+[飛行]"
@@ -487,8 +427,6 @@
                     .lpEggGroup2 = "龍組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "1.7 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "006"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "山丘"
@@ -497,44 +435,6 @@
                     .lpWeight = "90.5 kg"
                     .lpImageMaleUri = "/Pokemons/006.png"
                     .lpImageFemaleUri = "/Pokemons/006.png"
-                    StateInformation(0).lpImagePath = "/Pokemons/006.01.png"
-                    StateInformation(1).lpImagePath = "/Pokemons/006.02.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 181
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "1.7 m"
-                        .lpWeight = "110.5 kg"
-                        .lpType = "[火]+[龍]"
-                        With .lpBaseStatsValues
-                            .HP = 78
-                            .ATTACK = 130
-                            .DEFEND = 111
-                            .SPATTACK = 130
-                            .SPDEFEND = 85
-                            .SPEED = 100
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
-                    With StateInformation(1)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 70
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "1.7 m"
-                        .lpWeight = "100.5 kg"
-                        .lpType = "[火]+[飛行]"
-                        With .lpBaseStatsValues
-                            .HP = 78
-                            .ATTACK = 104
-                            .DEFEND = 78
-                            .SPATTACK = 159
-                            .SPDEFEND = 115
-                            .SPEED = 100
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 7
                 With lpReturnValue
@@ -553,7 +453,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "63"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "藍"
                     .lpType = "[水]"
@@ -562,8 +462,6 @@
                     .lpEggGroup2 = "水一組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "0.5 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "007"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "岸邊"
@@ -572,8 +470,6 @@
                     .lpWeight = "9.0 kg"
                     .lpImageMaleUri = "/Pokemons/007.png"
                     .lpImageFemaleUri = "/Pokemons/007.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 8
                 With lpReturnValue
@@ -592,7 +488,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "142"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "藍"
                     .lpType = "[水]"
@@ -601,8 +497,6 @@
                     .lpEggGroup2 = "水一組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "1.0 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "008"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "岸邊"
@@ -611,8 +505,6 @@
                     .lpWeight = "22.5 kg"
                     .lpImageMaleUri = "/Pokemons/008.png"
                     .lpImageFemaleUri = "/Pokemons/008.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 9
                 With lpReturnValue
@@ -631,7 +523,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "239"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpCatchRate = "45"
                     .lpColor = "藍"
                     .lpType = "[水]"
@@ -640,8 +532,6 @@
                     .lpEggGroup2 = "水一組"
                     .lpFullLevelExpPoint = "1059860"
                     .lpHeight = "1.6 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "009"
                     .lpSexRatio = "7:1"
                     .lpSheleter = "岸邊"
@@ -650,26 +540,6 @@
                     .lpWeight = "22.5 kg"
                     .lpImageMaleUri = "/Pokemons/009.png"
                     .lpImageFemaleUri = "/Pokemons/009.png"
-                    StateInformation(0).lpImagePath = "/Pokemons/009.01.png"
-                    StateInformation(1).lpImagePath = "/Pokemons/009.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 178
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpType = "[水]"
-                        .lpHeight = "1.6 m"
-                        .lpWeight = "101.1 kg"
-                        With .lpBaseStatsValues
-                            .HP = 79
-                            .ATTACK = 103
-                            .DEFEND = 120
-                            .SPATTACK = 135
-                            .SPDEFEND = 115
-                            .SPEED = 78
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 10
                 With lpReturnValue
@@ -688,7 +558,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "39"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "255"
                     .lpColor = "綠"
                     .lpType = "[蟲]"
@@ -697,8 +567,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "0.3 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "010"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -707,8 +575,6 @@
                     .lpWeight = "2.9 kg"
                     .lpImageMaleUri = "/Pokemons/010.png"
                     .lpImageFemaleUri = "/Pokemons/010.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 11
                 With lpReturnValue
@@ -727,7 +593,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "72"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "120"
                     .lpColor = "綠"
                     .lpType = "[蟲]"
@@ -736,8 +602,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "0.7 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "011"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -746,8 +610,6 @@
                     .lpWeight = "9.9 kg"
                     .lpImageMaleUri = "/Pokemons/011.png"
                     .lpImageFemaleUri = "/Pokemons/011.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 12
                 With lpReturnValue
@@ -766,7 +628,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "173"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "45"
                     .lpColor = "白"
                     .lpType = "[蟲]+[飛行]"
@@ -775,8 +637,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "1.1 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "012"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -805,7 +665,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "39"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "255"
                     .lpColor = "棕"
                     .lpType = "[蟲]+[毒]"
@@ -814,8 +674,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "0.3 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "013"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -824,8 +682,6 @@
                     .lpWeight = "3.2 kg"
                     .lpImageMaleUri = "/Pokemons/013.png"
                     .lpImageFemaleUri = "/Pokemons/013.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 14
                 With lpReturnValue
@@ -844,7 +700,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "72"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "120"
                     .lpColor = "黃"
                     .lpType = "[蟲]+[毒]"
@@ -853,8 +709,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "0.6 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "014"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -863,8 +717,6 @@
                     .lpWeight = "10.0 kg"
                     .lpImageMaleUri = "/Pokemons/014.png"
                     .lpImageFemaleUri = "/Pokemons/014.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 15
                 With lpReturnValue
@@ -883,7 +735,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "173"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "120"
                     .lpColor = "黃"
                     .lpType = "[蟲]+[毒]"
@@ -892,8 +744,6 @@
                     .lpEggGroup2 = "---"
                     .lpFullLevelExpPoint = "1000000"
                     .lpHeight = "1.0 m"
-                    .lpNameESP = ""
-                    .lpNameITA = ""
                     .lpNumber = "015"
                     .lpSexRatio = "1:1"
                     .lpSheleter = "森林"
@@ -902,27 +752,6 @@
                     .lpWeight = "29.5 kg"
                     .lpImageMaleUri = "/Pokemons/015.png"
                     .lpImageFemaleUri = "/Pokemons/015.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(0).lpImagePath = "/Pokemons/015.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 91
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpType = "[蟲]+[毒]"
-                        .lpHeight = "1.4 m"
-                        .lpWeight = "40.5 kg"
-                        With .lpBaseStatsValues
-                            .HP = 65
-                            .ATTACK = 150
-                            .DEFEND = 40
-                            .SPATTACK = 15
-                            .SPDEFEND = 80
-                            .SPEED = 145
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 16
                 With lpReturnValue
@@ -941,7 +770,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "50"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "255"
                     .lpColor = "棕"
                     .lpType = "[一般]+[飛行]"
@@ -958,8 +787,6 @@
                     .lpWeight = "1.8 kg"
                     .lpImageMaleUri = "/Pokemons/016.png"
                     .lpImageFemaleUri = "/Pokemons/016.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 17
                 With lpReturnValue
@@ -978,7 +805,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "122"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "120"
                     .lpColor = "棕"
                     .lpType = "[一般]+[飛行]"
@@ -995,8 +822,6 @@
                     .lpWeight = "30.0 kg"
                     .lpImageMaleUri = "/Pokemons/017.png"
                     .lpImageFemaleUri = "/Pokemons/017.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 18
                 With lpReturnValue
@@ -1015,7 +840,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "211"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "45"
                     .lpColor = "棕"
                     .lpType = "[一般]+[飛行]"
@@ -1032,27 +857,6 @@
                     .lpWeight = "39.5 kg"
                     .lpImageMaleUri = "/Pokemons/018.png"
                     .lpImageFemaleUri = "/Pokemons/018.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(0).lpImagePath = "/Pokemons/018.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 99
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "2.2 m"
-                        .lpWeight = "50.5 kg"
-                        .lpType = "[一般]+[飛行]"
-                        With .lpBaseStatsValues
-                            .HP = 83
-                            .ATTACK = 80
-                            .DEFEND = 80
-                            .SPATTACK = 135
-                            .SPDEFEND = 80
-                            .SPEED = 121
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 19
                 With lpReturnValue
@@ -1071,7 +875,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpBasicExpPoint = "51"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpCatchRate = "255"
                     .lpColor = "紫"
                     .lpType = "[一般]"
@@ -1088,8 +892,6 @@
                     .lpWeight = "3.5 kg"
                     .lpImageMaleUri = "/Pokemons/019.png"
                     .lpImageFemaleUri = "/Pokemons/019.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 20
                 With lpReturnValue
@@ -1108,7 +910,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -1125,8 +927,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/020.png"
                     .lpImageFemaleUri = "/Pokemons/020.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 21
                 With lpReturnValue
@@ -1145,7 +945,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -1162,8 +962,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/021.png"
                     .lpImageFemaleUri = "/Pokemons/021.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 22
                 With lpReturnValue
@@ -1182,7 +980,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "155"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -1199,8 +997,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/022.png"
                     .lpImageFemaleUri = "/Pokemons/022.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 23
                 With lpReturnValue
@@ -1219,7 +1015,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 22
@@ -1236,8 +1032,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/023.png"
                     .lpImageFemaleUri = "/Pokemons/023.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 24
                 With lpReturnValue
@@ -1256,7 +1050,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "153"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 22
@@ -1273,8 +1067,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/024.png"
                     .lpImageFemaleUri = "/Pokemons/024.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 25
                 With lpReturnValue
@@ -1293,7 +1085,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "105"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -1310,8 +1102,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/025.png"
                     .lpImageFemaleUri = "/Pokemons/025.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 26
                 With lpReturnValue
@@ -1330,7 +1120,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "214"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -1347,8 +1137,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/026.png"
                     .lpImageFemaleUri = "/Pokemons/026.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 27
                 With lpReturnValue
@@ -1367,7 +1155,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 8
@@ -1384,8 +1172,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/027.png"
                     .lpImageFemaleUri = "/Pokemons/027.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 28
                 With lpReturnValue
@@ -1404,7 +1190,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 8
@@ -1421,8 +1207,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/028.png"
                     .lpImageFemaleUri = "/Pokemons/028.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 29
                 With lpReturnValue
@@ -1441,7 +1225,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1458,8 +1242,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/029.png"
                     .lpImageFemaleUri = "/Pokemons/029.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 30
                 With lpReturnValue
@@ -1478,7 +1260,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "128"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1495,8 +1277,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/030.png"
                     .lpImageFemaleUri = "/Pokemons/030.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 31
                 With lpReturnValue
@@ -1515,7 +1295,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "223"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1532,8 +1312,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/031.png"
                     .lpImageFemaleUri = "/Pokemons/031.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 32
                 With lpReturnValue
@@ -1552,7 +1330,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1569,8 +1347,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/032.png"
                     .lpImageFemaleUri = "/Pokemons/032.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 33
                 With lpReturnValue
@@ -1589,7 +1365,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "128"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1606,8 +1382,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/033.png"
                     .lpImageFemaleUri = "/Pokemons/033.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 34
                 With lpReturnValue
@@ -1626,7 +1400,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "223"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -1643,8 +1417,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/034.png"
                     .lpImageFemaleUri = "/Pokemons/034.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 35
                 With lpReturnValue
@@ -1663,7 +1435,7 @@
                     .lpStandardFriendlyRate = "140"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "10"
                     .lpBasicExpPoint = "113"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -1680,8 +1452,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/035.png"
                     .lpImageFemaleUri = "/Pokemons/035.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 36
                 With lpReturnValue
@@ -1700,7 +1470,7 @@
                     .lpStandardFriendlyRate = "140"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "10"
                     .lpBasicExpPoint = "213"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -1717,8 +1487,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/036.png"
                     .lpImageFemaleUri = "/Pokemons/036.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 37
                 With lpReturnValue
@@ -1737,7 +1505,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 18
@@ -1754,8 +1522,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/037.png"
                     .lpImageFemaleUri = "/Pokemons/037.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 38
                 With lpReturnValue
@@ -1774,7 +1540,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 18
@@ -1791,8 +1557,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/038.png"
                     .lpImageFemaleUri = "/Pokemons/038.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 39
                 With lpReturnValue
@@ -1811,7 +1575,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "10"
                     .lpBasicExpPoint = "95"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -1828,8 +1592,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/039.png"
                     .lpImageFemaleUri = "/Pokemons/039.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 40
                 With lpReturnValue
@@ -1848,7 +1610,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "10"
                     .lpBasicExpPoint = "191"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -1865,8 +1627,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/040.png"
                     .lpImageFemaleUri = "/Pokemons/040.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 41
                 With lpReturnValue
@@ -1885,7 +1645,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "49"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -1902,8 +1662,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/041.png"
                     .lpImageFemaleUri = "/Pokemons/041.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 42
                 With lpReturnValue
@@ -1922,7 +1680,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -1939,8 +1697,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/042.png"
                     .lpImageFemaleUri = "/Pokemons/042.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 43
                 With lpReturnValue
@@ -1959,7 +1715,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -1976,8 +1732,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/043.png"
                     .lpImageFemaleUri = "/Pokemons/043.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 44
                 With lpReturnValue
@@ -1996,7 +1750,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "138"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -2013,8 +1767,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/044.png"
                     .lpImageFemaleUri = "/Pokemons/044.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 45
                 With lpReturnValue
@@ -2033,7 +1785,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -2050,8 +1802,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/045.png"
                     .lpImageFemaleUri = "/Pokemons/045.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 46
                 With lpReturnValue
@@ -2070,7 +1820,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "57"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 27
@@ -2087,8 +1837,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/046.png"
                     .lpImageFemaleUri = "/Pokemons/046.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 47
                 With lpReturnValue
@@ -2107,7 +1855,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 27
@@ -2124,8 +1872,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/047.png"
                     .lpImageFemaleUri = "/Pokemons/047.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 48
                 With lpReturnValue
@@ -2144,7 +1890,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 14
@@ -2161,8 +1907,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/048.png"
                     .lpImageFemaleUri = "/Pokemons/048.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 49
                 With lpReturnValue
@@ -2181,7 +1925,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 14
@@ -2198,8 +1942,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/049.png"
                     .lpImageFemaleUri = "/Pokemons/049.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 50
                 With lpReturnValue
@@ -2218,7 +1960,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 8
@@ -2235,8 +1977,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/050.png"
                     .lpImageFemaleUri = "/Pokemons/050.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 51
                 With lpReturnValue
@@ -2255,7 +1995,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 8
@@ -2272,8 +2012,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/051.png"
                     .lpImageFemaleUri = "/Pokemons/051.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 52
                 With lpReturnValue
@@ -2292,7 +2030,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -2309,8 +2047,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/052.png"
                     .lpImageFemaleUri = "/Pokemons/052.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 53
                 With lpReturnValue
@@ -2329,7 +2065,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 7
@@ -2346,8 +2082,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/053.png"
                     .lpImageFemaleUri = "/Pokemons/053.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 54
                 With lpReturnValue
@@ -2366,7 +2100,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 6
@@ -2383,8 +2117,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/054.png"
                     .lpImageFemaleUri = "/Pokemons/054.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 55
                 With lpReturnValue
@@ -2403,7 +2135,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 6
@@ -2420,8 +2152,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/055.png"
                     .lpImageFemaleUri = "/Pokemons/055.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 56
                 With lpReturnValue
@@ -2440,7 +2170,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 72
@@ -2457,8 +2187,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/056.png"
                     .lpImageFemaleUri = "/Pokemons/056.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 57
                 With lpReturnValue
@@ -2477,7 +2205,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 72
@@ -2494,8 +2222,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/057.png"
                     .lpImageFemaleUri = "/Pokemons/057.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 58
                 With lpReturnValue
@@ -2514,7 +2240,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
@@ -2531,8 +2257,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/058.png"
                     .lpImageFemaleUri = "/Pokemons/058.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 59
                 With lpReturnValue
@@ -2540,7 +2264,7 @@
                     .IsNoSex = False
                     .lpNumber = "059"
                     .lpType = "[火]"
-                    .lpDescription = "一晝夜能跑１００００千米的身影使得不少人為之陶醉。"
+                    .lpDescription = "中國傳說裡的威風凜凜的寶可夢。能以超乎想像的速度奔跑。一晝夜能跑１００００千米的身影使得不少人為之陶醉。"
                     .lpSexRatio = "3:1"
                     .lpHeight = "1.9 m"
                     .lpWeight = "155.0 kg"
@@ -2551,7 +2275,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "194"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
@@ -2568,8 +2292,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/059.png"
                     .lpImageFemaleUri = "/Pokemons/059.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 60
                 With lpReturnValue
@@ -2588,7 +2310,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 11
@@ -2605,8 +2327,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/060.png"
                     .lpImageFemaleUri = "/Pokemons/060.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 61
                 With lpReturnValue
@@ -2625,7 +2345,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "135"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 11
@@ -2642,8 +2362,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/061.png"
                     .lpImageFemaleUri = "/Pokemons/061.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 62
                 With lpReturnValue
@@ -2651,7 +2369,7 @@
                     .IsNoSex = False
                     .lpNumber = "062"
                     .lpType = "[水]+[格鬥]"
-                    .lpDescription = "擁有強韌的肌肉。可以中途不休息地游泳橫穿太平洋。"
+                    .lpDescription = "擁有強韌的肌肉。可以中途不休息地游泳橫穿太平洋。奧林匹克選手也難以匹敵的快。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.3 m"
                     .lpWeight = "54.0 kg"
@@ -2662,7 +2380,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 11
@@ -2679,8 +2397,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/062.png"
                     .lpImageFemaleUri = "/Pokemons/062.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 63
                 With lpReturnValue
@@ -2699,7 +2415,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 28
@@ -2716,8 +2432,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/063.png"
                     .lpImageFemaleUri = "/Pokemons/063.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 64
                 With lpReturnValue
@@ -2736,7 +2450,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "140"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 28
@@ -2753,8 +2467,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/064.png"
                     .lpImageFemaleUri = "/Pokemons/064.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 65
                 With lpReturnValue
@@ -2773,7 +2485,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "221"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 28
@@ -2790,26 +2502,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/065.png"
                     .lpImageFemaleUri = "/Pokemons/065.png"
-                    StateInformation(0).lpImagePath = "/Pokemons/065.01.png"
-                    StateInformation(1).lpImagePath = "/Pokemons/065.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 36
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "1.2 m"
-                        .lpWeight = "48.0 kg"
-                        .lpType = "[超能力]"
-                        With .lpBaseStatsValues
-                            .HP = 55
-                            .ATTACK = 50
-                            .DEFEND = 65
-                            .SPATTACK = 175
-                            .SPDEFEND = 95
-                            .SPEED = 150
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 66
                 With lpReturnValue
@@ -2828,7 +2520,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -2845,8 +2537,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/066.png"
                     .lpImageFemaleUri = "/Pokemons/066.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 67
                 With lpReturnValue
@@ -2865,7 +2555,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -2882,8 +2572,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/067.png"
                     .lpImageFemaleUri = "/Pokemons/067.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 68
                 With lpReturnValue
@@ -2902,7 +2590,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "227"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -2919,8 +2607,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/068.png"
                     .lpImageFemaleUri = "/Pokemons/068.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 69
                 With lpReturnValue
@@ -2939,7 +2625,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -2956,8 +2642,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/069.png"
                     .lpImageFemaleUri = "/Pokemons/069.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 70
                 With lpReturnValue
@@ -2976,7 +2660,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -2993,8 +2677,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/070.png"
                     .lpImageFemaleUri = "/Pokemons/070.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 71
                 With lpReturnValue
@@ -3013,7 +2695,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -3030,8 +2712,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/071.png"
                     .lpImageFemaleUri = "/Pokemons/071.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 72
                 With lpReturnValue
@@ -3050,7 +2730,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 29
@@ -3067,8 +2747,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/072.png"
                     .lpImageFemaleUri = "/Pokemons/072.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 73
                 With lpReturnValue
@@ -3087,7 +2765,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "180"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 29
@@ -3104,8 +2782,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/073.png"
                     .lpImageFemaleUri = "/Pokemons/073.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 74
                 With lpReturnValue
@@ -3124,7 +2800,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 69
@@ -3141,8 +2817,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/074.png"
                     .lpImageFemaleUri = "/Pokemons/074.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 75
                 With lpReturnValue
@@ -3161,7 +2835,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 69
@@ -3178,8 +2852,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/075.png"
                     .lpImageFemaleUri = "/Pokemons/075.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 76
                 With lpReturnValue
@@ -3198,7 +2870,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "218"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 69
@@ -3215,8 +2887,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/076.png"
                     .lpImageFemaleUri = "/Pokemons/076.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 77
                 With lpReturnValue
@@ -3224,7 +2894,7 @@
                     .IsNoSex = False
                     .lpNumber = "077"
                     .lpType = "[火]"
-                    .lpDescription = "剛生下來時，連站都站不穩。然而，不停的奔跑讓它的腿腳得到鍛煉，速度也不斷提高。"
+                    .lpDescription = "剛生下來時，連站都站不穩。然而，不停的奔跑讓它的腿腳得到鍛煉，速度也不斷提高。它的4蹄比鑽石還硬10倍，可以馬上踏平任何東西。身體很輕，腳的力量很強。一跳就可以飛過東京鐵塔。在高高跳起之後，會用四蹄和腿上的肌肉來緩和落地時的衝擊。得到了小火馬認可的人，在觸摸牠燃燒著的鬃毛時不會覺得燙手，真是不可思議。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.0 m"
                     .lpWeight = "30.0 kg"
@@ -3235,7 +2905,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "82"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -3252,8 +2922,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/077.png"
                     .lpImageFemaleUri = "/Pokemons/077.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 78
                 With lpReturnValue
@@ -3261,7 +2929,7 @@
                     .IsNoSex = False
                     .lpNumber = "078"
                     .lpType = "[火]"
-                    .lpDescription = "用盡全力疾馳的時候，燃燒著的鬃毛閃閃發光，更為它增添一層美麗。"
+                    .lpDescription = "用盡全力疾馳的時候，燃燒著的鬃毛閃閃發光，更為它增添一層美麗。時速最高可以達到240千米。火焰熊熊燃燒著，用和新幹線一樣的速度趕超牠。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.0 m"
                     .lpWeight = "95.0 kg"
@@ -3272,7 +2940,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -3289,8 +2957,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/078.png"
                     .lpImageFemaleUri = "/Pokemons/078.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 79
                 With lpReturnValue
@@ -3309,7 +2975,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -3326,8 +2992,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/079.png"
                     .lpImageFemaleUri = "/Pokemons/079.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 80
                 With lpReturnValue
@@ -3346,7 +3010,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -3363,27 +3027,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/080.png"
                     .lpImageFemaleUri = "/Pokemons/080.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(0).lpImagePath = "/Pokemons/080.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 75
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "2.0 m"
-                        .lpWeight = "120.0 kg"
-                        .lpType = "[水]+[超能力]"
-                        With .lpBaseStatsValues
-                            .HP = 95
-                            .ATTACK = 75
-                            .DEFEND = 180
-                            .SPATTACK = 130
-                            .SPDEFEND = 80
-                            .SPEED = 30
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 81
                 With lpReturnValue
@@ -3402,7 +3045,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 42
@@ -3419,8 +3062,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/081.png"
                     .lpImageFemaleUri = "/Pokemons/081.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 82
                 With lpReturnValue
@@ -3439,7 +3080,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 42
@@ -3456,8 +3097,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/082.png"
                     .lpImageFemaleUri = "/Pokemons/082.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 83
                 With lpReturnValue
@@ -3476,7 +3115,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "123"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -3484,7 +3123,7 @@
                     .lpAbilityHidden = 128
                     With .lpBaseValues
                         .HP = 52
-                        .ATTACK = 65
+                        .ATTACK = 90
                         .DEFEND = 55
                         .SPATTACK = 58
                         .SPDEFEND = 62
@@ -3493,8 +3132,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/083.png"
                     .lpImageFemaleUri = "/Pokemons/083.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 84
                 With lpReturnValue
@@ -3513,7 +3150,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -3530,8 +3167,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/084.png"
                     .lpImageFemaleUri = "/Pokemons/084.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 85
                 With lpReturnValue
@@ -3550,7 +3185,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -3567,8 +3202,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/085.png"
                     .lpImageFemaleUri = "/Pokemons/085.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 86
                 With lpReturnValue
@@ -3587,7 +3220,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 47
@@ -3604,8 +3237,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/086.png"
                     .lpImageFemaleUri = "/Pokemons/086.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 87
                 With lpReturnValue
@@ -3624,7 +3255,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 47
@@ -3641,8 +3272,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/087.png"
                     .lpImageFemaleUri = "/Pokemons/087.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 88
                 With lpReturnValue
@@ -3661,7 +3290,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -3678,8 +3307,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/088.png"
                     .lpImageFemaleUri = "/Pokemons/088.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 89
                 With lpReturnValue
@@ -3698,7 +3325,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -3715,8 +3342,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/089.png"
                     .lpImageFemaleUri = "/Pokemons/089.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 90
                 With lpReturnValue
@@ -3735,7 +3360,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 75
@@ -3752,8 +3377,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/090.png"
                     .lpImageFemaleUri = "/Pokemons/090.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 91
                 With lpReturnValue
@@ -3772,7 +3395,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "184"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 75
@@ -3789,8 +3412,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/091.png"
                     .lpImageFemaleUri = "/Pokemons/091.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 92
                 With lpReturnValue
@@ -3798,7 +3419,7 @@
                     .IsNoSex = False
                     .lpNumber = "092"
                     .lpType = "[幽靈]+[毒]"
-                    .lpDescription = "誕生於氣體中的生命體。如果被它有毒的氣態身體包圍，不管是誰都會昏迷過去。"
+                    .lpDescription = "誕生於氣體中的生命體。如果被它有毒的氣態身體包圍，不管是誰都會昏迷過去。被瓦斯包圍的話連印度大象也會在2秒內倒下。似乎會從老舊無人居住的建築物中出現。看起來像是一團氣體，沒有明確的形體。身體的９５％是由毒氣構成。剩下的５％據說是死於毒氣的死者的靈魂。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.3 m"
                     .lpWeight = "0.1 kg"
@@ -3809,7 +3430,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 26
@@ -3826,8 +3447,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/092.png"
                     .lpImageFemaleUri = "/Pokemons/092.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 93
                 With lpReturnValue
@@ -3835,7 +3454,7 @@
                     .IsNoSex = False
                     .lpNumber = "093"
                     .lpType = "[幽靈]+[毒]"
-                    .lpDescription = "喜歡藏在暗處，用氣態的手拍人的肩膀。被碰到的話會止不住地顫抖。"
+                    .lpDescription = "如果黑暗中空無一人，但你卻感覺被什麼盯上了，那麼鬼斯通一定就在那裡。喜歡藏在暗處，用氣態的手拍人的肩膀。被碰到的話會止不住地顫抖。在沒有月亮的夜裡，鬼斯通會四處尋找詛咒的對象，所以不要外出比較好。心情悲傷時在夜晚單獨外出是很危險的。鬼斯通會捉住你，讓你回不了家。如果被牠的氣體狀的舌頭舔到，靈魂就會被抓走。會躲在暗處尋找獵物。 "
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.6 m"
                     .lpWeight = "0.1 kg"
@@ -3846,7 +3465,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 26
@@ -3863,8 +3482,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/093.png"
                     .lpImageFemaleUri = "/Pokemons/093.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 94
                 With lpReturnValue
@@ -3872,7 +3489,7 @@
                     .IsNoSex = False
                     .lpNumber = "094"
                     .lpType = "[幽靈]+[毒]"
-                    .lpDescription = "在黑暗處浮現的笑臉的正體是對人施加詛咒並引以為樂的[耿鬼]。"
+                    .lpDescription = "在黑暗處浮現的笑臉的正體是對人施加詛咒並引以為樂的[耿鬼]。據說牠會為了奪取山中遇難者的生命而從黑暗中出現。滿月的夜晚，如果影子自己動起來並露出笑容，那肯定是耿鬼搞的鬼。如果突然被寒氣侵襲，那就是被耿鬼盯上的證據。沒有逃脫之法，所以死心吧。據說耿鬼之所以要人類的命，是因為牠就是人類的末路，想要增加旅伴的緣故。在世界各地都能聽到孩子如果不乖的話就會被耿鬼找上門的傳說。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.5 m"
                     .lpWeight = "40.5 kg"
@@ -3883,7 +3500,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 26
@@ -3900,26 +3517,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/094.png"
                     .lpImageFemaleUri = "/Pokemons/094.png"
-                    StateInformation(0).lpImagePath = "/Pokemons/094.01.png"
-                    StateInformation(1).lpImagePath = "/Pokemons/094.01.png"
-                    With StateInformation(0)
-                        .IsUniqueDescriptionAvailable = False
-                        .lpAbility1 = 23
-                        .lpAbility2 = "---"
-                        .lpAbilityHidden = "---"
-                        .lpHeight = "1.4 m"
-                        .lpWeight = "40.5 kg"
-                        .lpType = "[幽靈]+[毒]"
-                        With .lpBaseStatsValues
-                            .HP = 60
-                            .ATTACK = 65
-                            .DEFEND = 80
-                            .SPATTACK = 170
-                            .SPDEFEND = 95
-                            .SPEED = 130
-                            .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                        End With
-                    End With
                 End With
             Case 95
                 With lpReturnValue
@@ -3927,7 +3524,7 @@
                     .IsNoSex = False
                     .lpNumber = "095"
                     .lpType = "[岩石]+[地面]"
-                    .lpDescription = "一邊張開大嘴吞下大量的岩石，一邊挖出長長的隧道。"
+                    .lpDescription = "一邊張開大嘴吞下大量的岩石，一邊挖出長長的隧道。平時住在地底。會以８０公里的時速在地下一邊挖掘一邊尋找食物。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "8.8 m"
                     .lpWeight = "210.0 kg"
@@ -3938,7 +3535,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "77"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 69
@@ -3955,8 +3552,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/095.png"
                     .lpImageFemaleUri = "/Pokemons/095.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 96
                 With lpReturnValue
@@ -3964,7 +3559,7 @@
                     .IsNoSex = False
                     .lpNumber = "096"
                     .lpType = "[超能力]"
-                    .lpDescription = "據說只要用突出的鼻子一嗅，就能知道在做什麼夢。最喜歡開心的夢。"
+                    .lpDescription = "據說是傳說中叫做貘的食夢動物的子孫。非常擅長催眠術。據說只要用突出的鼻子一嗅，就能知道在做什麼夢。最喜歡開心的夢。如果你睡著時覺得鼻子發癢，那就是站在枕邊的催眠貘想從你鼻孔中食夢的信號。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.0 m"
                     .lpWeight = "32.4 kg"
@@ -3975,7 +3570,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 15
@@ -3992,8 +3587,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/096.png"
                     .lpImageFemaleUri = "/Pokemons/096.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 97
                 With lpReturnValue
@@ -4001,7 +3594,7 @@
                     .IsNoSex = False
                     .lpNumber = "097"
                     .lpType = "[超能力]"
-                    .lpDescription = "只要將吊墜在眼前晃悠幾下，就算是剛睡醒的人，也會在三秒鐘之內入眠。"
+                    .lpDescription = "只要將吊墜在眼前晃悠幾下，就算是剛睡醒的人，也會在三秒鐘之內入眠。肚子很餓的時候，會把見到的人強行催眠吃掉他們的夢。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.6 m"
                     .lpWeight = "75.6 kg"
@@ -4012,7 +3605,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 15
@@ -4029,8 +3622,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/097.png"
                     .lpImageFemaleUri = "/Pokemons/097.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 98
                 With lpReturnValue
@@ -4049,7 +3640,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 52
@@ -4086,7 +3677,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 52
@@ -4103,8 +3694,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/099.png"
                     .lpImageFemaleUri = "/Pokemons/099.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 100
                 With lpReturnValue
@@ -4112,7 +3701,7 @@
                     .IsNoSex = True
                     .lpNumber = "100"
                     .lpType = "[電]"
-                    .lpDescription = "外表酷似[寶貝球]。要是搞錯了而碰到它的話，觸電的同時還會爆炸，非常危險。"
+                    .lpDescription = "外表酷似[寶貝球]，最早在製造精靈球的公司被發現。要是搞錯了而碰到它的話，觸電的同時還會爆炸，非常危險。"
                     .lpSexRatio = "無性別"
                     .lpHeight = "0.5 m"
                     .lpWeight = "10.4 kg"
@@ -4123,7 +3712,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 43
@@ -4140,8 +3729,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/100.png"
                     .lpImageFemaleUri = "/Pokemons/100.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 101
                 With lpReturnValue
@@ -4160,7 +3747,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 43
@@ -4172,13 +3759,11 @@
                         .DEFEND = 70
                         .SPATTACK = 80
                         .SPDEFEND = 80
-                        .SPEED = 140
+                        .SPEED = 150
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpImageMaleUri = "/Pokemons/101.png"
                     .lpImageFemaleUri = "/Pokemons/101.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 102
                 With lpReturnValue
@@ -4186,7 +3771,7 @@
                     .IsNoSex = False
                     .lpNumber = "102"
                     .lpType = "[草]+[超能力]"
-                    .lpDescription = "由於借助心靈感應來對話，就算把六隻[蛋蛋]分離開來，也很快就會重新聚集在一起。"
+                    .lpDescription = "由於借助心靈感應來對話，就算把六隻[蛋蛋]分離開來，也很快就會重新聚集在一起。表面相當硬，就算裂開，只要裡邊不漏出來之類的就可以活下去。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "0.4 m"
                     .lpWeight = "2.5 kg"
@@ -4197,7 +3782,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 34
@@ -4214,8 +3799,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/102.png"
                     .lpImageFemaleUri = "/Pokemons/102.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 103
                 With lpReturnValue
@@ -4223,7 +3806,7 @@
                     .IsNoSex = False
                     .lpNumber = "103"
                     .lpType = "[草]+[超能力]"
-                    .lpDescription = "被稱為[會走路的熱帶雨林]。如果哪個腦袋長得太大，就會掉到地上成為[蛋蛋]。"
+                    .lpDescription = "被稱為[會走路的熱帶雨林]。每個果實都有臉，分別有不同的意識。如果哪個腦袋長得太大，就會掉到地上成為[蛋蛋]。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "2.0 m"
                     .lpWeight = "120.0 kg"
@@ -4234,7 +3817,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "182"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 34
@@ -4245,14 +3828,12 @@
                         .ATTACK = 95
                         .DEFEND = 85
                         .SPATTACK = 125
-                        .SPDEFEND = 65
+                        .SPDEFEND = 75
                         .SPEED = 55
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .lpImageMaleUri = "/Pokemons/103.png"
                     .lpImageFemaleUri = "/Pokemons/103.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 104
                 With lpReturnValue
@@ -4271,7 +3852,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 69
@@ -4288,8 +3869,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/104.png"
                     .lpImageFemaleUri = "/Pokemons/104.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 105
                 With lpReturnValue
@@ -4297,7 +3876,7 @@
                     .IsNoSex = False
                     .lpNumber = "105"
                     .lpType = "[地面]"
-                    .lpDescription = "可以熟練自如地運用自出生的時候就握著的骨頭棒。性情十分兇暴。"
+                    .lpDescription = "克服了傷痛後進化得更強更壯。可以熟練自如地運用自出生的時候就握著的骨頭棒。性情十分兇暴。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.0 m"
                     .lpWeight = "45.0 kg"
@@ -4308,7 +3887,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "149"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 69
@@ -4325,8 +3904,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/105.png"
                     .lpImageFemaleUri = "/Pokemons/105.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 106
                 With lpReturnValue
@@ -4345,7 +3922,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 7
@@ -4362,8 +3939,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/106.png"
                     .lpImageFemaleUri = "/Pokemons/106.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 107
                 With lpReturnValue
@@ -4382,7 +3957,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -4399,8 +3974,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/107.png"
                     .lpImageFemaleUri = "/Pokemons/107.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 108
                 With lpReturnValue
@@ -4419,7 +3992,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "77"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -4445,7 +4018,7 @@
                     .IsNoSex = False
                     .lpNumber = "109"
                     .lpType = "[毒]"
-                    .lpDescription = "薄薄的氣球狀身體內充滿了劇毒氣體，時不時發生大爆炸。"
+                    .lpDescription = "薄薄的氣球狀身體內充滿了劇毒氣體，時不時發生大爆炸。牠來到附近時會聞到臭味。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "0.6 m"
                     .lpWeight = "1.0 kg"
@@ -4456,7 +4029,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -4473,8 +4046,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/109.png"
                     .lpImageFemaleUri = "/Pokemons/109.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 110
                 With lpReturnValue
@@ -4482,7 +4053,7 @@
                     .IsNoSex = False
                     .lpNumber = "110"
                     .lpType = "[毒]"
-                    .lpDescription = "吸入垃圾中產生的毒瓦斯在體內混合，同時散發出強烈的惡臭。"
+                    .lpDescription = "有時會因為非常罕見的突變，出現２個連在一起的雙胞胎小瓦斯彈，一方膨脹另一方就會洩氣縮水。吸入垃圾中產生的毒瓦斯在體內混合，同時散發出強烈的惡臭。將毒瓦斯用特別的方法稀釋後可以製成最高級的香水。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.2 m"
                     .lpWeight = "9.5 kg"
@@ -4493,7 +4064,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -4510,8 +4081,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/110.png"
                     .lpImageFemaleUri = "/Pokemons/110.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 111
                 With lpReturnValue
@@ -4530,7 +4099,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "69"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 31
@@ -4547,8 +4116,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/111.png"
                     .lpImageFemaleUri = "/Pokemons/111.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 112
                 With lpReturnValue
@@ -4567,7 +4134,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 31
@@ -4584,8 +4151,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/112.png"
                     .lpImageFemaleUri = "/Pokemons/112.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 113
                 With lpReturnValue
@@ -4593,7 +4158,7 @@
                     .IsNoSex = True
                     .lpNumber = "113"
                     .lpType = "[一般]"
-                    .lpDescription = "生出營養滿分的蛋分給受傷的神奇寶貝或人類，溫和友善的神奇寶貝。"
+                    .lpDescription = "稀少而怕生的寶可夢，據說會為能夠捉到它的人帶來幸運。生出營養滿分的蛋分給受傷的神奇寶貝或人類，溫和友善的神奇寶貝。"
                     .lpSexRatio = "0:1"
                     .lpHeight = "1.1 m"
                     .lpWeight = "34.6 kg"
@@ -4621,8 +4186,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/113.png"
                     .lpImageFemaleUri = "/Pokemons/113.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 114
                 With lpReturnValue
@@ -4630,7 +4193,7 @@
                     .IsNoSex = False
                     .lpNumber = "114"
                     .lpType = "[草]"
-                    .lpDescription = "由於身體被無數蠕動的藤蔓覆蓋，正體不明。綠色的藤蔓一生都會生長。"
+                    .lpDescription = "由於身體被無數蠕動的藤蔓覆蓋，正體不明。綠色的藤蔓一生都會生長。此藤蔓入口清涼，可作為辛香料使用。"
                     .lpSexRatio = "1:1"
                     .lpHeight = "1.0 m"
                     .lpWeight = "35.0 kg"
@@ -4641,7 +4204,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "87"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -4658,8 +4221,6 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/114.png"
                     .lpImageFemaleUri = "/Pokemons/114.png"
-                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
-                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 115
                 With lpReturnValue
@@ -4678,7 +4239,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 48
@@ -4733,7 +4294,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -4770,7 +4331,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
@@ -4807,7 +4368,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -4844,7 +4405,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -4881,7 +4442,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 35
@@ -4918,7 +4479,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "182"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 35
@@ -4955,7 +4516,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 43
@@ -4992,7 +4553,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "100"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -5029,7 +4590,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -5066,7 +4627,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -5103,7 +4664,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 49
@@ -5140,7 +4701,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 52
@@ -5195,7 +4756,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
@@ -5361,7 +4922,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "百變怪組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "101"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 7
@@ -5546,7 +5107,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "79"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 36
@@ -6155,7 +5716,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -6192,7 +5753,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -6229,7 +5790,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "236"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -6266,7 +5827,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -6303,7 +5864,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -6340,7 +5901,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "240"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -6377,7 +5938,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -6414,7 +5975,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -6451,7 +6012,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -6488,7 +6049,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "43"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -6525,7 +6086,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -6562,7 +6123,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 15
@@ -6599,7 +6160,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "155"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 15
@@ -6636,7 +6197,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 68
@@ -6673,7 +6234,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 68
@@ -6710,7 +6271,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 68
@@ -6747,7 +6308,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 68
@@ -6784,7 +6345,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -6821,7 +6382,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 10
@@ -6858,7 +6419,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 10
@@ -6895,7 +6456,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "41"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -6932,7 +6493,7 @@
                     .lpStandardFriendlyRate = "140"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "44"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -6969,7 +6530,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "42"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -7006,7 +6567,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "49"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 55
@@ -7043,7 +6604,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 55
@@ -7080,7 +6641,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 28
@@ -7117,7 +6678,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 28
@@ -7154,7 +6715,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 9
@@ -7191,7 +6752,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "128"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 9
@@ -7228,7 +6789,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 9
@@ -7283,7 +6844,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7320,7 +6881,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "88"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -7357,7 +6918,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "185"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -7394,7 +6955,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -7431,7 +6992,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 11
@@ -7468,7 +7029,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7505,7 +7066,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "119"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7542,7 +7103,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "203"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7579,7 +7140,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "72"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 50
@@ -7616,7 +7177,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "36"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7653,7 +7214,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "149"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -7690,7 +7251,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "78"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 3
@@ -7727,7 +7288,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "42"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 6
@@ -7764,7 +7325,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "151"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 6
@@ -7875,7 +7436,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "81"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 15
@@ -7912,7 +7473,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -7949,7 +7510,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "87"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -8023,7 +7584,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 23
@@ -8060,7 +7621,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -8097,7 +7658,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -8134,7 +7695,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -8171,7 +7732,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 32
@@ -8208,7 +7769,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "86"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 52
@@ -8245,7 +7806,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 69
@@ -8301,7 +7862,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 22
@@ -8338,7 +7899,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 22
@@ -8375,7 +7936,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "86"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
@@ -8412,7 +7973,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -8449,7 +8010,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 5
@@ -8486,7 +8047,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 68
@@ -8541,7 +8102,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "86"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 39
@@ -8578,7 +8139,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -8615,7 +8176,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 62
@@ -8652,7 +8213,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 40
@@ -8689,7 +8250,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 40
@@ -8726,7 +8287,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 12
@@ -8763,7 +8324,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 12
@@ -8800,7 +8361,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "133"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 55
@@ -8837,7 +8398,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水二組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 55
@@ -8874,7 +8435,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水二組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 21
@@ -8911,7 +8472,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "116"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 72
@@ -8948,7 +8509,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 33
@@ -8985,7 +8546,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 51
@@ -9022,7 +8583,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 48
@@ -9059,7 +8620,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 48
@@ -9114,7 +8675,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "243"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -9151,7 +8712,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -9188,7 +8749,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -9225,7 +8786,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "180"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 36
@@ -9262,7 +8823,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
@@ -9299,7 +8860,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "88"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 20
@@ -9336,7 +8897,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "42"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 62
@@ -9373,7 +8934,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 22
@@ -9410,7 +8971,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -9447,7 +9008,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "72"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -9484,7 +9045,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "73"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 49
@@ -9521,7 +9082,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 47
@@ -9946,7 +9507,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -9983,7 +9544,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -10020,7 +9581,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -10076,7 +9637,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -10113,7 +9674,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -10150,7 +9711,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -10205,7 +9766,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -10242,7 +9803,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -10279,7 +9840,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -10335,7 +9896,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "44"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -10372,7 +9933,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 22
@@ -10409,7 +9970,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "48"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -10446,7 +10007,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -10483,7 +10044,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "39"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 19
@@ -10520,7 +10081,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "72"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -10557,7 +10118,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -10594,7 +10155,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "41"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -10631,7 +10192,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "135"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 19
@@ -10668,7 +10229,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "44"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -10705,7 +10266,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "119"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -10742,7 +10303,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -10779,7 +10340,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "44"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -10816,7 +10377,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "119"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -10853,7 +10414,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 34
@@ -10890,7 +10451,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -10927,7 +10488,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "151"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -10964,7 +10525,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -11001,7 +10562,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "151"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -11038,7 +10599,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "40"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 28
@@ -11075,7 +10636,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "97"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 28
@@ -11112,7 +10673,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "233"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 28
@@ -11167,7 +10728,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "昆蟲組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -11204,7 +10765,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "昆蟲組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 22
@@ -11241,7 +10802,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 27
@@ -11278,7 +10839,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 27
@@ -11315,7 +10876,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 54
@@ -11352,7 +10913,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 72
@@ -11389,7 +10950,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "252"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 54
@@ -11426,7 +10987,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 14
@@ -11463,7 +11024,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "160"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 3
@@ -11500,7 +11061,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "83"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 25
@@ -11537,7 +11098,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "48"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 43
@@ -11574,7 +11135,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "126"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 43
@@ -11611,7 +11172,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "216"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 43
@@ -11648,7 +11209,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "47"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 47
@@ -11685,7 +11246,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 47
@@ -11722,7 +11283,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "38"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -11759,7 +11320,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "75"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -11796,7 +11357,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -11833,7 +11394,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "133"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -11870,7 +11431,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "133"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 51
@@ -11926,7 +11487,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "133"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 52
@@ -12110,7 +11671,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 74
@@ -12147,7 +11708,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 74
@@ -12202,7 +11763,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 9
@@ -12239,7 +11800,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 9
@@ -12294,7 +11855,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 57
@@ -12331,7 +11892,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 58
@@ -12368,7 +11929,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "140"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 35
@@ -12405,7 +11966,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "140"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 12
@@ -12442,7 +12003,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "140"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 30
@@ -12479,7 +12040,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 64
@@ -12516,7 +12077,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 64
@@ -12553,7 +12114,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 24
@@ -12590,7 +12151,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 24
@@ -12720,7 +12281,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -12757,7 +12318,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 40
@@ -12813,7 +12374,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 73
@@ -12850,7 +12411,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -12887,7 +12448,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -12924,7 +12485,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "126"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 20
@@ -12961,7 +12522,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 52
@@ -12998,7 +12559,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "119"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 26
@@ -13035,7 +12596,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "234"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 26
@@ -13072,7 +12633,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 8
@@ -13109,7 +12670,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 8
@@ -13146,7 +12707,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 30
@@ -13183,7 +12744,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 30
@@ -13239,7 +12800,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "160"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 17
@@ -13276,7 +12837,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "160"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 61
@@ -13313,7 +12874,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -13350,7 +12911,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -13387,7 +12948,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -13424,7 +12985,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "164"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 12
@@ -13461,7 +13022,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 52
@@ -13498,7 +13059,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "164"
                     .lpFullLevelExpPoint = "1640000"
                     .lpAbility1 = 52
@@ -13535,7 +13096,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -13572,7 +13133,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -13757,7 +13318,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "40"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 33
@@ -13794,7 +13355,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "189"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 63
@@ -13831,7 +13392,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 59
@@ -13868,7 +13429,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 16
@@ -13905,7 +13466,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 15
@@ -13942,7 +13503,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 15
@@ -13997,7 +13558,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -14034,7 +13595,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 46
@@ -14071,7 +13632,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 34
@@ -14108,7 +13669,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "149"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -14145,7 +13706,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 46
@@ -14200,7 +13761,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 23
@@ -14237,7 +13798,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -14274,7 +13835,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 39
@@ -14330,7 +13891,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 47
@@ -14367,7 +13928,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 47
@@ -14404,7 +13965,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 47
@@ -14441,7 +14002,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "69"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 75
@@ -14478,7 +14039,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 33
@@ -14515,7 +14076,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 33
@@ -14589,7 +14150,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "116"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 33
@@ -14986,7 +14547,7 @@
                     .IsNoSex = True
                     .lpNumber = lpPokemonNationalDexNumber
                     .lpType = "[龍]+[超能力]"
-                    .lpDescription = "有著用能夠折射光線的羽毛覆蓋全身，使自己隱身的能力。"
+                    .lpDescription = "有著用能夠折射光線的羽毛覆蓋全身，使自己隱身的能力。擁有很高的智慧，能理解人類的語言，能敏銳地感知人心。"
                     .lpSexRatio = "0:1"
                     .lpHeight = "1.4 m"
                     .lpWeight = "40.0 kg"
@@ -15041,7 +14602,7 @@
                     .IsNoSex = True
                     .lpNumber = lpPokemonNationalDexNumber
                     .lpType = "[龍]+[超能力]"
-                    .lpDescription = "擁有極高智能的神奇寶貝。反復撲打臂膀飛翔，速度能超越噴氣式飛機。"
+                    .lpDescription = "擁有極高智能的神奇寶貝。反復撲打臂膀飛翔，速度能超越噴氣式飛機。擁有將所見所思用影像展現給對方的能力。能理解人類的語言。"
                     .lpSexRatio = "1:0"
                     .lpHeight = "2.0 m"
                     .lpWeight = "60.0 kg"
@@ -15545,7 +15106,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "28"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -15582,7 +15143,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -15619,7 +15180,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "238"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -15656,7 +15217,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "28"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -15693,7 +15254,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "146"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -15730,7 +15291,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "238"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -15767,7 +15328,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "28"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -15804,7 +15365,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "145"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -15841,7 +15402,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "238"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -15878,7 +15439,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "51"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -15915,7 +15476,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 35
@@ -15952,7 +15513,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 72
@@ -15989,7 +15550,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -16026,7 +15587,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "221"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -16063,7 +15624,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 7
@@ -16100,7 +15661,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "156"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 7
@@ -16137,7 +15698,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16174,7 +15735,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "174"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16211,7 +15772,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16248,7 +15809,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "174"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16285,7 +15846,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16322,7 +15883,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "174"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -16359,7 +15920,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 108
@@ -16396,7 +15957,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 108
@@ -16433,7 +15994,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 145
@@ -16470,7 +16031,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "125"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 145
@@ -16507,7 +16068,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "215"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 145
@@ -16544,7 +16105,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 31
@@ -16581,7 +16142,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "174"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 31
@@ -16618,7 +16179,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 5
@@ -16655,7 +16216,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 5
@@ -16692,7 +16253,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "227"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 5
@@ -16729,7 +16290,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "飛行组"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 109
@@ -16766,7 +16327,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "飛行组"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "149"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 109
@@ -16803,7 +16364,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 146
@@ -16840,7 +16401,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "178"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 146
@@ -16877,7 +16438,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "390"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 131
@@ -16933,7 +16494,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -16970,7 +16531,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -17007,7 +16568,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "227"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 62
@@ -17044,7 +16605,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -17081,7 +16642,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "134"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -17118,7 +16679,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "225"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 33
@@ -17155,7 +16716,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 62
@@ -17192,7 +16753,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -17229,7 +16790,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 68
@@ -17266,7 +16827,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "133"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 102
@@ -17303,7 +16864,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "221"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 68
@@ -17340,7 +16901,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -17377,7 +16938,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "126"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -17414,7 +16975,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "214"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 38
@@ -17451,7 +17012,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 158
@@ -17488,7 +17049,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 158
@@ -17525,7 +17086,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -17562,7 +17123,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -17636,7 +17197,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -17673,7 +17234,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "123"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -17710,7 +17271,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "229"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -17747,7 +17308,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 55
@@ -17784,7 +17345,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 125
@@ -17821,7 +17382,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 11
@@ -17858,7 +17419,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -17895,7 +17456,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -17932,7 +17493,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -17969,7 +17530,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "171"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -18006,7 +17567,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 147
@@ -18043,7 +17604,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 152
@@ -18080,7 +17641,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 152
@@ -18265,7 +17826,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -18302,7 +17863,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -18339,7 +17900,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 149
@@ -18376,7 +17937,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 149
@@ -18413,7 +17974,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -18450,7 +18011,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 56
@@ -18487,7 +18048,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 119
@@ -18524,7 +18085,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "137"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 119
@@ -18561,7 +18122,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "221"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 119
@@ -18598,7 +18159,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 142
@@ -18635,7 +18196,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 142
@@ -18672,7 +18233,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "221"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 142
@@ -18709,7 +18270,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -18746,7 +18307,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -18783,7 +18344,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 115
@@ -18820,7 +18381,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "138"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 115
@@ -18857,7 +18418,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 115
@@ -18894,7 +18455,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -18931,7 +18492,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -18968,7 +18529,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "150"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -19005,7 +18566,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -19042,7 +18603,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -19079,7 +18640,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "59"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 27
@@ -19116,7 +18677,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "162"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 27
@@ -19153,7 +18714,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 11
@@ -19190,7 +18751,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 11
@@ -19264,7 +18825,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 14
@@ -19301,7 +18862,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 14
@@ -19338,7 +18899,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 160
@@ -19375,7 +18936,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "171"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 160
@@ -19412,7 +18973,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 57
@@ -19449,7 +19010,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 57
@@ -19486,7 +19047,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "234"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 57
@@ -19523,7 +19084,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 26
@@ -19560,7 +19121,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 26
@@ -19597,7 +19158,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "232"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 26
@@ -19634,7 +19195,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 140
@@ -19671,7 +19232,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 140
@@ -19708,7 +19269,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 18
@@ -19745,7 +19306,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 18
@@ -19782,7 +19343,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "234"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 18
@@ -19930,7 +19491,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 81
@@ -19967,7 +19528,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 81
@@ -20004,7 +19565,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -20041,7 +19602,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 93
@@ -20078,7 +19639,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 93
@@ -20115,7 +19676,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 9
@@ -20152,7 +19713,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 39
@@ -20189,7 +19750,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 39
@@ -20263,7 +19824,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 89
@@ -20300,7 +19861,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 89
@@ -20337,7 +19898,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 128
@@ -20374,7 +19935,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 128
@@ -20411,7 +19972,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 120
@@ -20448,7 +20009,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 51
@@ -20485,7 +20046,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 51
@@ -20522,7 +20083,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "74"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 145
@@ -20559,7 +20120,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 145
@@ -20596,7 +20157,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 82
@@ -20633,7 +20194,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -21225,7 +20786,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "270"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 32
@@ -21299,7 +20860,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -21336,7 +20897,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -21373,7 +20934,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -21410,7 +20971,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -21447,7 +21008,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "143"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -21484,7 +21045,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "240"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -21521,7 +21082,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -21558,7 +21119,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -21595,7 +21156,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -21632,7 +21193,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "47"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -21669,7 +21230,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "148"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -21706,7 +21267,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 145
@@ -21743,7 +21304,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "134"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 49
@@ -21780,7 +21341,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 49
@@ -21817,7 +21378,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "40"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 19
@@ -21854,7 +21415,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "75"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -21891,7 +21452,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "185"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 19
@@ -21928,7 +21489,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "74"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 79
@@ -21965,7 +21526,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 79
@@ -22002,7 +21563,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 166
@@ -22039,7 +21600,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 166
@@ -22076,7 +21637,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "248"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 166
@@ -22113,7 +21674,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 157
@@ -22150,7 +21711,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "186"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 157
@@ -22187,7 +21748,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 89
@@ -22224,7 +21785,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 89
@@ -22261,7 +21822,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 169
@@ -22298,7 +21859,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "71"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -22335,7 +21896,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "163"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -22372,7 +21933,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 99
@@ -22409,7 +21970,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "157"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 99
@@ -22446,7 +22007,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "234"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 176
@@ -22483,7 +22044,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 131
@@ -22520,7 +22081,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "162"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 131
@@ -22557,7 +22118,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 175
@@ -22594,7 +22155,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 175
@@ -22631,7 +22192,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水二組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 126
@@ -22668,7 +22229,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水二組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 126
@@ -22705,7 +22266,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 181
@@ -22742,7 +22303,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 181
@@ -22779,7 +22340,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
@@ -22816,7 +22377,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
@@ -22853,7 +22414,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 178
@@ -22890,7 +22451,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "100"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 178
@@ -22927,7 +22488,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 87
@@ -22964,7 +22525,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 87
@@ -23186,7 +22747,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 84
@@ -23223,7 +22784,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "151"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 167
@@ -23260,7 +22821,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "100"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 29
@@ -23408,7 +22969,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "165"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 158
@@ -23445,7 +23006,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 30
@@ -23482,7 +23043,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 30
@@ -23519,7 +23080,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -23556,7 +23117,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 53
@@ -23593,7 +23154,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -23630,7 +23191,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "180"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -23667,7 +23228,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "49"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 119
@@ -23704,7 +23265,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "187"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 119
@@ -24703,7 +24264,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 52
@@ -24740,7 +24301,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "167"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 52
@@ -24777,7 +24338,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "167"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 216
@@ -24814,7 +24375,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 118
@@ -24850,7 +24411,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "162"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 118
@@ -24887,7 +24448,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -24924,7 +24485,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 51
@@ -24961,7 +24522,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 208
@@ -24998,7 +24559,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 196
@@ -25035,7 +24596,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 196
@@ -25072,7 +24633,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "77"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -25109,7 +24670,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -25146,7 +24707,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "蟲組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 199
@@ -25183,7 +24744,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "蟲組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 199
@@ -25220,7 +24781,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 102
@@ -25257,7 +24818,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 102
@@ -25294,7 +24855,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "57"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 35
@@ -25331,7 +24892,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 35
@@ -25368,7 +24929,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 212
@@ -25405,7 +24966,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 212
@@ -25442,7 +25003,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "68"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 218
@@ -25479,7 +25040,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 218
@@ -25516,7 +25077,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "42"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 102
@@ -25553,7 +25114,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "102"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 102
@@ -25590,7 +25151,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "230"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 102
@@ -25627,7 +25188,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 166
@@ -25664,7 +25225,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 39
@@ -25701,7 +25262,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 222
@@ -25738,7 +25299,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "46"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 193
@@ -25775,7 +25336,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "186"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 194
@@ -25810,7 +25371,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 195
@@ -25845,7 +25406,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 195
@@ -25880,7 +25441,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 215
@@ -25985,7 +25546,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 197
@@ -26020,7 +25581,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 213
@@ -26055,7 +25616,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 75
@@ -26090,7 +25651,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "152"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 160
@@ -26125,7 +25686,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "167"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 209
@@ -26160,7 +25721,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 219
@@ -26195,7 +25756,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 201
@@ -26230,7 +25791,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "181"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 200
@@ -26370,7 +25931,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "114"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 226
@@ -26405,7 +25966,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "114"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 227
@@ -26440,7 +26001,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "114"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 229
@@ -26475,7 +26036,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "114"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 228
@@ -27335,7 +26896,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "64"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -27372,7 +26933,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -27409,7 +26970,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "236"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -27446,7 +27007,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -27483,7 +27044,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -27520,7 +27081,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "240"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -27557,7 +27118,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -27594,7 +27155,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -27631,7 +27192,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -27668,7 +27229,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "49"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 51
@@ -27705,7 +27266,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "119"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -27742,7 +27303,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "214"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -27779,7 +27340,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 86
@@ -27816,7 +27377,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 86
@@ -27853,7 +27414,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "39"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 61
@@ -27890,7 +27451,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "134"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 68
@@ -27927,7 +27488,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 79
@@ -27964,7 +27525,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "127"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 79
@@ -28001,7 +27562,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "235"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 79
@@ -28038,7 +27599,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 30
@@ -28075,7 +27636,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "227"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 30
@@ -28260,7 +27821,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "45"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 61
@@ -28297,7 +27858,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "148"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 107
@@ -28334,7 +27895,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "148"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -28371,7 +27932,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "49"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 118
@@ -28408,7 +27969,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "4080"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 46
@@ -28445,7 +28006,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "142"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -28482,7 +28043,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -28519,7 +28080,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 33
@@ -28556,7 +28117,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -28593,7 +28154,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 122
@@ -28630,7 +28191,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "65"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 60
@@ -28667,7 +28228,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "不定形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 60
@@ -28704,7 +28265,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "169"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 101
@@ -28815,7 +28376,7 @@
                     .lpStandardFriendlyRate = "0"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "70"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 50
@@ -28852,7 +28413,7 @@
                     .lpStandardFriendlyRate = "140"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 56
@@ -28908,7 +28469,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "不定形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -28945,7 +28506,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 15
@@ -28982,7 +28543,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 7
@@ -29019,7 +28580,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "158"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 47
@@ -29056,7 +28617,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "57"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 26
@@ -29093,7 +28654,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -29130,7 +28691,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 1
@@ -29167,7 +28728,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -29204,7 +28765,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -29241,7 +28802,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "58"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -29278,7 +28839,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 43
@@ -29352,7 +28913,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "144"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 51
@@ -29592,7 +29153,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "57"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 80
@@ -29629,7 +29190,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "184"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 80
@@ -29758,7 +29319,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 4
@@ -29795,7 +29356,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "175"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 4
@@ -29832,7 +29393,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "60"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 107
@@ -29869,7 +29430,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 107
@@ -29906,7 +29467,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "159"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 26
@@ -29943,7 +29504,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "66"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 33
@@ -29980,7 +29541,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水二组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 33
@@ -30017,7 +29578,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "未發現组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "69"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 33
@@ -30054,7 +29615,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸组"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "67"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 117
@@ -30091,7 +29652,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸组"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 117
@@ -30146,7 +29707,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 46
@@ -30183,7 +29744,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 42
@@ -30220,7 +29781,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "180"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -30257,7 +29818,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "怪獸组"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 31
@@ -30294,7 +29855,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "植物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "187"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -30331,7 +29892,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "243"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 78
@@ -30368,7 +29929,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "人形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "243"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 49
@@ -30405,7 +29966,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "飛行组"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "245"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 55
@@ -30442,7 +30003,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "180"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 3
@@ -30553,7 +30114,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "昆蟲组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 52
@@ -30590,7 +30151,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "陸地组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "239"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 12
@@ -30627,7 +30188,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "241"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 91
@@ -30664,7 +30225,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "233"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 80
@@ -30720,7 +30281,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "礦物组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "184"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 5
@@ -30757,7 +30318,7 @@
                     .lpStandardFriendlyRate = "35"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "6630"
+                    .lpBornStepsCount = "25"
                     .lpBasicExpPoint = "236"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 46
@@ -30794,7 +30355,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "妖精组"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "168"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 81
@@ -30831,7 +30392,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "無定形组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5355"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 26
@@ -31053,7 +30614,7 @@
                     .lpStandardFriendlyRate = "100"
                     .lpEggGroup1 = "未發現组"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "270"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 18
@@ -31238,7 +30799,7 @@
                     .lpStandardFriendlyRate = "70"
                     .lpEggGroup1 = "水一组"
                     .lpEggGroup2 = "妖精組"
-                    .lpBornStepsCount = "2805"
+                    .lpBornStepsCount = "15"
                     .lpBasicExpPoint = "270"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 93
@@ -31479,7 +31040,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -31516,7 +31077,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -31553,7 +31114,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "265"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -31590,7 +31151,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -31627,7 +31188,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -31664,7 +31225,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "265"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -31701,7 +31262,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -31738,7 +31299,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "147"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -31775,7 +31336,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "265"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -31812,7 +31373,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "55"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 167
@@ -31849,7 +31410,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 167
@@ -32182,7 +31743,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "50"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 238
@@ -32219,7 +31780,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "161"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 238
@@ -32330,7 +31891,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "57"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 173
@@ -32367,7 +31928,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "怪獸組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 173
@@ -32404,7 +31965,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 237
@@ -32441,7 +32002,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 173
@@ -32589,7 +32150,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "52"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 247
@@ -32626,7 +32187,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "龍"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 247
@@ -32663,7 +32224,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "170"
                     .lpFullLevelExpPoint = "600000"
                     .lpAbility1 = 247
@@ -32700,7 +32261,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "63"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 245
@@ -32737,7 +32298,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "龍組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 245
@@ -32774,7 +32335,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 241
@@ -32811,7 +32372,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "56"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 33
@@ -32848,7 +32409,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "172"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 33
@@ -32959,7 +32520,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "61"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 18
@@ -32996,7 +32557,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "184"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 18
@@ -33107,7 +32668,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "無定形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "62"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 133
@@ -33144,7 +32705,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "無定形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "178"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 133
@@ -33181,7 +32742,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 131
@@ -33218,7 +32779,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 131
@@ -33255,7 +32816,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "255"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 131
@@ -33292,7 +32853,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "53"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 158
@@ -33329,7 +32890,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "130"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 158
@@ -33366,7 +32927,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "人形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "255"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 159
@@ -33440,7 +33001,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "154"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 4
@@ -33477,7 +33038,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "水三組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "179"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 133
@@ -33514,7 +33075,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "177"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 80
@@ -33625,7 +33186,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "無定形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "54"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 175
@@ -33662,7 +33223,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "無定形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "173"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 175
@@ -33736,7 +33297,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "無定形組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "152"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 31
@@ -33773,7 +33334,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "37"
                     .lpFullLevelExpPoint = ""
                     .lpAbility1 = 19
@@ -33810,7 +33371,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "166"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 19
@@ -34772,7 +34333,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 22
@@ -34846,7 +34407,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 62
@@ -34920,7 +34481,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 46
@@ -35122,7 +34683,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -35159,7 +34720,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -35196,7 +34757,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "植物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 65
@@ -35233,7 +34794,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -35270,7 +34831,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -35307,7 +34868,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 66
@@ -35344,7 +34905,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -35381,7 +34942,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -35418,7 +34979,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "水一組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 67
@@ -35603,7 +35164,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -35640,7 +35201,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 68
@@ -35862,7 +35423,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 20
@@ -35899,7 +35460,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "礦物組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 273
@@ -35936,7 +35497,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 48
@@ -35973,7 +35534,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 48
@@ -36010,7 +35571,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 269
@@ -36084,7 +35645,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 272
@@ -36121,7 +35682,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 272
@@ -36158,7 +35719,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 272
@@ -36306,7 +35867,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 20
@@ -36343,7 +35904,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 280
@@ -36380,7 +35941,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 277
@@ -36417,7 +35978,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "飛行組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 277
@@ -36454,7 +36015,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -36491,7 +36052,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -36528,7 +36089,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 84
@@ -36565,7 +36126,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 22
@@ -36602,7 +36163,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 274
@@ -36639,7 +36200,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 274
@@ -36676,7 +36237,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 298
@@ -36713,7 +36274,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 298
@@ -36787,7 +36348,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -36824,7 +36385,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "植物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 34
@@ -36861,7 +36422,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 14
@@ -36898,7 +36459,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "蟲組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 28
@@ -36935,7 +36496,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 107
@@ -36972,7 +36533,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 290
@@ -37009,7 +36570,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 104
@@ -37046,7 +36607,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 104
@@ -37083,7 +36644,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "妖精組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 104
@@ -37120,7 +36681,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 183
@@ -37157,7 +36718,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水三組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 183
@@ -37305,7 +36866,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 142
@@ -37342,7 +36903,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "礦物組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 142
@@ -37527,7 +37088,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 53
@@ -37564,7 +37125,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 146
@@ -37601,7 +37162,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "飛行組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1059860"
                     .lpAbility1 = 113
@@ -37712,7 +37273,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "800000"
                     .lpAbility1 = 104
@@ -37749,7 +37310,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水二組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1250000"
                     .lpAbility1 = 109
@@ -37823,7 +37384,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 72
@@ -37860,7 +37421,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "水一組"
                     .lpEggGroup2 = "陸上組"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 38
@@ -37897,7 +37458,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 291
@@ -37934,7 +37495,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "陸上組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 32
@@ -37971,7 +37532,7 @@
                     .lpStandardFriendlyRate = "---"
                     .lpEggGroup1 = "人形組"
                     .lpEggGroup2 = "---"
-                    .lpBornStepsCount = "5140"
+                    .lpBornStepsCount = "20"
                     .lpBasicExpPoint = "0"
                     .lpFullLevelExpPoint = "1000000"
                     .lpAbility1 = 128

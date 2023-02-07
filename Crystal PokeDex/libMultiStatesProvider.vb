@@ -40,29 +40,211 @@
             Case 3
                 With States
                     .Add("超進化")
+                    .Add("超極巨化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 47
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "2.4 m"
+                    .lpWeight = "155.5 kg"
+                    .lpType = "[草]+[毒]"
+                    .lpImagePath = "/MultiStatesImages/003/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "為了支撐超級進化之後變得更大的花，下盤的筋骨變得更加強壯了。"
+                    With .lpBaseStatsValues
+                        .HP = 80
+                        .ATTACK = 100
+                        .DEFEND = 123
+                        .SPATTACK = 122
+                        .SPDEFEND = 120
+                        .SPEED = 80
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "透過揮舞２根粗大的藤蔓來戰鬥。力道之強，甚至能夠輕輕鬆鬆揮倒１０層樓高的大廈。會像火山噴發般猛烈地散播大量的花粉。要是吸進太多花粉是會昏倒的。"
+                    .lpAbility1 = 65
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 35
+                    .lpHeight = "24.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[草]+[毒]"
+                    .lpImagePath = "/MultiStatesImages/003/Gigantamax.png"
+                    With .lpBaseStatsValues
+                        .ATTACK = 82
+                        .DEFEND = 83
+                        .HP = 80
+                        .SPATTACK = 100
+                        .SPDEFEND = 100
+                        .SPEED = 80
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 6
                 With States
                     .Add("超進化 - X")
                     .Add("超進化 - Y")
+                    .Add("超極巨化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 181
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "1.7 m"
+                    .lpWeight = "110.5 kg"
+                    .lpType = "[火]+[龍]"
+                    .lpImagePath = "/MultiStatesImages/006/MegaX.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "全身湧出超乎尋常的力量，將身體染成了黑色，同時熊熊燃燒著藍色的火焰。"
+                    With .lpBaseStatsValues
+                        .HP = 78
+                        .ATTACK = 130
+                        .DEFEND = 111
+                        .SPATTACK = 130
+                        .SPDEFEND = 85
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 70
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "1.7 m"
+                    .lpWeight = "100.5 kg"
+                    .lpType = "[火]+[飛行]"
+                    .lpImagePath = "/MultiStatesImages/006/MegaY.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "與訓練家的牽絆是牠力量的泉源。引以為傲的飛行能力甚至凌駕於噴射機之上。"
+                    With .lpBaseStatsValues
+                        .HP = 78
+                        .ATTACK = 104
+                        .DEFEND = 78
+                        .SPATTACK = 159
+                        .SPDEFEND = 115
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(2)
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "超極巨化之力不僅讓噴火龍變得更加巨大，還讓牠獲得了熊熊燃燒的翅膀。攝氏２０００度的火焰在體內形成了旋渦。當牠咆哮的時候，火力還會進一步提升。"
+                    .lpAbility1 = 66
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 94
+                    .lpHeight = "28.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[火]+[飛行]"
+                    .lpImagePath = "/MultiStatesImages/006/Gigantamax.png"
+                    With .lpBaseStatsValues
+                        .ATTACK = 84
+                        .DEFEND = 78
+                        .HP = 78
+                        .SPATTACK = 109
+                        .SPDEFEND = 85
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 9
                 With States
                     .Add("超進化")
+                    .Add("超極巨化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 178
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpType = "[水]"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "101.1 kg"
+                    .lpImagePath = "/MultiStatesImages/009/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "甲殼上的大砲有著不遜於戰車的威力。靠著強韌的下盤筋骨承受大砲發射時的衝擊力。"
+                    With .lpBaseStatsValues
+                        .HP = 79
+                        .ATTACK = 103
+                        .DEFEND = 120
+                        .SPATTACK = 135
+                        .SPDEFEND = 115
+                        .SPEED = 78
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "不擅長精準的射擊。使用３１門大砲射啊射啊射個不停，才是牠的攻擊風格。從中央的主砲發射的水槍破壞力十足，能夠貫穿山體開出山洞。"
+                    .lpAbility1 = 67
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 44
+                    .lpHeight = "25.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[水]"
+                    .lpImagePath = "/MultiStatesImages/009/Gigantamax.png"
+                    With .lpBaseStatsValues
+                        .ATTACK = 83
+                        .DEFEND = 100
+                        .HP = 79
+                        .SPATTACK = 85
+                        .SPDEFEND = 105
+                        .SPEED = 78
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 15
                 With States
                     .Add("超進化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 91
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpType = "[蟲]+[毒]"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "40.5 kg"
+                    .lpImagePath = "/MultiStatesImages/015/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "雙腳也變成了毒針。會先用手腳的針猛刺一通，然後用臀部的毒針給予致命一擊。"
+                    With .lpBaseStatsValues
+                        .HP = 65
+                        .ATTACK = 150
+                        .DEFEND = 40
+                        .SPATTACK = 15
+                        .SPDEFEND = 80
+                        .SPEED = 145
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 18
                 With States
                     .Add("超進化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 99
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "2.2 m"
+                    .lpWeight = "50.5 kg"
+                    .lpType = "[一般]+[飛行]"
+                    .lpImagePath = "/MultiStatesImages/018/Mega.png"
+                    With .lpBaseStatsValues
+                        .HP = 83
+                        .ATTACK = 80
+                        .DEFEND = 80
+                        .SPATTACK = 135
+                        .SPDEFEND = 80
+                        .SPEED = 121
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 19
                 With States
                     .Add("阿羅拉的樣子")
@@ -108,6 +290,51 @@
                         .SPATTACK = 40
                         .SPDEFEND = 80
                         .SPEED = 77
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 25
+                With States
+                    .Add("第六世代之前的種族值")
+                    .Add("超極巨化")
+                End With
+                With StateInformation(0)
+                    .lpType = "[電]"
+                    .lpAbility1 = 9
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .lpUniqueDescription = ""
+                    .lpImagePath = "/Pokemons/025.png"
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "6.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 30
+                        .SPATTACK = 50
+                        .SPDEFEND = 40
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpType = "[電]"
+                    .lpAbility1 = 9
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 31
+                    .lpHeight = "21.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "膨脹的超極巨化之力使得牠的身體變大，尾巴也變得高聳入雲。當牠用閃電狀的尾巴擊中目標時，不亞於雷擊的電壓和電流便會貫穿對方的全身。"
+                    .lpImagePath = "/MultiStatesImages/025/Gigantamax.png"
+                    With .lpBaseStatsValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
@@ -282,6 +509,8 @@
             Case 52
                 With States
                     .Add("阿羅拉的樣子")
+                    .Add("伽勒爾的樣子")
+                    .Add("超極巨化")
                 End With
                 With StateInformation(0)
                     .lpType = "[惡]"
@@ -298,6 +527,46 @@
                         .ATTACK = 35
                         .DEFEND = 35
                         .SPATTACK = 50
+                        .SPDEFEND = 40
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpType = "[鋼]"
+                    .lpAbility1 = 53
+                    .lpAbility2 = 181
+                    .lpAbilityHidden = 127
+                    .lpHeight = "0.4 m"
+                    .lpWeight = "7.5 kg"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "和好戰的海洋民族一起生活，久而久之身體的各個地方就都變成了黑鐵。額頭上的金幣越黑就越硬，也越能受到夥伴的尊敬。性情勇猛，什麼都不怕。"
+                    .lpImagePath = "/MultiStatesImages/052/Galar.png"
+                    With .lpBaseStatsValues
+                        .HP = 40
+                        .ATTACK = 45
+                        .DEFEND = 35
+                        .SPATTACK = 40
+                        .SPDEFEND = 40
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(2)
+                    .lpType = "[一般]"
+                    .lpAbility1 = 53
+                    .lpAbility2 = 101
+                    .lpAbilityHidden = 127
+                    .lpHeight = "33.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "人們認為牠額頭上金幣浮現出的紋路中蘊藏著解開極巨化之謎的關鍵。受超極巨化之力的影響，身體越長越高，額頭上的金幣也變成了大金幣。"
+                    .lpImagePath = "/MultiStatesImages/052/Gigantamax.png"
+                    With .lpBaseStatsValues
+                        .HP = 40
+                        .ATTACK = 45
+                        .DEFEND = 35
+                        .SPATTACK = 40
                         .SPDEFEND = 40
                         .SPEED = 90
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
@@ -327,11 +596,104 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 58
+                With States
+                    .Add("洗翠的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[火]+[岩石]"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 18
+                    .lpAbilityHidden = 69
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "兩隻一組共同負責地盤的警戒工作。體毛中混有火成岩的成分，可以推想這是受到火山活動的影響。 "
+                    .lpImagePath = "/MultiStatesImages/058/Hisui.png"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "22.7 kg"
+                    With .lpBaseStatsValues
+                        .HP = 60
+                        .ATTACK = 75
+                        .DEFEND = 45
+                        .SPATTACK = 65
+                        .SPDEFEND = 50
+                        .SPEED = 55
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 59
+                With States
+                    .Add("洗翠的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[火]+[岩石]"
+                    .lpAbility1 = 22
+                    .lpAbility2 = 18
+                    .lpAbilityHidden = 69
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = ""
+                    .lpImagePath = "/MultiStatesImages/059/Hisui.png"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "168.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 95
+                        .ATTACK = 115
+                        .DEFEND = 80
+                        .SPATTACK = 95
+                        .SPDEFEND = 80
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 65
                 With States
                     .Add("超進化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 36
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "48.0 kg"
+                    .lpType = "[超能力]"
+                    .lpImagePath = "/MultiStatesImages/065/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "透過超級進化，牠的力量全部變換為精神力量。甚至連肌肉力量也失去了。釋放蘊藏著的精神力量。只要看一眼就能知道對手由生到死的全部事情。"
+                    With .lpBaseStatsValues
+                        .HP = 55
+                        .ATTACK = 50
+                        .DEFEND = 65
+                        .SPATTACK = 175
+                        .SPDEFEND = 95
+                        .SPEED = 150
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 68
+                With States
+                    .Add("超極巨化")
+                End With
+                With StateInformation(0)
+                    .IsUniqueDescriptionAvailable = False
+                    .lpAbility1 = 62
+                    .lpAbility2 = 99
+                    .lpAbilityHidden = 80
+                    .lpHeight = "25.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[格鬥]"
+                    .lpImagePath = "/MultiStatesImages/068/Gigantamax.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "手臂裡充斥著超極巨化之力，因此能施展出破壞力不亞於炸彈的拳擊。怪力提升到了驚人境界，甚至曾經把受困的大型船隻整艘扛到了港口。"
+                    With .lpBaseStatsValues
+                        .HP = 90
+                        .ATTACK = 130
+                        .DEFEND = 80
+                        .SPATTACK = 65
+                        .SPDEFEND = 85
+                        .SPEED = 55
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 74
                 With States
                     .Add("阿羅拉的樣子")
@@ -404,11 +766,168 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 77
+                With States
+                    .Add("伽勒爾的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[超能力]"
+                    .lpAbility1 = 50
+                    .lpAbility2 = 257
+                    .lpAbilityHidden = 107
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "小小的角裡蘊藏著治癒之力。如果只是一點小傷，牠只要用角輕擦傷口就能治癒。能從眼神中讀取對方的內心。如果發現了邪惡的想法，就會在轉眼間消失不見。"
+                    .lpImagePath = "/MultiStatesImages/077/Galar.png"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "24.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 50
+                        .ATTACK = 85
+                        .DEFEND = 55
+                        .SPATTACK = 65
+                        .SPDEFEND = 65
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 78
+                With States
+                    .Add("伽勒爾的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[超能力]+[妖精]"
+                    .lpAbility1 = 50
+                    .lpAbility2 = 257
+                    .lpAbilityHidden = 107
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "會從角發射強力的精神利刃。那超群的破壞力甚至可以在厚厚的鐵板上開出洞來。勇猛果敢，自尊心強。會在蹄上的毛裡儲存精神力量，在森林中輕快地奔跑。"
+                    .lpImagePath = "/MultiStatesImages/078/Galar.png"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "24.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 65
+                        .ATTACK = 100
+                        .DEFEND = 70
+                        .SPATTACK = 80
+                        .SPDEFEND = 80
+                        .SPEED = 105
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 79
+                With States
+                    .Add("伽勒爾的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[超能力]"
+                    .lpAbility1 = 82
+                    .lpAbility2 = 20
+                    .lpAbilityHidden = 144
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "平時一直都在發呆，但偶爾會突然露出銳利的神色。據說這和牠所吃的食物有關。牠以只生長在伽勒爾地區的植物的種子為食，因此尾巴是辣味的。"
+                    .lpImagePath = "/MultiStatesImages/079/Galar.png"
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "36.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 90
+                        .ATTACK = 65
+                        .DEFEND = 65
+                        .SPATTACK = 40
+                        .SPDEFEND = 40
+                        .SPEED = 15
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 80
                 With States
                     .Add("超進化")
+                    .Add("伽勒爾的樣子")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .lpAbility1 = 75
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "120.0 kg"
+                    .lpType = "[水]+[超能力]"
+                    .lpImagePath = "/MultiStatesImages/080/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "超級進化的能量全部被注入到了尾部的大舌貝裡。然後呆呆獸被整個吞下。吸收了超級進化能量的大舌貝成了銅牆鐵壁般的鎧甲。呆呆獸本身並沒有什麼變化。"
+                    With .lpBaseStatsValues
+                        .HP = 95
+                        .ATTACK = 75
+                        .DEFEND = 180
+                        .SPATTACK = 130
+                        .SPDEFEND = 80
+                        .SPEED = 30
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpType = "[毒]+[超能力]"
+                    .lpAbility1 = 259
+                    .lpAbility2 = 20
+                    .lpAbilityHidden = 144
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "被大舌貝咬住的刺激和體內的香料發生化學反應，讓牠變成了毒屬性。當牠捏住咬著自己的大舌貝的舌頭，螺旋狀的貝殼尖端就會噴射出有劇毒的液體。"
+                    .lpImagePath = "/MultiStatesImages/080/Galar.png"
+                    .lpHeight = "1.6 m"
+                    .lpWeight = "70.5 kg"
+                    With .lpBaseStatsValues
+                        .HP = 95
+                        .ATTACK = 100
+                        .DEFEND = 95
+                        .SPATTACK = 100
+                        .SPDEFEND = 70
+                        .SPEED = 30
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 83
+                With States
+                    .Add("第七世代之前的種族值")
+                    .Add("伽勒爾的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[一般]+[飛行]"
+                    .lpAbility1 = 51
+                    .lpAbility2 = 39
+                    .lpAbilityHidden = 128
+                    .IsUniqueDescriptionAvailable = False
+                    .lpUniqueDescription = ""
+                    .lpImagePath = "/Pokemons/083.png"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "42.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 52
+                        .ATTACK = 65
+                        .DEFEND = 55
+                        .SPATTACK = 58
+                        .SPDEFEND = 62
+                        .SPEED = 60
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpType = "[格鬥]"
+                    .lpAbility1 = 80
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 113
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "生活在伽勒爾的大蔥鴨。揮舞著又粗又壯的大蔥，是英勇奮戰的戰士。在不斷活用又粗又長的伽勒爾大蔥的過程中，大蔥鴨演化成了獨特的樣子。"
+                    .lpImagePath = "/MultiStatesImages/083/Galar.png"
+                    .lpHeight = "0.8 m"
+                    .lpWeight = "42.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 52
+                        .ATTACK = 95
+                        .DEFEND = 55
+                        .SPATTACK = 58
+                        .SPDEFEND = 62
+                        .SPEED = 55
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 88
                 With States
                     .Add("阿羅拉的樣子")
@@ -460,13 +979,167 @@
             Case 94
                 With States
                     .Add("超進化")
+                    .Add("超極巨化")
                 End With
-                'Specific info done in libPokemon
+                With StateInformation(0)
+                    .lpAbility1 = 23
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "1.4 m"
+                    .lpWeight = "40.5 kg"
+                    .lpType = "[幽靈]+[毒]"
+                    .lpImagePath = "/MultiStatesImages/094/Mega.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "耿鬼的愛是扭曲的。聽說耿鬼只會對自己當成狩獵目標的對手萌生愛意。因超級進化的能量而覺醒。潛伏在異次元，一直靜靜地等待著攻擊的機會。"
+                    With .lpBaseStatsValues
+                        .HP = 60
+                        .ATTACK = 65
+                        .DEFEND = 80
+                        .SPATTACK = 170
+                        .SPDEFEND = 95
+                        .SPEED = 130
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpAbility1 = 130
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = "---"
+                    .lpHeight = "20.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[幽靈]+[毒]"
+                    .lpImagePath = "/MultiStatesImages/094/Gigantamax.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "身體裡填滿了詛咒的能量。據說牠巨大嘴巴的另一端連接著死後的世界。會設下致命的陷阱。如果站在牠的嘴巴前面，就會聽見心愛之人呼喚自己的聲音。"
+                    With .lpBaseStatsValues
+                        .HP = 60
+                        .ATTACK = 65
+                        .DEFEND = 60
+                        .SPATTACK = 130
+                        .SPDEFEND = 75
+                        .SPEED = 110
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 99
+                With States
+                    .Add("超極巨化")
+                End With
+                With StateInformation(0)
+                    .lpAbility1 = 52
+                    .lpAbility2 = 75
+                    .lpAbilityHidden = 125
+                    .lpHeight = "19.0 m以上"
+                    .lpWeight = "<缺數據>"
+                    .lpType = "[水]"
+                    .lpImagePath = "/MultiStatesImages/099/Gigantamax.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "受到超極巨化之力影響而變得巨大的左鉗可以把任何東西都夾得粉碎。會吐出強鹼性的泡沫，對手一旦被泡沫沾上，身體就會立刻溶化。"
+                    With .lpBaseStatsValues
+                        .HP = 55
+                        .ATTACK = 130
+                        .DEFEND = 115
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 100
+                With States
+                    .Add("洗翠的樣子")
+                End With
+                With StateInformation(0)
+                    .lpAbility1 = 43
+                    .lpAbility2 = 9
+                    .lpAbilityHidden = 106
+                    .lpHeight = "0.5 m"
+                    .lpWeight = "13.0 kg"
+                    .lpType = "[電]+[草]"
+                    .lpImagePath = "/MultiStatesImages/100/Hisui.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = ""
+                    With .lpBaseStatsValues
+                        .HP = 40
+                        .ATTACK = 30
+                        .DEFEND = 50
+                        .SPATTACK = 55
+                        .SPDEFEND = 55
+                        .SPEED = 100
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 101
+                With States
+                    .Add("第七世代之前的種族值")
+                    .Add("洗翠的樣子")
+                End With
+                With StateInformation(0)
+                    .lpAbility1 = 43
+                    .lpAbility2 = 9
+                    .lpAbilityHidden = 106
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "66.6 kg"
+                    .lpType = "[電]"
+                    .lpImagePath = "/Pokemons/101.png"
+                    .IsUniqueDescriptionAvailable = False
+                    .lpUniqueDescription = ""
+                    With .lpBaseStatsValues
+                        .HP = 60
+                        .ATTACK = 50
+                        .DEFEND = 70
+                        .SPATTACK = 80
+                        .SPDEFEND = 80
+                        .SPEED = 140
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
+                    .lpAbility1 = 43
+                    .lpAbility2 = 9
+                    .lpAbilityHidden = 106
+                    .lpHeight = "1.2 m"
+                    .lpWeight = "71.0 kg"
+                    .lpType = "[電]+[草]"
+                    .lpImagePath = "/MultiStatesImages/101/Hisui.png"
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "體表的組織與球果的成分極為接近，實在不可思議。當牠情緒焦躁時所放出的電流，能量足以匹敵２０次的落雷。"
+                    With .lpBaseStatsValues
+                        .HP = 60
+                        .ATTACK = 50
+                        .DEFEND = 70
+                        .SPATTACK = 80
+                        .SPDEFEND = 80
+                        .SPEED = 150
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
             Case 103
                 With States
+                    .Add("第七世代之前的種族值")
                     .Add("阿羅拉的樣子")
                 End With
                 With StateInformation(0)
+                    .lpType = "[草]+[超能力]"
+                    .lpAbility1 = 34
+                    .lpAbility2 = "---"
+                    .lpAbilityHidden = 139
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = ""
+                    .lpImagePath = "/Pokemons/103.png"
+                    .lpHeight = "2.0 m"
+                    .lpWeight = "120.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 95
+                        .ATTACK = 95
+                        .DEFEND = 85
+                        .SPATTACK = 125
+                        .SPDEFEND = 65
+                        .SPEED = 55
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With StateInformation(1)
                     .lpType = "[草]+[龍]"
                     .lpAbility1 = "119"
                     .lpAbility2 = "---"
@@ -507,6 +1180,30 @@
                         .SPATTACK = 50
                         .SPDEFEND = 80
                         .SPEED = 45
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+            Case 110
+                With States
+                    .Add("伽勒爾的樣子")
+                End With
+                With StateInformation(0)
+                    .lpType = "[毒]+[妖精]"
+                    .lpAbility1 = 26
+                    .lpAbility2 = 256
+                    .lpAbilityHidden = 228
+                    .IsUniqueDescriptionAvailable = True
+                    .lpUniqueDescription = "在往昔工廠林立、空氣嚴重污染的時代，雙彈瓦斯不知道為什麼變成了這個樣子。會吸收大氣中的污染成分，然後吐出新鮮的空氣，這就是牠的排泄方式。"
+                    .lpImagePath = "/MultiStatesImages/110/Galar.png"
+                    .lpHeight = "3.0 m"
+                    .lpWeight = "16.0 kg"
+                    With .lpBaseStatsValues
+                        .HP = 65
+                        .ATTACK = 90
+                        .DEFEND = 120
+                        .SPATTACK = 85
+                        .SPDEFEND = 70
+                        .SPEED = 60
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
