@@ -12,7 +12,7 @@
         Catch ex As Exception
             CatchRateValue = 0
         End Try
-        CatchRatePercent = Math.Round((CatchRateValue / 765) * 10000) / 1000
+        CatchRatePercent = Math.Round((CatchRateValue / 765) * 10000) / 100
         If CatchRatePercent > 100 Then
             CatchRatePercent = 100
         End If
@@ -28,7 +28,8 @@
         GenerateSpecificStateInfo(CLng(PokemonInformationShared.lpNumber))
         GenerateEvolutionData(CInt(PokemonInformationShared.lpNumber))
         gridNoEvolution.Visibility = System.Windows.Visibility.Visible
-        imgArrow.Visibility = System.Windows.Visibility.Collapsed
+        imgArrowDown.Visibility = System.Windows.Visibility.Collapsed
+        imgArrowUp.Visibility = System.Windows.Visibility.Collapsed
         rectImgEvo_Dest.Visibility = System.Windows.Visibility.Collapsed
         imgEvoDest.Visibility = System.Windows.Visibility.Collapsed
         txtName_EVODest.Visibility = System.Windows.Visibility.Collapsed
@@ -107,7 +108,6 @@
             txtImgMale.Text = "雄性的外貌"
         End If
         pivotBack.Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1)
-        GenerateMultiStateList(PokemonInformationShared.lpNumber)
         If States.Count = 0 Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
@@ -182,7 +182,7 @@
             txtCHTO.Text = .lpNameCHTO
             txtCHSO.Text = .lpNameCHSO
             Select Case CLng(.lpNumber)
-                Case Is <= 151
+                Case Is <= TotalPokemonCountPerVersion.RGBY
                     btnRGBY.IsEnabled = True
                     btnGSC.IsEnabled = True
                     btnRSE.IsEnabled = True
@@ -193,7 +193,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 251
+                Case Is <= TotalPokemonCountPerVersion.GSC
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = True
                     btnRSE.IsEnabled = True
@@ -204,7 +204,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 386
+                Case Is <= TotalPokemonCountPerVersion.RSE
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = True
@@ -215,7 +215,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 493
+                Case Is <= TotalPokemonCountPerVersion.DPT
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -226,7 +226,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 649
+                Case Is <= TotalPokemonCountPerVersion.BW
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -237,7 +237,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 721
+                Case Is <= TotalPokemonCountPerVersion.XY
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -248,7 +248,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 809
+                Case Is <= TotalPokemonCountPerVersion.SM
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -259,7 +259,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 898
+                Case Is <= TotalPokemonCountPerVersion.SS
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -270,7 +270,7 @@
                     btnSS.IsEnabled = True
                     btnSV.IsEnabled = True
                     Exit Select
-                Case Is <= 1008
+                Case Is <= TotalPokemonCountPerVersion.SV
                     btnRGBY.IsEnabled = False
                     btnGSC.IsEnabled = False
                     btnRSE.IsEnabled = False
@@ -505,21 +505,41 @@
         Dim i As Integer
         i = lstEvoRot.SelectedIndex
         If i >= 0 Then
-            imgArrow.Visibility = System.Windows.Visibility.Visible
-            rectImgEvo_Dest.Visibility = System.Windows.Visibility.Visible
-            imgEvoDest.Visibility = System.Windows.Visibility.Visible
-            txtName_EVODest.Visibility = System.Windows.Visibility.Visible
-            txtNum_EVODest.Visibility = System.Windows.Visibility.Visible
-            lblEvolution.Visibility = System.Windows.Visibility.Visible
-            lblEvolution.Text = lstEvoRot.SelectedItem
-            Dim lpEvoDestNum As Integer
-            lpEvoDestNum = CInt(EvoluteToNumers(i))
-            Dim imgPokemonEvoDest As Imaging.BitmapImage
-            txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
-            imgPokemonEvoDest = New Imaging.BitmapImage
-            imgPokemonEvoDest.UriSource = New Uri("/PokemonsL/" & EvoluteToNumers(i) & ".png", UriKind.RelativeOrAbsolute)
-            imgEvoDest.Source = imgPokemonEvoDest
-            txtNum_EVODest.Text = "全國圖鑑登錄號 " & EvoluteToNumers(i)
+            If EvoluteToNumers(i).StartsWith(EvolutionDestNumberSuffix) Then
+                imgArrowDown.Visibility = System.Windows.Visibility.Visible
+                imgArrowUp.Visibility = System.Windows.Visibility.Collapsed
+                rectImgEvo_Dest.Visibility = System.Windows.Visibility.Visible
+                imgEvoDest.Visibility = System.Windows.Visibility.Visible
+                txtName_EVODest.Visibility = System.Windows.Visibility.Visible
+                txtNum_EVODest.Visibility = System.Windows.Visibility.Visible
+                lblEvolution.Visibility = System.Windows.Visibility.Visible
+                lblEvolution.Text = lstEvoRot.SelectedItem
+                Dim lpEvoDestNum As Integer
+                lpEvoDestNum = CInt(EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, ""))
+                Dim imgPokemonEvoDest As Imaging.BitmapImage
+                txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
+                imgPokemonEvoDest = New Imaging.BitmapImage
+                imgPokemonEvoDest.UriSource = New Uri("/PokemonsL/" & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
+                imgEvoDest.Source = imgPokemonEvoDest
+                txtNum_EVODest.Text = "全國圖鑑登錄號 " & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "")
+            ElseIf EvoluteToNumers(i).StartsWith(EvolutionSrcNumberSuffix) Then
+                imgArrowDown.Visibility = System.Windows.Visibility.Collapsed
+                imgArrowUp.Visibility = System.Windows.Visibility.Visible
+                rectImgEvo_Dest.Visibility = System.Windows.Visibility.Visible
+                imgEvoDest.Visibility = System.Windows.Visibility.Visible
+                txtName_EVODest.Visibility = System.Windows.Visibility.Visible
+                txtNum_EVODest.Visibility = System.Windows.Visibility.Visible
+                lblEvolution.Visibility = System.Windows.Visibility.Visible
+                lblEvolution.Text = lstEvoRot.SelectedItem
+                Dim lpEvoDestNum As Integer
+                lpEvoDestNum = CInt(EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, ""))
+                Dim imgPokemonEvoDest As Imaging.BitmapImage
+                txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
+                imgPokemonEvoDest = New Imaging.BitmapImage
+                imgPokemonEvoDest.UriSource = New Uri("/PokemonsL/" & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
+                imgEvoDest.Source = imgPokemonEvoDest
+                txtNum_EVODest.Text = "全國圖鑑登錄號 " & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "")
+            End If
         End If
     End Sub
 
@@ -626,11 +646,7 @@
     End Sub
 
     Private Sub btnSM_Tap(sender As Object, e As GestureEventArgs) Handles btnSM.Tap
-        If PokemonInformationShared.lpNumber >= 722 And PokemonInformationShared.lpNumber <= 809 Then
-            GeneratePokemonMovesIDListByPMID_SM_7(PokemonInformationShared.lpNumber)
-        Else
-            GeneratePokemonMovesIDListByPMID_SM(PokemonInformationShared.lpNumber)
-        End If
+        GeneratePokemonMovesIDListByPMID_SM(PokemonInformationShared.lpNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
     Private Sub btnSS_Tap(sender As Object, e As GestureEventArgs) Handles btnSS.Tap

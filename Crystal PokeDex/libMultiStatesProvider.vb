@@ -27,13 +27,46 @@
     Public UniversalLoopCounter As Integer
     Public PokemonTypes As New List(Of String)
     Public Sub GenerateSpecificStateInfo(lpSelectedPokemonNumber As Long)
-        'States.Clear()
+        States.Clear()
         InitPokemonTypes()
+        If lpSelectedPokemonNumber <= TotalPokemonCountPerVersion.DPT Then
+            GenerateSpecificStateInfoPreBW(lpSelectedPokemonNumber)
+        ElseIf lpSelectedPokemonNumber <= TotalPokemonCountPerVersion.SM Then
+            GenerateSpecificStateInfoBWXYSM(lpSelectedPokemonNumber)
+        End If
+    End Sub
+    Public Sub GenerateSpecificStateInfoPreBW(lpSelectedPokemonNumber As Long)
         Select Case lpSelectedPokemonNumber
+            Case 3
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 6
+                With States
+                    .Add("超進化 - X")
+                    .Add("超進化 - Y")
+                End With
+                'Specific info done in libPokemon
+            Case 9
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 15
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 18
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 19
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[惡]+[一般]"
                     .lpAbility1 = "082"
@@ -55,9 +88,9 @@
                     End With
                 End With
             Case 20
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[惡]+[一般]"
                     .lpAbility1 = "050"
@@ -79,9 +112,9 @@
                     End With
                 End With
             Case 26
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[電]+[超能]"
                     .lpAbility1 = "207"
@@ -103,9 +136,9 @@
                     End With
                 End With
             Case 27
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[冰]+[鋼]"
                     .lpAbility1 = "081"
@@ -127,9 +160,9 @@
                     End With
                 End With
             Case 28
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[冰]+[鋼]"
                     .lpAbility1 = "081"
@@ -151,9 +184,9 @@
                     End With
                 End With
             Case 37
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[冰]"
                     .lpAbility1 = "081"
@@ -175,9 +208,9 @@
                     End With
                 End With
             Case 38
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[冰]"
                     .lpAbility1 = "081"
@@ -199,9 +232,9 @@
                     End With
                 End With
             Case 50
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[地面]+[鋼]"
                     .lpAbility1 = "008"
@@ -223,9 +256,9 @@
                     End With
                 End With
             Case 51
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[地面]+[鋼]"
                     .lpAbility1 = "008"
@@ -247,9 +280,9 @@
                     End With
                 End With
             Case 52
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[惡]"
                     .lpAbility1 = "053"
@@ -271,9 +304,9 @@
                     End With
                 End With
             Case 53
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[惡]"
                     .lpAbility1 = "169"
@@ -294,10 +327,15 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 65
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 74
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[岩石]+[電]"
                     .lpAbility1 = "042"
@@ -319,9 +357,9 @@
                     End With
                 End With
             Case 75
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[岩石]+[電]"
                     .lpAbility1 = "042"
@@ -343,9 +381,9 @@
                     End With
                 End With
             Case 76
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[岩石]+[電]"
                     .lpAbility1 = "042"
@@ -366,10 +404,15 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 80
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 88
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[毒]+[惡]"
                     .lpAbility1 = "143"
@@ -391,9 +434,9 @@
                     End With
                 End With
             Case 89
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[毒]+[惡]"
                     .lpAbility1 = "143"
@@ -414,10 +457,15 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 94
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 103
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[草]+[龍]"
                     .lpAbility1 = "119"
@@ -439,9 +487,9 @@
                     End With
                 End With
             Case 105
-                'With States
-                '    .Add("阿羅拉的樣子")
-                'End With
+                With States
+                    .Add("阿羅拉的樣子")
+                End With
                 With StateInformation(0)
                     .lpType = "[火]+[幽靈]"
                     .lpAbility1 = "130"
@@ -462,37 +510,68 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 115
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 127
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 130
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 142
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 150
+                With States
+                    .Add("超進化 - X")
+                    .Add("超進化 - Y")
+                End With
+                'Specific info done in libPokemon
+            Case 181
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 201
-                'With States
-                '    .Add("A")
-                '    .Add("B")
-                '    .Add("C")
-                '    .Add("D")
-                '    .Add("E")
-                '    .Add("F")
-                '    .Add("G")
-                '    .Add("H")
-                '    .Add("I")
-                '    .Add("J")
-                '    .Add("K")
-                '    .Add("L")
-                '    .Add("M")
-                '    .Add("N")
-                '    .Add("O")
-                '    .Add("P")
-                '    .Add("Q")
-                '    .Add("R")
-                '    .Add("S")
-                '    .Add("T")
-                '    .Add("U")
-                '    .Add("V")
-                '    .Add("W")
-                '    .Add("X")
-                '    .Add("Y")
-                '    .Add("Z")
-                '    .Add("!")
-                '    .Add("?")
-                'End With
+                With States
+                    .Add("A")
+                    .Add("B")
+                    .Add("C")
+                    .Add("D")
+                    .Add("E")
+                    .Add("F")
+                    .Add("G")
+                    .Add("H")
+                    .Add("I")
+                    .Add("J")
+                    .Add("K")
+                    .Add("L")
+                    .Add("M")
+                    .Add("N")
+                    .Add("O")
+                    .Add("P")
+                    .Add("Q")
+                    .Add("R")
+                    .Add("S")
+                    .Add("T")
+                    .Add("U")
+                    .Add("V")
+                    .Add("W")
+                    .Add("X")
+                    .Add("Y")
+                    .Add("Z")
+                    .Add("!")
+                    .Add("?")
+                End With
                 UniversalLoopCounter = 0
                 For UniversalLoopCounter = 0 To 27
                     With StateInformation(UniversalLoopCounter)
@@ -515,12 +594,97 @@
                         End With
                     End With
                 Next
+            Case 208
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 212
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 214
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 229
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 248
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 254
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 257
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 260
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 282
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 302
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 303
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 306
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 308
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 310
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 319
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 323
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 334
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 351
-                'With States
-                '    .Add("太陽的樣子")
-                '    .Add("雨水的樣子")
-                '    .Add("雪雲的樣子")
-                'End With
+                With States
+                    .Add("太陽的樣子")
+                    .Add("雨水的樣子")
+                    .Add("雪雲的樣子")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "059"
@@ -578,13 +742,63 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
+            Case 354
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 359
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 362
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 373
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 376
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 380
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 381
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 382
+                With States
+                    .Add("原始回歸型態")
+                End With
+                'Specific info done in libPokemon
+            Case 383
+                With States
+                    .Add("原始回歸型態")
+                End With
+                'Specific info done in libPokemon
+            Case 384
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 386
-                'With States
-                '    .Add("普通型態")
-                '    .Add("攻擊型態")
-                '    .Add("防禦型態")
-                '    .Add("速度型態")
-                'End With
+                With States
+                    .Add("普通型態")
+                    .Add("攻擊型態")
+                    .Add("防禦型態")
+                    .Add("速度型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "046"
@@ -662,11 +876,11 @@
                     End With
                 End With
             Case 412
-                'With States
-                '    .Add("草木蓑衣")
-                '    .Add("砂土蓑衣")
-                '    .Add("垃圾蓑衣")
-                'End With
+                With States
+                    .Add("草木蓑衣")
+                    .Add("砂土蓑衣")
+                    .Add("垃圾蓑衣")
+                End With
                 For UniversalLoopCounter = 0 To 2
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -689,11 +903,11 @@
                     End With
                 Next
             Case 413
-                'With States
-                '    .Add("草木蓑衣")
-                '    .Add("砂土蓑衣")
-                '    .Add("垃圾蓑衣")
-                'End With
+                With States
+                    .Add("草木蓑衣")
+                    .Add("砂土蓑衣")
+                    .Add("垃圾蓑衣")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "107"
@@ -774,10 +988,10 @@
                     End With
                 Next
             Case 422
-                'With States
-                '    .Add("西海")
-                '    .Add("東海")
-                'End With
+                With States
+                    .Add("西海")
+                    .Add("東海")
+                End With
                 For UniversalLoopCounter = 0 To 1
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -800,10 +1014,10 @@
                     End With
                 Next
             Case 423
-                'With States
-                '    .Add("西海")
-                '    .Add("東海")
-                'End With
+                With States
+                    .Add("西海")
+                    .Add("東海")
+                End With
                 For UniversalLoopCounter = 0 To 1
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -825,14 +1039,39 @@
                         End With
                     End With
                 Next
+            Case 428
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 445
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 448
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 460
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
+            Case 475
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 479
-                'With States
-                '    .Add("加熱洛托姆")
-                '    .Add("清洗洛托姆")
-                '    .Add("結冰洛托姆")
-                '    .Add("旋轉洛托姆")
-                '    .Add("切割洛托姆")
-                'End With
+                With States
+                    .Add("加熱洛托姆")
+                    .Add("清洗洛托姆")
+                    .Add("結冰洛托姆")
+                    .Add("旋轉洛托姆")
+                    .Add("切割洛托姆")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "026"
@@ -929,10 +1168,10 @@
                     End With
                 End With
             Case 487
-                'With States
-                '    .Add("別種型態")
-                '    .Add("起源型態")
-                'End With
+                With States
+                    .Add("別種型態")
+                    .Add("起源型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "046"
@@ -972,10 +1211,10 @@
                     End With
                 End With
             Case 492
-                'With States
-                '    .Add("陸上型態")
-                '    .Add("天空型態")
-                'End With
+                With States
+                    .Add("陸上型態")
+                    .Add("天空型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "030"
@@ -1037,16 +1276,21 @@
                     End With
                 Next
             Case Else
-                GenerateMultistatesBWXYSM(lpSelectedPokemonNumber)
+                GenerateSpecificStateInfoBWXYSM(lpSelectedPokemonNumber)
         End Select
     End Sub
-    Sub GenerateMultistatesBWXYSM(lpSelectedPokemonNumber As Long)
+    Sub GenerateSpecificStateInfoBWXYSM(lpSelectedPokemonNumber As Long)
         Select Case lpSelectedPokemonNumber
+            Case 531
+                With States
+                    .Add("超進化")
+                End With
+                'Specific info done in libPokemon
             Case 550
-                'With States
-                '    .Add("紅條紋")
-                '    .Add("藍條紋")
-                'End With
+                With States
+                    .Add("紅條紋")
+                    .Add("藍條紋")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "120"
@@ -1086,10 +1330,10 @@
                     End With
                 End With
             Case 555
-                '    With States
-                '        .Add("普通模式")
-                '        .Add("達摩模式")
-                '    End With
+                With States
+                    .Add("普通模式")
+                    .Add("達摩模式")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "125"
@@ -1129,12 +1373,12 @@
                     End With
                 End With
             Case 585
-                'With States
-                '    .Add("春天的樣子")
-                '    .Add("夏天的樣子")
-                '    .Add("秋天的樣子")
-                '    .Add("冬天的樣子")
-                'End With
+                With States
+                    .Add("春天的樣子")
+                    .Add("夏天的樣子")
+                    .Add("秋天的樣子")
+                    .Add("冬天的樣子")
+                End With
                 For UniversalLoopCounter = 0 To 3
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1157,12 +1401,12 @@
                     End With
                 Next
             Case 586
-                'With States
-                '    .Add("春天的樣子")
-                '    .Add("夏天的樣子")
-                '    .Add("秋天的樣子")
-                '    .Add("冬天的樣子")
-                'End With
+                With States
+                    .Add("春天的樣子")
+                    .Add("夏天的樣子")
+                    .Add("秋天的樣子")
+                    .Add("冬天的樣子")
+                End With
                 For UniversalLoopCounter = 0 To 3
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1185,10 +1429,10 @@
                     End With
                 Next
             Case 641
-                'With States
-                '    .Add("化身型態")
-                '    .Add("靈獸型態")
-                'End With
+                With States
+                    .Add("化身型態")
+                    .Add("靈獸型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "158"
@@ -1228,10 +1472,10 @@
                     End With
                 End With
             Case 642
-                'With States
-                '    .Add("化身型態")
-                '    .Add("靈獸型態")
-                'End With
+                With States
+                    .Add("化身型態")
+                    .Add("靈獸型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "158"
@@ -1311,10 +1555,10 @@
                     End With
                 End With
             Case 645
-                'With States
-                '    .Add("化身型態")
-                '    .Add("靈獸型態")
-                'End With
+                With States
+                    .Add("化身型態")
+                    .Add("靈獸型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "159"
@@ -1354,10 +1598,12 @@
                     End With
                 End With
             Case 646
-                'With States
-                '    .Add("焰白酋雷姆*2")
-                '    .Add("暗黑酋雷姆*2")
-                'End With
+                With States
+                    .Add("焰白酋雷姆 (一般模式)")
+                    .Add("焰白酋雷姆 (超速驅動模式)")
+                    .Add("暗黑酋雷姆 (一般模式)")
+                    .Add("暗黑酋雷姆 (超速驅動模式)")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "163"
@@ -1435,10 +1681,10 @@
                     End With
                 End With
             Case 647
-                'With States
-                '    .Add("普通的樣子")
-                '    .Add("覺悟的樣子")
-                'End With
+                With States
+                    .Add("普通的樣子")
+                    .Add("覺悟的樣子")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "154"
@@ -1478,10 +1724,10 @@
                     End With
                 End With
             Case 648
-                'With States
-                '    .Add("歌聲型態")
-                '    .Add("舞步型態")
-                'End With
+                With States
+                    .Add("歌聲型態")
+                    .Add("舞步型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "032"
@@ -1521,12 +1767,12 @@
                     End With
                 End With
             Case 649
-                'With States
-                '    .Add("搭載水流卡帶")
-                '    .Add("搭載閃電卡帶")
-                '    .Add("搭載火焰卡帶")
-                '    .Add("搭載冰凍卡帶")
-                'End With
+                With States
+                    .Add("搭載水流卡帶")
+                    .Add("搭載閃電卡帶")
+                    .Add("搭載火焰卡帶")
+                    .Add("搭載冰凍卡帶")
+                End With
                 For UniversalLoopCounter = 0 To 3
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1549,6 +1795,9 @@
                     End With
                 Next
             Case 658
+                With States
+                    .Add("小智版甲賀忍蛙")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "067"
@@ -1569,28 +1818,28 @@
                     End With
                 End With
             Case 666
-                'With States
-                '    .Add("冰雪花紋")
-                '    .Add("雪國花紋")
-                '    .Add("雪原花紋")
-                '    .Add("大陸花紋")
-                '    .Add("庭園花紋")
-                '    .Add("高雅花紋")
-                '    .Add("花園花紋")
-                '    .Add("摩登花紋")
-                '    .Add("大海花紋")
-                '    .Add("群島花紋")
-                '    .Add("荒野花紋")
-                '    .Add("沙塵花紋")
-                '    .Add("大河花紋")
-                '    .Add("驟雨花紋")
-                '    .Add("熱帶草原花紋")
-                '    .Add("太陽花紋")
-                '    .Add("大洋花紋")
-                '    .Add("熱帶雨林花紋")
-                '    .Add("幻彩花紋")
-                '    .Add("球球花紋")
-                'End With
+                With States
+                    .Add("冰雪花紋")
+                    .Add("雪國花紋")
+                    .Add("雪原花紋")
+                    .Add("大陸花紋")
+                    .Add("庭園花紋")
+                    .Add("高雅花紋")
+                    .Add("花園花紋")
+                    .Add("摩登花紋")
+                    .Add("大海花紋")
+                    .Add("群島花紋")
+                    .Add("荒野花紋")
+                    .Add("沙塵花紋")
+                    .Add("大河花紋")
+                    .Add("驟雨花紋")
+                    .Add("熱帶草原花紋")
+                    .Add("太陽花紋")
+                    .Add("大洋花紋")
+                    .Add("熱帶雨林花紋")
+                    .Add("幻彩花紋")
+                    .Add("球球花紋")
+                End With
                 For UniversalLoopCounter = 0 To 19
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1613,13 +1862,13 @@
                     End With
                 Next
             Case 669
-                'With States
-                '    .Add("紅花")
-                '    .Add("黃花")
-                '    .Add("橙花")
-                '    .Add("藍花")
-                '    .Add("白花")
-                'End With
+                With States
+                    .Add("紅花")
+                    .Add("黃花")
+                    .Add("橙花")
+                    .Add("藍花")
+                    .Add("白花")
+                End With
                 For UniversalLoopCounter = 0 To 4
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1642,14 +1891,14 @@
                     End With
                 Next
             Case 670
-                'With States
-                '    .Add("紅花")
-                '    .Add("黃花")
-                '    .Add("橙花")
-                '    .Add("藍花")
-                '    .Add("白花")
-                '    .Add("永恆之花")
-                'End With
+                With States
+                    .Add("紅花")
+                    .Add("黃花")
+                    .Add("橙花")
+                    .Add("藍花")
+                    .Add("白花")
+                    .Add("永恆之花")
+                End With
                 For UniversalLoopCounter = 0 To 4
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1691,13 +1940,13 @@
                     End With
                 End With
             Case 671
-                'With States
-                '    .Add("紅花")
-                '    .Add("黃花")
-                '    .Add("橙花")
-                '    .Add("藍花")
-                '    .Add("白花")
-                'End With
+                With States
+                    .Add("紅花")
+                    .Add("黃花")
+                    .Add("橙花")
+                    .Add("藍花")
+                    .Add("白花")
+                End With
                 For UniversalLoopCounter = 0 To 4
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1720,17 +1969,17 @@
                     End With
                 Next
             Case 676
-                'With States
-                '    .Add("心形造型")
-                '    .Add("星形造型")
-                '    .Add("菱形造型")
-                '    .Add("淑女造型")
-                '    .Add("貴婦造型")
-                '    .Add("紳士造型")
-                '    .Add("女王造型")
-                '    .Add("歌舞妓造型")
-                '    .Add("國王造型")
-                'End With
+                With States
+                    .Add("心形造型")
+                    .Add("星形造型")
+                    .Add("菱形造型")
+                    .Add("淑女造型")
+                    .Add("貴婦造型")
+                    .Add("紳士造型")
+                    .Add("女王造型")
+                    .Add("歌舞妓造型")
+                    .Add("國王造型")
+                End With
                 For UniversalLoopCounter = 0 To 8
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1753,10 +2002,10 @@
                     End With
                 Next
             Case 681
-                'With States
-                '    .Add("刀劍型態")
-                '    .Add("盾牌型態")
-                'End With
+                With States
+                    .Add("刀劍型態")
+                    .Add("盾牌型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "176"
@@ -1796,11 +2045,12 @@
                     End With
                 End With
             Case 710
-                'With States
-                '    .Add("普通尺寸")
-                '    .Add("小尺寸")
-                '    .Add("大尺寸")
-                '    .Add("特大尺寸")
+                With States
+                    .Add("普通尺寸")
+                    .Add("小尺寸")
+                    .Add("大尺寸")
+                    .Add("特大尺寸")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "053"
@@ -1878,12 +2128,12 @@
                     End With
                 End With
             Case 711
-                'With States
-                '    .Add("普通尺寸")
-                '    .Add("小尺寸")
-                '    .Add("大尺寸")
-                '    .Add("特大尺寸")
-                'End With
+                With States
+                    .Add("普通尺寸")
+                    .Add("小尺寸")
+                    .Add("大尺寸")
+                    .Add("特大尺寸")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "053"
@@ -1961,10 +2211,10 @@
                     End With
                 End With
             Case 716
-                'With States
-                '    .Add("放鬆模式")
-                '    .Add("活躍模式")
-                'End With
+                With States
+                    .Add("放鬆模式")
+                    .Add("活躍模式")
+                End With
                 For UniversalLoopCounter = 0 To 1
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -1987,6 +2237,13 @@
                     End With
                 Next
             Case 718
+                With States
+                    .Add("細胞型態")
+                    .Add("核心型態")
+                    .Add("10% 型態")
+                    .Add("50% 型態")
+                    .Add("完全體型態")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "基格爾德的最基本形態，沒有自我意識也無法使用招式，平時以隱形狀態分布於各地。"
@@ -2088,10 +2345,10 @@
                     End With
                 End With
             Case 720
-                'With States
-                '    .Add("懲戒胡帕")
-                '    .Add("解放胡帕")
-                'End With
+                With States
+                    .Add("懲戒胡帕")
+                    .Add("解放胡帕")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = False
                     .lpAbility1 = "170"
@@ -2131,12 +2388,12 @@
                     End With
                 End With
             Case 741
-                'With States
-                '    .Add("熱辣熱辣風格")
-                '    .Add("啪滋啪滋風格")
-                '    .Add("呼拉呼啦風格")
-                '    .Add("輕盈輕盈風格")
-                'End With
+                With States
+                    .Add("熱辣熱辣風格")
+                    .Add("啪滋啪滋風格")
+                    .Add("呼拉呼啦風格")
+                    .Add("輕盈輕盈風格")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "拍打翅膀生火。一邊踩著華麗的步伐，一邊灑下猛烈的火焰。吸食了朱紅色花蜜的花舞鳥。以熱情的舞步將敵人的身心全部燃燒殆盡。"
@@ -2218,10 +2475,11 @@
                     End With
                 End With
             Case 745
-                'With States
-                '    .Add("白晝的樣子")
-                '    .Add("黑夜的樣子")
-                'End With
+                With States
+                    .Add("白晝的樣子")
+                    .Add("黑夜的樣子")
+                    .Add("黃昏的樣子")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "快速移動迷惑敵人。除了爪子和牙齒之外，鬃毛裡的尖銳岩石也是武器之一。從小開始好好培育的話，會成為絕不背叛訓練家，值得信賴的好夥伴。鬃毛裡的岩石像刀子一樣鋒利。會對獵物窮追不捨，等獵物筋疲力盡時再給予致命一擊。鬃毛裡的岩石比刀子還要鋒利。掉落的碎片會被人當成護身符好好收藏著。"
@@ -2283,10 +2541,10 @@
                     End With
                 End With
             Case 746
-                'With States
-                '    .Add("單獨的樣子")
-                '    .Add("魚群的樣子")
-                'End With
+                With States
+                    .Add("單獨的樣子")
+                    .Add("魚群的樣子")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "一旦陷入危機，眼睛就會變得濕潤並發光。和被光亮召集來的夥伴們一起對抗敵人。牠非常弱小，又非常美味，所以總是成為被攻擊的目標，不過若欺負牠，只會吃苦頭哦。"
@@ -2328,6 +2586,26 @@
                     End With
                 End With
             Case 773
+                With States
+                    .Add("屬性: 一般")
+                    .Add("屬性: 戰鬥")
+                    .Add("屬性: 飛翔")
+                    .Add("屬性: 毒")
+                    .Add("屬性: 大地")
+                    .Add("屬性: 岩石")
+                    .Add("屬性: 蟲子")
+                    .Add("屬性: 幽靈")
+                    .Add("屬性: 鋼鐵")
+                    .Add("屬性: 火焰")
+                    .Add("屬性: 清水")
+                    .Add("屬性: 青草")
+                    .Add("屬性: 電子")
+                    .Add("屬性: 精神")
+                    .Add("屬性: 冰雪")
+                    .Add("屬性: 龍")
+                    .Add("屬性: 黑暗")
+                    .Add("屬性: 妖精")
+                End With
                 For UniversalLoopCounter = 0 To 17
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -2350,16 +2628,16 @@
                     End With
                 Next
             Case 774
-                'With States
-                '    .Add("流星的樣子")
-                '    .Add("紅色核心")
-                '    .Add("橙色核心")
-                '    .Add("黃色核心")
-                '    .Add("綠色核心")
-                '    .Add("淺藍色核心")
-                '    .Add("藍色核心")
-                '    .Add("紫色核心")
-                'End With
+                With States
+                    .Add("流星的樣子")
+                    .Add("紅色核心")
+                    .Add("橙色核心")
+                    .Add("黃色核心")
+                    .Add("綠色核心")
+                    .Add("淺藍色核心")
+                    .Add("藍色核心")
+                    .Add("紫色核心")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "原本棲息在臭氧層，身體的外殼變重後，就會向著地面落下。若受到強烈的衝擊，外殼就會剝落。是奈米粒子突變而誕生的寶可夢。"
@@ -2403,10 +2681,10 @@
                     End With
                 Next
             Case 778
-                'With States
-                '    .Add("化形的樣子")
-                '    .Add("現形的樣子")
-                'End With
+                With States
+                    .Add("化形的樣子")
+                    .Add("現形的樣子")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "真面目是個謎。某個看過破布裡面的學者因為太可怕而被活活嚇死了。用破破爛爛的布隱藏起可怕的模樣，接近人類和其他寶可夢的寂寞傢伙。"
@@ -2448,6 +2726,10 @@
                     End With
                 End With
             Case 791
+                With States
+                    .Add("一般狀態")
+                    .Add("旭日狀態")
+                End With
                 For UniversalLoopCounter = 0 To 1
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -2470,6 +2752,10 @@
                     End With
                 Next
             Case 792
+                With States
+                    .Add("一般狀態")
+                    .Add("滿月狀態")
+                End With
                 For UniversalLoopCounter = 0 To 1
                     With StateInformation(UniversalLoopCounter)
                         .IsUniqueDescriptionAvailable = False
@@ -2491,11 +2777,13 @@
                         End With
                     End With
                 Next
-                'Case 801
-                'With States
-                '    .Add("500 年前的樣子")
-                'End With
-            Case 800 'Not Completed
+            Case 800
+                With States
+                    .Add("一般型態")
+                    .Add("黃昏之鬃 (日蝕)")
+                    .Add("拂曉之翼 (月蝕)")
+                    .Add("究極奈克洛茲瑪")
+                End With
                 With StateInformation(0)
                     .IsUniqueDescriptionAvailable = True
                     .lpUniqueDescription = "好像一直都沉睡在地底下。被認為是在太古時代從另一個世界來到此地，是種類似ＵＢ的生物。 光似乎是牠的能量來源。毫無節制地不停發射雷射，性格非常凶暴。 為了尋求作為能量的光而發狂的牠看起來有些痛苦。似乎是來自於其他世界。光是牠的能量來源。如果一段時間沒吃到光，雜質就會逐漸累積，使得牠身體發黑且變得無法動彈。"
@@ -2576,637 +2864,6 @@
                         .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                 End With
-        End Select
-    End Sub
-    Sub GenerateMultiStateList(lpSelectedPokemonNumber As Long)
-        States.Clear()
-        Select Case lpSelectedPokemonNumber
-            Case 3
-                With States
-                    .Add("超進化")
-                End With
-            Case 6
-                With States
-                    .Add("超進化 - X")
-                    .Add("超進化 - Y")
-                End With
-            Case 9
-                With States
-                    .Add("超進化")
-                End With
-            Case 15
-                With States
-                    .Add("超進化")
-                End With
-            Case 18
-                With States
-                    .Add("超進化")
-                End With
-            Case 19
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 20
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 26
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 27
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 28
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 37
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 38
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 50
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 51
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 52
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 53
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 65
-                With States
-                    .Add("超進化")
-                End With
-            Case 74
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 75
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 76
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 80
-                With States
-                    .Add("超進化")
-                End With
-            Case 88
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 89
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 94
-                With States
-                    .Add("超進化")
-                End With
-            Case 103
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 105
-                With States
-                    .Add("阿羅拉的樣子")
-                End With
-            Case 115
-                With States
-                    .Add("超進化")
-                End With
-            Case 127
-                With States
-                    .Add("超進化")
-                End With
-            Case 130
-                With States
-                    .Add("超進化")
-                End With
-            Case 142
-                With States
-                    .Add("超進化")
-                End With
-            Case 150
-                With States
-                    .Add("超進化 - X")
-                    .Add("超進化 - Y")
-                End With
-            Case 181
-                With States
-                    .Add("超進化")
-                End With
-            Case 201
-                With States
-                    .Add("A")
-                    .Add("B")
-                    .Add("C")
-                    .Add("D")
-                    .Add("E")
-                    .Add("F")
-                    .Add("G")
-                    .Add("H")
-                    .Add("I")
-                    .Add("J")
-                    .Add("K")
-                    .Add("L")
-                    .Add("M")
-                    .Add("N")
-                    .Add("O")
-                    .Add("P")
-                    .Add("Q")
-                    .Add("R")
-                    .Add("S")
-                    .Add("T")
-                    .Add("U")
-                    .Add("V")
-                    .Add("W")
-                    .Add("X")
-                    .Add("Y")
-                    .Add("Z")
-                    .Add("!")
-                    .Add("?")
-                End With
-            Case 208
-                With States
-                    .Add("超進化")
-                End With
-            Case 212
-                With States
-                    .Add("超進化")
-                End With
-            Case 214
-                With States
-                    .Add("超進化")
-                End With
-            Case 229
-                With States
-                    .Add("超進化")
-                End With
-            Case 248
-                With States
-                    .Add("超進化")
-                End With
-            Case 254
-                With States
-                    .Add("超進化")
-                End With
-            Case 257
-                With States
-                    .Add("超進化")
-                End With
-            Case 260
-                With States
-                    .Add("超進化")
-                End With
-            Case 282
-                With States
-                    .Add("超進化")
-                End With
-            Case 302
-                With States
-                    .Add("超進化")
-                End With
-            Case 303
-                With States
-                    .Add("超進化")
-                End With
-            Case 306
-                With States
-                    .Add("超進化")
-                End With
-            Case 308
-                With States
-                    .Add("超進化")
-                End With
-            Case 310
-                With States
-                    .Add("超進化")
-                End With
-            Case 319
-                With States
-                    .Add("超進化")
-                End With
-            Case 323
-                With States
-                    .Add("超進化")
-                End With
-            Case 334
-                With States
-                    .Add("超進化")
-                End With
-            Case 351
-                With States
-                    .Add("太陽的樣子")
-                    .Add("雨水的樣子")
-                    .Add("雪雲的樣子")
-                End With
-            Case 354
-                With States
-                    .Add("超進化")
-                End With
-            Case 359
-                With States
-                    .Add("超進化")
-                End With
-            Case 362
-                With States
-                    .Add("超進化")
-                End With
-            Case 373
-                With States
-                    .Add("超進化")
-                End With
-            Case 376
-                With States
-                    .Add("超進化")
-                End With
-            Case 380
-                With States
-                    .Add("超進化")
-                End With
-            Case 381
-                With States
-                    .Add("超進化")
-                End With
-            Case 382
-                With States
-                    .Add("原始回歸型態")
-                End With
-            Case 383
-                With States
-                    .Add("原始回歸型態")
-                End With
-            Case 384
-                With States
-                    .Add("超進化")
-                End With
-            Case 386
-                With States
-                    .Add("普通型態")
-                    .Add("攻擊型態")
-                    .Add("防禦型態")
-                    .Add("速度型態")
-                End With
-            Case 412
-                With States
-                    .Add("草木蓑衣")
-                    .Add("砂土蓑衣")
-                    .Add("垃圾蓑衣")
-                End With
-            Case 413
-                With States
-                    .Add("草木蓑衣")
-                    .Add("砂土蓑衣")
-                    .Add("垃圾蓑衣")
-                End With
-            Case 421
-                With States
-                    .Add("陰天型態")
-                    .Add("晴天型態")
-                End With
-            Case 422
-                With States
-                    .Add("西海")
-                    .Add("東海")
-                End With
-            Case 423
-                With States
-                    .Add("西海")
-                    .Add("東海")
-                End With
-            Case 428
-                With States
-                    .Add("超進化")
-                End With
-            Case 445
-                With States
-                    .Add("超進化")
-                End With
-            Case 448
-                With States
-                    .Add("超進化")
-                End With
-            Case 460
-                With States
-                    .Add("超進化")
-                End With
-            Case 475
-                With States
-                    .Add("超進化")
-                End With
-            Case 479
-                With States
-                    .Add("加熱洛托姆")
-                    .Add("清洗洛托姆")
-                    .Add("結冰洛托姆")
-                    .Add("旋轉洛托姆")
-                    .Add("切割洛托姆")
-                End With
-            Case 487
-                With States
-                    .Add("別種型態")
-                    .Add("起源型態")
-                End With
-            Case 492
-                With States
-                    .Add("陸上型態")
-                    .Add("天空型態")
-                End With
-            Case 493
-                With States
-                    .Add("一般")
-                    .Add("格鬥")
-                    .Add("飛行")
-                    .Add("毒")
-                    .Add("地面")
-                    .Add("岩石")
-                    .Add("蟲")
-                    .Add("幽靈")
-                    .Add("鋼")
-                    .Add("火")
-                    .Add("水")
-                    .Add("草")
-                    .Add("電")
-                    .Add("超能")
-                    .Add("冰")
-                    .Add("龍")
-                    .Add("惡")
-                    .Add("妖精")
-                End With
-            Case 531
-                With States
-                    .Add("超進化")
-                End With
-            Case 550
-                With States
-                    .Add("紅條紋")
-                    .Add("藍條紋")
-                End With
-            Case 555
-                With States
-                    .Add("普通模式")
-                    .Add("達摩模式")
-                End With
-            Case 585
-                With States
-                    .Add("春天的樣子")
-                    .Add("夏天的樣子")
-                    .Add("秋天的樣子")
-                    .Add("冬天的樣子")
-                End With
-            Case 586
-                With States
-                    .Add("春天的樣子")
-                    .Add("夏天的樣子")
-                    .Add("秋天的樣子")
-                    .Add("冬天的樣子")
-                End With
-            Case 641
-                With States
-                    .Add("化身型態")
-                    .Add("靈獸型態")
-                End With
-            Case 642
-                With States
-                    .Add("化身型態")
-                    .Add("靈獸型態")
-                End With
-            Case 643
-                With States
-                    .Add("超頻驅動狀態")
-                End With
-            Case 644
-                With States
-                    .Add("超頻驅動狀態")
-                End With
-            Case 645
-                With States
-                    .Add("化身型態")
-                    .Add("靈獸型態")
-                End With
-            Case 646
-                With States
-                    .Add("焰白酋雷姆 (一般模式)")
-                    .Add("焰白酋雷姆 (超速驅動模式)")
-                    .Add("暗黑酋雷姆 (一般模式)")
-                    .Add("暗黑酋雷姆 (超速驅動模式)")
-                End With
-            Case 647
-                With States
-                    .Add("普通的樣子")
-                    .Add("覺悟的樣子")
-                End With
-            Case 648
-                With States
-                    .Add("歌聲型態")
-                    .Add("舞步型態")
-                End With
-            Case 649
-                With States
-                    .Add("搭載水流卡帶")
-                    .Add("搭載閃電卡帶")
-                    .Add("搭載火焰卡帶")
-                    .Add("搭載冰凍卡帶")
-                End With
-            Case 658
-                With States
-                    .Add("小智版甲賀忍蛙")
-                End With
-            Case 666
-                With States
-                    .Add("冰雪花紋")
-                    .Add("雪國花紋")
-                    .Add("雪原花紋")
-                    .Add("大陸花紋")
-                    .Add("庭園花紋")
-                    .Add("高雅花紋")
-                    .Add("花園花紋")
-                    .Add("摩登花紋")
-                    .Add("大海花紋")
-                    .Add("群島花紋")
-                    .Add("荒野花紋")
-                    .Add("沙塵花紋")
-                    .Add("大河花紋")
-                    .Add("驟雨花紋")
-                    .Add("熱帶草原花紋")
-                    .Add("太陽花紋")
-                    .Add("大洋花紋")
-                    .Add("熱帶雨林花紋")
-                    .Add("幻彩花紋")
-                    .Add("球球花紋")
-                End With
-            Case 669
-                With States
-                    .Add("紅花")
-                    .Add("黃花")
-                    .Add("橙花")
-                    .Add("藍花")
-                    .Add("白花")
-                End With
-            Case 670
-                With States
-                    .Add("紅花")
-                    .Add("黃花")
-                    .Add("橙花")
-                    .Add("藍花")
-                    .Add("白花")
-                    .Add("永恆之花")
-                End With
-            Case 671
-                With States
-                    .Add("紅花")
-                    .Add("黃花")
-                    .Add("橙花")
-                    .Add("藍花")
-                    .Add("白花")
-                End With
-            Case 676
-                With States
-                    .Add("心形造型")
-                    .Add("星形造型")
-                    .Add("菱形造型")
-                    .Add("淑女造型")
-                    .Add("貴婦造型")
-                    .Add("紳士造型")
-                    .Add("女王造型")
-                    .Add("歌舞妓造型")
-                    .Add("國王造型")
-                End With
-            Case 681
-                With States
-                    .Add("刀劍型態")
-                    .Add("盾牌型態")
-                End With
-            Case 710
-                With States
-                    .Add("小尺寸")
-                    .Add("普通尺寸")
-                    .Add("大尺寸")
-                    .Add("特大尺寸")
-                End With
-            Case 711
-                With States
-                    .Add("小尺寸")
-                    .Add("普通尺寸")
-                    .Add("大尺寸")
-                    .Add("特大尺寸")
-                End With
-            Case 716
-                With States
-                    .Add("放鬆模式")
-                    .Add("活躍模式")
-                End With
-            Case 718
-                With States
-                    .Add("細胞型態")
-                    .Add("核心型態")
-                    .Add("10% 型態")
-                    .Add("50% 型態")
-                    .Add("完全體型態")
-                End With
-            Case 719
-                With States
-                    .Add("超進化")
-                End With
-            Case 720
-                With States
-                    .Add("懲戒胡帕")
-                    .Add("解放胡帕")
-                End With
-            Case 741
-                With States
-                    .Add("熱辣熱辣風格")
-                    .Add("啪滋啪滋風格")
-                    .Add("呼拉呼啦風格")
-                    .Add("輕盈輕盈風格")
-                End With
-            Case 745
-                With States
-                    .Add("白晝的樣子")
-                    .Add("黑夜的樣子")
-                    .Add("黃昏的樣子")
-                End With
-            Case 746
-                With States
-                    .Add("單獨的樣子")
-                    .Add("魚群的樣子")
-                End With
-            Case 773
-                With States
-                    .Add("屬性: 一般")
-                    .Add("屬性: 戰鬥")
-                    .Add("屬性: 飛翔")
-                    .Add("屬性: 毒")
-                    .Add("屬性: 大地")
-                    .Add("屬性: 岩石")
-                    .Add("屬性: 蟲子")
-                    .Add("屬性: 幽靈")
-                    .Add("屬性: 鋼鐵")
-                    .Add("屬性: 火焰")
-                    .Add("屬性: 清水")
-                    .Add("屬性: 青草")
-                    .Add("屬性: 電子")
-                    .Add("屬性: 精神")
-                    .Add("屬性: 冰雪")
-                    .Add("屬性: 龍")
-                    .Add("屬性: 黑暗")
-                    .Add("屬性: 妖精")
-                End With
-            Case 774
-                With States
-                    .Add("流星的樣子")
-                    .Add("紅色核心")
-                    .Add("橙色核心")
-                    .Add("黃色核心")
-                    .Add("綠色核心")
-                    .Add("淺藍色核心")
-                    .Add("藍色核心")
-                    .Add("紫色核心")
-                End With
-            Case 778
-                With States
-                    .Add("化形的樣子")
-                    .Add("現形的樣子")
-                End With
-            Case 791
-                With States
-                    .Add("一般狀態")
-                    .Add("旭日狀態")
-                End With
-            Case 792
-                With States
-                    .Add("一般狀態")
-                    .Add("滿月狀態")
-                End With
-                'Case 801
-                '    With States
-                '        .Add("500 年前的樣子")
-                '    End With
-            Case 800
-                With States
-                    .Add("一般型態")
-                    .Add("黃昏之鬃 (日蝕)")
-                    .Add("拂曉之翼 (月蝕)")
-                    .Add("究極奈克洛茲瑪")
-                End With
-            Case Else
-                States.Clear()
         End Select
     End Sub
     Sub InitPokemonTypes()

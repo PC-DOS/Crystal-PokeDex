@@ -404,7 +404,8 @@
     <Content Include="Assets\MenuIcons\search.png" />
     <Content Include="Assets\MenuIcons\top.png" />
     <Content Include="Assets\PageNatures\Natures.png" />
-    <Content Include="Assets\PagePokemonDetails\Arrow.png" />
+    <Content Include="Assets\PagePokemonDetails\ArrowDown.png" />
+    <Content Include="Assets\PagePokemonDetails\ArrowUp.png" />
     <Content Include="Assets\PagePokemonDetails\NoImage.png" />
     <Content Include="Assets\PageSharedResources\Alert.png" />
     <Content Include="Assets\PageSharedResources\Construction.png" />

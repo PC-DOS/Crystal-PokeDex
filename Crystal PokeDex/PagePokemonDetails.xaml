@@ -360,7 +360,8 @@
                             <TextBlock x:Name="txtName_EVOBasic" Height="58" TextWrapping="Wrap" FontSize="40" Text=""/>
                             <TextBlock x:Name="txtNum_EVOBasic" Height="34" TextWrapping="Wrap" Text="" FontSize="25"/>
                         </StackPanel>
-                        <Image Grid.Row="1" Grid.Column="0" x:Name="imgArrow" Height="150" Source="/Assets/PagePokemonDetails/Arrow.png" Stretch="Fill" HorizontalAlignment="Center"/>
+                        <Image Grid.Row="1" Grid.Column="0" x:Name="imgArrowDown" Height="150" Source="/Assets/PagePokemonDetails/ArrowDown.png" Stretch="Fill" HorizontalAlignment="Center"/>
+                        <Image Grid.Row="1" Grid.Column="0" x:Name="imgArrowUp" Height="150" Source="/Assets/PagePokemonDetails/ArrowUp.png" Stretch="Fill" HorizontalAlignment="Center"/>
                         <TextBlock Grid.Row="1" Grid.Column="1" x:Name="lblEvolution" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <Grid Grid.Row="2" Grid.Column="0" x:Name="rectImgEvo_Dest" Background="#FFF4F4F5" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="125">
                             <Image x:Name="imgEvoDest" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="125"/>

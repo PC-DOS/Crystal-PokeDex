@@ -1,6 +1,18 @@
 ﻿Module libPokemon
-    Public Const POKEMON_NO_IMAGE = "/Assets/PagePokemonDetails/NoImage.png"
+    Public Const DefaultPokemonImagePath = "/Assets/PagePokemonDetails/NoImage.png"
     Public Const CurrentPokemonCount = 1008
+    '各個版本中的神奇寶貝總數
+    Public Enum TotalPokemonCountPerVersion
+        RGBY = 151
+        GSC = 251
+        RSE = 386
+        DPT = 493
+        BW = 649
+        XY = 721
+        SM = 809
+        SS = 905
+        SV = 1008
+    End Enum
     Public Structure PokemonBaseStatsValues
         Dim HP As Integer
         Dim ATTACK As Integer
@@ -85,10 +97,10 @@
             .lpEggGroup1 = "ERROR"
             .lpFullLevelExpPoint = "ERROR"
             .lpHeight = "ERROR"
-            .lpImageFemaleUri = POKEMON_NO_IMAGE
-            .lpImageMaleUri = POKEMON_NO_IMAGE
-            StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-            StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+            .lpImageFemaleUri = DefaultPokemonImagePath
+            .lpImageMaleUri = DefaultPokemonImagePath
+            StateInformation(0).lpImagePath = DefaultPokemonImagePath
+            StateInformation(1).lpImagePath = DefaultPokemonImagePath
             .lpNumber = "000"
             .lpSexRatio = "ERROR"
             .lpSheleter = "ERROR"
@@ -129,17 +141,17 @@
         If lpPokemonNationalDexNumber <= 0 Or lpPokemonNationalDexNumber > CurrentPokemonCount Then
             Return GenerateEmptyPokemonInfo()
         End If
-        If lpPokemonNationalDexNumber > 0 And lpPokemonNationalDexNumber <= 386 Then
+        If lpPokemonNationalDexNumber > 0 And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.RSE Then
             Return GetPokemonInformationRGBYGSCRSE(lpPokemonNationalDexNumber)
-        ElseIf lpPokemonNationalDexNumber > 386 And lpPokemonNationalDexNumber <= 493 Then
+        ElseIf lpPokemonNationalDexNumber > TotalPokemonCountPerVersion.RSE And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.DPT Then
             Return GetPokemonInformationDP(lpPokemonNationalDexNumber)
-        ElseIf lpPokemonNationalDexNumber > 493 And lpPokemonNationalDexNumber <= 721 Then
+        ElseIf lpPokemonNationalDexNumber > TotalPokemonCountPerVersion.DPT And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.XY Then
             Return GetPokemonInformationBWXY(lpPokemonNationalDexNumber)
-        ElseIf lpPokemonNationalDexNumber > 721 And lpPokemonNationalDexNumber <= 809 Then
+        ElseIf lpPokemonNationalDexNumber > TotalPokemonCountPerVersion.XY And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.SM Then
             Return GetPokemonInformationSM(lpPokemonNationalDexNumber)
-        ElseIf lpPokemonNationalDexNumber > 809 And lpPokemonNationalDexNumber <= 905 Then
+        ElseIf lpPokemonNationalDexNumber > TotalPokemonCountPerVersion.SM And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.SS Then
             Return GetPokemonInformationSS(lpPokemonNationalDexNumber)
-        ElseIf lpPokemonNationalDexNumber > 905 And lpPokemonNationalDexNumber <= 1008 Then
+        ElseIf lpPokemonNationalDexNumber > TotalPokemonCountPerVersion.SS And lpPokemonNationalDexNumber <= TotalPokemonCountPerVersion.SV Then
             Return GetPokemonInformationSV(lpPokemonNationalDexNumber)
         Else
             Return GenerateEmptyPokemonInfo()
@@ -178,10 +190,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -197,23 +209,6 @@
                 .lpNameCHTO = "ERROR"
                 .lpNameGER = "ERROR"
                 .lpNameFRA = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .lpAbility1 = "ERROR"
-                    .lpAbility2 = "ERROR"
-                    .lpAbilityHidden = "ERROR"
-                    .lpType = "[ERROR]"
-                    .IsUniqueDescriptionAvailable = False
-                    With .lpBaseStatsValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
             End With
             Return lpReturnValue
             Exit Function
@@ -269,10 +264,10 @@
                     .lpWeight = "6.9 kg"
                     .lpImageMaleUri = "/Pokemons/001.png"
                     .lpImageFemaleUri = "/Pokemons/001.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).IsUniqueDescriptionAvailable = False
                     StateInformation(1).IsUniqueDescriptionAvailable = False
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 2
                 With lpReturnValue
@@ -310,8 +305,8 @@
                     .lpWeight = "13.0 kg"
                     .lpImageMaleUri = "/Pokemons/002.png"
                     .lpImageFemaleUri = "/Pokemons/002.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 3
                 With lpReturnValue
@@ -424,8 +419,8 @@
                     .lpWeight = "8.5 kg"
                     .lpImageMaleUri = "/Pokemons/004.png"
                     .lpImageFemaleUri = "/Pokemons/004.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 5
                 With lpReturnValue
@@ -463,8 +458,8 @@
                     .lpWeight = "19.0 kg"
                     .lpImageMaleUri = "/Pokemons/005.png"
                     .lpImageFemaleUri = "/Pokemons/005.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 6
                 With lpReturnValue
@@ -577,8 +572,8 @@
                     .lpWeight = "9.0 kg"
                     .lpImageMaleUri = "/Pokemons/007.png"
                     .lpImageFemaleUri = "/Pokemons/007.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 8
                 With lpReturnValue
@@ -616,8 +611,8 @@
                     .lpWeight = "22.5 kg"
                     .lpImageMaleUri = "/Pokemons/008.png"
                     .lpImageFemaleUri = "/Pokemons/008.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 9
                 With lpReturnValue
@@ -712,8 +707,8 @@
                     .lpWeight = "2.9 kg"
                     .lpImageMaleUri = "/Pokemons/010.png"
                     .lpImageFemaleUri = "/Pokemons/010.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 11
                 With lpReturnValue
@@ -751,8 +746,8 @@
                     .lpWeight = "9.9 kg"
                     .lpImageMaleUri = "/Pokemons/011.png"
                     .lpImageFemaleUri = "/Pokemons/011.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 12
                 With lpReturnValue
@@ -790,8 +785,8 @@
                     .lpWeight = "32.0 kg"
                     .lpImageMaleUri = "/Pokemons/012.png"
                     .lpImageFemaleUri = "/Pokemons/012.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 13
                 With lpReturnValue
@@ -829,8 +824,8 @@
                     .lpWeight = "3.2 kg"
                     .lpImageMaleUri = "/Pokemons/013.png"
                     .lpImageFemaleUri = "/Pokemons/013.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 14
                 With lpReturnValue
@@ -868,8 +863,8 @@
                     .lpWeight = "10.0 kg"
                     .lpImageMaleUri = "/Pokemons/014.png"
                     .lpImageFemaleUri = "/Pokemons/014.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 15
                 With lpReturnValue
@@ -907,8 +902,8 @@
                     .lpWeight = "29.5 kg"
                     .lpImageMaleUri = "/Pokemons/015.png"
                     .lpImageFemaleUri = "/Pokemons/015.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/015.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -963,8 +958,8 @@
                     .lpWeight = "1.8 kg"
                     .lpImageMaleUri = "/Pokemons/016.png"
                     .lpImageFemaleUri = "/Pokemons/016.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 17
                 With lpReturnValue
@@ -1000,8 +995,8 @@
                     .lpWeight = "30.0 kg"
                     .lpImageMaleUri = "/Pokemons/017.png"
                     .lpImageFemaleUri = "/Pokemons/017.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 18
                 With lpReturnValue
@@ -1037,8 +1032,8 @@
                     .lpWeight = "39.5 kg"
                     .lpImageMaleUri = "/Pokemons/018.png"
                     .lpImageFemaleUri = "/Pokemons/018.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/018.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -1093,8 +1088,8 @@
                     .lpWeight = "3.5 kg"
                     .lpImageMaleUri = "/Pokemons/019.png"
                     .lpImageFemaleUri = "/Pokemons/019.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 20
                 With lpReturnValue
@@ -1130,8 +1125,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/020.png"
                     .lpImageFemaleUri = "/Pokemons/020.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 21
                 With lpReturnValue
@@ -1167,8 +1162,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/021.png"
                     .lpImageFemaleUri = "/Pokemons/021.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 22
                 With lpReturnValue
@@ -1204,8 +1199,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/022.png"
                     .lpImageFemaleUri = "/Pokemons/022.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 23
                 With lpReturnValue
@@ -1241,8 +1236,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/023.png"
                     .lpImageFemaleUri = "/Pokemons/023.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 24
                 With lpReturnValue
@@ -1278,8 +1273,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/024.png"
                     .lpImageFemaleUri = "/Pokemons/024.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 25
                 With lpReturnValue
@@ -1315,8 +1310,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/025.png"
                     .lpImageFemaleUri = "/Pokemons/025.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 26
                 With lpReturnValue
@@ -1352,8 +1347,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/026.png"
                     .lpImageFemaleUri = "/Pokemons/026.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 27
                 With lpReturnValue
@@ -1389,8 +1384,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/027.png"
                     .lpImageFemaleUri = "/Pokemons/027.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 28
                 With lpReturnValue
@@ -1426,8 +1421,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/028.png"
                     .lpImageFemaleUri = "/Pokemons/028.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 29
                 With lpReturnValue
@@ -1463,8 +1458,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/029.png"
                     .lpImageFemaleUri = "/Pokemons/029.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 30
                 With lpReturnValue
@@ -1500,8 +1495,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/030.png"
                     .lpImageFemaleUri = "/Pokemons/030.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 31
                 With lpReturnValue
@@ -1537,8 +1532,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/031.png"
                     .lpImageFemaleUri = "/Pokemons/031.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 32
                 With lpReturnValue
@@ -1574,8 +1569,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/032.png"
                     .lpImageFemaleUri = "/Pokemons/032.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 33
                 With lpReturnValue
@@ -1611,8 +1606,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/033.png"
                     .lpImageFemaleUri = "/Pokemons/033.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 34
                 With lpReturnValue
@@ -1648,8 +1643,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/034.png"
                     .lpImageFemaleUri = "/Pokemons/034.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 35
                 With lpReturnValue
@@ -1685,8 +1680,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/035.png"
                     .lpImageFemaleUri = "/Pokemons/035.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 36
                 With lpReturnValue
@@ -1722,8 +1717,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/036.png"
                     .lpImageFemaleUri = "/Pokemons/036.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 37
                 With lpReturnValue
@@ -1759,8 +1754,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/037.png"
                     .lpImageFemaleUri = "/Pokemons/037.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 38
                 With lpReturnValue
@@ -1796,8 +1791,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/038.png"
                     .lpImageFemaleUri = "/Pokemons/038.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 39
                 With lpReturnValue
@@ -1833,8 +1828,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/039.png"
                     .lpImageFemaleUri = "/Pokemons/039.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 40
                 With lpReturnValue
@@ -1870,8 +1865,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/040.png"
                     .lpImageFemaleUri = "/Pokemons/040.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 41
                 With lpReturnValue
@@ -1907,8 +1902,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/041.png"
                     .lpImageFemaleUri = "/Pokemons/041.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 42
                 With lpReturnValue
@@ -1944,8 +1939,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/042.png"
                     .lpImageFemaleUri = "/Pokemons/042.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 43
                 With lpReturnValue
@@ -1981,8 +1976,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/043.png"
                     .lpImageFemaleUri = "/Pokemons/043.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 44
                 With lpReturnValue
@@ -2018,8 +2013,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/044.png"
                     .lpImageFemaleUri = "/Pokemons/044.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 45
                 With lpReturnValue
@@ -2055,8 +2050,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/045.png"
                     .lpImageFemaleUri = "/Pokemons/045.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 46
                 With lpReturnValue
@@ -2092,8 +2087,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/046.png"
                     .lpImageFemaleUri = "/Pokemons/046.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 47
                 With lpReturnValue
@@ -2129,8 +2124,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/047.png"
                     .lpImageFemaleUri = "/Pokemons/047.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 48
                 With lpReturnValue
@@ -2166,8 +2161,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/048.png"
                     .lpImageFemaleUri = "/Pokemons/048.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 49
                 With lpReturnValue
@@ -2203,8 +2198,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/049.png"
                     .lpImageFemaleUri = "/Pokemons/049.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 50
                 With lpReturnValue
@@ -2240,8 +2235,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/050.png"
                     .lpImageFemaleUri = "/Pokemons/050.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 51
                 With lpReturnValue
@@ -2277,8 +2272,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/051.png"
                     .lpImageFemaleUri = "/Pokemons/051.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 52
                 With lpReturnValue
@@ -2314,8 +2309,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/052.png"
                     .lpImageFemaleUri = "/Pokemons/052.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 53
                 With lpReturnValue
@@ -2351,8 +2346,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/053.png"
                     .lpImageFemaleUri = "/Pokemons/053.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 54
                 With lpReturnValue
@@ -2388,8 +2383,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/054.png"
                     .lpImageFemaleUri = "/Pokemons/054.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 55
                 With lpReturnValue
@@ -2425,8 +2420,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/055.png"
                     .lpImageFemaleUri = "/Pokemons/055.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 56
                 With lpReturnValue
@@ -2462,8 +2457,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/056.png"
                     .lpImageFemaleUri = "/Pokemons/056.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 57
                 With lpReturnValue
@@ -2499,8 +2494,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/057.png"
                     .lpImageFemaleUri = "/Pokemons/057.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 58
                 With lpReturnValue
@@ -2536,8 +2531,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/058.png"
                     .lpImageFemaleUri = "/Pokemons/058.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 59
                 With lpReturnValue
@@ -2573,8 +2568,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/059.png"
                     .lpImageFemaleUri = "/Pokemons/059.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 60
                 With lpReturnValue
@@ -2610,8 +2605,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/060.png"
                     .lpImageFemaleUri = "/Pokemons/060.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 61
                 With lpReturnValue
@@ -2647,8 +2642,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/061.png"
                     .lpImageFemaleUri = "/Pokemons/061.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 62
                 With lpReturnValue
@@ -2684,8 +2679,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/062.png"
                     .lpImageFemaleUri = "/Pokemons/062.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 63
                 With lpReturnValue
@@ -2721,8 +2716,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/063.png"
                     .lpImageFemaleUri = "/Pokemons/063.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 64
                 With lpReturnValue
@@ -2758,8 +2753,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/064.png"
                     .lpImageFemaleUri = "/Pokemons/064.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 65
                 With lpReturnValue
@@ -2850,8 +2845,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/066.png"
                     .lpImageFemaleUri = "/Pokemons/066.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 67
                 With lpReturnValue
@@ -2887,8 +2882,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/067.png"
                     .lpImageFemaleUri = "/Pokemons/067.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 68
                 With lpReturnValue
@@ -2924,8 +2919,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/068.png"
                     .lpImageFemaleUri = "/Pokemons/068.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 69
                 With lpReturnValue
@@ -2961,8 +2956,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/069.png"
                     .lpImageFemaleUri = "/Pokemons/069.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 70
                 With lpReturnValue
@@ -2998,8 +2993,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/070.png"
                     .lpImageFemaleUri = "/Pokemons/070.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 71
                 With lpReturnValue
@@ -3035,8 +3030,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/071.png"
                     .lpImageFemaleUri = "/Pokemons/071.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 72
                 With lpReturnValue
@@ -3072,8 +3067,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/072.png"
                     .lpImageFemaleUri = "/Pokemons/072.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 73
                 With lpReturnValue
@@ -3109,8 +3104,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/073.png"
                     .lpImageFemaleUri = "/Pokemons/073.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 74
                 With lpReturnValue
@@ -3146,8 +3141,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/074.png"
                     .lpImageFemaleUri = "/Pokemons/074.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 75
                 With lpReturnValue
@@ -3183,8 +3178,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/075.png"
                     .lpImageFemaleUri = "/Pokemons/075.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 76
                 With lpReturnValue
@@ -3220,8 +3215,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/076.png"
                     .lpImageFemaleUri = "/Pokemons/076.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 77
                 With lpReturnValue
@@ -3257,8 +3252,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/077.png"
                     .lpImageFemaleUri = "/Pokemons/077.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 78
                 With lpReturnValue
@@ -3294,8 +3289,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/078.png"
                     .lpImageFemaleUri = "/Pokemons/078.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 79
                 With lpReturnValue
@@ -3331,8 +3326,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/079.png"
                     .lpImageFemaleUri = "/Pokemons/079.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 80
                 With lpReturnValue
@@ -3368,8 +3363,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/080.png"
                     .lpImageFemaleUri = "/Pokemons/080.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/080.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -3424,8 +3419,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/081.png"
                     .lpImageFemaleUri = "/Pokemons/081.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 82
                 With lpReturnValue
@@ -3461,8 +3456,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/082.png"
                     .lpImageFemaleUri = "/Pokemons/082.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 83
                 With lpReturnValue
@@ -3498,8 +3493,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/083.png"
                     .lpImageFemaleUri = "/Pokemons/083.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 84
                 With lpReturnValue
@@ -3535,8 +3530,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/084.png"
                     .lpImageFemaleUri = "/Pokemons/084.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 85
                 With lpReturnValue
@@ -3572,8 +3567,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/085.png"
                     .lpImageFemaleUri = "/Pokemons/085.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 86
                 With lpReturnValue
@@ -3609,8 +3604,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/086.png"
                     .lpImageFemaleUri = "/Pokemons/086.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 87
                 With lpReturnValue
@@ -3646,8 +3641,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/087.png"
                     .lpImageFemaleUri = "/Pokemons/087.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 88
                 With lpReturnValue
@@ -3683,8 +3678,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/088.png"
                     .lpImageFemaleUri = "/Pokemons/088.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 89
                 With lpReturnValue
@@ -3720,8 +3715,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/089.png"
                     .lpImageFemaleUri = "/Pokemons/089.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 90
                 With lpReturnValue
@@ -3757,8 +3752,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/090.png"
                     .lpImageFemaleUri = "/Pokemons/090.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 91
                 With lpReturnValue
@@ -3794,8 +3789,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/091.png"
                     .lpImageFemaleUri = "/Pokemons/091.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 92
                 With lpReturnValue
@@ -3831,8 +3826,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/092.png"
                     .lpImageFemaleUri = "/Pokemons/092.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 93
                 With lpReturnValue
@@ -3868,8 +3863,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/093.png"
                     .lpImageFemaleUri = "/Pokemons/093.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 94
                 With lpReturnValue
@@ -3960,8 +3955,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/095.png"
                     .lpImageFemaleUri = "/Pokemons/095.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 96
                 With lpReturnValue
@@ -3997,8 +3992,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/096.png"
                     .lpImageFemaleUri = "/Pokemons/096.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 97
                 With lpReturnValue
@@ -4034,8 +4029,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/097.png"
                     .lpImageFemaleUri = "/Pokemons/097.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 98
                 With lpReturnValue
@@ -4071,8 +4066,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/098.png"
                     .lpImageFemaleUri = "/Pokemons/098.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 99
                 With lpReturnValue
@@ -4108,8 +4103,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/099.png"
                     .lpImageFemaleUri = "/Pokemons/099.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 100
                 With lpReturnValue
@@ -4145,8 +4140,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/100.png"
                     .lpImageFemaleUri = "/Pokemons/100.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 101
                 With lpReturnValue
@@ -4182,8 +4177,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/101.png"
                     .lpImageFemaleUri = "/Pokemons/101.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 102
                 With lpReturnValue
@@ -4219,8 +4214,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/102.png"
                     .lpImageFemaleUri = "/Pokemons/102.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 103
                 With lpReturnValue
@@ -4256,8 +4251,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/103.png"
                     .lpImageFemaleUri = "/Pokemons/103.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 104
                 With lpReturnValue
@@ -4293,8 +4288,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/104.png"
                     .lpImageFemaleUri = "/Pokemons/104.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 105
                 With lpReturnValue
@@ -4330,8 +4325,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/105.png"
                     .lpImageFemaleUri = "/Pokemons/105.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 106
                 With lpReturnValue
@@ -4367,8 +4362,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/106.png"
                     .lpImageFemaleUri = "/Pokemons/106.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 107
                 With lpReturnValue
@@ -4404,8 +4399,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/107.png"
                     .lpImageFemaleUri = "/Pokemons/107.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 108
                 With lpReturnValue
@@ -4441,8 +4436,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/108.png"
                     .lpImageFemaleUri = "/Pokemons/108.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 109
                 With lpReturnValue
@@ -4478,8 +4473,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/109.png"
                     .lpImageFemaleUri = "/Pokemons/109.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 110
                 With lpReturnValue
@@ -4515,8 +4510,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/110.png"
                     .lpImageFemaleUri = "/Pokemons/110.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 111
                 With lpReturnValue
@@ -4552,8 +4547,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/111.png"
                     .lpImageFemaleUri = "/Pokemons/111.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 112
                 With lpReturnValue
@@ -4589,8 +4584,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/112.png"
                     .lpImageFemaleUri = "/Pokemons/112.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 113
                 With lpReturnValue
@@ -4626,8 +4621,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/113.png"
                     .lpImageFemaleUri = "/Pokemons/113.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 114
                 With lpReturnValue
@@ -4663,8 +4658,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/114.png"
                     .lpImageFemaleUri = "/Pokemons/114.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 115
                 With lpReturnValue
@@ -4755,8 +4750,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/116.png"
                     .lpImageFemaleUri = "/Pokemons/116.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 117
                 With lpReturnValue
@@ -4792,8 +4787,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/117.png"
                     .lpImageFemaleUri = "/Pokemons/117.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 118
                 With lpReturnValue
@@ -4829,8 +4824,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/118.png"
                     .lpImageFemaleUri = "/Pokemons/118.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 119
                 With lpReturnValue
@@ -4866,8 +4861,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/119.png"
                     .lpImageFemaleUri = "/Pokemons/119.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 120
                 With lpReturnValue
@@ -4903,8 +4898,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/120.png"
                     .lpImageFemaleUri = "/Pokemons/120.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 121
                 With lpReturnValue
@@ -4940,8 +4935,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/121.png"
                     .lpImageFemaleUri = "/Pokemons/121.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 122
                 With lpReturnValue
@@ -4977,8 +4972,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/122.png"
                     .lpImageFemaleUri = "/Pokemons/122.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 123
                 With lpReturnValue
@@ -5014,8 +5009,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/123.png"
                     .lpImageFemaleUri = "/Pokemons/123.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 124
                 With lpReturnValue
@@ -5051,8 +5046,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/124.png"
                     .lpImageFemaleUri = "/Pokemons/124.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 125
                 With lpReturnValue
@@ -5088,8 +5083,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/125.png"
                     .lpImageFemaleUri = "/Pokemons/125.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 126
                 With lpReturnValue
@@ -5125,8 +5120,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/126.png"
                     .lpImageFemaleUri = "/Pokemons/126.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 127
                 With lpReturnValue
@@ -5217,8 +5212,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/128.png"
                     .lpImageFemaleUri = "/Pokemons/128.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 129
                 With lpReturnValue
@@ -5254,8 +5249,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/129.png"
                     .lpImageFemaleUri = "/Pokemons/129.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 130
                 With lpReturnValue
@@ -5346,8 +5341,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/131.png"
                     .lpImageFemaleUri = "/Pokemons/131.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 132
                 With lpReturnValue
@@ -5383,8 +5378,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/132.png"
                     .lpImageFemaleUri = "/Pokemons/132.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 133
                 With lpReturnValue
@@ -5420,8 +5415,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/133.png"
                     .lpImageFemaleUri = "/Pokemons/133.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 134
                 With lpReturnValue
@@ -5457,8 +5452,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/134.png"
                     .lpImageFemaleUri = "/Pokemons/134.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 135
                 With lpReturnValue
@@ -5494,8 +5489,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/135.png"
                     .lpImageFemaleUri = "/Pokemons/135.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 136
                 With lpReturnValue
@@ -5531,8 +5526,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/136.png"
                     .lpImageFemaleUri = "/Pokemons/136.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 137
                 With lpReturnValue
@@ -5568,8 +5563,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/137.png"
                     .lpImageFemaleUri = "/Pokemons/137.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 138
                 With lpReturnValue
@@ -5605,8 +5600,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/138.png"
                     .lpImageFemaleUri = "/Pokemons/138.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 139
                 With lpReturnValue
@@ -5642,8 +5637,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/139.png"
                     .lpImageFemaleUri = "/Pokemons/139.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 140
                 With lpReturnValue
@@ -5679,8 +5674,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/140.png"
                     .lpImageFemaleUri = "/Pokemons/140.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 141
                 With lpReturnValue
@@ -5716,8 +5711,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/141.png"
                     .lpImageFemaleUri = "/Pokemons/141.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 142
                 With lpReturnValue
@@ -5808,8 +5803,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/143.png"
                     .lpImageFemaleUri = "/Pokemons/143.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 144
                 With lpReturnValue
@@ -5845,8 +5840,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/144.png"
                     .lpImageFemaleUri = "/Pokemons/144.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 145
                 With lpReturnValue
@@ -5882,8 +5877,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/145.png"
                     .lpImageFemaleUri = "/Pokemons/145.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 146
                 With lpReturnValue
@@ -5919,8 +5914,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/146.png"
                     .lpImageFemaleUri = "/Pokemons/146.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 147
                 With lpReturnValue
@@ -5956,8 +5951,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/147.png"
                     .lpImageFemaleUri = "/Pokemons/147.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 148
                 With lpReturnValue
@@ -5993,8 +5988,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/148.png"
                     .lpImageFemaleUri = "/Pokemons/148.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 149
                 With lpReturnValue
@@ -6030,8 +6025,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/149.png"
                     .lpImageFemaleUri = "/Pokemons/149.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 150
                 With lpReturnValue
@@ -6140,8 +6135,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/151.png"
                     .lpImageFemaleUri = "/Pokemons/151.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 152
                 With lpReturnValue
@@ -6177,8 +6172,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/152.png"
                     .lpImageFemaleUri = "/Pokemons/152.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 153
                 With lpReturnValue
@@ -6214,8 +6209,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/153.png"
                     .lpImageFemaleUri = "/Pokemons/153.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 154
                 With lpReturnValue
@@ -6251,8 +6246,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/154.png"
                     .lpImageFemaleUri = "/Pokemons/154.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 155
                 With lpReturnValue
@@ -6288,8 +6283,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/155.png"
                     .lpImageFemaleUri = "/Pokemons/155.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 156
                 With lpReturnValue
@@ -6325,8 +6320,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/156.png"
                     .lpImageFemaleUri = "/Pokemons/156.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 157
                 With lpReturnValue
@@ -6362,8 +6357,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/157.png"
                     .lpImageFemaleUri = "/Pokemons/157.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 158
                 With lpReturnValue
@@ -6399,8 +6394,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/158.png"
                     .lpImageFemaleUri = "/Pokemons/158.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 159
                 With lpReturnValue
@@ -6436,8 +6431,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/159.png"
                     .lpImageFemaleUri = "/Pokemons/159.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 160
                 With lpReturnValue
@@ -6473,8 +6468,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/160.png"
                     .lpImageFemaleUri = "/Pokemons/160.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 161
                 With lpReturnValue
@@ -6510,8 +6505,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/161.png"
                     .lpImageFemaleUri = "/Pokemons/161.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 162
                 With lpReturnValue
@@ -6547,8 +6542,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/162.png"
                     .lpImageFemaleUri = "/Pokemons/162.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 163
                 With lpReturnValue
@@ -6584,8 +6579,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/163.png"
                     .lpImageFemaleUri = "/Pokemons/163.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 164
                 With lpReturnValue
@@ -6621,8 +6616,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/164.png"
                     .lpImageFemaleUri = "/Pokemons/164.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 165
                 With lpReturnValue
@@ -6658,8 +6653,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/165.png"
                     .lpImageFemaleUri = "/Pokemons/165.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 166
                 With lpReturnValue
@@ -6695,8 +6690,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/166.png"
                     .lpImageFemaleUri = "/Pokemons/166.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 167
                 With lpReturnValue
@@ -6732,8 +6727,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/167.png"
                     .lpImageFemaleUri = "/Pokemons/167.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 168
                 With lpReturnValue
@@ -6769,8 +6764,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/168.png"
                     .lpImageFemaleUri = "/Pokemons/168.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 169
                 With lpReturnValue
@@ -6806,8 +6801,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/169.png"
                     .lpImageFemaleUri = "/Pokemons/169.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 170
                 With lpReturnValue
@@ -6843,8 +6838,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/170.png"
                     .lpImageFemaleUri = "/Pokemons/170.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 171
                 With lpReturnValue
@@ -6880,8 +6875,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/171.png"
                     .lpImageFemaleUri = "/Pokemons/171.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 172
                 With lpReturnValue
@@ -6917,8 +6912,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/172.png"
                     .lpImageFemaleUri = "/Pokemons/172.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 173
                 With lpReturnValue
@@ -6954,8 +6949,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/173.png"
                     .lpImageFemaleUri = "/Pokemons/173.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 174
                 With lpReturnValue
@@ -6991,8 +6986,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/174.png"
                     .lpImageFemaleUri = "/Pokemons/174.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 175
                 With lpReturnValue
@@ -7028,8 +7023,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/175.png"
                     .lpImageFemaleUri = "/Pokemons/175.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 176
                 With lpReturnValue
@@ -7065,8 +7060,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/176.png"
                     .lpImageFemaleUri = "/Pokemons/176.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 177
                 With lpReturnValue
@@ -7102,8 +7097,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/177.png"
                     .lpImageFemaleUri = "/Pokemons/177.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 178
                 With lpReturnValue
@@ -7139,8 +7134,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/178.png"
                     .lpImageFemaleUri = "/Pokemons/178.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 179
                 With lpReturnValue
@@ -7176,8 +7171,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/179.png"
                     .lpImageFemaleUri = "/Pokemons/179.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 180
                 With lpReturnValue
@@ -7213,8 +7208,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/180.png"
                     .lpImageFemaleUri = "/Pokemons/180.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 181
                 With lpReturnValue
@@ -7305,8 +7300,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/182.png"
                     .lpImageFemaleUri = "/Pokemons/182.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 183
                 With lpReturnValue
@@ -7342,8 +7337,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/183.png"
                     .lpImageFemaleUri = "/Pokemons/183.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 184
                 With lpReturnValue
@@ -7379,8 +7374,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/184.png"
                     .lpImageFemaleUri = "/Pokemons/184.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 185
                 With lpReturnValue
@@ -7416,8 +7411,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/185.png"
                     .lpImageFemaleUri = "/Pokemons/185.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 186
                 With lpReturnValue
@@ -7453,8 +7448,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/186.png"
                     .lpImageFemaleUri = "/Pokemons/186.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 187
                 With lpReturnValue
@@ -7490,8 +7485,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/187.png"
                     .lpImageFemaleUri = "/Pokemons/187.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 188
                 With lpReturnValue
@@ -7527,8 +7522,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/188.png"
                     .lpImageFemaleUri = "/Pokemons/188.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 189
                 With lpReturnValue
@@ -7564,8 +7559,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/189.png"
                     .lpImageFemaleUri = "/Pokemons/189.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 190
                 With lpReturnValue
@@ -7601,8 +7596,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/190.png"
                     .lpImageFemaleUri = "/Pokemons/190.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 191
                 With lpReturnValue
@@ -7638,8 +7633,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/191.png"
                     .lpImageFemaleUri = "/Pokemons/191.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 192
                 With lpReturnValue
@@ -7675,8 +7670,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/192.png"
                     .lpImageFemaleUri = "/Pokemons/192.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 193
                 With lpReturnValue
@@ -7712,8 +7707,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/193.png"
                     .lpImageFemaleUri = "/Pokemons/193.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 194
                 With lpReturnValue
@@ -7749,8 +7744,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/194.png"
                     .lpImageFemaleUri = "/Pokemons/194.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 195
                 With lpReturnValue
@@ -7786,8 +7781,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/195.png"
                     .lpImageFemaleUri = "/Pokemons/195.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 196
                 With lpReturnValue
@@ -7823,8 +7818,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/196.png"
                     .lpImageFemaleUri = "/Pokemons/196.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 197
                 With lpReturnValue
@@ -7860,8 +7855,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/197.png"
                     .lpImageFemaleUri = "/Pokemons/197.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 198
                 With lpReturnValue
@@ -7897,8 +7892,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/198.png"
                     .lpImageFemaleUri = "/Pokemons/198.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 199
                 With lpReturnValue
@@ -7934,8 +7929,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/199.png"
                     .lpImageFemaleUri = "/Pokemons/199.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 200
                 With lpReturnValue
@@ -7971,8 +7966,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/200.png"
                     .lpImageFemaleUri = "/Pokemons/200.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 201
                 With lpReturnValue
@@ -8008,8 +8003,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/201.png"
                     .lpImageFemaleUri = "/Pokemons/201.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 202
                 With lpReturnValue
@@ -8045,8 +8040,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/202.png"
                     .lpImageFemaleUri = "/Pokemons/202.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 203
                 With lpReturnValue
@@ -8082,8 +8077,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/203.png"
                     .lpImageFemaleUri = "/Pokemons/203.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 204
                 With lpReturnValue
@@ -8119,8 +8114,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/204.png"
                     .lpImageFemaleUri = "/Pokemons/204.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 205
                 With lpReturnValue
@@ -8156,8 +8151,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/205.png"
                     .lpImageFemaleUri = "/Pokemons/205.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 206
                 With lpReturnValue
@@ -8193,8 +8188,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/206.png"
                     .lpImageFemaleUri = "/Pokemons/206.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 207
                 With lpReturnValue
@@ -8230,8 +8225,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/207.png"
                     .lpImageFemaleUri = "/Pokemons/207.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 208
                 With lpReturnValue
@@ -8267,8 +8262,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/208.png"
                     .lpImageFemaleUri = "/Pokemons/208.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/208.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -8323,8 +8318,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/209.png"
                     .lpImageFemaleUri = "/Pokemons/209.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 210
                 With lpReturnValue
@@ -8360,8 +8355,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/210.png"
                     .lpImageFemaleUri = "/Pokemons/210.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 211
                 With lpReturnValue
@@ -8397,8 +8392,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/211.png"
                     .lpImageFemaleUri = "/Pokemons/211.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 212
                 With lpReturnValue
@@ -8471,8 +8466,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/213.png"
                     .lpImageFemaleUri = "/Pokemons/213.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 214
                 With lpReturnValue
@@ -8563,8 +8558,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/215.png"
                     .lpImageFemaleUri = "/Pokemons/215.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 216
                 With lpReturnValue
@@ -8600,8 +8595,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/216.png"
                     .lpImageFemaleUri = "/Pokemons/216.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 217
                 With lpReturnValue
@@ -8637,8 +8632,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/217.png"
                     .lpImageFemaleUri = "/Pokemons/217.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 218
                 With lpReturnValue
@@ -8674,8 +8669,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/218.png"
                     .lpImageFemaleUri = "/Pokemons/218.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 219
                 With lpReturnValue
@@ -8711,8 +8706,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/219.png"
                     .lpImageFemaleUri = "/Pokemons/219.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 220
                 With lpReturnValue
@@ -8748,8 +8743,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/220.png"
                     .lpImageFemaleUri = "/Pokemons/220.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 221
                 With lpReturnValue
@@ -8785,8 +8780,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/221.png"
                     .lpImageFemaleUri = "/Pokemons/221.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 222
                 With lpReturnValue
@@ -8822,8 +8817,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/222.png"
                     .lpImageFemaleUri = "/Pokemons/222.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 223
                 With lpReturnValue
@@ -8859,8 +8854,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/223.png"
                     .lpImageFemaleUri = "/Pokemons/223.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 224
                 With lpReturnValue
@@ -8896,8 +8891,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/224.png"
                     .lpImageFemaleUri = "/Pokemons/224.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 225
                 With lpReturnValue
@@ -8933,8 +8928,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/225.png"
                     .lpImageFemaleUri = "/Pokemons/225.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 226
                 With lpReturnValue
@@ -8970,8 +8965,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/226.png"
                     .lpImageFemaleUri = "/Pokemons/226.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 227
                 With lpReturnValue
@@ -9007,8 +9002,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/227.png"
                     .lpImageFemaleUri = "/Pokemons/227.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 228
                 With lpReturnValue
@@ -9044,8 +9039,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/228.png"
                     .lpImageFemaleUri = "/Pokemons/228.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 229
                 With lpReturnValue
@@ -9136,8 +9131,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/230.png"
                     .lpImageFemaleUri = "/Pokemons/230.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 231
                 With lpReturnValue
@@ -9173,8 +9168,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/231.png"
                     .lpImageFemaleUri = "/Pokemons/231.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 232
                 With lpReturnValue
@@ -9210,8 +9205,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/232.png"
                     .lpImageFemaleUri = "/Pokemons/232.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 233
                 With lpReturnValue
@@ -9247,8 +9242,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/233.png"
                     .lpImageFemaleUri = "/Pokemons/233.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 234
                 With lpReturnValue
@@ -9284,8 +9279,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/234.png"
                     .lpImageFemaleUri = "/Pokemons/234.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 235
                 With lpReturnValue
@@ -9321,8 +9316,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/235.png"
                     .lpImageFemaleUri = "/Pokemons/235.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 236
                 With lpReturnValue
@@ -9358,8 +9353,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/236.png"
                     .lpImageFemaleUri = "/Pokemons/236.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 237
                 With lpReturnValue
@@ -9395,8 +9390,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/237.png"
                     .lpImageFemaleUri = "/Pokemons/237.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 238
                 With lpReturnValue
@@ -9432,8 +9427,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/238.png"
                     .lpImageFemaleUri = "/Pokemons/238.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 239
                 With lpReturnValue
@@ -9469,8 +9464,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/239.png"
                     .lpImageFemaleUri = "/Pokemons/239.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 240
                 With lpReturnValue
@@ -9506,8 +9501,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/240.png"
                     .lpImageFemaleUri = "/Pokemons/240.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 241
                 With lpReturnValue
@@ -9543,8 +9538,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/241.png"
                     .lpImageFemaleUri = "/Pokemons/241.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 242
                 With lpReturnValue
@@ -9580,8 +9575,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/242.png"
                     .lpImageFemaleUri = "/Pokemons/242.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 243
                 With lpReturnValue
@@ -9617,8 +9612,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/243.png"
                     .lpImageFemaleUri = "/Pokemons/243.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 244
                 With lpReturnValue
@@ -9654,8 +9649,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/244.png"
                     .lpImageFemaleUri = "/Pokemons/244.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 245 'CUNER
                 With lpReturnValue
@@ -9691,8 +9686,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/245.png"
                     .lpImageFemaleUri = "/Pokemons/245.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 246
                 With lpReturnValue
@@ -9728,8 +9723,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/246.png"
                     .lpImageFemaleUri = "/Pokemons/246.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 247
                 With lpReturnValue
@@ -9765,8 +9760,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/247.png"
                     .lpImageFemaleUri = "/Pokemons/247.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 248
                 With lpReturnValue
@@ -9857,8 +9852,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/249.png"
                     .lpImageFemaleUri = "/Pokemons/249.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 250 '塔主
                 With lpReturnValue
@@ -9894,8 +9889,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/250.png"
                     .lpImageFemaleUri = "/Pokemons/250.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 251
                 With lpReturnValue
@@ -9931,8 +9926,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/251.png"
                     .lpImageFemaleUri = "/Pokemons/251.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 252
                 With lpReturnValue
@@ -9968,8 +9963,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/252.png"
                     .lpImageFemaleUri = "/Pokemons/252.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 253
                 With lpReturnValue
@@ -10005,8 +10000,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/253.png"
                     .lpImageFemaleUri = "/Pokemons/253.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 254
                 With lpReturnValue
@@ -10042,8 +10037,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/254.png"
                     .lpImageFemaleUri = "/Pokemons/254.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/254.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -10098,8 +10093,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/255.png"
                     .lpImageFemaleUri = "/Pokemons/255.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 256
                 With lpReturnValue
@@ -10135,8 +10130,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/257.png"
                     .lpImageFemaleUri = "/Pokemons/257.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 257
                 With lpReturnValue
@@ -10227,8 +10222,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/258.png"
                     .lpImageFemaleUri = "/Pokemons/258.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 259
                 With lpReturnValue
@@ -10264,8 +10259,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/259.png"
                     .lpImageFemaleUri = "/Pokemons/259.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 260
                 With lpReturnValue
@@ -10301,8 +10296,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/260.png"
                     .lpImageFemaleUri = "/Pokemons/260.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/260.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -10357,8 +10352,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/261.png"
                     .lpImageFemaleUri = "/Pokemons/261.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 262
                 With lpReturnValue
@@ -10394,8 +10389,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/262.png"
                     .lpImageFemaleUri = "/Pokemons/262.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 263
                 With lpReturnValue
@@ -10431,8 +10426,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/263.png"
                     .lpImageFemaleUri = "/Pokemons/263.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 264
                 With lpReturnValue
@@ -10468,8 +10463,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/264.png"
                     .lpImageFemaleUri = "/Pokemons/264.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 265
                 With lpReturnValue
@@ -10505,8 +10500,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/265.png"
                     .lpImageFemaleUri = "/Pokemons/265.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 266
                 With lpReturnValue
@@ -10542,8 +10537,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/266.png"
                     .lpImageFemaleUri = "/Pokemons/266.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 267
                 With lpReturnValue
@@ -10579,8 +10574,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/267.png"
                     .lpImageFemaleUri = "/Pokemons/267.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 268
                 With lpReturnValue
@@ -10616,8 +10611,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/268.png"
                     .lpImageFemaleUri = "/Pokemons/268.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 269
                 With lpReturnValue
@@ -10653,8 +10648,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/269.png"
                     .lpImageFemaleUri = "/Pokemons/269.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 270
                 With lpReturnValue
@@ -10690,8 +10685,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/270.png"
                     .lpImageFemaleUri = "/Pokemons/270.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 271
                 With lpReturnValue
@@ -10727,8 +10722,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/271.png"
                     .lpImageFemaleUri = "/Pokemons/271.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 272
                 With lpReturnValue
@@ -10764,8 +10759,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/272.png"
                     .lpImageFemaleUri = "/Pokemons/272.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 273
                 With lpReturnValue
@@ -10801,8 +10796,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/273.png"
                     .lpImageFemaleUri = "/Pokemons/273.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 274
                 With lpReturnValue
@@ -10838,8 +10833,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/274.png"
                     .lpImageFemaleUri = "/Pokemons/274.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 275
                 With lpReturnValue
@@ -10875,8 +10870,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/275.png"
                     .lpImageFemaleUri = "/Pokemons/275.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 276
                 With lpReturnValue
@@ -10912,8 +10907,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/276.png"
                     .lpImageFemaleUri = "/Pokemons/276.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 277
                 With lpReturnValue
@@ -10949,8 +10944,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/277.png"
                     .lpImageFemaleUri = "/Pokemons/277.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 278
                 With lpReturnValue
@@ -10986,8 +10981,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/278.png"
                     .lpImageFemaleUri = "/Pokemons/278.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 279
                 With lpReturnValue
@@ -11023,8 +11018,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/279.png"
                     .lpImageFemaleUri = "/Pokemons/279.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 280
                 With lpReturnValue
@@ -11060,8 +11055,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/280.png"
                     .lpImageFemaleUri = "/Pokemons/280.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 281
                 With lpReturnValue
@@ -11097,8 +11092,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/281.png"
                     .lpImageFemaleUri = "/Pokemons/281.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 282
                 With lpReturnValue
@@ -11189,8 +11184,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/283.png"
                     .lpImageFemaleUri = "/Pokemons/283.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 284
                 With lpReturnValue
@@ -11226,8 +11221,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/284.png"
                     .lpImageFemaleUri = "/Pokemons/284.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 285
                 With lpReturnValue
@@ -11263,8 +11258,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/285.png"
                     .lpImageFemaleUri = "/Pokemons/285.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 286
                 With lpReturnValue
@@ -11300,8 +11295,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/286.png"
                     .lpImageFemaleUri = "/Pokemons/286.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 287
                 With lpReturnValue
@@ -11337,8 +11332,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/287.png"
                     .lpImageFemaleUri = "/Pokemons/287.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 288
                 With lpReturnValue
@@ -11374,8 +11369,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/288.png"
                     .lpImageFemaleUri = "/Pokemons/288.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 289
                 With lpReturnValue
@@ -11411,8 +11406,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/289.png"
                     .lpImageFemaleUri = "/Pokemons/289.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 290
                 With lpReturnValue
@@ -11448,8 +11443,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/290.png"
                     .lpImageFemaleUri = "/Pokemons/290.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 291
                 With lpReturnValue
@@ -11485,8 +11480,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/291.png"
                     .lpImageFemaleUri = "/Pokemons/291.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 292
                 With lpReturnValue
@@ -11522,8 +11517,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/292.png"
                     .lpImageFemaleUri = "/Pokemons/292.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 293
                 With lpReturnValue
@@ -11559,8 +11554,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/293.png"
                     .lpImageFemaleUri = "/Pokemons/293.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 294
                 With lpReturnValue
@@ -11596,8 +11591,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/294.png"
                     .lpImageFemaleUri = "/Pokemons/294.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 295
                 With lpReturnValue
@@ -11633,8 +11628,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/295.png"
                     .lpImageFemaleUri = "/Pokemons/295.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 296
                 With lpReturnValue
@@ -11670,8 +11665,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/296.png"
                     .lpImageFemaleUri = "/Pokemons/296.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 297
                 With lpReturnValue
@@ -11707,8 +11702,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/297.png"
                     .lpImageFemaleUri = "/Pokemons/297.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 298
                 With lpReturnValue
@@ -11744,8 +11739,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/298.png"
                     .lpImageFemaleUri = "/Pokemons/298.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 299
                 With lpReturnValue
@@ -11781,8 +11776,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/299.png"
                     .lpImageFemaleUri = "/Pokemons/299.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 300
                 With lpReturnValue
@@ -11818,8 +11813,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/300.png"
                     .lpImageFemaleUri = "/Pokemons/300.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 301
                 With lpReturnValue
@@ -11855,8 +11850,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/301.png"
                     .lpImageFemaleUri = "/Pokemons/301.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 302
                 With lpReturnValue
@@ -11892,8 +11887,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/302.png"
                     .lpImageFemaleUri = "/Pokemons/302.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/302.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -12003,8 +11998,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/304.png"
                     .lpImageFemaleUri = "/Pokemons/304.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 305
                 With lpReturnValue
@@ -12040,8 +12035,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/305.png"
                     .lpImageFemaleUri = "/Pokemons/305.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 306
                 With lpReturnValue
@@ -12132,8 +12127,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/307.png"
                     .lpImageFemaleUri = "/Pokemons/307.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 308
                 With lpReturnValue
@@ -12224,8 +12219,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/309.png"
                     .lpImageFemaleUri = "/Pokemons/309.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 310
                 With lpReturnValue
@@ -12316,8 +12311,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/311.png"
                     .lpImageFemaleUri = "/Pokemons/311.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 312
                 With lpReturnValue
@@ -12353,8 +12348,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/312.png"
                     .lpImageFemaleUri = "/Pokemons/312.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 313
                 With lpReturnValue
@@ -12390,8 +12385,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/313.png"
                     .lpImageFemaleUri = "/Pokemons/313.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 314
                 With lpReturnValue
@@ -12427,8 +12422,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/314.png"
                     .lpImageFemaleUri = "/Pokemons/314.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 315
                 With lpReturnValue
@@ -12464,8 +12459,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/315.png"
                     .lpImageFemaleUri = "/Pokemons/315.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 316
                 With lpReturnValue
@@ -12501,8 +12496,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/316.png"
                     .lpImageFemaleUri = "/Pokemons/316.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 317
                 With lpReturnValue
@@ -12538,8 +12533,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/317.png"
                     .lpImageFemaleUri = "/Pokemons/317.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 318
                 With lpReturnValue
@@ -12575,8 +12570,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/318.png"
                     .lpImageFemaleUri = "/Pokemons/318.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 319
                 With lpReturnValue
@@ -12612,8 +12607,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/319.png"
                     .lpImageFemaleUri = "/Pokemons/319.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/319.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -12668,8 +12663,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/320.png"
                     .lpImageFemaleUri = "/Pokemons/320.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 321
                 With lpReturnValue
@@ -12705,8 +12700,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/321.png"
                     .lpImageFemaleUri = "/Pokemons/321.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 322
                 With lpReturnValue
@@ -12742,8 +12737,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/322.png"
                     .lpImageFemaleUri = "/Pokemons/322.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 323
                 With lpReturnValue
@@ -12779,8 +12774,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/323.png"
                     .lpImageFemaleUri = "/Pokemons/323.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/323.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -12835,8 +12830,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/324.png"
                     .lpImageFemaleUri = "/Pokemons/324.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 325
                 With lpReturnValue
@@ -12872,8 +12867,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/325.png"
                     .lpImageFemaleUri = "/Pokemons/325.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 326
                 With lpReturnValue
@@ -12909,8 +12904,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/326.png"
                     .lpImageFemaleUri = "/Pokemons/326.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 327
                 With lpReturnValue
@@ -12946,8 +12941,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/327.png"
                     .lpImageFemaleUri = "/Pokemons/327.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 328
                 With lpReturnValue
@@ -12983,8 +12978,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/328.png"
                     .lpImageFemaleUri = "/Pokemons/328.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 329
                 With lpReturnValue
@@ -13020,8 +13015,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 330
                 With lpReturnValue
@@ -13057,8 +13052,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 331
                 With lpReturnValue
@@ -13094,8 +13089,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 332
                 With lpReturnValue
@@ -13131,8 +13126,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 333
                 With lpReturnValue
@@ -13168,8 +13163,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 334
                 With lpReturnValue
@@ -13205,8 +13200,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/334.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -13261,8 +13256,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 336
                 With lpReturnValue
@@ -13298,8 +13293,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 337
                 With lpReturnValue
@@ -13335,8 +13330,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 338
                 With lpReturnValue
@@ -13372,8 +13367,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 339
                 With lpReturnValue
@@ -13409,8 +13404,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 340
                 With lpReturnValue
@@ -13446,8 +13441,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 341
                 With lpReturnValue
@@ -13483,8 +13478,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 342
                 With lpReturnValue
@@ -13520,8 +13515,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 343
                 With lpReturnValue
@@ -13557,8 +13552,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 344
                 With lpReturnValue
@@ -13594,8 +13589,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 345
                 With lpReturnValue
@@ -13631,8 +13626,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 346
                 With lpReturnValue
@@ -13668,8 +13663,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 347
                 With lpReturnValue
@@ -13705,8 +13700,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 348
                 With lpReturnValue
@@ -13742,8 +13737,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 349
                 With lpReturnValue
@@ -13779,8 +13774,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 350
                 With lpReturnValue
@@ -13816,8 +13811,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 351
                 With lpReturnValue
@@ -13853,8 +13848,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 352
                 With lpReturnValue
@@ -13890,8 +13885,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 353
                 With lpReturnValue
@@ -13927,8 +13922,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 354
                 With lpReturnValue
@@ -14019,8 +14014,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 356
                 With lpReturnValue
@@ -14056,8 +14051,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 357
                 With lpReturnValue
@@ -14093,8 +14088,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 358
                 With lpReturnValue
@@ -14130,8 +14125,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 359
                 With lpReturnValue
@@ -14222,8 +14217,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 361
                 With lpReturnValue
@@ -14259,8 +14254,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 362
                 With lpReturnValue
@@ -14296,8 +14291,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/362.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -14352,8 +14347,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 364
                 With lpReturnValue
@@ -14389,8 +14384,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 365
                 With lpReturnValue
@@ -14426,8 +14421,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 366
                 With lpReturnValue
@@ -14463,8 +14458,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 367
                 With lpReturnValue
@@ -14500,8 +14495,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 368
                 With lpReturnValue
@@ -14537,8 +14532,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 369
                 With lpReturnValue
@@ -14574,8 +14569,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 370
                 With lpReturnValue
@@ -14611,8 +14606,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 371
                 With lpReturnValue
@@ -14648,8 +14643,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 372
                 With lpReturnValue
@@ -14685,8 +14680,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 373
                 With lpReturnValue
@@ -14722,8 +14717,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/373.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -14778,8 +14773,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 375
                 With lpReturnValue
@@ -14815,8 +14810,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 376
                 With lpReturnValue
@@ -14852,8 +14847,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/376.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -14908,8 +14903,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 378
                 With lpReturnValue
@@ -14945,8 +14940,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 379
                 With lpReturnValue
@@ -14982,8 +14977,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 380
                 With lpReturnValue
@@ -15129,8 +15124,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/382.01.png"
                     With StateInformation(0)
                         '.IsUniqueDescriptionAvailable = False
@@ -15187,8 +15182,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/383.01.png"
                     With StateInformation(0)
                         '.IsUniqueDescriptionAvailable = False
@@ -15245,8 +15240,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/384.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -15301,8 +15296,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 386
                 With lpReturnValue
@@ -15338,8 +15333,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case Else
                 lpReturnValue = GetPokemonInformationDP(lpPokemonNationalDexNumber)
@@ -15379,10 +15374,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -15447,10 +15442,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -15530,8 +15525,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 495
                 With lpReturnValue
@@ -15567,8 +15562,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 496
                 With lpReturnValue
@@ -15604,8 +15599,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 497
                 With lpReturnValue
@@ -15641,8 +15636,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 498
                 With lpReturnValue
@@ -15678,8 +15673,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 499
                 With lpReturnValue
@@ -15715,8 +15710,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 500
                 With lpReturnValue
@@ -15752,8 +15747,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 501
                 With lpReturnValue
@@ -15789,8 +15784,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 502
                 With lpReturnValue
@@ -15826,8 +15821,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 503
                 With lpReturnValue
@@ -15863,8 +15858,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 504
                 With lpReturnValue
@@ -15900,8 +15895,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 505
                 With lpReturnValue
@@ -15937,8 +15932,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 506
                 With lpReturnValue
@@ -15974,8 +15969,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 507
                 With lpReturnValue
@@ -16011,8 +16006,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 508
                 With lpReturnValue
@@ -16048,8 +16043,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 509
                 With lpReturnValue
@@ -16085,8 +16080,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 510
                 With lpReturnValue
@@ -16122,8 +16117,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 511
                 With lpReturnValue
@@ -16159,8 +16154,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 512
                 With lpReturnValue
@@ -16196,8 +16191,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 513
                 With lpReturnValue
@@ -16233,8 +16228,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 514
                 With lpReturnValue
@@ -16270,8 +16265,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 515
                 With lpReturnValue
@@ -16307,8 +16302,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 516
                 With lpReturnValue
@@ -16344,8 +16339,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 517
                 With lpReturnValue
@@ -16381,8 +16376,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 518
                 With lpReturnValue
@@ -16418,8 +16413,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 519
                 With lpReturnValue
@@ -16455,8 +16450,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 520
                 With lpReturnValue
@@ -16492,8 +16487,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 521
                 With lpReturnValue
@@ -16529,8 +16524,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 522
                 With lpReturnValue
@@ -16566,8 +16561,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 523
                 With lpReturnValue
@@ -16603,8 +16598,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 524
                 With lpReturnValue
@@ -16640,8 +16635,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 525
                 With lpReturnValue
@@ -16677,8 +16672,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 526
                 With lpReturnValue
@@ -16714,8 +16709,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 527
                 With lpReturnValue
@@ -16751,8 +16746,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 528
                 With lpReturnValue
@@ -16788,8 +16783,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 529
                 With lpReturnValue
@@ -16825,8 +16820,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 530
                 With lpReturnValue
@@ -16862,8 +16857,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 531
                 With lpReturnValue
@@ -16899,8 +16894,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/531.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -16955,8 +16950,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 533
                 With lpReturnValue
@@ -16992,8 +16987,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 534
                 With lpReturnValue
@@ -17029,8 +17024,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 535
                 With lpReturnValue
@@ -17066,8 +17061,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 536
                 With lpReturnValue
@@ -17103,8 +17098,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 537
                 With lpReturnValue
@@ -17140,8 +17135,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 538
                 With lpReturnValue
@@ -17177,8 +17172,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 539
                 With lpReturnValue
@@ -17214,8 +17209,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 540
                 With lpReturnValue
@@ -17251,8 +17246,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 541
                 With lpReturnValue
@@ -17288,8 +17283,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 542
                 With lpReturnValue
@@ -17325,8 +17320,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 543
                 With lpReturnValue
@@ -17362,8 +17357,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 544
                 With lpReturnValue
@@ -17399,8 +17394,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 545
                 With lpReturnValue
@@ -17436,8 +17431,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 546
                 With lpReturnValue
@@ -17473,8 +17468,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 547
                 With lpReturnValue
@@ -17510,8 +17505,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 548
                 With lpReturnValue
@@ -17547,8 +17542,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 549
                 With lpReturnValue
@@ -17584,8 +17579,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 550
                 With lpReturnValue
@@ -17621,8 +17616,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 551
                 With lpReturnValue
@@ -17658,8 +17653,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 552
                 With lpReturnValue
@@ -17695,8 +17690,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 553
                 With lpReturnValue
@@ -17732,8 +17727,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 554
                 With lpReturnValue
@@ -17769,8 +17764,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 555
                 With lpReturnValue
@@ -17806,8 +17801,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 556
                 With lpReturnValue
@@ -17843,8 +17838,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 557
                 With lpReturnValue
@@ -17880,8 +17875,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 558
                 With lpReturnValue
@@ -17917,8 +17912,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 559
                 With lpReturnValue
@@ -17954,8 +17949,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 560
                 With lpReturnValue
@@ -17991,8 +17986,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 561
                 With lpReturnValue
@@ -18028,8 +18023,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 562
                 With lpReturnValue
@@ -18065,8 +18060,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 563
                 With lpReturnValue
@@ -18102,8 +18097,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 564
                 With lpReturnValue
@@ -18139,8 +18134,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 565
                 With lpReturnValue
@@ -18176,8 +18171,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 566
                 With lpReturnValue
@@ -18213,8 +18208,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 567
                 With lpReturnValue
@@ -18250,8 +18245,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 568
                 With lpReturnValue
@@ -18287,8 +18282,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 569
                 With lpReturnValue
@@ -18324,8 +18319,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 570
                 With lpReturnValue
@@ -18361,8 +18356,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 571
                 With lpReturnValue
@@ -18398,8 +18393,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 572
                 With lpReturnValue
@@ -18435,8 +18430,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 573
                 With lpReturnValue
@@ -18472,8 +18467,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 574
                 With lpReturnValue
@@ -18509,8 +18504,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 575
                 With lpReturnValue
@@ -18546,8 +18541,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 576
                 With lpReturnValue
@@ -18583,8 +18578,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 577
                 With lpReturnValue
@@ -18620,8 +18615,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 578
                 With lpReturnValue
@@ -18657,8 +18652,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 579
                 With lpReturnValue
@@ -18694,8 +18689,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 580
                 With lpReturnValue
@@ -18731,8 +18726,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 581
                 With lpReturnValue
@@ -18768,8 +18763,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 582
                 With lpReturnValue
@@ -18805,8 +18800,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 583
                 With lpReturnValue
@@ -18842,8 +18837,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 584
                 With lpReturnValue
@@ -18879,8 +18874,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 585
                 With lpReturnValue
@@ -18916,8 +18911,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 586
                 With lpReturnValue
@@ -18953,8 +18948,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 587
                 With lpReturnValue
@@ -18990,8 +18985,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 588
                 With lpReturnValue
@@ -19027,8 +19022,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 589
                 With lpReturnValue
@@ -19064,8 +19059,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 590
                 With lpReturnValue
@@ -19101,8 +19096,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 591
                 With lpReturnValue
@@ -19138,8 +19133,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 592
                 With lpReturnValue
@@ -19175,8 +19170,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 593
                 With lpReturnValue
@@ -19212,8 +19207,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 594
                 With lpReturnValue
@@ -19249,8 +19244,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 595
                 With lpReturnValue
@@ -19286,8 +19281,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 596
                 With lpReturnValue
@@ -19323,8 +19318,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 597
                 With lpReturnValue
@@ -19360,8 +19355,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 598
                 With lpReturnValue
@@ -19397,8 +19392,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 599
                 With lpReturnValue
@@ -19434,8 +19429,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 600
                 With lpReturnValue
@@ -19471,8 +19466,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 601
                 With lpReturnValue
@@ -19508,8 +19503,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 602
                 With lpReturnValue
@@ -19545,8 +19540,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 603
                 With lpReturnValue
@@ -19582,8 +19577,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 604
                 With lpReturnValue
@@ -19619,8 +19614,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 605
                 With lpReturnValue
@@ -19656,8 +19651,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 606
                 With lpReturnValue
@@ -19693,8 +19688,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 607
                 With lpReturnValue
@@ -19730,8 +19725,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 608
                 With lpReturnValue
@@ -19767,8 +19762,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 609
                 With lpReturnValue
@@ -19804,8 +19799,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 610
                 With lpReturnValue
@@ -19841,8 +19836,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 611
                 With lpReturnValue
@@ -19878,8 +19873,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 612
                 With lpReturnValue
@@ -19915,8 +19910,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 613
                 With lpReturnValue
@@ -19952,8 +19947,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 614
                 With lpReturnValue
@@ -19989,8 +19984,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 615
                 With lpReturnValue
@@ -20026,8 +20021,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 616
                 With lpReturnValue
@@ -20063,8 +20058,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 617
                 With lpReturnValue
@@ -20100,8 +20095,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 618
                 With lpReturnValue
@@ -20137,8 +20132,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 619
                 With lpReturnValue
@@ -20174,8 +20169,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 620
                 With lpReturnValue
@@ -20211,8 +20206,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 621
                 With lpReturnValue
@@ -20248,8 +20243,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 622
                 With lpReturnValue
@@ -20285,8 +20280,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 623
                 With lpReturnValue
@@ -20322,8 +20317,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 624
                 With lpReturnValue
@@ -20359,8 +20354,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 625
                 With lpReturnValue
@@ -20396,8 +20391,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 626
                 With lpReturnValue
@@ -20433,8 +20428,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 627
                 With lpReturnValue
@@ -20470,8 +20465,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 628
                 With lpReturnValue
@@ -20507,8 +20502,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 629
                 With lpReturnValue
@@ -20544,8 +20539,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 630
                 With lpReturnValue
@@ -20581,8 +20576,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 631
                 With lpReturnValue
@@ -20618,8 +20613,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 632
                 With lpReturnValue
@@ -20655,8 +20650,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 633
                 With lpReturnValue
@@ -20692,8 +20687,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 634
                 With lpReturnValue
@@ -20729,8 +20724,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 635
                 With lpReturnValue
@@ -20766,8 +20761,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 636
                 With lpReturnValue
@@ -20803,8 +20798,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 637
                 With lpReturnValue
@@ -20840,8 +20835,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 638
                 With lpReturnValue
@@ -20877,8 +20872,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 639
                 With lpReturnValue
@@ -20914,8 +20909,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 640
                 With lpReturnValue
@@ -20951,8 +20946,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 641
                 With lpReturnValue
@@ -20988,8 +20983,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 642
                 With lpReturnValue
@@ -21025,8 +21020,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 643
                 With lpReturnValue
@@ -21062,8 +21057,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 644
                 With lpReturnValue
@@ -21099,8 +21094,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 645
                 With lpReturnValue
@@ -21136,8 +21131,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 646
                 With lpReturnValue
@@ -21173,8 +21168,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 647
                 With lpReturnValue
@@ -21210,8 +21205,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 648
                 With lpReturnValue
@@ -21247,8 +21242,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 649
                 With lpReturnValue
@@ -21284,8 +21279,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 650
                 With lpReturnValue
@@ -21321,8 +21316,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 651
                 With lpReturnValue
@@ -21358,8 +21353,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 652
                 With lpReturnValue
@@ -21395,8 +21390,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 653
                 With lpReturnValue
@@ -21432,8 +21427,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 654
                 With lpReturnValue
@@ -21469,8 +21464,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 655
                 With lpReturnValue
@@ -21506,8 +21501,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 656
                 With lpReturnValue
@@ -21543,8 +21538,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 657
                 With lpReturnValue
@@ -21580,8 +21575,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 658
                 With lpReturnValue
@@ -21617,8 +21612,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 659
                 With lpReturnValue
@@ -21654,8 +21649,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 660
                 With lpReturnValue
@@ -21691,8 +21686,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 661
                 With lpReturnValue
@@ -21728,8 +21723,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 662
                 With lpReturnValue
@@ -21765,8 +21760,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 663
                 With lpReturnValue
@@ -21802,8 +21797,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 664
                 With lpReturnValue
@@ -21839,8 +21834,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 665
                 With lpReturnValue
@@ -21876,8 +21871,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 666
                 With lpReturnValue
@@ -21913,8 +21908,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 667
                 With lpReturnValue
@@ -21950,8 +21945,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 668
                 With lpReturnValue
@@ -21987,8 +21982,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".01.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 669
                 With lpReturnValue
@@ -22024,8 +22019,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 670
                 With lpReturnValue
@@ -22061,8 +22056,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 671
                 With lpReturnValue
@@ -22098,8 +22093,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 672
                 With lpReturnValue
@@ -22135,8 +22130,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 673
                 With lpReturnValue
@@ -22172,8 +22167,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 674
                 With lpReturnValue
@@ -22209,8 +22204,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 675
                 With lpReturnValue
@@ -22246,8 +22241,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 676
                 With lpReturnValue
@@ -22283,8 +22278,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 677
                 With lpReturnValue
@@ -22320,8 +22315,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 678
                 With lpReturnValue
@@ -22357,8 +22352,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".01.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 679
                 With lpReturnValue
@@ -22394,8 +22389,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 680
                 With lpReturnValue
@@ -22431,8 +22426,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 681
                 With lpReturnValue
@@ -22468,8 +22463,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 682
                 With lpReturnValue
@@ -22505,8 +22500,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 683
                 With lpReturnValue
@@ -22542,8 +22537,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 684
                 With lpReturnValue
@@ -22579,8 +22574,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 685
                 With lpReturnValue
@@ -22616,8 +22611,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 686
                 With lpReturnValue
@@ -22653,8 +22648,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 687
                 With lpReturnValue
@@ -22690,8 +22685,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 688
                 With lpReturnValue
@@ -22727,8 +22722,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 689
                 With lpReturnValue
@@ -22764,8 +22759,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 690
                 With lpReturnValue
@@ -22801,8 +22796,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 691
                 With lpReturnValue
@@ -22838,8 +22833,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 692
                 With lpReturnValue
@@ -22875,8 +22870,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 693
                 With lpReturnValue
@@ -22912,8 +22907,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 694
                 With lpReturnValue
@@ -22949,8 +22944,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 695
                 With lpReturnValue
@@ -22986,8 +22981,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 696
                 With lpReturnValue
@@ -23023,8 +23018,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 697
                 With lpReturnValue
@@ -23060,8 +23055,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 698
                 With lpReturnValue
@@ -23097,8 +23092,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 699
                 With lpReturnValue
@@ -23134,8 +23129,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 700
                 With lpReturnValue
@@ -23171,8 +23166,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 701
                 With lpReturnValue
@@ -23208,8 +23203,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 702
                 With lpReturnValue
@@ -23245,8 +23240,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 703
                 With lpReturnValue
@@ -23282,8 +23277,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 704
                 With lpReturnValue
@@ -23319,8 +23314,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 705
                 With lpReturnValue
@@ -23356,8 +23351,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 706
                 With lpReturnValue
@@ -23393,8 +23388,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 707
                 With lpReturnValue
@@ -23430,8 +23425,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 708
                 With lpReturnValue
@@ -23467,8 +23462,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 709
                 With lpReturnValue
@@ -23504,8 +23499,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 710
                 With lpReturnValue
@@ -23541,8 +23536,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 711
                 With lpReturnValue
@@ -23578,8 +23573,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 712
                 With lpReturnValue
@@ -23615,8 +23610,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 713
                 With lpReturnValue
@@ -23652,8 +23647,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 714
                 With lpReturnValue
@@ -23689,8 +23684,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 715
                 With lpReturnValue
@@ -23726,8 +23721,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 716
                 With lpReturnValue
@@ -23763,8 +23758,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 717
                 With lpReturnValue
@@ -23800,8 +23795,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 718
                 With lpReturnValue
@@ -23837,8 +23832,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 719
                 With lpReturnValue
@@ -23874,8 +23869,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".00.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/719.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -23930,8 +23925,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 721
                 With lpReturnValue
@@ -23967,8 +23962,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case Else
                 lpReturnValue = GetPokemonInformationSM(lpPokemonNationalDexNumber)
@@ -24008,10 +24003,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -24096,8 +24091,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 723
                 With lpReturnValue
@@ -24133,8 +24128,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 724
                 With lpReturnValue
@@ -24170,8 +24165,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 725
                 With lpReturnValue
@@ -24207,8 +24202,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 726
                 With lpReturnValue
@@ -24244,8 +24239,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 727
                 With lpReturnValue
@@ -24281,8 +24276,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 728
                 With lpReturnValue
@@ -24318,8 +24313,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 729
                 With lpReturnValue
@@ -24355,8 +24350,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 730
                 With lpReturnValue
@@ -24392,8 +24387,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 731
                 With lpReturnValue
@@ -24429,8 +24424,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 732
                 With lpReturnValue
@@ -24466,8 +24461,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 733
                 With lpReturnValue
@@ -24503,8 +24498,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 734
                 With lpReturnValue
@@ -24540,8 +24535,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 735
                 With lpReturnValue
@@ -24577,8 +24572,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 736
                 With lpReturnValue
@@ -24614,8 +24609,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 737
                 With lpReturnValue
@@ -24651,8 +24646,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 738
                 With lpReturnValue
@@ -24688,8 +24683,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 739
                 With lpReturnValue
@@ -24725,8 +24720,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 740
                 With lpReturnValue
@@ -24762,8 +24757,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 741
                 With lpReturnValue
@@ -24799,8 +24794,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 742
                 With lpReturnValue
@@ -24836,8 +24831,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 743
                 With lpReturnValue
@@ -24872,8 +24867,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 744
                 With lpReturnValue
@@ -24909,8 +24904,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 745
                 With lpReturnValue
@@ -24946,8 +24941,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 746
                 With lpReturnValue
@@ -24983,8 +24978,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 747
                 With lpReturnValue
@@ -25020,8 +25015,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 748
                 With lpReturnValue
@@ -25057,8 +25052,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 749
                 With lpReturnValue
@@ -25094,8 +25089,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 750
                 With lpReturnValue
@@ -25131,8 +25126,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 751
                 With lpReturnValue
@@ -25168,8 +25163,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 752
                 With lpReturnValue
@@ -25205,8 +25200,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 753
                 With lpReturnValue
@@ -25242,8 +25237,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 754
                 With lpReturnValue
@@ -25279,8 +25274,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 755
                 With lpReturnValue
@@ -25316,8 +25311,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 756
                 With lpReturnValue
@@ -25353,8 +25348,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 757
                 With lpReturnValue
@@ -25390,8 +25385,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 758
                 With lpReturnValue
@@ -25427,8 +25422,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 759
                 With lpReturnValue
@@ -25464,8 +25459,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 760
                 With lpReturnValue
@@ -25501,8 +25496,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 761
                 With lpReturnValue
@@ -25538,8 +25533,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 762
                 With lpReturnValue
@@ -25575,8 +25570,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 763
                 With lpReturnValue
@@ -25612,8 +25607,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 764
                 With lpReturnValue
@@ -25649,8 +25644,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 765
                 With lpReturnValue
@@ -25686,8 +25681,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 766
                 With lpReturnValue
@@ -25723,8 +25718,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 767
                 With lpReturnValue
@@ -25760,8 +25755,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 768
                 With lpReturnValue
@@ -27269,10 +27264,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -27357,8 +27352,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 388
                 With lpReturnValue
@@ -27394,8 +27389,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 389
                 With lpReturnValue
@@ -27431,8 +27426,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 390
                 With lpReturnValue
@@ -27468,8 +27463,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 391
                 With lpReturnValue
@@ -27505,8 +27500,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 392
                 With lpReturnValue
@@ -27542,8 +27537,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 393
                 With lpReturnValue
@@ -27579,8 +27574,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 394
                 With lpReturnValue
@@ -27616,8 +27611,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 395
                 With lpReturnValue
@@ -27653,8 +27648,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 396
                 With lpReturnValue
@@ -27690,8 +27685,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 397
                 With lpReturnValue
@@ -27727,8 +27722,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 398
                 With lpReturnValue
@@ -27764,8 +27759,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 399
                 With lpReturnValue
@@ -27801,8 +27796,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 400
                 With lpReturnValue
@@ -27838,8 +27833,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 401
                 With lpReturnValue
@@ -27875,8 +27870,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 402
                 With lpReturnValue
@@ -27912,8 +27907,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 403
                 With lpReturnValue
@@ -27949,8 +27944,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 404
                 With lpReturnValue
@@ -27986,8 +27981,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 405
                 With lpReturnValue
@@ -28023,8 +28018,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 406
                 With lpReturnValue
@@ -28060,8 +28055,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 407
                 With lpReturnValue
@@ -28097,8 +28092,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 408
                 With lpReturnValue
@@ -28134,8 +28129,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 409
                 With lpReturnValue
@@ -28171,8 +28166,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 410
                 With lpReturnValue
@@ -28208,8 +28203,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 411
                 With lpReturnValue
@@ -28245,8 +28240,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 412
                 With lpReturnValue
@@ -28282,8 +28277,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 413
                 With lpReturnValue
@@ -28319,8 +28314,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 414
                 With lpReturnValue
@@ -28356,8 +28351,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 415
                 With lpReturnValue
@@ -28393,8 +28388,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 416
                 With lpReturnValue
@@ -28430,8 +28425,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 417
                 With lpReturnValue
@@ -28467,8 +28462,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 418
                 With lpReturnValue
@@ -28504,8 +28499,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 419
                 With lpReturnValue
@@ -28541,8 +28536,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 420
                 With lpReturnValue
@@ -28578,8 +28573,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 421
                 With lpReturnValue
@@ -28615,8 +28610,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 422
                 With lpReturnValue
@@ -28652,8 +28647,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 423
                 With lpReturnValue
@@ -28689,8 +28684,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 424
                 With lpReturnValue
@@ -28726,8 +28721,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 425
                 With lpReturnValue
@@ -28763,8 +28758,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 426
                 With lpReturnValue
@@ -28800,8 +28795,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 427
                 With lpReturnValue
@@ -28837,8 +28832,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 428
                 With lpReturnValue
@@ -28874,8 +28869,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/428.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -28930,8 +28925,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 430
                 With lpReturnValue
@@ -28967,8 +28962,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 431
                 With lpReturnValue
@@ -29004,8 +28999,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 432
                 With lpReturnValue
@@ -29041,8 +29036,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 433
                 With lpReturnValue
@@ -29078,8 +29073,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 434
                 With lpReturnValue
@@ -29115,8 +29110,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 435
                 With lpReturnValue
@@ -29152,8 +29147,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 436
                 With lpReturnValue
@@ -29189,8 +29184,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 437
                 With lpReturnValue
@@ -29226,8 +29221,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 438
                 With lpReturnValue
@@ -29263,8 +29258,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 439
                 With lpReturnValue
@@ -29300,8 +29295,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 440
                 With lpReturnValue
@@ -29337,8 +29332,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 441
                 With lpReturnValue
@@ -29374,8 +29369,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 442
                 With lpReturnValue
@@ -29411,8 +29406,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 443
                 With lpReturnValue
@@ -29448,8 +29443,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 444
                 With lpReturnValue
@@ -29485,8 +29480,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 445
                 With lpReturnValue
@@ -29577,8 +29572,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 447
                 With lpReturnValue
@@ -29614,8 +29609,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 448
                 With lpReturnValue
@@ -29706,8 +29701,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 450
                 With lpReturnValue
@@ -29743,8 +29738,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 451
                 With lpReturnValue
@@ -29780,8 +29775,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 452
                 With lpReturnValue
@@ -29817,8 +29812,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 453
                 With lpReturnValue
@@ -29854,8 +29849,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 454
                 With lpReturnValue
@@ -29891,8 +29886,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 455
                 With lpReturnValue
@@ -29928,8 +29923,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 456
                 With lpReturnValue
@@ -29965,8 +29960,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 457
                 With lpReturnValue
@@ -30002,8 +29997,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 458
                 With lpReturnValue
@@ -30039,8 +30034,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 459
                 With lpReturnValue
@@ -30076,8 +30071,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 460
                 With lpReturnValue
@@ -30168,8 +30163,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 462
                 With lpReturnValue
@@ -30205,8 +30200,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 463
                 With lpReturnValue
@@ -30242,8 +30237,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 464
                 With lpReturnValue
@@ -30279,8 +30274,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 465
                 With lpReturnValue
@@ -30316,8 +30311,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 466
                 With lpReturnValue
@@ -30353,8 +30348,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 467
                 With lpReturnValue
@@ -30390,8 +30385,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 468
                 With lpReturnValue
@@ -30427,8 +30422,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 469
                 With lpReturnValue
@@ -30464,8 +30459,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 470
                 With lpReturnValue
@@ -30501,8 +30496,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 471
                 With lpReturnValue
@@ -30538,8 +30533,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 472
                 With lpReturnValue
@@ -30575,8 +30570,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 473
                 With lpReturnValue
@@ -30612,8 +30607,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 474
                 With lpReturnValue
@@ -30649,8 +30644,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 475
                 With lpReturnValue
@@ -30686,8 +30681,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                     StateInformation(0).lpImagePath = "/Pokemons/475.01.png"
                     With StateInformation(0)
                         .IsUniqueDescriptionAvailable = False
@@ -30742,8 +30737,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 477
                 With lpReturnValue
@@ -30779,8 +30774,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 478
                 With lpReturnValue
@@ -30816,8 +30811,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 479
                 With lpReturnValue
@@ -30853,8 +30848,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 480
                 With lpReturnValue
@@ -30890,8 +30885,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 481
                 With lpReturnValue
@@ -30927,8 +30922,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 482
                 With lpReturnValue
@@ -30964,8 +30959,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 483
                 With lpReturnValue
@@ -31001,8 +30996,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 484
                 With lpReturnValue
@@ -31038,8 +31033,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 485
                 With lpReturnValue
@@ -31075,8 +31070,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 486
                 With lpReturnValue
@@ -31112,8 +31107,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 487
                 With lpReturnValue
@@ -31149,8 +31144,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 488
                 With lpReturnValue
@@ -31186,8 +31181,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 489
                 With lpReturnValue
@@ -31223,8 +31218,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 490
                 With lpReturnValue
@@ -31260,8 +31255,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 491
                 With lpReturnValue
@@ -31297,8 +31292,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 492
                 With lpReturnValue
@@ -31334,8 +31329,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 493
                 With lpReturnValue
@@ -31371,8 +31366,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case Else
                 lpReturnValue = GetPokemonInformationBWXY(lpPokemonNationalDexNumber)
@@ -31412,10 +31407,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -31501,8 +31496,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 811
                 With lpReturnValue
@@ -31538,8 +31533,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 812
                 With lpReturnValue
@@ -31575,8 +31570,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 813
                 With lpReturnValue
@@ -31612,8 +31607,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 814
                 With lpReturnValue
@@ -31649,8 +31644,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 815
                 With lpReturnValue
@@ -31686,8 +31681,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 816
                 With lpReturnValue
@@ -31723,8 +31718,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 817
                 With lpReturnValue
@@ -31760,8 +31755,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 818
                 With lpReturnValue
@@ -31797,8 +31792,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 819
                 With lpReturnValue
@@ -31834,8 +31829,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 820
                 With lpReturnValue
@@ -31871,8 +31866,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 821
                 With lpReturnValue
@@ -31908,8 +31903,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 822
                 With lpReturnValue
@@ -31945,8 +31940,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 823
                 With lpReturnValue
@@ -31982,8 +31977,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 824
                 With lpReturnValue
@@ -32019,8 +32014,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 825
                 With lpReturnValue
@@ -32056,8 +32051,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 826
                 With lpReturnValue
@@ -32093,8 +32088,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 827
                 With lpReturnValue
@@ -32130,8 +32125,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 828
                 With lpReturnValue
@@ -32167,8 +32162,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 829
                 With lpReturnValue
@@ -32204,8 +32199,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 830
                 With lpReturnValue
@@ -32241,8 +32236,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 831
                 With lpReturnValue
@@ -32278,8 +32273,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 832
                 With lpReturnValue
@@ -32315,8 +32310,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 833
                 With lpReturnValue
@@ -32352,8 +32347,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 834
                 With lpReturnValue
@@ -32389,8 +32384,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 835
                 With lpReturnValue
@@ -32426,8 +32421,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 836
                 With lpReturnValue
@@ -32463,8 +32458,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 837
                 With lpReturnValue
@@ -32500,8 +32495,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 838
                 With lpReturnValue
@@ -32537,8 +32532,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 839
                 With lpReturnValue
@@ -32574,8 +32569,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 840
                 With lpReturnValue
@@ -32611,8 +32606,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 841
                 With lpReturnValue
@@ -32648,8 +32643,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 842
                 With lpReturnValue
@@ -32685,8 +32680,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 843
                 With lpReturnValue
@@ -32722,8 +32717,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 844
                 With lpReturnValue
@@ -32759,8 +32754,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 845
                 With lpReturnValue
@@ -32796,8 +32791,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 846
                 With lpReturnValue
@@ -32833,8 +32828,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 847
                 With lpReturnValue
@@ -32870,8 +32865,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 848
                 With lpReturnValue
@@ -32907,8 +32902,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 849
                 With lpReturnValue
@@ -32944,8 +32939,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 850
                 With lpReturnValue
@@ -32981,8 +32976,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 851
                 With lpReturnValue
@@ -33018,8 +33013,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 852
                 With lpReturnValue
@@ -33055,8 +33050,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 853
                 With lpReturnValue
@@ -33092,8 +33087,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 854
                 With lpReturnValue
@@ -33129,8 +33124,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 855
                 With lpReturnValue
@@ -33166,8 +33161,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 856
                 With lpReturnValue
@@ -33203,8 +33198,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 857
                 With lpReturnValue
@@ -33240,8 +33235,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 858
                 With lpReturnValue
@@ -33277,8 +33272,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 859
                 With lpReturnValue
@@ -33314,8 +33309,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 860
                 With lpReturnValue
@@ -33351,8 +33346,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 861
                 With lpReturnValue
@@ -33388,8 +33383,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 862
                 With lpReturnValue
@@ -33425,8 +33420,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 863
                 With lpReturnValue
@@ -33462,8 +33457,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 864
                 With lpReturnValue
@@ -33499,8 +33494,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 865
                 With lpReturnValue
@@ -33536,8 +33531,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 866
                 With lpReturnValue
@@ -33573,8 +33568,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 867
                 With lpReturnValue
@@ -33610,8 +33605,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 868
                 With lpReturnValue
@@ -33647,8 +33642,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 869
                 With lpReturnValue
@@ -33684,8 +33679,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 870
                 With lpReturnValue
@@ -33721,8 +33716,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 871
                 With lpReturnValue
@@ -33758,8 +33753,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 872
                 With lpReturnValue
@@ -33795,8 +33790,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 873
                 With lpReturnValue
@@ -33832,8 +33827,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 874
                 With lpReturnValue
@@ -33869,8 +33864,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 875
                 With lpReturnValue
@@ -33906,8 +33901,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 876
                 With lpReturnValue
@@ -33943,8 +33938,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 877
                 With lpReturnValue
@@ -33980,8 +33975,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 878
                 With lpReturnValue
@@ -34017,8 +34012,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 879
                 With lpReturnValue
@@ -34054,8 +34049,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 880
                 With lpReturnValue
@@ -34091,8 +34086,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 881
                 With lpReturnValue
@@ -34128,8 +34123,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 882
                 With lpReturnValue
@@ -34165,8 +34160,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 883
                 With lpReturnValue
@@ -34202,8 +34197,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 884
                 With lpReturnValue
@@ -34239,8 +34234,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 885
                 With lpReturnValue
@@ -34276,8 +34271,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 886
                 With lpReturnValue
@@ -34313,8 +34308,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 887
                 With lpReturnValue
@@ -34350,8 +34345,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 888
                 With lpReturnValue
@@ -34387,8 +34382,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 889
                 With lpReturnValue
@@ -34424,8 +34419,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 890
                 With lpReturnValue
@@ -34461,8 +34456,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 891
                 With lpReturnValue
@@ -34498,8 +34493,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 892
                 With lpReturnValue
@@ -34535,8 +34530,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 893
                 With lpReturnValue
@@ -34572,8 +34567,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 894
                 With lpReturnValue
@@ -34609,8 +34604,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 895
                 With lpReturnValue
@@ -34646,8 +34641,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 896
                 With lpReturnValue
@@ -34683,8 +34678,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 897
                 With lpReturnValue
@@ -34720,8 +34715,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 898
                 With lpReturnValue
@@ -34757,8 +34752,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 899
                 With lpReturnValue
@@ -34794,8 +34789,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 900
                 With lpReturnValue
@@ -34831,8 +34826,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 901
                 With lpReturnValue
@@ -34868,8 +34863,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 902
                 With lpReturnValue
@@ -34905,8 +34900,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 903
                 With lpReturnValue
@@ -34942,8 +34937,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 904
                 With lpReturnValue
@@ -34979,8 +34974,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 905
                 With lpReturnValue
@@ -35016,8 +35011,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
         End Select
         Return lpReturnValue
@@ -35055,10 +35050,10 @@
                 .lpEggGroup1 = "ERROR"
                 .lpFullLevelExpPoint = "ERROR"
                 .lpHeight = "ERROR"
-                .lpImageFemaleUri = POKEMON_NO_IMAGE
-                .lpImageMaleUri = POKEMON_NO_IMAGE
-                StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                .lpImageFemaleUri = DefaultPokemonImagePath
+                .lpImageMaleUri = DefaultPokemonImagePath
+                StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 .lpNumber = "000"
                 .lpSexRatio = "ERROR"
                 .lpSheleter = "ERROR"
@@ -35144,8 +35139,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 907
                 With lpReturnValue
@@ -35181,8 +35176,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 908
                 With lpReturnValue
@@ -35218,8 +35213,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 909
                 With lpReturnValue
@@ -35255,8 +35250,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 910
                 With lpReturnValue
@@ -35292,8 +35287,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 911
                 With lpReturnValue
@@ -35329,8 +35324,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 912
                 With lpReturnValue
@@ -35366,8 +35361,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 913
                 With lpReturnValue
@@ -35403,8 +35398,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 914
                 With lpReturnValue
@@ -35440,8 +35435,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 915
                 With lpReturnValue
@@ -35477,8 +35472,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 916
                 With lpReturnValue
@@ -35514,8 +35509,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & "F.png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 917
                 With lpReturnValue
@@ -35551,8 +35546,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 918
                 With lpReturnValue
@@ -35588,8 +35583,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 919
                 With lpReturnValue
@@ -35625,8 +35620,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 920
                 With lpReturnValue
@@ -35662,8 +35657,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 921
                 With lpReturnValue
@@ -35699,8 +35694,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 922
                 With lpReturnValue
@@ -35736,8 +35731,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 923
                 With lpReturnValue
@@ -35773,8 +35768,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 924
                 With lpReturnValue
@@ -35810,8 +35805,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 925
                 With lpReturnValue
@@ -35847,8 +35842,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 926
                 With lpReturnValue
@@ -35884,8 +35879,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 927
                 With lpReturnValue
@@ -35921,8 +35916,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 928
                 With lpReturnValue
@@ -35958,8 +35953,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 929
                 With lpReturnValue
@@ -35995,8 +35990,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 930
                 With lpReturnValue
@@ -36032,8 +36027,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 931
                 With lpReturnValue
@@ -36069,8 +36064,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 932
                 With lpReturnValue
@@ -36106,8 +36101,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 933
                 With lpReturnValue
@@ -36143,8 +36138,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 934
                 With lpReturnValue
@@ -36180,8 +36175,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 935
                 With lpReturnValue
@@ -36217,8 +36212,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 936
                 With lpReturnValue
@@ -36254,8 +36249,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 937
                 With lpReturnValue
@@ -36291,8 +36286,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 938
                 With lpReturnValue
@@ -36328,8 +36323,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 939
                 With lpReturnValue
@@ -36365,8 +36360,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 940
                 With lpReturnValue
@@ -36402,8 +36397,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 941
                 With lpReturnValue
@@ -36439,8 +36434,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 942
                 With lpReturnValue
@@ -36476,8 +36471,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 943
                 With lpReturnValue
@@ -36513,8 +36508,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 944
                 With lpReturnValue
@@ -36550,8 +36545,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 945
                 With lpReturnValue
@@ -36587,8 +36582,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 946
                 With lpReturnValue
@@ -36624,8 +36619,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 947
                 With lpReturnValue
@@ -36661,8 +36656,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 948
                 With lpReturnValue
@@ -36698,8 +36693,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 949
                 With lpReturnValue
@@ -36735,8 +36730,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 950
                 With lpReturnValue
@@ -36772,8 +36767,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 951
                 With lpReturnValue
@@ -36809,8 +36804,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 952
                 With lpReturnValue
@@ -36846,8 +36841,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 953
                 With lpReturnValue
@@ -36883,8 +36878,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 954
                 With lpReturnValue
@@ -36920,8 +36915,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 955
                 With lpReturnValue
@@ -36957,8 +36952,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 956
                 With lpReturnValue
@@ -36994,8 +36989,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 957
                 With lpReturnValue
@@ -37031,8 +37026,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 958
                 With lpReturnValue
@@ -37068,8 +37063,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 959
                 With lpReturnValue
@@ -37105,8 +37100,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 960
                 With lpReturnValue
@@ -37142,8 +37137,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 961
                 With lpReturnValue
@@ -37179,8 +37174,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 962
                 With lpReturnValue
@@ -37216,8 +37211,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 963
                 With lpReturnValue
@@ -37253,8 +37248,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 964
                 With lpReturnValue
@@ -37290,8 +37285,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 965
                 With lpReturnValue
@@ -37327,8 +37322,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 966
                 With lpReturnValue
@@ -37364,8 +37359,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 967
                 With lpReturnValue
@@ -37401,8 +37396,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 968
                 With lpReturnValue
@@ -37438,8 +37433,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 969
                 With lpReturnValue
@@ -37475,8 +37470,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 970
                 With lpReturnValue
@@ -37512,8 +37507,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 971
                 With lpReturnValue
@@ -37549,8 +37544,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 972
                 With lpReturnValue
@@ -37586,8 +37581,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 973
                 With lpReturnValue
@@ -37623,8 +37618,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 974
                 With lpReturnValue
@@ -37660,8 +37655,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 975
                 With lpReturnValue
@@ -37697,8 +37692,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 976
                 With lpReturnValue
@@ -37734,8 +37729,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 977
                 With lpReturnValue
@@ -37771,8 +37766,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 978
                 With lpReturnValue
@@ -37808,8 +37803,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 979
                 With lpReturnValue
@@ -37845,8 +37840,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 980
                 With lpReturnValue
@@ -37882,8 +37877,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 981
                 With lpReturnValue
@@ -37919,8 +37914,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 982
                 With lpReturnValue
@@ -37956,8 +37951,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 983
                 With lpReturnValue
@@ -37993,8 +37988,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 984
                 With lpReturnValue
@@ -38030,8 +38025,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 985
                 With lpReturnValue
@@ -38067,8 +38062,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 986
                 With lpReturnValue
@@ -38104,8 +38099,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 987
                 With lpReturnValue
@@ -38141,8 +38136,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 988
                 With lpReturnValue
@@ -38178,8 +38173,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 989
                 With lpReturnValue
@@ -38215,8 +38210,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 990
                 With lpReturnValue
@@ -38252,8 +38247,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 991
                 With lpReturnValue
@@ -38289,8 +38284,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 992
                 With lpReturnValue
@@ -38326,8 +38321,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 993
                 With lpReturnValue
@@ -38363,8 +38358,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 994
                 With lpReturnValue
@@ -38400,8 +38395,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 995
                 With lpReturnValue
@@ -38437,8 +38432,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 996
                 With lpReturnValue
@@ -38474,8 +38469,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 997
                 With lpReturnValue
@@ -38511,8 +38506,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 998
                 With lpReturnValue
@@ -38548,8 +38543,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 999
                 With lpReturnValue
@@ -38585,8 +38580,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1000
                 With lpReturnValue
@@ -38622,8 +38617,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1001
                 With lpReturnValue
@@ -38659,8 +38654,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1002
                 With lpReturnValue
@@ -38696,8 +38691,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1003
                 With lpReturnValue
@@ -38733,8 +38728,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1004
                 With lpReturnValue
@@ -38770,8 +38765,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1005
                 With lpReturnValue
@@ -38807,8 +38802,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1006
                 With lpReturnValue
@@ -38844,8 +38839,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1007
                 With lpReturnValue
@@ -38881,8 +38876,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
             Case 1008
                 With lpReturnValue
@@ -38918,8 +38913,8 @@
                     End With
                     .lpImageMaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
                     .lpImageFemaleUri = "/Pokemons/" & lpPokemonNationalDexNumber & ".png"
-                    StateInformation(0).lpImagePath = POKEMON_NO_IMAGE
-                    StateInformation(1).lpImagePath = POKEMON_NO_IMAGE
+                    StateInformation(0).lpImagePath = DefaultPokemonImagePath
+                    StateInformation(1).lpImagePath = DefaultPokemonImagePath
                 End With
         End Select
         Return lpReturnValue
