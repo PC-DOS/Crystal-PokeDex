@@ -54,7 +54,9 @@
                     	<LineBreak/>
                     	<Run Text="Bing 網典"/>
                     	<LineBreak/>
-                    	<Run Text="口袋百科 (wiki.52poke.com)"/>
+                    	<Run Text="口袋百科"/>
+                    	<LineBreak/>
+                    	<Run Text="神奇寶貝百科 (wiki.52poke.com)"/>
                     	<LineBreak/>
                     	<Run Text="Smogon University &amp; Smogon WP"/>
                     	<LineBreak/>

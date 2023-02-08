@@ -90,7 +90,7 @@
                                 <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <TextBlock x:Name="txtSexRatio" Height="34" TextWrapping="Wrap" FontSize="25"/>
+                        <TextBlock x:Name="txtGenderRatio" Height="34" TextWrapping="Wrap" FontSize="25"/>
                         <TextBlock TextWrapping="Wrap" Text="棲息地" FontSize="20">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
@@ -102,7 +102,7 @@
                                 <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <TextBlock x:Name="txtClass" Height="34" TextWrapping="Wrap" FontSize="25"/>
+                        <TextBlock x:Name="txtCategory" Height="34" TextWrapping="Wrap" FontSize="25"/>
                         <ProgressBar x:Name="prgEXP" Visibility="Collapsed" />
                     </StackPanel>
                     <TextBox x:Name="txtDescription" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Background="Black" Foreground="#DEFFFFFF" FontSize="25">

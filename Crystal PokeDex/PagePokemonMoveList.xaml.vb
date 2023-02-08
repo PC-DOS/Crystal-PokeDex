@@ -29,6 +29,6 @@
     Private Sub PagePokemonMoveList_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         GeneratePokemonMovesNameListFormID()
         lstPokemonMoves.ItemsSource = PokemonMovesCanLearnName
-        lblName.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1)
+        lblName.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
     End Sub
 End Class

@@ -6,11 +6,11 @@
     End Sub
 
     Private Sub PageStateInfo_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        txtPMName.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1)
-        txtStateName.Text = SharedStateInformation.lpStateName
+        txtPMName.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
+        txtStateName.Text = SharedStateInformation.StateName
         Dim imgPokemonURI As Media.Imaging.BitmapImage
         imgPokemonURI = New Imaging.BitmapImage
-        imgPokemonURI.UriSource = New Uri(SharedStateInformation.lpImagePath, UriKind.RelativeOrAbsolute)
+        imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
         imgPokemon.Source = imgPokemonURI
         With ValueHP
             If .IsSystemAccent Then
@@ -118,11 +118,11 @@
             End If
             If SharedStateInformation.IsUniqueDescriptionAvailable Then
                 txtDescription.Visibility = System.Windows.Visibility.Visible
-                txtDescription.Text = SharedStateInformation.lpUniqueDescription
+                txtDescription.Text = SharedStateInformation.UniqueDescription
             Else
                 txtDescription.Visibility = System.Windows.Visibility.Collapsed
             End If
-            With SharedStateInformation.lpBaseStatsValues
+            With SharedStateInformation.SpeciesStrengthValues
                 txtSVATK.Text = .ATTACK.ToString
                 txtSVDEF.Text = .DEFEND.ToString
                 txtSVHP.Text = .HP.ToString
@@ -132,8 +132,8 @@
                 txtSVT.Text = .TOTAL.ToString
             End With
             With SharedStateInformation
-                txtType.Text = .lpType
-                Dim PMType As TypeData = ParseTypeString(.lpType)
+                txtType.Text = .Type
+                Dim PMType As TypeData = ParseTypeString(.Type)
                 If PMType.IsType2Available Then
                     gridType2.Visibility = System.Windows.Visibility.Visible
                     txtType1.Text = PMType.TypeString1
@@ -145,24 +145,24 @@
                     txtType1.Text = PMType.TypeString1
                     gridType1.Background = New SolidColorBrush(Color.FromArgb(255, PMType.TypeColor1.Red, PMType.TypeColor1.Green, PMType.TypeColor1.Blue))
                 End If
-                txtHeight.Text = .lpHeight
-                txtWeight.Text = .lpWeight
-                If .lpAbility1 <> "---" And .lpAbility1 <> "ERROR" Then
-                    txtAbility1.Text = CurrentAbility(CInt(.lpAbility1) - 1)
+                txtHeight.Text = .Height
+                txtWeight.Text = .Weight
+                If .Ability1 <> "---" And .Ability1 <> "ERROR" Then
+                    txtAbility1.Text = CurrentAbility(CInt(.Ability1) - 1)
                 Else
-                    txtAbility1.Text = .lpAbility1
+                    txtAbility1.Text = .Ability1
                 End If
-                If .lpAbility2 <> "---" And .lpAbility2 <> "ERROR" Then
-                    txtAbility2.Text = CurrentAbility(CInt(.lpAbility2) - 1)
+                If .Ability2 <> "---" And .Ability2 <> "ERROR" Then
+                    txtAbility2.Text = CurrentAbility(CInt(.Ability2) - 1)
                 Else
-                    txtAbility2.Text = .lpAbility2
+                    txtAbility2.Text = .Ability2
                 End If
-                If .lpAbilityHidden <> "---" And .lpAbilityHidden <> "ERROR" Then
-                    txtAbility3.Text = CurrentAbility(CInt(.lpAbilityHidden) - 1)
+                If .AbilityHidden <> "---" And .AbilityHidden <> "ERROR" Then
+                    txtAbility3.Text = CurrentAbility(CInt(.AbilityHidden) - 1)
                 Else
-                    txtAbility3.Text = .lpAbilityHidden
+                    txtAbility3.Text = .AbilityHidden
                 End If
-                With .lpBaseStatsValues
+                With .SpeciesStrengthValues
                     prgSVATK.Value = .ATTACK
                     prgSVDEF.Value = .DEFEND
                     prgSVHP.Value = .HP
@@ -176,26 +176,26 @@
         End With
     End Sub
 
-    
+
     Private Sub txtAbility1_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility1.Tap
         If txtAbility1.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(SharedStateInformation.lpAbility1 - 1), txtAbility1.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(SharedStateInformation.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtAbility2_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility2.Tap
         If txtAbility2.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(SharedStateInformation.lpAbility2 - 1), txtAbility2.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(SharedStateInformation.Ability2 - 1), txtAbility2.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtAbility3_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility3.Tap
         If txtAbility3.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(SharedStateInformation.lpAbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(SharedStateInformation.AbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtDescription_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtDescription.GotFocus
@@ -211,7 +211,7 @@
     End Sub
 
     Private Sub txtDescription_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtDescription.TextChanged
-        txtDescription.Text = SharedStateInformation.lpUniqueDescription
+        txtDescription.Text = SharedStateInformation.UniqueDescription
     End Sub
     Private Sub txtDescription_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtDescription.TextInput
         e.Handled = True

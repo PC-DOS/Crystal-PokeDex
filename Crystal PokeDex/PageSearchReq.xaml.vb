@@ -49,49 +49,49 @@
         Select Case PokemonSearchRequest
             Case PokemonSearchRequestLanguages.PokemonNameCHS
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameCHS
+                    .SearchQuery = PokemonInformationShared.NameCHS
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameCHT
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameCHT
+                    .SearchQuery = PokemonInformationShared.NameCHT
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameENG
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameENG
+                    .SearchQuery = PokemonInformationShared.NameENG
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameKOR
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameKOR
+                    .SearchQuery = PokemonInformationShared.NameKOR
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameJPN
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameJPN
+                    .SearchQuery = PokemonInformationShared.NameJPN
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameCHSO
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameCHSO
+                    .SearchQuery = PokemonInformationShared.NameCHSO
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case PokemonSearchRequestLanguages.PokemonNameCHTO
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameCHTO
+                    .SearchQuery = PokemonInformationShared.NameCHTO
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case Else
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.lpNameCHT
+                    .SearchQuery = PokemonInformationShared.NameCHT
                     .Show()
                 End With
                 NavigationService.GoBack()

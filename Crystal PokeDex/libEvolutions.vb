@@ -7,12 +7,12 @@
     Public EvoluteToNumers As New List(Of String) '使用"<FROM>"、"<TO>"區分是進化來源還是進化目標
     Public Const EvolutionDestNumberSuffix As String = "<TO>"
     Public Const EvolutionSrcNumberSuffix As String = "<FROM>"
-    Public Sub GenerateEvolutionData(lpPokemonNumber As Integer)
+    Public Sub GenerateEvolutionData(PokemonNationalDexNumberToQuery As Integer)
         IsEvolutionsAvailable = False
         EvoluteToNumers.Clear()
         EvolutionRoutins.Clear()
         '建立單向的進化目標清單
-        GenerateSingleLinkEvolutionData(lpPokemonNumber)
+        GenerateSingleLinkEvolutionData(PokemonNationalDexNumberToQuery)
         If IsEvolutionsAvailableTemp Then
             IsEvolutionsAvailable = True
             For i As Integer = 0 To EvolutionRoutinsTemp.Count - 1
@@ -22,13 +22,13 @@
         End If
         '反向檢查受否存在以當前神奇寶貝為目標的進化項目
         For i As Integer = 1 To CurrentPokemonCount
-            If i = lpPokemonNumber Then
+            If i = PokemonNationalDexNumberToQuery Then
                 Continue For
             End If
             GenerateSingleLinkEvolutionData(i)
             If IsEvolutionsAvailableTemp Then
                 For j As Integer = 0 To EvolutionRoutinsTemp.Count - 1
-                    If CInt(EvoluteToNumersTemp(j)) = lpPokemonNumber Then
+                    If CInt(EvoluteToNumersTemp(j)) = PokemonNationalDexNumberToQuery Then
                         IsEvolutionsAvailable = True
                         EvolutionRoutins.Add("[" & CurrentTranslationForCommonUse(i - 1) & "] " & EvolutionRoutinsTemp(j))
                         EvoluteToNumers.Add(EvolutionSrcNumberSuffix & i.ToString("D3"))
@@ -37,23 +37,23 @@
             End If
         Next
     End Sub
-    Private Sub GenerateSingleLinkEvolutionData(lpPokemonNumber As Integer)
+    Private Sub GenerateSingleLinkEvolutionData(PokemonNationalDexNumberToQuery As Integer)
         IsEvolutionsAvailableTemp = False
         EvoluteToNumersTemp.Clear()
         EvolutionRoutinsTemp.Clear()
-        If lpPokemonNumber <= TotalPokemonCountPerVersion.SM Then
-            GenerateSingleLinkEvolutionDataPreSS(lpPokemonNumber)
-        ElseIf lpPokemonNumber <= TotalPokemonCountPerVersion.SV Then
-            GenerateSingleLinkEvolutionDataSSSV(lpPokemonNumber)
-            'ElseIf lpPokemonNumber <= {$SS_PMINDEX_MAX} Then
-            'GenerateSingleLinkEvolutionDataSS(lpPokemonNumber)
+        If PokemonNationalDexNumberToQuery <= TotalPokemonCountPerVersion.SM Then
+            GenerateSingleLinkEvolutionDataPreSS(PokemonNationalDexNumberToQuery)
+        ElseIf PokemonNationalDexNumberToQuery <= TotalPokemonCountPerVersion.SV Then
+            GenerateSingleLinkEvolutionDataSSSV(PokemonNationalDexNumberToQuery)
+            'ElseIf PokemonNationalDexNumberToQuery <= {$SS_PMINDEX_MAX} Then
+            'GenerateSingleLinkEvolutionDataSS(PokemonNationalDexNumberToQuery)
         End If
     End Sub
-    Private Sub GenerateSingleLinkEvolutionDataPreSS(lpPokemonNumber As Integer)
+    Private Sub GenerateSingleLinkEvolutionDataPreSS(PokemonNationalDexNumberToQuery As Integer)
         IsEvolutionsAvailableTemp = False
         EvoluteToNumersTemp.Clear()
         EvolutionRoutinsTemp.Clear()
-        Select Case lpPokemonNumber
+        Select Case PokemonNationalDexNumberToQuery
             Case 1
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -1615,8 +1615,8 @@
             Case 265
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("LV7時性格值尾數大於等於5")
-                    .Add("LV7時性格值尾數小於5")
+                    .Add("LV7時性格值尾數大於等於5/隨機")
+                    .Add("LV7時性格值尾數小於5/隨機")
                 End With
                 With EvoluteToNumersTemp
                     .Add("266")
@@ -1762,7 +1762,7 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV20(本體)")
-                    .Add("升級到LV20('殼')")
+                    .Add("升級到LV20('殼')：進化時，如果包包中有精靈球且同行寶可夢中有空位")
                 End With
                 With EvoluteToNumersTemp
                     .Add("291")
@@ -1813,7 +1813,7 @@
             Case 299
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("強磁場區域升級進化")
+                    .Add("強磁場區域升級進化或在《傳說 阿爾宙斯》版中使用[雷之石]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("476")
@@ -1884,9 +1884,11 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("使用[光之石]")
+                    .Add("第九世代以前攜帶[花朵薰香]生蛋或(第九世代及以後)生蛋")
                 End With
                 With EvoluteToNumersTemp
                     .Add("407")
+                    .Add("406")
                 End With
             Case 316
                 IsEvolutionsAvailableTemp = True
@@ -2041,7 +2043,7 @@
             Case 349
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[美麗鱗片]通信進化")
+                    .Add("攜帶[美麗鱗片]通信進化或美麗度達到170以上提升等級 ")
                 End With
                 With EvoluteToNumersTemp
                     .Add("350")
@@ -2073,7 +2075,7 @@
             Case 356
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("攜帶[靈界幕布]通信進化")
+                    .Add("攜帶[靈界幕布]通信進化或在《傳說 阿爾宙斯》版中使用[靈界幕布]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("477")
@@ -2081,7 +2083,13 @@
             Case 357
                 IsEvolutionsAvailableTemp = False
             Case 358
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("第九世代以前攜帶[潔淨薰香]生蛋或(第九世代及以後)生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("433")
+                End With
             Case 359
                 IsEvolutionsAvailableTemp = False
             Case 360
@@ -2537,7 +2545,13 @@
                     .Add("448")
                 End With
             Case 448
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("447")
+                End With
             Case 449
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -2657,7 +2671,13 @@
             Case 489
                 IsEvolutionsAvailableTemp = False
             Case 490
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("和百變怪生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("489")
+                End With
             Case 491
                 IsEvolutionsAvailableTemp = False
             Case 492
@@ -2977,7 +2997,7 @@
             Case 550
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("累計受到至少294點反作用力傷害(不計造成自己瀕死的傷害)")
+                    .Add("(白條紋的樣子)累計受到至少294點反作用力傷害(不計造成自己瀕死的傷害)")
                 End With
                 With EvoluteToNumersTemp
                     .Add("902")
@@ -3018,8 +3038,10 @@
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
                     .Add("升級到LV34")
+                    .Add("(伽勒爾的樣子)使用[冰之石]")
                 End With
                 With EvoluteToNumersTemp
+                    .Add("558")
                     .Add("558")
                 End With
             Case 558
@@ -3915,7 +3937,7 @@
             Case 737
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("強磁場區域升級進化")
+                    .Add("強磁場區域升級進化或(第八世代起)使用[雷之石]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("738")
@@ -3925,7 +3947,7 @@
             Case 739
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("拉納基拉山升級進化")
+                    .Add("拉納基拉山升級進化或(第九世代起)使用[冰之石]")
                 End With
                 With EvoluteToNumersTemp
                     .Add("740")
@@ -4196,11 +4218,11 @@
                 IsEvolutionsAvailableTemp = False
         End Select
     End Sub
-    Private Sub GenerateSingleLinkEvolutionDataSSSV(lpPokemonNumber As Integer)
+    Private Sub GenerateSingleLinkEvolutionDataSSSV(PokemonNationalDexNumberToQuery As Integer)
         IsEvolutionsAvailableTemp = False
         EvoluteToNumersTemp.Clear()
         EvolutionRoutinsTemp.Clear()
-        Select Case lpPokemonNumber
+        Select Case PokemonNationalDexNumberToQuery
             Case 810
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
@@ -4438,7 +4460,13 @@
                     .Add("849")
                 End With
             Case 849
-                IsEvolutionsAvailableTemp = False
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("生蛋")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("848")
+                End With
             Case 850
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp

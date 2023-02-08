@@ -61,7 +61,7 @@
         Dim strSel As String
         strSel = lstPokemons.SelectedItems.Item(0).ToString
         strSel = strSel.Split(" ")(0)
-        imgSelPkMn.UriSource = New Uri("/PokemonsL/" & strSel & ".png", UriKind.RelativeOrAbsolute)
+        imgSelPkMn.UriSource = New Uri("/Pokemons/" & strSel & ".png", UriKind.RelativeOrAbsolute)
         imgPokemon.Source = imgSelPkMn
     End Sub
 

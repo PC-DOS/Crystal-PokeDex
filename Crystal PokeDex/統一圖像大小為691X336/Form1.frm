@@ -943,7 +943,7 @@ keybd_event VK_CONTROL, 0, 0, 0
 keybd_event vbKeyPageDown, 0, 0, 0
 keybd_event vbKeyPageDown, 0, KEYEVENTF_KEYUP, 0
 keybd_event VK_CONTROL, 0, KEYEVENTF_KEYUP, 0
-Sleep 1000
+Sleep 250
 keybd_event VK_CONTROL, 0, 0, 0
 keybd_event 18, 0, 0, 0
 keybd_event vbKeyC, 0, 0, 0
@@ -968,10 +968,10 @@ keybd_event vbKey6, 0, 0, 0
 keybd_event vbKey6, 0, KEYEVENTF_KEYUP, 0
 keybd_event vbKeyReturn, 0, 0, 0
 keybd_event vbKeyReturn, 0, KEYEVENTF_KEYUP, 0
-Sleep 1000
+Sleep 250
 keybd_event VK_CONTROL, 0, 0, 0
 keybd_event vbKeyS, 0, 0, 0
 keybd_event vbKeyS, 0, KEYEVENTF_KEYUP, 0
 keybd_event VK_CONTROL, 0, KEYEVENTF_KEYUP, 0
-Sleep 1000
+Sleep 250
 End Sub

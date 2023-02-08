@@ -25,8 +25,8 @@
         If IsLaunchedFromPinned Then
             NavigationService.RemoveBackEntry()
         End If
-        GenerateSpecificStateInfo(CLng(PokemonInformationShared.lpNumber))
-        GenerateEvolutionData(CInt(PokemonInformationShared.lpNumber))
+        GenerateSpecificStateInfo(CLng(PokemonInformationShared.DexIDNumber))
+        GenerateEvolutionData(CInt(PokemonInformationShared.DexIDNumber))
         gridNoEvolution.Visibility = System.Windows.Visibility.Visible
         imgArrowDown.Visibility = System.Windows.Visibility.Collapsed
         imgArrowUp.Visibility = System.Windows.Visibility.Collapsed
@@ -41,9 +41,9 @@
         imgPokemonFemale = New Imaging.BitmapImage
         Dim imgPokemonEvolutionBasic As Media.Imaging.BitmapImage
         imgPokemonEvolutionBasic = New Imaging.BitmapImage
-        imgPokemonFemale.UriSource = New Uri(PokemonInformationShared.lpImageFemaleUri, UriKind.RelativeOrAbsolute)
-        imgPokemonMale.UriSource = New Uri(PokemonInformationShared.lpImageMaleUri, UriKind.RelativeOrAbsolute)
-        imgPokemonEvolutionBasic.UriSource = New Uri("/PokemonsL/" & PokemonInformationShared.lpNumber & ".png", UriKind.RelativeOrAbsolute)
+        imgPokemonFemale.UriSource = New Uri(PokemonInformationShared.ImageFemaleURI, UriKind.RelativeOrAbsolute)
+        imgPokemonMale.UriSource = New Uri(PokemonInformationShared.ImageMaleURI, UriKind.RelativeOrAbsolute)
+        imgPokemonEvolutionBasic.UriSource = New Uri("/Pokemons/" & PokemonInformationShared.DexIDNumber & ".png", UriKind.RelativeOrAbsolute)
         imgFemale.Source = imgPokemonFemale
         imgMale.Source = imgPokemonMale
         imgEvoBasic.Source = imgPokemonEvolutionBasic
@@ -96,18 +96,18 @@
                 prgSVT.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        If PokemonInformationShared.IsNoSex Then
+        If PokemonInformationShared.IsNoGenderOrSingleGender Then
             imgFemale.Visibility = System.Windows.Visibility.Collapsed
             rectImgFemale.Visibility = System.Windows.Visibility.Collapsed
             txtImgFemale.Visibility = System.Windows.Visibility.Collapsed
-            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1) & " 的外貌"
+            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
         Else
             imgFemale.Visibility = System.Windows.Visibility.Visible
             rectImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgMale.Text = "雄性的外貌"
         End If
-        pivotBack.Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1)
+        pivotBack.Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         If States.Count = 0 Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
@@ -116,14 +116,14 @@
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
         End If
         With PokemonInformationShared
-            txtBasicFV.Text = .lpStandardFriendlyRate
+            txtBasicFV.Text = .InitialFriendshipValue
             Try
-                txtCatchRate.Text = .lpCatchRate & " (" & CalculateCatchRatePercentage(.lpCatchRate) & ")"
+                txtCatchRate.Text = .CatchRate & " (" & CalculateCatchRatePercentage(.CatchRate) & ")"
             Catch ex As Exception
-                txtCatchRate.Text = .lpCatchRate
+                txtCatchRate.Text = .CatchRate
             End Try
-            txtType.Text = .lpType
-            Dim PMType As TypeData = ParseTypeString(.lpType)
+            txtType.Text = .Type
+            Dim PMType As TypeData = ParseTypeString(.Type)
             If PMType.IsType2Available Then
                 gridType2.Visibility = System.Windows.Visibility.Visible
                 txtType1.Text = PMType.TypeString1
@@ -135,58 +135,58 @@
                 txtType1.Text = PMType.TypeString1
                 gridType1.Background = New SolidColorBrush(Color.FromArgb(255, PMType.TypeColor1.Red, PMType.TypeColor1.Green, PMType.TypeColor1.Blue))
             End If
-            txtDescription.Text = .lpDescription
-            txtEgg1.Text = .lpEggGroup1
-            txtEgg2.Text = .lpEggGroup2
-            txtExpBasic.Text = .lpBasicExpPoint
-            txtExpFullLV.Text = .lpFullLevelExpPoint
-            txtHatch.Text = .lpBornStepsCount
-            If .lpBornStepsCount <> "---" And .lpBornStepsCount <> "ERROR" Then
-                txtHatch.Text = .lpBornStepsCount & "週期 (約合" & CInt(.lpBornStepsCount) * 257 & "步)"
+            txtDescription.Text = .Description
+            txtEgg1.Text = .EggGroup1
+            txtEgg2.Text = .EggGroup2
+            txtExpBasic.Text = .BasicExpPoint
+            txtExpFullLV.Text = .FullLevelExpPoint
+            txtHatch.Text = .HatchEggCycles
+            If .HatchEggCycles <> "---" And .HatchEggCycles <> "ERROR" Then
+                txtHatch.Text = .HatchEggCycles & "週期 (約合" & CInt(.HatchEggCycles) * 257 & "步)"
             Else
-                txtHatch.Text = .lpBornStepsCount
+                txtHatch.Text = .HatchEggCycles
             End If
-            txtHeight.Text = .lpHeight
-            txtName.Text = CurrentTranslationForCommonUse(CInt(.lpNumber) - 1)
-            txtName_EVOBasic.Text = CurrentTranslationForCommonUse(CInt(.lpNumber) - 1)
-            txtNum_EVOBasic.Text = "全國圖鑑登錄號 " & .lpNumber
-            txtNum.Text = "全國圖鑑登錄號 " & .lpNumber
-            txtShelter.Text = .lpSheleter
-            txtSexRatio.Text = .lpSexRatio
-            txtSVATK.Text = .lpBaseValues.ATTACK.ToString
-            txtSVDEF.Text = .lpBaseValues.DEFEND.ToString
-            txtSVHP.Text = .lpBaseValues.HP.ToString
-            txtSVSA.Text = .lpBaseValues.SPATTACK.ToString
-            txtSVSD.Text = .lpBaseValues.SPDEFEND.ToString
-            txtSVSP.Text = .lpBaseValues.SPEED
-            txtSVT.Text = .lpBaseValues.TOTAL.ToString
-            txtClass.Text = .lpClass
-            txtWeight.Text = .lpWeight
-            If .lpAbility1 <> "---" And .lpAbility1 <> "ERROR" Then
-                txtAbility1.Text = CurrentAbility(CInt(.lpAbility1) - 1)
+            txtHeight.Text = .Height
+            txtName.Text = CurrentTranslationForCommonUse(CInt(.DexIDNumber) - 1)
+            txtName_EVOBasic.Text = CurrentTranslationForCommonUse(CInt(.DexIDNumber) - 1)
+            txtNum_EVOBasic.Text = "全國圖鑑登錄號 " & .DexIDNumber
+            txtNum.Text = "全國圖鑑登錄號 " & .DexIDNumber
+            txtShelter.Text = .Sheleter
+            txtGenderRatio.Text = .GenderRatio
+            txtSVATK.Text = .SpeciesStrengthValues.ATTACK.ToString
+            txtSVDEF.Text = .SpeciesStrengthValues.DEFEND.ToString
+            txtSVHP.Text = .SpeciesStrengthValues.HP.ToString
+            txtSVSA.Text = .SpeciesStrengthValues.SPATTACK.ToString
+            txtSVSD.Text = .SpeciesStrengthValues.SPDEFEND.ToString
+            txtSVSP.Text = .SpeciesStrengthValues.SPEED
+            txtSVT.Text = .SpeciesStrengthValues.TOTAL.ToString
+            txtCategory.Text = .Category
+            txtWeight.Text = .Weight
+            If .Ability1 <> "---" And .Ability1 <> "ERROR" Then
+                txtAbility1.Text = CurrentAbility(CInt(.Ability1) - 1)
             Else
-                txtAbility1.Text = .lpAbility1
+                txtAbility1.Text = .Ability1
             End If
-            If .lpAbility2 <> "---" And .lpAbility2 <> "ERROR" Then
-                txtAbility2.Text = CurrentAbility(CInt(.lpAbility2) - 1)
+            If .Ability2 <> "---" And .Ability2 <> "ERROR" Then
+                txtAbility2.Text = CurrentAbility(CInt(.Ability2) - 1)
             Else
-                txtAbility2.Text = .lpAbility2
+                txtAbility2.Text = .Ability2
             End If
-            If .lpAbilityHidden <> "---" And .lpAbilityHidden <> "ERROR" Then
-                txtAbility3.Text = CurrentAbility(CInt(.lpAbilityHidden) - 1)
+            If .AbilityHidden <> "---" And .AbilityHidden <> "ERROR" Then
+                txtAbility3.Text = CurrentAbility(CInt(.AbilityHidden) - 1)
             Else
-                txtAbility3.Text = .lpAbilityHidden
+                txtAbility3.Text = .AbilityHidden
             End If
-            txtROC.Text = .lpNameCHT
-            txtPRC.Text = .lpNameCHS
-            txtENU.Text = .lpNameENG
-            txtJPN.Text = .lpNameJPN
-            txtKOR.Text = .lpNameKOR
-            txtFRA.Text = .lpNameFRA
-            txtGER.Text = .lpNameGER
-            txtCHTO.Text = .lpNameCHTO
-            txtCHSO.Text = .lpNameCHSO
-            Select Case CLng(.lpNumber)
+            txtROC.Text = .NameCHT
+            txtPRC.Text = .NameCHS
+            txtENU.Text = .NameENG
+            txtJPN.Text = .NameJPN
+            txtKOR.Text = .NameKOR
+            txtFRA.Text = .NameFRA
+            txtGER.Text = .NameGER
+            txtCHTO.Text = .NameCHTO
+            txtCHSO.Text = .NameCHSO
+            Select Case CLng(.DexIDNumber)
                 Case Is <= TotalPokemonCountPerVersion.RGBY
                     btnRGBY.IsEnabled = True
                     btnGSC.IsEnabled = True
@@ -309,7 +309,7 @@
                 btnSS.IsEnabled = False
             End If
         End With
-        With PokemonInformationShared.lpBaseValues
+        With PokemonInformationShared.SpeciesStrengthValues
             prgSVATK.Value = .ATTACK
             prgSVDEF.Value = .DEFEND
             prgSVHP.Value = .HP
@@ -318,26 +318,26 @@
             prgSVSP.Value = .SPEED
             prgSVT.Value = .TOTAL
         End With
-        If PokemonInformationShared.IsNoSex Then
+        If PokemonInformationShared.IsNoGenderOrSingleGender Then
             imgFemale.Visibility = System.Windows.Visibility.Collapsed
             rectImgFemale.Visibility = System.Windows.Visibility.Collapsed
             txtImgFemale.Visibility = System.Windows.Visibility.Collapsed
-            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1) & " 的外貌"
+            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
         Else
             imgFemale.Visibility = System.Windows.Visibility.Visible
             rectImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgMale.Text = "雄性的外貌"
         End If
-        pivotBack.Title = PokemonInformationShared.lpTitle
-        txtName.Text = PokemonInformationShared.lpTitle
+        pivotBack.Title = PokemonInformationShared.Title
+        txtName.Text = PokemonInformationShared.Title
         If IsEvolutionsAvailable Then
             gridNoEvolution.Visibility = System.Windows.Visibility.Collapsed
             lstEvoRot.ItemsSource = EvolutionRoutins
         Else
             gridNoEvolution.Visibility = System.Windows.Visibility.Visible
         End If
-        If PokemonInformationShared.lpMultiStatesURI = "" Then
+        If PokemonInformationShared.MultiStatesURI = "" Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
@@ -365,7 +365,7 @@
     End Sub
 
     Private Sub txtDescription_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtDescription.TextChanged
-        txtDescription.Text = PokemonInformationShared.lpDescription
+        txtDescription.Text = PokemonInformationShared.Description
     End Sub
 
     Private Sub txtDescription_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtDescription.TextInput
@@ -381,7 +381,7 @@
     End Sub
 
     Private Sub txtENU_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtENU.TextChanged
-        txtENU.Text = PokemonInformationShared.lpNameENG
+        txtENU.Text = PokemonInformationShared.NameENG
     End Sub
     Private Sub txtENU_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtENU.TextInput
         e.Handled = True
@@ -396,7 +396,7 @@
     End Sub
 
     Private Sub txtJPN_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtJPN.TextChanged
-        txtJPN.Text = PokemonInformationShared.lpNameJPN
+        txtJPN.Text = PokemonInformationShared.NameJPN
     End Sub
 
     Private Sub txtJPN_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtJPN.TextInput
@@ -412,7 +412,7 @@
     End Sub
 
     Private Sub txtPRC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtPRC.TextChanged
-        txtPRC.Text = PokemonInformationShared.lpNameCHS
+        txtPRC.Text = PokemonInformationShared.NameCHS
     End Sub
 
     Private Sub txtPRC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtPRC.TextInput
@@ -428,7 +428,7 @@
     End Sub
 
     Private Sub txtROC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtROC.TextChanged
-        txtROC.Text = PokemonInformationShared.lpNameCHT
+        txtROC.Text = PokemonInformationShared.NameCHT
     End Sub
 
     Private Sub txtROC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInput
@@ -444,7 +444,7 @@
     End Sub
 
     Private Sub txtKOR_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtKOR.TextChanged
-        txtKOR.Text = PokemonInformationShared.lpNameKOR
+        txtKOR.Text = PokemonInformationShared.NameKOR
     End Sub
 
     Private Sub txtKOR_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtKOR.TextInput
@@ -460,7 +460,7 @@
     End Sub
 
     Private Sub txtFRA_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtFRA.TextChanged
-        txtFRA.Text = PokemonInformationShared.lpNameFRA
+        txtFRA.Text = PokemonInformationShared.NameFRA
     End Sub
 
     Private Sub txtFRA_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtFRA.TextInput
@@ -476,7 +476,7 @@
     End Sub
 
     Private Sub txtGER_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtGER.TextChanged
-        txtGER.Text = PokemonInformationShared.lpNameGER
+        txtGER.Text = PokemonInformationShared.NameGER
     End Sub
 
     Private Sub txtGER_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtGER.TextInput
@@ -491,7 +491,7 @@
         If txtAbility1.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.lpAbility1 - 1), txtAbility1.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
         Exit Sub
     End Sub
 
@@ -499,7 +499,7 @@
         If txtAbility3.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.lpAbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.AbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
         Exit Sub
     End Sub
 
@@ -524,7 +524,7 @@
                 Dim imgPokemonEvoDest As Imaging.BitmapImage
                 txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
                 imgPokemonEvoDest = New Imaging.BitmapImage
-                imgPokemonEvoDest.UriSource = New Uri("/PokemonsL/" & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
+                imgPokemonEvoDest.UriSource = New Uri("/Pokemons/" & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
                 imgEvoDest.Source = imgPokemonEvoDest
                 txtNum_EVODest.Text = "全國圖鑑登錄號 " & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "")
             ElseIf EvoluteToNumers(i).StartsWith(EvolutionSrcNumberSuffix) Then
@@ -541,7 +541,7 @@
                 Dim imgPokemonEvoDest As Imaging.BitmapImage
                 txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
                 imgPokemonEvoDest = New Imaging.BitmapImage
-                imgPokemonEvoDest.UriSource = New Uri("/PokemonsL/" & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
+                imgPokemonEvoDest.UriSource = New Uri("/Pokemons/" & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
                 imgEvoDest.Source = imgPokemonEvoDest
                 txtNum_EVODest.Text = "全國圖鑑登錄號 " & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "")
             End If
@@ -557,12 +557,12 @@
         Dim tile As FlipTileData
         tile = New FlipTileData
         Dim PkMnNum As String
-        PkMnNum = PokemonInformationShared.lpNumber
+        PkMnNum = PokemonInformationShared.DexIDNumber
         With tile
-            .BackgroundImage = New Uri("/PokemonsT/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .SmallBackgroundImage = New Uri("/PokemonsT/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .WideBackgroundImage = New Uri("/PokemonsTL/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.lpNumber) - 1)
+            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         End With
         ShellTile.Create(New Uri("/PageTileLauncher.xaml?Index=" & currentTileIndex.ToString & "&Num=" & PkMnNum, UriKind.RelativeOrAbsolute), tile, True)
         currentTileIndex = currentTileIndex + 1
@@ -573,11 +573,11 @@
         Dim tile As FlipTileData
         tile = New FlipTileData
         Dim PkMnNum As String
-        PkMnNum = PokemonInformationShared.lpNumber
+        PkMnNum = PokemonInformationShared.DexIDNumber
         With tile
-            .BackgroundImage = New Uri("/PokemonsT/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .SmallBackgroundImage = New Uri("/PokemonsT/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .WideBackgroundImage = New Uri("/PokemonsTL/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
             .Title = ""
         End With
         ShellTile.Create(New Uri("/PageTileLauncher.xaml?Index=" & currentTileIndex.ToString & "&Num=" & PkMnNum, UriKind.RelativeOrAbsolute), tile, True)
@@ -589,7 +589,7 @@
         If txtAbility2.Text = "---" Then
             Exit Sub
         End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.lpAbility2 - 1), txtAbility2.Text, MessageBoxButton.OK)
+        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability2 - 1), txtAbility2.Text, MessageBoxButton.OK)
         Exit Sub
     End Sub
 
@@ -598,10 +598,10 @@
             SharedStateInformation = StateInformation(lstStates.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.lpImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
-            SharedStateInformation.lpStateName = States.Item(lstStates.SelectedIndex)
+            SharedStateInformation.StateName = States.Item(lstStates.SelectedIndex)
             NavigationService.Navigate(New Uri("/PageStateInfo.xaml", UriKind.RelativeOrAbsolute))
         End If
     End Sub
@@ -611,7 +611,7 @@
             SharedStateInformation = StateInformation(lstStates.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.lpImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
         Else
@@ -621,37 +621,37 @@
     End Sub
 
     Private Sub btnRGBY_Tap(sender As Object, e As GestureEventArgs) Handles btnRGBY.Tap
-        GeneratePokemonMovesIDListByPMID_RGBY(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_RGBY(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnGSC_Tap(sender As Object, e As GestureEventArgs) Handles btnGSC.Tap
-        GeneratePokemonMovesIDListByPMID_GSC(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_GSC(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnRSE_Tap(sender As Object, e As GestureEventArgs) Handles btnRSE.Tap
-        GeneratePokemonMovesIDListByPMID_RSE(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_RSE(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnDPT_Tap(sender As Object, e As GestureEventArgs) Handles btnDPT.Tap
-        GeneratePokemonMovesIDListByPMID_DPT(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_DPT(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnBW_Tap(sender As Object, e As GestureEventArgs) Handles btnBW.Tap
-        GeneratePokemonMovesIDListByPMID_BW(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_BW(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnXY_Tap(sender As Object, e As GestureEventArgs) Handles btnXY.Tap
-        GeneratePokemonMovesIDListByPMID_XY(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_XY(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnSM_Tap(sender As Object, e As GestureEventArgs) Handles btnSM.Tap
-        GeneratePokemonMovesIDListByPMID_SM(PokemonInformationShared.lpNumber)
+        GeneratePokemonMovesIDListByPMID_SM(PokemonInformationShared.DexIDNumber)
         NavigationService.Navigate(New Uri("/PagePokemonMoveList.xaml", UriKind.RelativeOrAbsolute))
     End Sub
     Private Sub btnSS_Tap(sender As Object, e As GestureEventArgs) Handles btnSS.Tap
@@ -666,10 +666,10 @@
             SharedStateInformation = StateInformation(lstStates.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.lpImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
-            SharedStateInformation.lpStateName = States.Item(lstStates.SelectedIndex)
+            SharedStateInformation.StateName = States.Item(lstStates.SelectedIndex)
             NavigationService.Navigate(New Uri("/PageStateInfo.xaml", UriKind.RelativeOrAbsolute))
         End If
     End Sub
@@ -679,7 +679,7 @@
     End Sub
 
     Private Sub txtCHTO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTO.TextChanged
-        txtCHTO.Text = PokemonInformationShared.lpNameCHTO
+        txtCHTO.Text = PokemonInformationShared.NameCHTO
     End Sub
 
     Private Sub txtCHTO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTO.TextInput
@@ -695,7 +695,7 @@
     End Sub
 
     Private Sub txtCHSO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSO.TextChanged
-        txtCHSO.Text = PokemonInformationShared.lpNameCHSO
+        txtCHSO.Text = PokemonInformationShared.NameCHSO
     End Sub
 
     Private Sub txtCHSO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSO.TextInput
