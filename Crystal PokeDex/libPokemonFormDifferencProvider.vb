@@ -6986,7 +6986,7 @@
                     .Height = "100.0 m"
                     .Weight = "<缺數據>"
                     .Type = "[毒]+[龍]"
-                    .ImagePath = "/FormDifferenceImages/884/Eternamax.png"
+                    .ImagePath = "/FormDifferenceImages/890/Eternamax.png"
                     With .SpeciesStrengthValues
                         .HP = 255
                         .ATTACK = 115

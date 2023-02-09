@@ -4,6 +4,40 @@
     Public Sub New()
         InitializeComponent()
     End Sub
+    Private Sub ValidateColor()
+        If Not IsNumberBool(txtRed.Text) Then
+            txtRed.Text = "0"
+        End If
+        If Not IsNumberBool(txtGreen.Text) Then
+            txtGreen.Text = "0"
+        End If
+        If Not IsNumberBool(txtBlue.Text) Then
+            txtBlue.Text = "0"
+        End If
+        If CInt(txtRed.Text.ToString) > 255 Then
+            txtRed.Text = "255"
+        End If
+        If CInt(txtRed.Text.ToString) < 0 Then
+            txtRed.Text = "0"
+        End If
+        If CInt(txtGreen.Text.ToString) > 255 Then
+            txtGreen.Text = "255"
+        End If
+        If CInt(txtRed.Text.ToString) < 0 Then
+            txtGreen.Text = "0"
+        End If
+        If CInt(txtBlue.Text.ToString) > 255 Then
+            txtBlue.Text = "255"
+        End If
+        If CInt(txtBlue.Text.ToString) < 0 Then
+            txtBlue.Text = "0"
+        End If
+    End Sub
+    Private Sub UpdateColorPreview()
+        ValidateColor()
+        clrPicker.Color = Color.FromArgb(255, CInt(txtRed.Text), CInt(txtGreen.Text), CInt(txtBlue.Text))
+        rctColorPreview.Fill = New SolidColorBrush(Color.FromArgb(255, CInt(txtRed.Text), CInt(txtGreen.Text), CInt(txtBlue.Text)))
+    End Sub
     Private Sub chkUseCHS_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS.Tap
         If chkUseCHS.IsChecked = True Then
             IsSimplifiedChineseEnabled = True
@@ -58,6 +92,13 @@
             chkUseOfficial_Moves.IsChecked = True
         Else
             chkUseOfficial_Moves.IsChecked = False
+        End If
+        If chkRGBInput.IsChecked Then
+            grdRGBPicker.Visibility = System.Windows.Visibility.Visible
+            clrPicker.Visibility = System.Windows.Visibility.Collapsed
+        Else
+            grdRGBPicker.Visibility = System.Windows.Visibility.Collapsed
+            clrPicker.Visibility = System.Windows.Visibility.Visible
         End If
         GridColor.Visibility = System.Windows.Visibility.Collapsed
         Dim OSVersionWPEPO As Version = New Version(8, 10, 0)
@@ -190,15 +231,31 @@
     Private Async Sub gridSR_Tap(sender As Object, e As GestureEventArgs) Handles gridSR.Tap
         Await Windows.System.Launcher.LaunchUriAsync(New Uri("ms-settings-screenrotation:"))
     End Sub
+
+    Private Sub chkUseDefault_DoubleTap(sender As Object, e As GestureEventArgs) Handles chkUseDefault.DoubleTap
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+    End Sub
     Private Sub chkUseDefault_Tab(sender As Object, e As GestureEventArgs) Handles chkUseDefault.Tap
         If chkUseDefault.IsChecked Then
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
     End Sub
     Private Sub chkUseOfficial_Tap(sender As Object, e As GestureEventArgs) Handles chkUseOfficial.Tap
@@ -231,11 +288,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -252,11 +312,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -272,11 +335,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -292,11 +358,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -312,11 +381,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -332,11 +404,14 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
@@ -352,12 +427,268 @@
             txtRed.IsEnabled = False
             txtGreen.IsEnabled = False
             txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
         Else
             txtRed.IsEnabled = True
             txtGreen.IsEnabled = True
             txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVHP_Tap(sender As Object, e As GestureEventArgs) Handles txtSVHP.Tap
+        EditingTarget = EditingTargets.HP
+        With ValueHP
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
         End If
         GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVDEF_Tap(sender As Object, e As GestureEventArgs) Handles txtSVDEF.Tap
+        EditingTarget = EditingTargets.DEF
+        With ValueDefence
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVATK_Tap(sender As Object, e As GestureEventArgs) Handles txtSVATK.Tap
+        EditingTarget = EditingTargets.ATK
+        With ValueAttack
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVSA_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSA.Tap
+        EditingTarget = EditingTargets.SATK
+        With ValueSpecialAttack
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVSD_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSD.Tap
+        EditingTarget = EditingTargets.SDEF
+        With ValueSpecialDefence
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVSP_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSP.Tap
+        EditingTarget = EditingTargets.SPD
+        With ValueSpeed
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtSVT_Tap(sender As Object, e As GestureEventArgs) Handles txtSVT.Tap
+        EditingTarget = EditingTargets.TOTAL
+        With ValueTotal
+            chkUseDefault.IsChecked = .IsSystemAccent
+            txtRed.Text = .ColorSettingsRGB.Red
+            txtGreen.Text = .ColorSettingsRGB.Green
+            txtBlue.Text = .ColorSettingsRGB.Blue
+        End With
+        If chkUseDefault.IsChecked Then
+            txtRed.IsEnabled = False
+            txtGreen.IsEnabled = False
+            txtBlue.IsEnabled = False
+            clrPicker.IsEnabled = False
+        Else
+            txtRed.IsEnabled = True
+            txtGreen.IsEnabled = True
+            txtBlue.IsEnabled = True
+            clrPicker.IsEnabled = True
+        End If
+        UpdateColorPreview()
+        GridColor.Visibility = System.Windows.Visibility.Visible
+    End Sub
+
+    Private Sub txtBlue_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtBlue.GotFocus
+        txtBlue.SelectAll()
+    End Sub
+
+    Private Sub txtGreen_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtGreen.GotFocus
+        txtGreen.SelectAll()
+    End Sub
+
+    Private Sub txtRed_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtRed.GotFocus
+        txtRed.SelectAll()
+    End Sub
+
+    Private Sub txtRed_LostFocus(sender As Object, e As RoutedEventArgs) Handles txtRed.LostFocus
+        UpdateColorPreview()
+    End Sub
+
+    Private Sub txtGreen_LostFocus(sender As Object, e As RoutedEventArgs) Handles txtGreen.LostFocus
+        UpdateColorPreview()
+    End Sub
+
+    Private Sub txtBlue_LostFocus(sender As Object, e As RoutedEventArgs) Handles txtBlue.LostFocus
+        UpdateColorPreview()
+    End Sub
+
+    Private Sub chkUseCHS_Ability_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS_Ability.Tap
+        If chkUseCHS_Ability.IsChecked Then
+            IsAbilitySimplifiedChineseEnabled = True
+            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
+            SetCurrentAbilityDisplay()
+        Else
+            IsAbilitySimplifiedChineseEnabled = False
+            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
+            SetCurrentAbilityDisplay()
+        End If
+    End Sub
+
+    Private Sub chkUseOfficial_Ability_Tap(sender As Object, e As GestureEventArgs) Handles chkUseOfficial_Ability.Tap
+        If chkUseOfficial_Ability.IsChecked Then
+            IsAbilityOfficialTranslationEnabled = True
+            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
+            SetCurrentAbilityDisplay()
+        Else
+            IsAbilityOfficialTranslationEnabled = False
+            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
+            SetCurrentAbilityDisplay()
+        End If
+    End Sub
+
+    Private Sub chkUseCHS_Moves_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS_Moves.Tap
+        If chkUseCHS_Moves.IsChecked Then
+            IsMovesSimplifiedChineseEnabled = True
+            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
+            SetCurrentMovesDisplay()
+        Else
+            IsMovesSimplifiedChineseEnabled = False
+            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
+            SetCurrentMovesDisplay()
+        End If
+    End Sub
+
+    Private Sub chkUseOfficial_Moves_Tap(sender As Object, e As GestureEventArgs) Handles chkUseOfficial_Moves.Tap
+        If chkUseOfficial_Moves.IsChecked Then
+            IsMovesOfficialTranslationEnabled = True
+            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
+            SetCurrentMovesDisplay()
+        Else
+            IsMovesOfficialTranslationEnabled = False
+            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
+            SetCurrentMovesDisplay()
+        End If
+    End Sub
+
+    Private Sub chkRGBInput_Click(sender As Object, e As RoutedEventArgs) Handles chkRGBInput.Click
+        If chkRGBInput.IsChecked Then
+            clrPicker.Visibility = System.Windows.Visibility.Collapsed
+            grdRGBPicker.Visibility = System.Windows.Visibility.Visible
+            txtRed.Text = clrPicker.Color.R
+            txtGreen.Text = clrPicker.Color.G
+            txtBlue.Text = clrPicker.Color.B
+            rctColorPreview.Fill = New SolidColorBrush(clrPicker.Color)
+        Else
+            clrPicker.Visibility = System.Windows.Visibility.Visible
+            grdRGBPicker.Visibility = System.Windows.Visibility.Collapsed
+            UpdateColorPreview()
+        End If
+    End Sub
+    Private Sub clrPicker_ColorChanged(sender As Object, color As Color) Handles clrPicker.ColorChanged
+        txtRed.Text = clrPicker.Color.R.ToString
+        txtGreen.Text = clrPicker.Color.G.ToString
+        txtBlue.Text = clrPicker.Color.B.ToString
+        rctColorPreview.Fill = New SolidColorBrush(clrPicker.Color)
     End Sub
 
     Private Sub btnCancel_Tap(sender As Object, e As GestureEventArgs) Handles btnCancel.Tap
@@ -386,25 +717,25 @@
             MessageBox.Show("請輸入有效的數值。", "錯誤", MessageBoxButton.OK)
             Exit Sub
         End If
-        txtRed.Text = Math.Round(CInt(txtRed.Text.ToString))
-        txtGreen.Text = Math.Round(CInt(txtGreen.Text.ToString))
-        txtBlue.Text = Math.Round(CInt(txtBlue.Text.ToString))
-        If Math.Round(CInt(txtRed.Text.ToString)) > 255 Then
+        txtRed.Text = CInt(txtRed.Text.ToString)
+        txtGreen.Text = CInt(txtGreen.Text.ToString)
+        txtBlue.Text = CInt(txtBlue.Text.ToString)
+        If CInt(txtRed.Text.ToString) > 255 Then
             txtRed.Text = "255"
         End If
-        If Math.Round(CInt(txtRed.Text.ToString)) < 0 Then
+        If CInt(txtRed.Text.ToString) < 0 Then
             txtRed.Text = "0"
         End If
-        If Math.Round(CInt(txtGreen.Text.ToString)) > 255 Then
+        If CInt(txtGreen.Text.ToString) > 255 Then
             txtGreen.Text = "255"
         End If
-        If Math.Round(CInt(txtRed.Text.ToString)) < 0 Then
+        If CInt(txtRed.Text.ToString) < 0 Then
             txtGreen.Text = "0"
         End If
-        If Math.Round(CInt(txtBlue.Text.ToString)) > 255 Then
+        If CInt(txtBlue.Text.ToString) > 255 Then
             txtBlue.Text = "255"
         End If
-        If Math.Round(CInt(txtBlue.Text.ToString)) < 0 Then
+        If CInt(txtBlue.Text.ToString) < 0 Then
             txtBlue.Text = "0"
         End If
         Select Case EditingTarget
@@ -516,205 +847,5 @@
         End Select
         SaveColor(EditingTarget)
         GridColor.Visibility = System.Windows.Visibility.Collapsed
-    End Sub
-
-    Private Sub txtSVHP_Tap(sender As Object, e As GestureEventArgs) Handles txtSVHP.Tap
-        EditingTarget = EditingTargets.HP
-        With ValueHP
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVDEF_Tap(sender As Object, e As GestureEventArgs) Handles txtSVDEF.Tap
-        EditingTarget = EditingTargets.DEF
-        With ValueDefence
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVATK_Tap(sender As Object, e As GestureEventArgs) Handles txtSVATK.Tap
-        EditingTarget = EditingTargets.ATK
-        With ValueAttack
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVSA_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSA.Tap
-        EditingTarget = EditingTargets.SATK
-        With ValueSpecialAttack
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVSD_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSD.Tap
-        EditingTarget = EditingTargets.SDEF
-        With ValueSpecialDefence
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVSP_Tap(sender As Object, e As GestureEventArgs) Handles txtSVSP.Tap
-        EditingTarget = EditingTargets.SPD
-        With ValueSpeed
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtSVT_Tap(sender As Object, e As GestureEventArgs) Handles txtSVT.Tap
-        EditingTarget = EditingTargets.TOTAL
-        With ValueTotal
-            chkUseDefault.IsChecked = .IsSystemAccent
-            txtRed.Text = .ColorSettingsRGB.Red
-            txtGreen.Text = .ColorSettingsRGB.Green
-            txtBlue.Text = .ColorSettingsRGB.Blue
-        End With
-        If chkUseDefault.IsChecked Then
-            txtRed.IsEnabled = False
-            txtGreen.IsEnabled = False
-            txtBlue.IsEnabled = False
-        Else
-            txtRed.IsEnabled = True
-            txtGreen.IsEnabled = True
-            txtBlue.IsEnabled = True
-        End If
-        GridColor.Visibility = System.Windows.Visibility.Visible
-    End Sub
-
-    Private Sub txtBlue_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtBlue.GotFocus
-        txtBlue.SelectAll()
-    End Sub
-
-    Private Sub txtGreen_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtGreen.GotFocus
-        txtGreen.SelectAll()
-    End Sub
-
-    Private Sub txtRed_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtRed.GotFocus
-        txtRed.SelectAll()
-    End Sub
-
-    Private Sub chkUseCHS_Ability_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS_Ability.Tap
-        If chkUseCHS_Ability.IsChecked Then
-            IsAbilitySimplifiedChineseEnabled = True
-            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
-            SetCurrentAbilityDisplay()
-        Else
-            IsAbilitySimplifiedChineseEnabled = False
-            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
-            SetCurrentAbilityDisplay()
-        End If
-    End Sub
-
-    Private Sub chkUseOfficial_Ability_Tap(sender As Object, e As GestureEventArgs) Handles chkUseOfficial_Ability.Tap
-        If chkUseOfficial_Ability.IsChecked Then
-            IsAbilityOfficialTranslationEnabled = True
-            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
-            SetCurrentAbilityDisplay()
-        Else
-            IsAbilityOfficialTranslationEnabled = False
-            GetAbilityDisplayConfig(IsAbilitySimplifiedChineseEnabled, IsAbilityOfficialTranslationEnabled)
-            SetCurrentAbilityDisplay()
-        End If
-    End Sub
-
-    Private Sub chkUseCHS_Moves_Tap(sender As Object, e As GestureEventArgs) Handles chkUseCHS_Moves.Tap
-        If chkUseCHS_Moves.IsChecked Then
-            IsMovesSimplifiedChineseEnabled = True
-            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
-            SetCurrentMovesDisplay()
-        Else
-            IsMovesSimplifiedChineseEnabled = False
-            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
-            SetCurrentMovesDisplay()
-        End If
-    End Sub
-
-    Private Sub chkUseOfficial_Moves_Tap(sender As Object, e As GestureEventArgs) Handles chkUseOfficial_Moves.Tap
-        If chkUseOfficial_Moves.IsChecked Then
-            IsMovesOfficialTranslationEnabled = True
-            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
-            SetCurrentMovesDisplay()
-        Else
-            IsMovesOfficialTranslationEnabled = False
-            GetMovesDisplayConfig(IsMovesSimplifiedChineseEnabled, IsMovesOfficialTranslationEnabled)
-            SetCurrentMovesDisplay()
-        End If
     End Sub
 End Class

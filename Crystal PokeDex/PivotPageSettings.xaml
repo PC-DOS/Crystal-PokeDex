@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Coding4Fun="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -33,12 +34,12 @@
                             <CheckBox x:Name="chkUseOfficial_Ability" Content="特性名字使用官方翻譯" RenderTransformOrigin="0.124,0.245"/>
                             <CheckBox x:Name="chkUseCHS_Moves" Content="技能名字使用簡體中文" RenderTransformOrigin="0.124,0.245"/>
                             <CheckBox x:Name="chkUseOfficial_Moves" Content="技能名字使用官方翻譯" RenderTransformOrigin="0.124,0.245"/>
-                            <TextBlock TextWrapping="Wrap" Text="種族值顯示進度列配色" Margin="0,25,0,0">
+                            <TextBlock TextWrapping="Wrap" Text="種族值顯示進度列佈景主題" Margin="0,25,0,0">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <Grid x:Name="GridPV">
+                            <Grid x:Name="GridPV" Margin="0,10,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -162,7 +163,8 @@
                 </Grid.Background>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="請指定顏色" Style="{StaticResource PhoneTextNormalStyle}" FontSize="35" Margin="12"/>
-                    <Grid>
+                    <Coding4Fun:ColorPicker x:Name="clrPicker" Height="250" Margin="12,0"/>
+                    <Grid x:Name="grdRGBPicker">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
@@ -170,6 +172,7 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="紅" FontSize="25" VerticalAlignment="Center" Margin="12,0,0,0"/>
@@ -178,8 +181,10 @@
                         <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtGreen" TextWrapping="Wrap" Text="150" InputScope="Number"/>
                         <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Text="藍" FontSize="25" VerticalAlignment="Center" Margin="12,0,0,0"/>
                         <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtBlue" TextWrapping="Wrap" Text="150" InputScope="Number"/>
+                        <Rectangle x:Name="rctColorPreview" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Fill="Black" Margin="0,10,12,10"/>
                     </Grid>
                     <CheckBox x:Name="chkUseDefault" Content="使用系統輔色"/>
+                    <CheckBox x:Name="chkRGBInput" Content="進階編輯模式"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
