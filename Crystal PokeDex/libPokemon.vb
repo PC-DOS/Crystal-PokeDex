@@ -57,8 +57,6 @@
         Dim SpeciesStrengthValues As PokemonSpeciesStrengthValues '種族值
         Dim ImageMaleURI As String '雄性圖像的URI
         Dim ImageFemaleURI As String '雌性圖像的URI
-        Dim ExtraInfoURI As String '擴展信息網頁URI
-        Dim MultiStatesURI As String '多型態數據URI
     End Structure
     Public PokemonInformationShared As New PokemonInfo
     Public Function GenerateEmptyPokemonInfo() As PokemonInfo
@@ -97,8 +95,8 @@
             .Height = "ERROR"
             .ImageFemaleURI = DefaultPokemonImagePath
             .ImageMaleURI = DefaultPokemonImagePath
-            StateInformation(0).ImagePath = DefaultPokemonImagePath
-            StateInformation(1).ImagePath = DefaultPokemonImagePath
+            FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+            FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
             .DexIDNumber = "000"
             .GenderRatio = "ERROR"
             .Sheleter = "ERROR"
@@ -114,23 +112,6 @@
             .NameCHTO = "ERROR"
             .NameGER = "ERROR"
             .NameFRA = "ERROR"
-            With StateInformation(0)
-                .IsUniqueDescriptionAvailable = False
-                .Ability1 = "ERROR"
-                .Ability2 = "ERROR"
-                .AbilityHidden = "ERROR"
-                .Type = "[ERROR]"
-                .IsUniqueDescriptionAvailable = False
-                With .SpeciesStrengthValues
-                    .HP = 255
-                    .ATTACK = 255
-                    .DEFEND = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                End With
-            End With
         End With
         Return ReturnValue
     End Function
@@ -187,8 +168,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -219,14 +200,28 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 1
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "001"
+                    .Type = "[草]+[毒]"
+                    .Description = "出生後的一段時間內，依靠從背上的種子裡汲取的營養來成長。"
+                    .GenderRatio = "7:1"
+                    .Height = "0.7 m"
+                    .Weight = "6.9 kg"
+                    .Category = "種子神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "草原"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "植物組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "64"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 65
                     .Ability2 = "---"
                     .AbilityHidden = 34
@@ -239,22 +234,6 @@
                         .SPEED = 45
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "64"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "綠"
-                    .Type = "[草]+[毒]"
-                    .Description = "出生後的一段時間內，依靠從背上的種子裡汲取的營養來成長。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "植物組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "0.7 m"
-                    .DexIDNumber = "001"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "草原"
-                    .InitialFriendshipValue = "70"
-                    .Category = "種子神奇寶貝"
-                    .Weight = "6.9 kg"
                     .ImageMaleURI = "/Pokemons/001.png"
                     .ImageFemaleURI = "/Pokemons/001.png"
                 End With
@@ -262,6 +241,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "002"
+                    .Type = "[草]+[毒]"
+                    .Description = "背上的花蕾開始膨脹的時候，散發出香甜的氣息，預示著巨大的花朵即將綻放。"
+                    .GenderRatio = "7:1"
+                    .Height = "1.0 m"
+                    .Weight = "13.0 kg"
+                    .Category = "種子神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "草原"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "植物組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "142"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 65
                     .Ability2 = "---"
                     .AbilityHidden = 34
@@ -274,22 +269,6 @@
                         .SPEED = 60
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "142"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "綠"
-                    .Type = "[草]+[毒]"
-                    .Description = "背上的花蕾開始膨脹的時候，散發出香甜的氣息，預示著巨大的花朵即將綻放。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "植物組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.0 m"
-                    .DexIDNumber = "002"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "草原"
-                    .InitialFriendshipValue = "70"
-                    .Category = "種子神奇寶貝"
-                    .Weight = "13.0 kg"
                     .ImageMaleURI = "/Pokemons/002.png"
                     .ImageFemaleURI = "/Pokemons/002.png"
                 End With
@@ -297,6 +276,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "003"
+                    .Type = "[草]+[毒]"
+                    .Description = "下過雨後的第二天，背上的花的香味更加濃郁。神奇寶貝們被香氣吸引而聚集過來。"
+                    .GenderRatio = "7:1"
+                    .Height = "2.0 m"
+                    .Weight = "100.0 kg"
+                    .Category = "種子神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "草原"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "植物組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "236"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 65
                     .Ability2 = "---"
                     .AbilityHidden = 34
@@ -309,22 +304,6 @@
                         .SPEED = 80
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "236"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "綠"
-                    .Type = "[草]+[毒]"
-                    .Description = "下過雨後的第二天，背上的花的香味更加濃郁。神奇寶貝們被香氣吸引而聚集過來。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "植物組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "2.0 m"
-                    .DexIDNumber = "003"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "草原"
-                    .InitialFriendshipValue = "70"
-                    .Category = "種子神奇寶貝"
-                    .Weight = "100.0 kg"
                     .ImageMaleURI = "/Pokemons/003.png"
                     .ImageFemaleURI = "/Pokemons/003.png"
                 End With
@@ -332,6 +311,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "004"
+                    .Type = "[火]"
+                    .Description = "尾巴末端的火焰是生命之火。精力旺盛的時候，火焰也燃燒得更加猛烈。"
+                    .GenderRatio = "7:1"
+                    .Height = "0.6 m"
+                    .Weight = "8.5 kg"
+                    .Category = "蜥蜴神奇寶貝"
+                    .BodyColor = "紅"
+                    .Sheleter = "山丘"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "62"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 66
                     .Ability2 = "---"
                     .AbilityHidden = 94
@@ -344,22 +339,6 @@
                         .SPEED = 65
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "62"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "紅"
-                    .Type = "[火]"
-                    .Description = "尾巴末端的火焰是生命之火。精力旺盛的時候，火焰也燃燒得更加猛烈。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "龍組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "0.6 m"
-                    .DexIDNumber = "004"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "山丘"
-                    .InitialFriendshipValue = "70"
-                    .Category = "蜥蜴神奇寶貝"
-                    .Weight = "8.5 kg"
                     .ImageMaleURI = "/Pokemons/004.png"
                     .ImageFemaleURI = "/Pokemons/004.png"
                 End With
@@ -367,6 +346,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "005"
+                    .Type = "[火]"
+                    .Description = "在深夜向[火恐龍]棲息的岩山上望去，可以看到尾巴上的火焰如繁星一般閃爍。"
+                    .GenderRatio = "7:1"
+                    .Height = "1.1 m"
+                    .Weight = "19.0 kg"
+                    .Category = "火焰神奇寶貝"
+                    .BodyColor = "紅"
+                    .Sheleter = "山丘"
+                    .CatchRate = "45"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "142"
+                    .FullLevelExpPoint = "1059860"
+                    .InitialFriendshipValue = "70"
                     .Ability1 = 66
                     .Ability2 = "---"
                     .AbilityHidden = 94
@@ -379,22 +374,6 @@
                         .SPEED = 80
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "142"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "紅"
-                    .Type = "[火]"
-                    .Description = "在深夜向[火恐龍]棲息的岩山上望去，可以看到尾巴上的火焰如繁星一般閃爍。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "龍組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.1 m"
-                    .DexIDNumber = "005"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "山丘"
-                    .InitialFriendshipValue = "70"
-                    .Category = "火焰神奇寶貝"
-                    .Weight = "19.0 kg"
                     .ImageMaleURI = "/Pokemons/005.png"
                     .ImageFemaleURI = "/Pokemons/005.png"
                 End With
@@ -402,6 +381,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "006"
+                    .Type = "[火]+[飛行]"
+                    .Description = "據說經過了艱苦的戰鬥後的[噴火龍]噴出的火焰，溫度會變得更高。"
+                    .GenderRatio = "7:1"
+                    .Height = "1.7 m"
+                    .Weight = "90.5 kg"
+                    .Category = "火焰神奇寶貝"
+                    .BodyColor = "紅"
+                    .Sheleter = "山丘"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "240"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 66
                     .Ability2 = "---"
                     .AbilityHidden = 94
@@ -414,22 +409,6 @@
                         .SPEED = 100
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "240"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "紅"
-                    .Type = "[火]+[飛行]"
-                    .Description = "據說經過了艱苦的戰鬥後的[噴火龍]噴出的火焰，溫度會變得更高。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "龍組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.7 m"
-                    .DexIDNumber = "006"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "山丘"
-                    .InitialFriendshipValue = "70"
-                    .Category = "火焰神奇寶貝"
-                    .Weight = "90.5 kg"
                     .ImageMaleURI = "/Pokemons/006.png"
                     .ImageFemaleURI = "/Pokemons/006.png"
                 End With
@@ -437,6 +416,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "007"
+                    .Type = "[水]"
+                    .Description = "躲進龜殼裡保護身體。它不放過對手的任何空當，噴出水槍來反擊。"
+                    .GenderRatio = "7:1"
+                    .Height = "0.5 m"
+                    .Weight = "9.0 kg"
+                    .Category = "小龜神奇寶貝"
+                    .BodyColor = "藍"
+                    .Sheleter = "岸邊"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "水一組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "63"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 67
                     .Ability2 = "---"
                     .AbilityHidden = 44
@@ -449,22 +444,6 @@
                         .SPEED = 43
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "63"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "藍"
-                    .Type = "[水]"
-                    .Description = "躲進龜殼裡保護身體。它不放過對手的任何空當，噴出水槍來反擊。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "水一組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "0.5 m"
-                    .DexIDNumber = "007"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "岸邊"
-                    .InitialFriendshipValue = "70"
-                    .Category = "小龜神奇寶貝"
-                    .Weight = "9.0 kg"
                     .ImageMaleURI = "/Pokemons/007.png"
                     .ImageFemaleURI = "/Pokemons/007.png"
                 End With
@@ -472,6 +451,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "008"
+                    .Type = "[水]"
+                    .Description = "據說壽命超過一萬年。毛茸茸的尾巴被看作長壽的象徵，非常受歡迎。"
+                    .GenderRatio = "7:1"
+                    .Height = "1.0 m"
+                    .Weight = "22.5 kg"
+                    .Category = "龜神奇寶貝"
+                    .BodyColor = "藍"
+                    .Sheleter = "岸邊"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "水一組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "142"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 67
                     .Ability2 = "---"
                     .AbilityHidden = 44
@@ -484,22 +479,6 @@
                         .SPEED = 58
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "142"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "藍"
-                    .Type = "[水]"
-                    .Description = "據說壽命超過一萬年。毛茸茸的尾巴被看作長壽的象徵，非常受歡迎。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "水一組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.0 m"
-                    .DexIDNumber = "008"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "岸邊"
-                    .InitialFriendshipValue = "70"
-                    .Category = "龜神奇寶貝"
-                    .Weight = "22.5 kg"
                     .ImageMaleURI = "/Pokemons/008.png"
                     .ImageFemaleURI = "/Pokemons/008.png"
                 End With
@@ -507,6 +486,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "009"
+                    .Type = "[水]"
+                    .Description = "龜殼上的火箭炮裡噴出的水流，有著能瞬間貫穿厚厚的鋼板的破壞力。"
+                    .GenderRatio = "7:1"
+                    .Height = "1.6 m"
+                    .Weight = "22.5 kg"
+                    .Category = "甲殼神奇寶貝"
+                    .BodyColor = "藍"
+                    .Sheleter = "岸邊"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "怪獸組"
+                    .EggGroup2 = "水一組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "239"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 67
                     .Ability2 = "---"
                     .AbilityHidden = 44
@@ -519,22 +514,6 @@
                         .SPEED = 78
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "239"
-                    .HatchEggCycles = "20"
-                    .CatchRate = "45"
-                    .BodyColor = "藍"
-                    .Type = "[水]"
-                    .Description = "龜殼上的火箭炮裡噴出的水流，有著能瞬間貫穿厚厚的鋼板的破壞力。"
-                    .EggGroup1 = "怪獸組"
-                    .EggGroup2 = "水一組"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.6 m"
-                    .DexIDNumber = "009"
-                    .GenderRatio = "7:1"
-                    .Sheleter = "岸邊"
-                    .InitialFriendshipValue = "70"
-                    .Category = "龜甲神奇寶貝"
-                    .Weight = "22.5 kg"
                     .ImageMaleURI = "/Pokemons/009.png"
                     .ImageFemaleURI = "/Pokemons/009.png"
                 End With
@@ -542,6 +521,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "010"
+                    .Type = "[蟲]"
+                    .Description = "從紅色的觸角裡釋放出臭味驅逐敵人。透過反復蛻皮逐漸長大。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.3 m"
+                    .Weight = "2.9 kg"
+                    .Category = "芋蟲神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "森林"
+                    .CatchRate = "255"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "39"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 19
                     .Ability2 = "---"
                     .AbilityHidden = 50
@@ -554,22 +549,6 @@
                         .SPEED = 45
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "39"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "255"
-                    .BodyColor = "綠"
-                    .Type = "[蟲]"
-                    .Description = "從紅色的觸角裡釋放出臭味驅逐敵人。透過反復蛻皮逐漸長大。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "0.3 m"
-                    .DexIDNumber = "010"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "芋蟲神奇寶貝"
-                    .Weight = "2.9 kg"
                     .ImageMaleURI = "/Pokemons/010.png"
                     .ImageFemaleURI = "/Pokemons/010.png"
                 End With
@@ -577,6 +556,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "011"
+                    .Type = "[蟲]"
+                    .Description = "用鋼鐵般堅硬的外殼保護柔軟的身體，默默地忍耐著，等待進化的那一刻。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.7 m"
+                    .Weight = "9.9 kg"
+                    .Category = "蛹神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "森林"
+                    .CatchRate = "120"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "72"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 61
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -589,22 +584,6 @@
                         .SPEED = 30
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "72"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "120"
-                    .BodyColor = "綠"
-                    .Type = "[蟲]"
-                    .Description = "用鋼鐵般堅硬的外殼保護柔軟的身體，默默地忍耐著，等待進化的那一刻。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "0.7 m"
-                    .DexIDNumber = "011"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "蛹神奇寶貝"
-                    .Weight = "9.9 kg"
                     .ImageMaleURI = "/Pokemons/011.png"
                     .ImageFemaleURI = "/Pokemons/011.png"
                 End With
@@ -612,6 +591,24 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "012"
+                    .Type = "[蟲]+[飛行]"
+                    .Description = "花蜜是它的最愛，能透過極微量的花粉找到花海的位置。"
+                    .GenderRatio = "1:1"
+                    .Height = "1.1 m"
+                    .Weight = "32.0 kg"
+                    .Category = "蝴蝶神奇寶貝"
+                    .BodyColor = "白"
+                    .Sheleter = "森林"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "173"
+                    .FullLevelExpPoint = "1000000"
+                    .ImageMaleURI = "/Pokemons/012.png"
+                    .ImageFemaleURI = "/Pokemons/012.png"
                     .Ability1 = 14
                     .Ability2 = "---"
                     .AbilityHidden = 110
@@ -624,31 +621,27 @@
                         .SPEED = 70
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "173"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "45"
-                    .BodyColor = "白"
-                    .Type = "[蟲]+[飛行]"
-                    .Description = "花蜜是它的最愛，能透過極微量的花粉找到花海的位置。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "1.1 m"
-                    .DexIDNumber = "012"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "蝴蝶神奇寶貝"
-                    .Weight = "32.0 kg"
-                    .ImageMaleURI = "/Pokemons/012.png"
-                    .ImageFemaleURI = "/Pokemons/012.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 13
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "013"
+                    .Type = "[蟲]+[毒]"
+                    .Description = "每天都要吃下和自身重量相當的葉子。用頭上的刺擊退入侵的敵人。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.3 m"
+                    .Weight = "3.2 kg"
+                    .Category = "毛毛蟲神奇寶貝"
+                    .BodyColor = "褐"
+                    .Sheleter = "森林"
+                    .CatchRate = "255"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "39"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 19
                     .Ability2 = "---"
                     .AbilityHidden = 50
@@ -661,22 +654,6 @@
                         .SPEED = 50
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "39"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "255"
-                    .BodyColor = "褐"
-                    .Type = "[蟲]+[毒]"
-                    .Description = "每天都要吃下和自身重量相當的葉子。用頭上的刺擊退入侵的敵人。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "0.3 m"
-                    .DexIDNumber = "013"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "毛毛蟲神奇寶貝"
-                    .Weight = "3.2 kg"
                     .ImageMaleURI = "/Pokemons/013.png"
                     .ImageFemaleURI = "/Pokemons/013.png"
                 End With
@@ -684,6 +661,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "014"
+                    .Type = "[蟲]+[毒]"
+                    .Description = "為了不被天敵發現，藏在葉子裡或者樹枝的縫隙中，等待著進化的時機。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.6 m"
+                    .Weight = "10.0 kg"
+                    .Category = "蛹神奇寶貝"
+                    .BodyColor = "黃"
+                    .Sheleter = "森林"
+                    .CatchRate = "120"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "72"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 61
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -696,22 +689,6 @@
                         .SPEED = 35
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "72"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "120"
-                    .BodyColor = "黃"
-                    .Type = "[蟲]+[毒]"
-                    .Description = "為了不被天敵發現，藏在葉子裡或者樹枝的縫隙中，等待著進化的時機。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "0.6 m"
-                    .DexIDNumber = "014"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "蛹神奇寶貝"
-                    .Weight = "10.0 kg"
                     .ImageMaleURI = "/Pokemons/014.png"
                     .ImageFemaleURI = "/Pokemons/014.png"
                 End With
@@ -719,6 +696,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "015"
+                    .Type = "[蟲]+[毒]"
+                    .Description = "一邊高速飛行，一邊用毒針攻擊之後馬上飛走，是它最擅長的戰術。"
+                    .GenderRatio = "1:1"
+                    .Height = "1.0 m"
+                    .Weight = "29.5 kg"
+                    .Category = "毒蜂神奇寶貝"
+                    .BodyColor = "黃"
+                    .Sheleter = "森林"
+                    .CatchRate = "120"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "蟲組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "173"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 68
                     .Ability2 = "---"
                     .AbilityHidden = 97
@@ -731,22 +724,6 @@
                         .SPEED = 75
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "173"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "120"
-                    .BodyColor = "黃"
-                    .Type = "[蟲]+[毒]"
-                    .Description = "一邊高速飛行，一邊用毒針攻擊之後馬上飛走，是它最擅長的戰術。"
-                    .EggGroup1 = "蟲組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "1.0 m"
-                    .DexIDNumber = "015"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "毒蜂神奇寶貝"
-                    .Weight = "29.5 kg"
                     .ImageMaleURI = "/Pokemons/015.png"
                     .ImageFemaleURI = "/Pokemons/015.png"
                 End With
@@ -754,6 +731,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "016"
+                    .Type = "[一般]+[飛行]"
+                    .Description = "性情溫馴，不喜歡鬥爭。然而當它受到冒犯時，會展開激烈的反擊。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.3 m"
+                    .Weight = "1.8 kg"
+                    .Category = "小鳥神奇寶貝"
+                    .BodyColor = "褐"
+                    .Sheleter = "森林"
+                    .CatchRate = "255"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "飛行組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "50"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 51
                     .Ability2 = 77
                     .AbilityHidden = 145
@@ -766,22 +759,6 @@
                         .SPEED = 56
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "50"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "255"
-                    .BodyColor = "褐"
-                    .Type = "[一般]+[飛行]"
-                    .Description = "性情溫馴，不喜歡鬥爭。然而當它受到冒犯時，會展開激烈的反擊。"
-                    .EggGroup1 = "飛行組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "0.3 m"
-                    .DexIDNumber = "016"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "小鳥神奇寶貝"
-                    .Weight = "1.8 kg"
                     .ImageMaleURI = "/Pokemons/016.png"
                     .ImageFemaleURI = "/Pokemons/016.png"
                 End With
@@ -789,6 +766,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "017"
+                    .Type = "[一般]+[飛行]"
+                    .Description = "一邊在廣闊的領地上空盤旋，一邊搜尋獵物。用發達的爪子捕殺獵物。"
+                    .GenderRatio = "1:1"
+                    .Height = "1.1 m"
+                    .Weight = "30.0 kg"
+                    .Category = "鳥神奇寶貝"
+                    .BodyColor = "褐"
+                    .Sheleter = "森林"
+                    .CatchRate = "120"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "飛行組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "122"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 51
                     .Ability2 = 77
                     .AbilityHidden = 145
@@ -801,22 +794,6 @@
                         .SPEED = 71
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "122"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "120"
-                    .BodyColor = "褐"
-                    .Type = "[一般]+[飛行]"
-                    .Description = "一邊在廣闊的領地上空盤旋，一邊搜尋獵物。用發達的爪子捕殺獵物。"
-                    .EggGroup1 = "飛行組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.1 m"
-                    .DexIDNumber = "017"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "鳥神奇寶貝"
-                    .Weight = "30.0 kg"
                     .ImageMaleURI = "/Pokemons/017.png"
                     .ImageFemaleURI = "/Pokemons/017.png"
                 End With
@@ -824,6 +801,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "018"
+                    .Type = "[一般]+[飛行]"
+                    .Description = "用盡力氣撲打翅膀時，卷起的強風連大樹都能折斷。"
+                    .GenderRatio = "1:1"
+                    .Height = "1.5 m"
+                    .Weight = "39.5 kg"
+                    .Category = "鳥神奇寶貝"
+                    .BodyColor = "褐"
+                    .Sheleter = "森林"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "飛行組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "211"
+                    .FullLevelExpPoint = "1059860"
                     .Ability1 = 51
                     .Ability2 = 77
                     .AbilityHidden = 145
@@ -836,22 +829,6 @@
                         .SPEED = 101
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "211"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "45"
-                    .BodyColor = "褐"
-                    .Type = "[一般]+[飛行]"
-                    .Description = "用盡力氣撲打翅膀時，卷起的強風連大樹都能折斷。"
-                    .EggGroup1 = "飛行組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1059860"
-                    .Height = "1.5 m"
-                    .DexIDNumber = "018"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "森林"
-                    .InitialFriendshipValue = "70"
-                    .Category = "鳥神奇寶貝"
-                    .Weight = "39.5 kg"
                     .ImageMaleURI = "/Pokemons/018.png"
                     .ImageFemaleURI = "/Pokemons/018.png"
                 End With
@@ -859,6 +836,22 @@
                 With ReturnValue
                     .IsMissingNo = False
                     .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = "019"
+                    .Type = "[一般]"
+                    .Description = "一天到晚都在尋找食物。由於門牙一生都在不斷長長，必須不停地啃咬硬物。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.3 m"
+                    .Weight = "3.5 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "紫"
+                    .Sheleter = "草原"
+                    .CatchRate = "255"
+                    .InitialFriendshipValue = "70"
+                    .EggGroup1 = "陸上組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "15"
+                    .BasicExpPoint = "51"
+                    .FullLevelExpPoint = "1000000"
                     .Ability1 = 50
                     .Ability2 = 62
                     .AbilityHidden = 55
@@ -871,22 +864,6 @@
                         .SPEED = 72
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
-                    .BasicExpPoint = "51"
-                    .HatchEggCycles = "15"
-                    .CatchRate = "255"
-                    .BodyColor = "紫"
-                    .Type = "[一般]"
-                    .Description = "一天到晚都在尋找食物。由於門牙一生都在不斷長長，必須不停地啃咬硬物。"
-                    .EggGroup1 = "陸上組"
-                    .EggGroup2 = "---"
-                    .FullLevelExpPoint = "1000000"
-                    .Height = "0.3 m"
-                    .DexIDNumber = "019"
-                    .GenderRatio = "1:1"
-                    .Sheleter = "草原"
-                    .InitialFriendshipValue = "70"
-                    .Category = "鼠神奇寶貝"
-                    .Weight = "3.5 kg"
                     .ImageMaleURI = "/Pokemons/019.png"
                     .ImageFemaleURI = "/Pokemons/019.png"
                 End With
@@ -3105,7 +3082,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.8 m"
                     .Weight = "15.0 kg"
-                    .Category = "尖嘴鴨神奇寶貝"
+                    .Category = "黃嘴鴨神奇寶貝"
                     .BodyColor = "褐"
                     .Sheleter = "草原"
                     .CatchRate = "45"
@@ -3654,8 +3631,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/098.png"
                     .ImageFemaleURI = "/Pokemons/098.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 99
                 With ReturnValue
@@ -3667,7 +3644,7 @@
                     .GenderRatio = "1:1"
                     .Height = "1.3 m"
                     .Weight = "60.0 kg"
-                    .Category = "夾子神奇寶貝"
+                    .Category = "鉗子神奇寶貝"
                     .BodyColor = "紅"
                     .Sheleter = "岸邊"
                     .CatchRate = "60"
@@ -4006,8 +3983,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/108.png"
                     .ImageFemaleURI = "/Pokemons/108.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 109
                 With ReturnValue
@@ -4498,8 +4475,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/122.png"
                     .ImageFemaleURI = "/Pokemons/122.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 123
                 With ReturnValue
@@ -4651,7 +4628,7 @@
                     .GenderRatio = "1:1"
                     .Height = "1.5 m"
                     .Weight = "55.0 kg"
-                    .Category = "天牛神奇寶貝"
+                    .Category = "鍬形蟲神奇寶貝"
                     .BodyColor = "褐"
                     .Sheleter = "森林"
                     .CatchRate = "45"
@@ -4686,7 +4663,7 @@
                     .GenderRatio = "1:0"
                     .Height = "1.4 m"
                     .Weight = "88.4 kg"
-                    .Category = "蠻牛神奇寶貝"
+                    .Category = "暴牛神奇寶貝"
                     .BodyColor = "褐"
                     .Sheleter = "森林"
                     .CatchRate = "45"
@@ -4745,8 +4722,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/129.png"
                     .ImageFemaleURI = "/Pokemons/129.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 130
                 With ReturnValue
@@ -4793,7 +4770,7 @@
                     .GenderRatio = "1:1"
                     .Height = "2.5 m"
                     .Weight = "220.0 kg"
-                    .Category = "座騎神奇寶貝"
+                    .Category = "承載神奇寶貝"
                     .BodyColor = "藍"
                     .Sheleter = "大海"
                     .CatchRate = "45"
@@ -6567,8 +6544,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/181.png"
                     .ImageFemaleURI = "/Pokemons/181.png"
-                    StateInformation(0).ImagePath = "/Pokemons/181.01.png"
-                    StateInformation(1).ImagePath = "/Pokemons/181.01.png"
+                    FormDifferenceInformation(0).ImagePath = "/Pokemons/181.01.png"
+                    FormDifferenceInformation(1).ImagePath = "/Pokemons/181.01.png"
                 End With
             Case 182
                 With ReturnValue
@@ -6989,8 +6966,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/193.png"
                     .ImageFemaleURI = "/Pokemons/193.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 194
                 With ReturnValue
@@ -7247,7 +7224,7 @@
                     .GenderRatio = "無性別"
                     .Height = "0.5 m"
                     .Weight = "5.0 kg"
-                    .Category = "符號神奇寶貝"
+                    .Category = "象徵神奇寶貝"
                     .BodyColor = "黑"
                     .Sheleter = "罕見"
                     .CatchRate = "225"
@@ -7632,7 +7609,7 @@
                     .GenderRatio = "1:1"
                     .Height = "1.8 m"
                     .Weight = "118.0 kg"
-                    .Category = "鋏子神奇寶貝"
+                    .Category = "鉗子神奇寶貝"
                     .BodyColor = "紅"
                     .Sheleter = "草原"
                     .CatchRate = "25"
@@ -7656,8 +7633,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/212.png"
                     .ImageFemaleURI = "/Pokemons/212.png"
-                    StateInformation(0).ImagePath = "/Pokemons/212.01.png"
-                    StateInformation(1).ImagePath = "/Pokemons/212.01.png"
+                    FormDifferenceInformation(0).ImagePath = "/Pokemons/212.01.png"
+                    FormDifferenceInformation(1).ImagePath = "/Pokemons/212.01.png"
                 End With
             Case 213
                 With ReturnValue
@@ -8218,8 +8195,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/228.png"
                     .ImageFemaleURI = "/Pokemons/228.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 229
                 With ReturnValue
@@ -8605,8 +8582,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/239.png"
                     .ImageFemaleURI = "/Pokemons/239.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 240
                 With ReturnValue
@@ -9972,8 +9949,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/278.png"
                     .ImageFemaleURI = "/Pokemons/278.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 279
                 With ReturnValue
@@ -11059,8 +11036,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/309.png"
                     .ImageFemaleURI = "/Pokemons/309.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 310
                 With ReturnValue
@@ -12111,8 +12088,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 340
                 With ReturnValue
@@ -12393,8 +12370,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 348
                 With ReturnValue
@@ -13526,7 +13503,7 @@
                     .GenderRatio = "0:1"
                     .Height = "1.4 m"
                     .Weight = "40.0 kg"
-                    .Category = "萬古神奇寶貝"
+                    .Category = "無限神奇寶貝"
                     .BodyColor = "紅"
                     .Sheleter = "岸邊"
                     .CatchRate = "3"
@@ -13561,7 +13538,7 @@
                     .GenderRatio = "1:0"
                     .Height = "2.0 m"
                     .Weight = "60.0 kg"
-                    .Category = "萬古神奇寶貝"
+                    .Category = "無限神奇寶貝"
                     .BodyColor = "藍"
                     .Sheleter = "岸邊"
                     .CatchRate = "3"
@@ -13801,8 +13778,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -13818,22 +13795,6 @@
                 .NameCHTO = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .Ability1 = "ERROR"
-                    .Ability2 = "ERROR"
-                    .AbilityHidden = "ERROR"
-                    .Type = "[ERROR]"
-                    With .SpeciesStrengthValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
             End With
             Return ReturnValue
             Exit Function
@@ -13849,8 +13810,6 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 387
@@ -14738,7 +14697,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.2 m"
                     .Weight = "3.4 kg"
-                    .Category = "包葉蟲神奇寶貝"
+                    .Category = "蓑衣蟲神奇寶貝"
                     .BodyColor = "灰"
                     .Sheleter = "---"
                     .CatchRate = "120"
@@ -14773,7 +14732,7 @@
                     .GenderRatio = "0:1"
                     .Height = "0.5 m"
                     .Weight = "6.5 kg"
-                    .Category = "包葉蟲神奇寶貝"
+                    .Category = "蓑衣蟲神奇寶貝"
                     .BodyColor = "灰"
                     .Sheleter = "---"
                     .CatchRate = "45"
@@ -14972,8 +14931,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 419
                 With ReturnValue
@@ -15090,7 +15049,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.3 m"
                     .Weight = "6.3 kg"
-                    .Category = "海牛神奇寶貝"
+                    .Category = "海兔神奇寶貝"
                     .BodyColor = "紫"
                     .Sheleter = "---"
                     .CatchRate = "190"
@@ -15125,7 +15084,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.9 m"
                     .Weight = "29.9 kg"
-                    .Category = "海牛神奇寶貝"
+                    .Category = "海兔神奇寶貝"
                     .BodyColor = "紫"
                     .Sheleter = "---"
                     .CatchRate = "75"
@@ -15604,8 +15563,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 437
                 With ReturnValue
@@ -17087,7 +17046,7 @@
                     .GenderRatio = "無性別"
                     .Height = "0.3 m"
                     .Weight = "0.3 kg"
-                    .Category = "電離子神奇寶貝"
+                    .Category = "等離子神奇寶貝"
                     .BodyColor = "紅"
                     .Sheleter = "---"
                     .CatchRate = "45"
@@ -17578,7 +17537,7 @@
                     .Height = "3.2 m"
                     .Weight = "320.0 kg"
                     .Category = "創造神奇寶貝"
-                    .BodyColor = "灰"
+                    .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "3"
                     .InitialFriendshipValue = "0"
@@ -17639,8 +17598,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -17652,21 +17611,6 @@
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .Ability1 = "ERROR"
-                    .Ability2 = "ERROR"
-                    .AbilityHidden = "ERROR"
-                    .Type = "[ERROR]"
-                    With .SpeciesStrengthValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                    End With
-                End With
             End With
             Return ReturnValue
             Exit Function
@@ -17682,8 +17626,6 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 494
@@ -19540,8 +19482,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 547
                 With ReturnValue
@@ -19658,7 +19600,7 @@
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "18.0 kg"
-                    .Category = "亂暴神奇寶貝"
+                    .Category = "粗暴神奇寶貝"
                     .BodyColor = "綠"
                     .Sheleter = "---"
                     .CatchRate = "25"
@@ -19833,7 +19775,7 @@
                     .GenderRatio = "1:1"
                     .Height = "1.3 m"
                     .Weight = "92.9 kg"
-                    .Category = "炎上神奇寶貝"
+                    .Category = "爆燃神奇寶貝"
                     .BodyColor = "紅"
                     .Sheleter = "---"
                     .CatchRate = "60"
@@ -20078,7 +20020,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "1.5 kg"
-                    .Category = "靈魂神奇寶貝"
+                    .Category = "魂神奇寶貝"
                     .BodyColor = "黑"
                     .Sheleter = "---"
                     .CatchRate = "190"
@@ -20884,7 +20826,7 @@
                     .Height = "0.6 m"
                     .Weight = "19.5 kg"
                     .Category = "季節神奇寶貝"
-                    .BodyColor = "黃"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "190"
                     .InitialFriendshipValue = "70"
@@ -21257,8 +21199,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 596
                 With ReturnValue
@@ -21609,8 +21551,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 606
                 With ReturnValue
@@ -22066,8 +22008,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 619
                 With ReturnValue
@@ -23059,7 +23001,7 @@
                     .GenderRatio = "無性別"
                     .Height = "1.4 m"
                     .Weight = "48.5 kg"
-                    .Category = "若馬神奇寶貝"
+                    .Category = "幼馬神奇寶貝"
                     .BodyColor = "黃"
                     .Sheleter = "---"
                     .CatchRate = "3"
@@ -23829,7 +23771,7 @@
                     .GenderRatio = "0:1"
                     .Height = "0.1 m"
                     .Weight = "0.1 kg"
-                    .Category = "一朵神奇寶貝"
+                    .Category = "單朵神奇寶貝"
                     .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "255"
@@ -23864,7 +23806,7 @@
                     .GenderRatio = "0:1"
                     .Height = "0.2 m"
                     .Weight = "0.9 kg"
-                    .Category = "一朵神奇寶貝"
+                    .Category = "單朵神奇寶貝"
                     .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "120"
@@ -24005,7 +23947,7 @@
                     .Height = "0.6 m"
                     .Weight = "8.0 kg"
                     .Category = "頑皮神奇寶貝"
-                    .BodyColor = " 白"
+                    .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "220"
                     .InitialFriendshipValue = "70"
@@ -24040,7 +23982,7 @@
                     .Height = "2.1 m"
                     .Weight = "136.0 kg"
                     .Category = "凶狠神奇寶貝"
-                    .BodyColor = " 白"
+                    .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "65"
                     .InitialFriendshipValue = "70"
@@ -24075,7 +24017,7 @@
                     .Height = "1.2 m"
                     .Weight = "28.0 kg"
                     .Category = "貴賓犬神奇寶貝"
-                    .BodyColor = " 白"
+                    .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "160"
                     .InitialFriendshipValue = "70"
@@ -24110,7 +24052,7 @@
                     .Height = "0.3 m"
                     .Weight = "3.5 kg"
                     .Category = "自制神奇寶貝"
-                    .BodyColor = " 灰"
+                    .BodyColor = "灰"
                     .Sheleter = "---"
                     .CatchRate = "190"
                     .InitialFriendshipValue = "70"
@@ -24145,7 +24087,7 @@
                     .Height = "0.6 m"
                     .Weight = "8.5 kg"
                     .Category = "抑制神奇寶貝"
-                    .BodyColor = " 白"
+                    .BodyColor = "白"
                     .Sheleter = "---"
                     .CatchRate = "75"
                     .InitialFriendshipValue = "70"
@@ -24180,7 +24122,7 @@
                     .Height = "0.8 m"
                     .Weight = "2.0 kg"
                     .Category = "刀劍神奇寶貝"
-                    .BodyColor = " 棕"
+                    .BodyColor = "褐"
                     .Sheleter = "---"
                     .CatchRate = "180"
                     .InitialFriendshipValue = "70"
@@ -24215,7 +24157,7 @@
                     .Height = "0.8 m"
                     .Weight = "4.5 kg"
                     .Category = "刀劍神奇寶貝"
-                    .BodyColor = " 棕"
+                    .BodyColor = "褐"
                     .Sheleter = "---"
                     .CatchRate = "90"
                     .InitialFriendshipValue = "70"
@@ -24249,8 +24191,8 @@
                     .GenderRatio = "1:1"
                     .Height = "1.7 m"
                     .Weight = "53.0 kg"
-                    .Category = "王權神奇寶貝"
-                    .BodyColor = " 棕"
+                    .Category = "王劍神奇寶貝"
+                    .BodyColor = "褐"
                     .Sheleter = "---"
                     .CatchRate = "45"
                     .InitialFriendshipValue = "70"
@@ -24285,7 +24227,7 @@
                     .Height = "0.2 m"
                     .Weight = "0.5 kg"
                     .Category = "香水神奇寶貝"
-                    .BodyColor = " 粉"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "200"
                     .InitialFriendshipValue = "70"
@@ -24320,7 +24262,7 @@
                     .Height = "0.8 m"
                     .Weight = "15.5 kg"
                     .Category = "芳香神奇寶貝"
-                    .BodyColor = " 粉"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "140"
                     .InitialFriendshipValue = "70"
@@ -25089,7 +25031,7 @@
                     .GenderRatio = "1:1"
                     .Height = "0.8 m"
                     .Weight = "17.5 kg"
-                    .Category = "軟體神奇寶貝"
+                    .Category = "軟體生物神奇寶貝"
                     .BodyColor = "紫"
                     .Sheleter = "---"
                     .CatchRate = "45"
@@ -25614,7 +25556,7 @@
                     .GenderRatio = "無性別"
                     .Height = "0.5 m"
                     .Weight = "9.0 kg"
-                    .Category = "惡作劇神奇寶貝"
+                    .Category = "頑童神奇寶貝"
                     .BodyColor = "紫"
                     .Sheleter = "---"
                     .CatchRate = "3"
@@ -25711,8 +25653,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -25728,22 +25670,6 @@
                 .NameCHTO = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .Ability1 = "ERROR"
-                    .Ability2 = "ERROR"
-                    .AbilityHidden = "ERROR"
-                    .Type = "[ERROR]"
-                    With .SpeciesStrengthValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
             End With
             Return ReturnValue
             Exit Function
@@ -25759,8 +25685,6 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 722
@@ -25797,8 +25721,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 723
                 With ReturnValue
@@ -26114,8 +26038,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 732
                 With ReturnValue
@@ -28507,7 +28431,7 @@
                     .Height = "2.4 m"
                     .Weight = "230.0 kg"
                     .Category = "稜鏡神奇寶貝"
-                    .BodyColor = "灰"
+                    .BodyColor = "黑"
                     .Sheleter = "---"
                     .CatchRate = "3"
                     .InitialFriendshipValue = "0"
@@ -28881,8 +28805,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -28898,23 +28822,6 @@
                 .NameCHTO = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .Ability1 = "ERROR"
-                    .Ability2 = "ERROR"
-                    .AbilityHidden = "ERROR"
-                    .Type = "[ERROR]"
-                    .IsUniqueDescriptionAvailable = False
-                    With .SpeciesStrengthValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
             End With
             Return ReturnValue
             Exit Function
@@ -28930,8 +28837,6 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 810
@@ -32186,8 +32091,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 903
                 With ReturnValue
@@ -32223,8 +32128,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 904
                 With ReturnValue
@@ -32260,8 +32165,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 905
                 With ReturnValue
@@ -32297,8 +32202,8 @@
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    StateInformation(0).ImagePath = DefaultPokemonImagePath
-                    StateInformation(1).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
         End Select
         Return ReturnValue
@@ -32335,8 +32240,8 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                StateInformation(0).ImagePath = DefaultPokemonImagePath
-                StateInformation(1).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
+                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -32352,23 +32257,6 @@
                 .NameCHTO = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
-                With StateInformation(0)
-                    .IsUniqueDescriptionAvailable = False
-                    .Ability1 = "ERROR"
-                    .Ability2 = "ERROR"
-                    .AbilityHidden = "ERROR"
-                    .Type = "[ERROR]"
-                    .IsUniqueDescriptionAvailable = False
-                    With .SpeciesStrengthValues
-                        .HP = 255
-                        .ATTACK = 255
-                        .DEFEND = 255
-                        .SPATTACK = 255
-                        .SPDEFEND = 255
-                        .SPEED = 255
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
-                    End With
-                End With
             End With
             Return ReturnValue
             Exit Function
@@ -32384,8 +32272,6 @@
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
-            .ExtraInfoURI = "" 'TODO:完成網頁後修改
-            .MultiStatesURI = ""
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 906
@@ -34184,7 +34070,7 @@
                     .Height = "0.4 m"
                     .Weight = "8.9 kg"
                     .Category = "錘鍊神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "190"
                     .InitialFriendshipValue = "---"
@@ -34219,7 +34105,7 @@
                     .Height = "0.7 m"
                     .Weight = "59.1 kg"
                     .Category = "錘子神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "90"
                     .InitialFriendshipValue = "---"
@@ -34254,7 +34140,7 @@
                     .Height = "0.7 m"
                     .Weight = "112.8 kg"
                     .Category = "錘子神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "45"
                     .InitialFriendshipValue = "---"
@@ -34744,7 +34630,7 @@
                     .Height = "1.6 m"
                     .Weight = "37.0 kg"
                     .Category = "同步神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "100"
                     .InitialFriendshipValue = "---"
@@ -34919,7 +34805,7 @@
                     .Height = "0.3 m"
                     .Weight = "8.0 kg"
                     .Category = "擬態神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "100"
                     .InitialFriendshipValue = "---"
@@ -35135,7 +35021,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35164,13 +35050,13 @@
                     .Height = "1.2 m"
                     .Weight = "8.0 kg"
                     .Category = "悖謬神奇寶貝"
-                    .BodyColor = "粉紅"
+                    .BodyColor = "粉"
                     .Sheleter = "---"
                     .CatchRate = "50"
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35205,7 +35091,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35240,7 +35126,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35275,7 +35161,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35310,7 +35196,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35345,7 +35231,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35380,7 +35266,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35415,7 +35301,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35450,7 +35336,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35485,7 +35371,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35520,7 +35406,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35660,7 +35546,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 155
@@ -35695,7 +35581,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 283
@@ -35730,7 +35616,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 286
@@ -35765,7 +35651,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 285
@@ -35800,7 +35686,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 284
@@ -35835,7 +35721,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 287
@@ -35870,7 +35756,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 281
@@ -35905,7 +35791,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 282
@@ -35940,7 +35826,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 288
@@ -35975,7 +35861,7 @@
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
-                    .HatchEggCycles = "12850"
+                    .HatchEggCycles = "50"
                     .BasicExpPoint = "0"
                     .FullLevelExpPoint = "1250000"
                     .Ability1 = 289

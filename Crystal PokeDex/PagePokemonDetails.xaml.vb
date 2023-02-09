@@ -25,7 +25,7 @@
         If IsLaunchedFromPinned Then
             NavigationService.RemoveBackEntry()
         End If
-        GenerateSpecificStateInfo(CLng(PokemonInformationShared.DexIDNumber))
+        GenerateSpecificFormDifferenceInfo(CLng(PokemonInformationShared.DexIDNumber))
         GenerateEvolutionData(CInt(PokemonInformationShared.DexIDNumber))
         gridNoEvolution.Visibility = System.Windows.Visibility.Visible
         imgArrowDown.Visibility = System.Windows.Visibility.Collapsed
@@ -108,11 +108,11 @@
             txtImgMale.Text = "雄性的外貌"
         End If
         pivotBack.Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
-        If States.Count = 0 Then
+        If FormDifferenceList.Count = 0 Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
-            lstStates.ItemsSource = States
+            lstFormDifferences.ItemsSource = FormDifferenceList
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
         End If
         With PokemonInformationShared
@@ -151,6 +151,7 @@
             txtName_EVOBasic.Text = CurrentTranslationForCommonUse(CInt(.DexIDNumber) - 1)
             txtNum_EVOBasic.Text = "全國圖鑑登錄號 " & .DexIDNumber
             txtNum.Text = "全國圖鑑登錄號 " & .DexIDNumber
+            txtBodyColor.Text = .BodyColor
             txtShelter.Text = .Sheleter
             txtGenderRatio.Text = .GenderRatio
             txtSVATK.Text = .SpeciesStrengthValues.ATTACK.ToString
@@ -337,17 +338,11 @@
         Else
             gridNoEvolution.Visibility = System.Windows.Visibility.Visible
         End If
-        If PokemonInformationShared.MultiStatesURI = "" Then
+        If FormDifferenceList.Count = 0 Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
-            'webMS.Navigate(New Uri(PokemonInformationShared.lpMultiStatesURI, UriKind.RelativeOrAbsolute))
-        End If
-        If States.Count = 0 Then
-            GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
-        Else
-            GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
-            lstStates.ItemsSource = States
+            lstFormDifferences.ItemsSource = FormDifferenceList
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Collapsed
         End If
     End Sub
@@ -593,30 +588,30 @@
         Exit Sub
     End Sub
 
-    Private Sub lstStates_DoubleTap(sender As Object, e As GestureEventArgs) Handles lstStates.DoubleTap
-        If lstStates.SelectedIndex >= 0 Then
-            SharedStateInformation = StateInformation(lstStates.SelectedIndex)
+    Private Sub lstFormDifferences_DoubleTap(sender As Object, e As GestureEventArgs) Handles lstFormDifferences.DoubleTap
+        If lstFormDifferences.SelectedIndex >= 0 Then
+            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
-            SharedStateInformation.StateName = States.Item(lstStates.SelectedIndex)
-            NavigationService.Navigate(New Uri("/PageStateInfo.xaml", UriKind.RelativeOrAbsolute))
+            SharedFormDifferenceInformation.FormName = FormDifferenceList.Item(lstFormDifferences.SelectedIndex)
+            NavigationService.Navigate(New Uri("/PagePokemonFormDifferenceInfo.xaml", UriKind.RelativeOrAbsolute))
         End If
     End Sub
 
-    Private Sub lstStates_Tap(sender As Object, e As GestureEventArgs) Handles lstStates.Tap
-        If lstStates.SelectedIndex >= 0 Then
-            SharedStateInformation = StateInformation(lstStates.SelectedIndex)
+    Private Sub lstFormDifferences_Tap(sender As Object, e As GestureEventArgs) Handles lstFormDifferences.Tap
+        If lstFormDifferences.SelectedIndex >= 0 Then
+            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
         Else
             Exit Sub
-            'NavigationService.Navigate(New Uri("/PageStateInfo.xaml", UriKind.RelativeOrAbsolute))
+            'NavigationService.Navigate(New Uri("/PagePokemonFormDifferenceInfo.xaml", UriKind.RelativeOrAbsolute))
         End If
     End Sub
 
@@ -662,15 +657,15 @@
     End Sub
 
     Private Sub imgPokemon_Tap(sender As Object, e As GestureEventArgs) Handles imgPokemon.Tap
-        If lstStates.SelectedIndex >= 0 Then
-            SharedStateInformation = StateInformation(lstStates.SelectedIndex)
+        If lstFormDifferences.SelectedIndex >= 0 Then
+            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
-            imgPokemonURI.UriSource = New Uri(SharedStateInformation.ImagePath, UriKind.RelativeOrAbsolute)
+            imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
             imgPokemon.Source = imgPokemonURI
             imgPokemon.Source = imgPokemonURI
-            SharedStateInformation.StateName = States.Item(lstStates.SelectedIndex)
-            NavigationService.Navigate(New Uri("/PageStateInfo.xaml", UriKind.RelativeOrAbsolute))
+            SharedFormDifferenceInformation.FormName = FormDifferenceList.Item(lstFormDifferences.SelectedIndex)
+            NavigationService.Navigate(New Uri("/PagePokemonFormDifferenceInfo.xaml", UriKind.RelativeOrAbsolute))
         End If
     End Sub
 

@@ -91,13 +91,29 @@
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="txtGenderRatio" Height="34" TextWrapping="Wrap" FontSize="25"/>
-                        <TextBlock TextWrapping="Wrap" Text="棲息地" FontSize="20">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock x:Name="txtShelter" Height="34" TextWrapping="Wrap" FontSize="25"/>
-                        <TextBlock TextWrapping="Wrap" Text="類型" FontSize="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <TextBlock TextWrapping="Wrap" Text="棲息地" FontSize="20">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock x:Name="txtShelter" Height="34" TextWrapping="Wrap" FontSize="25"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock TextWrapping="Wrap" Text="顏色" FontSize="20">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock x:Name="txtBodyColor" Height="34" TextWrapping="Wrap" FontSize="25"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock TextWrapping="Wrap" Text="分類" FontSize="20">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                             </TextBlock.Foreground>
@@ -315,25 +331,25 @@
                         <Rectangle Fill="#FFAFAFAF" Grid.Row="0" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="2" Stroke="White"/>
                         <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="體力" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="0" Grid.Column="1" x:Name="prgSVHP" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" x:Name="txtSVHP" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" x:Name="txtSVHP" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="攻擊" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="1" Grid.Column="1" x:Name="prgSVATK" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="1" Grid.Column="2" x:Name="txtSVATK" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" x:Name="txtSVATK" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Text="防禦" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="2" Grid.Column="1" x:Name="prgSVDEF" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="2" Grid.Column="2" x:Name="txtSVDEF" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" Grid.Column="2" x:Name="txtSVDEF" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" Text="特殊攻擊" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="3" Grid.Column="1" x:Name="prgSVSA" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="txtSVSA" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="txtSVSA" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" Text="特殊防禦" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="4" Grid.Column="1" x:Name="prgSVSD" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="4" Grid.Column="2" x:Name="txtSVSD" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="4" Grid.Column="2" x:Name="txtSVSD" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="5" Grid.Column="0" TextWrapping="Wrap" Text="速度" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="5" Grid.Column="1" x:Name="prgSVSP" Maximum="255" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="5" Grid.Column="2" x:Name="txtSVSP" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="5" Grid.Column="2" x:Name="txtSVSP" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                         <TextBlock Grid.Row="6" Grid.Column="0" TextWrapping="Wrap" Text="總計" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
                         <ProgressBar Grid.Row="6" Grid.Column="1" x:Name="prgSVT" Maximum="1530" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="6" Grid.Column="2" x:Name="txtSVT" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="6" Grid.Column="2" x:Name="txtSVT" TextWrapping="Wrap" Text="245" FontSize="25" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="Black"/>
                     </Grid>
                 </StackPanel>
             </phone:PivotItem>
@@ -387,12 +403,12 @@
                         </Grid.Background>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Image Height="100" VerticalAlignment="Center" Width="100" Source="/Assets/PageSharedResources/Info.png" HorizontalAlignment="Center"/>
-                            <TextBlock TextWrapping="Wrap" Text="沒有進化數據" FontSize="45" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="沒有進化資訊" FontSize="45" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
             </phone:PivotItem>
-            <phone:PivotItem x:Name="pivotOriginal" Header="多型態">
+            <phone:PivotItem x:Name="pivotFormDifference" Header="型態">
                 <Grid x:Name="gridMS">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -401,7 +417,7 @@
                     <Grid x:Name="rectPokeImg" Grid.Column="0" Background="#FFF4F4F5" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="12,0,0,0">
                         <Image x:Name="imgPokemon" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150"/>
                     </Grid>
-                    <ListBox x:Name="lstStates" Grid.Column="1" FontSize="35" Background="{StaticResource PhoneContrastBackgroundBrush}" Foreground="{StaticResource PhoneContrastForegroundBrush}" BorderBrush="{StaticResource PhoneTextBoxBrush}" BorderThickness="2.5" Margin="12,0,12,12" />
+                    <ListBox x:Name="lstFormDifferences" Grid.Column="1" FontSize="35" Background="{StaticResource PhoneContrastBackgroundBrush}" Foreground="{StaticResource PhoneContrastForegroundBrush}" BorderBrush="{StaticResource PhoneTextBoxBrush}" BorderThickness="2.5" Margin="12,0,12,12" />
                     <Grid x:Name="GridCon_MS" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource PhoneBackgroundBrush}" Visibility="Collapsed">
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Image x:Name="ImgMNA1_CON_MS" HorizontalAlignment="Center" Height="150" Width="150" Source="/Assets/PageSharedResources/Construction.png"/>
@@ -412,7 +428,7 @@
                     <Grid x:Name="GridNotAvailable_MS" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource PhoneBackgroundBrush}" Margin="0,-5,0,0">
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Image x:Name="ImgMNA1_MS" HorizontalAlignment="Center" Height="150" Width="150" Source="/Assets/PageSharedResources/Info.png"/>
-                            <TextBlock x:Name="txtMNA1_MS" TextWrapping="Wrap" Text="沒有多型態數據" FontSize="40" HorizontalAlignment="Center" Margin="0,10,0,100"/>
+                            <TextBlock x:Name="txtMNA1_MS" TextWrapping="Wrap" Text="沒有型態變化資訊" FontSize="40" HorizontalAlignment="Center" Margin="0,10,0,100"/>
                         </StackPanel>
                     </Grid>
                 </Grid>

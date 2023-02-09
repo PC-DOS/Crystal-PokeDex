@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="zh-TW" />
   </Languages>
-  <App xmlns="" ProductID="{f10f415c-40e4-4e60-8904-fca282ae1c4c}" Title="Crystal PokeDex" RuntimeType="Silverlight" Version="4.9.3.435" Genre="apps.normal" Author="PC-DOS Workshop" Description="幫助您收集和檢視神奇寶貝的資訊。" Publisher="PC-DOS Workshop" PublisherID="{410f3798-e817-4026-8ca9-0e92414f43d1}">
+  <App xmlns="" ProductID="{f10f415c-40e4-4e60-8904-fca282ae1c4c}" Title="Crystal PokeDex" RuntimeType="Silverlight" Version="4.9.3.550" Genre="apps.normal" Author="PC-DOS Workshop" Description="幫助您收集和檢視神奇寶貝的資訊。" Publisher="PC-DOS Workshop" PublisherID="{410f3798-e817-4026-8ca9-0e92414f43d1}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
