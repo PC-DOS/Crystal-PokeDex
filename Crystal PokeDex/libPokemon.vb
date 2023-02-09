@@ -2238,7 +2238,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = "059"
                     .Type = "[火]"
-                    .Description = "中國傳說裡的威風凜凜的寶可夢。能以超乎想像的速度奔跑。一晝夜能跑１００００千米的身影使得不少人為之陶醉。"
+                    .Description = "中國傳說裡的威風凜凜的神奇寶貝。能以超乎想像的速度奔跑。一晝夜能跑１００００千米的身影使得不少人為之陶醉。"
                     .GenderRatio = "3:1"
                     .Height = "1.9 m"
                     .Weight = "155.0 kg"
@@ -4132,7 +4132,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = "113"
                     .Type = "[一般]"
-                    .Description = "稀少而怕生的寶可夢，據說會為能夠捉到它的人帶來幸運。生出營養滿分的蛋分給受傷的神奇寶貝或人類，溫和友善的神奇寶貝。"
+                    .Description = "稀少而怕生的神奇寶貝，據說會為能夠捉到它的人帶來幸運。生出營養滿分的蛋分給受傷的神奇寶貝或人類，溫和友善的神奇寶貝。"
                     .GenderRatio = "0:1"
                     .Height = "1.1 m"
                     .Weight = "34.6 kg"
@@ -4694,7 +4694,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = "129"
                     .Type = "[水]"
-                    .Description = "力量和速度都不太行。是世界上最弱最可憐的寶可夢。生長了多年的[鯉魚王]一躍就可以越過一座大山，技能的威力卻還是那麼弱。"
+                    .Description = "力量和速度都不太行。是世界上最弱最可憐的神奇寶貝。生長了多年的[鯉魚王]一躍就可以越過一座大山，技能的威力卻還是那麼弱。"
                     .GenderRatio = "1:1"
                     .Height = "0.9 m"
                     .Weight = "10.0 kg"
@@ -5466,7 +5466,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = "151"
                     .Type = "[超能力]"
-                    .Description = "生活在南美的本應已經滅絕的寶可夢，智商非常高，什麼都能記住。直到現在仍被稱為幻之寶可夢，見過其的身影的人就算在全國也沒幾個。似乎只有抱有純潔的心靈和想與之見面的強烈感情，才能讓夢幻現身。據說牠有著所有寶可夢的基因。因為可以隨心所欲地隱形，所以就算接近人類也完全不會被察覺。因為能使用所有的技能，很多學者認為它是所有神奇寶貝的祖先。"
+                    .Description = "生活在南美的本應已經滅絕的神奇寶貝，智商非常高，什麼都能記住。直到現在仍被稱為幻之神奇寶貝，見過其的身影的人就算在全國也沒幾個。似乎只有抱有純潔的心靈和想與之見面的強烈感情，才能讓夢幻現身。據說牠有著所有神奇寶貝的基因。因為可以隨心所欲地隱形，所以就算接近人類也完全不會被察覺。因為能使用所有的技能，很多學者認為它是所有神奇寶貝的祖先。"
                     .GenderRatio = "無性別"
                     .Height = "0.4 m"
                     .Weight = "4.0 kg"
@@ -8906,7 +8906,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = "249"
                     .Type = "[超能力]+[飛行]"
-                    .Description = "傳說中被當成海神的寶可夢。有著在暴風雨之夜被人看見其身影的傳說。沉眠在海溝深處。傳說當它扇動翅膀時，會引起長達４０天的風暴。傳說因為擁有過強的能力而只能在深海底部靜靜地消磨時光。"
+                    .Description = "傳說中被當成海神的神奇寶貝。有著在暴風雨之夜被人看見其身影的傳說。沉眠在海溝深處。傳說當它扇動翅膀時，會引起長達４０天的風暴。傳說因為擁有過強的能力而只能在深海底部靜靜地消磨時光。"
                     .GenderRatio = "無性別"
                     .Height = "5.2 m"
                     .Weight = "216.0 kg"
@@ -10238,7 +10238,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = "287"
                     .Type = "[一般]"
-                    .Description = "心臟每分鐘只跳動１次。因為是只會一直趴著不動的寶可夢，所以幾乎沒有機會看到牠動的樣子。一天只要吃３片葉子就能吃飽，除此之外能睡上２０個小時。"
+                    .Description = "心臟每分鐘只跳動１次。因為是只會一直趴著不動的神奇寶貝，所以幾乎沒有機會看到牠動的樣子。一天只要吃３片葉子就能吃飽，除此之外能睡上２０個小時。"
                     .GenderRatio = "1:1"
                     .Height = "0.8 m"
                     .Weight = "24.0 kg"
@@ -12202,7 +12202,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[地面]+[超能力]"
-                    .Description = "在古代遺跡中被發現。一邊旋轉著移動，一邊尋找同伴組成群體。在原始人居住的洞穴裡，可以看見牆壁上畫著像是天秤偶的寶可夢。只要發現夥伴就會發出吵雜的叫聲聚集起來。會大量出沒在古代的墳場裡。"
+                    .Description = "在古代遺跡中被發現。一邊旋轉著移動，一邊尋找同伴組成群體。在原始人居住的洞穴裡，可以看見牆壁上畫著像是天秤偶的神奇寶貝。只要發現夥伴就會發出吵雜的叫聲聚集起來。會大量出沒在古代的墳場裡。"
                     .GenderRatio = "無性別"
                     .Height = "0.5 m"
                     .Weight = "21.5 kg"
@@ -12764,7 +12764,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]"
-                    .Description = "對天空與大地的變化能敏感地察覺，擁有能預知災害的能力。是能活上100年的長壽寶可夢。想要將其用角察覺到的災難向人類通報時，會從深山之中現形。"
+                    .Description = "對天空與大地的變化能敏感地察覺，擁有能預知災害的能力。是能活上100年的長壽神奇寶貝。想要將其用角察覺到的災難向人類通報時，會從深山之中現形。"
                     .GenderRatio = "1:1"
                     .Height = "1.2 m"
                     .Weight = "47.0 kg"
@@ -13394,7 +13394,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]"
-                    .Description = "過去曾被人封印的寶可夢。渾身由岩石構成。根本找不到大腦和心臟。就算是現代最新科學也無法解釋。就算在戰鬥中損壞了身體，也能透過填補岩石來治癒。"
+                    .Description = "過去曾被人封印的神奇寶貝。渾身由岩石構成。根本找不到大腦和心臟。就算是現代最新科學也無法解釋。就算在戰鬥中損壞了身體，也能透過填補岩石來治癒。"
                     .GenderRatio = "無性別"
                     .Height = "1.7 m"
                     .Weight = "230.0 kg"
@@ -13464,7 +13464,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]"
-                    .Description = "過去曾被人封印的寶可夢。人們認為構成牠身體的金屬是地球上不存在的物質。身體內部好像是空洞，沒有人知道這種寶可夢平常是吃什麼。經過了長達幾萬年的巨大地下壓力的磨練，金屬身軀變得刀槍不入。"
+                    .Description = "過去曾被人封印的神奇寶貝。人們認為構成牠身體的金屬是地球上不存在的物質。身體內部好像是空洞，沒有人知道這種神奇寶貝平常是吃什麼。經過了長達幾萬年的巨大地下壓力的磨練，金屬身軀變得刀槍不入。"
                     .GenderRatio = "無性別"
                     .Height = "1.9 m"
                     .Weight = "205.0 kg"
@@ -14940,7 +14940,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]"
-                    .Description = "用發達的浮囊浮在水面。是會幫忙拯救溺水者的寶可夢。在追逐水中獵物的過程中，浮囊變得更加發達。可以像橡皮艇一樣讓人乘坐。大量生活在漁村裡，救助溺水的村民，或幫他們搬運打來的魚。"
+                    .Description = "用發達的浮囊浮在水面。是會幫忙拯救溺水者的神奇寶貝。在追逐水中獵物的過程中，浮囊變得更加發達。可以像橡皮艇一樣讓人乘坐。大量生活在漁村裡，救助溺水的村民，或幫他們搬運打來的魚。"
                     .GenderRatio = "1:1"
                     .Height = "1.1 m"
                     .Weight = "33.5 kg"
@@ -15535,7 +15535,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]+[超能力]"
-                    .Description = "有研究者認為這種寶可夢在過去會像鏡子一樣反射。在古墓中被發現。據說其背面的花紋中寄宿著神秘力量。為了調查牠的身體構造而用Ｘ光拍了照片，結果卻什麼都拍不出來。雖然人們說把銅鏡怪打磨到發光，牠就能映照出真相，但其實牠非常討厭被打磨。"
+                    .Description = "有研究者認為這種神奇寶貝在過去會像鏡子一樣反射。在古墓中被發現。據說其背面的花紋中寄宿著神秘力量。為了調查牠的身體構造而用Ｘ光拍了照片，結果卻什麼都拍不出來。雖然人們說把銅鏡怪打磨到發光，牠就能映照出真相，但其實牠非常討厭被打磨。"
                     .GenderRatio = "無性別"
                     .Height = "0.5 m"
                     .Weight = "60.5 kg"
@@ -15747,7 +15747,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]+[惡]"
-                    .Description = "１０８個靈魂聚集在一起誕生出的寶可夢。被鎖在楔石的裂縫裡。由於總是做壞事，５００年前作惡多端，真身被一種神秘的法術給封印了在[楔石]中。"
+                    .Description = "１０８個靈魂聚集在一起誕生出的神奇寶貝。被鎖在楔石的裂縫裡。由於總是做壞事，５００年前作惡多端，真身被一種神秘的法術給封印了在[楔石]中。"
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "108.0 kg"
@@ -16307,7 +16307,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]+[飛行]"
-                    .Description = "能透過２根觸角來感知海水細微的流動。是種愛親近人的寶可夢。學者的研究發現背部的花紋根據地域有所不同。經常混在[鐵炮魚]的群體中遊動。"
+                    .Description = "能透過２根觸角來感知海水細微的流動。是種愛親近人的神奇寶貝。學者的研究發現背部的花紋根據地域有所不同。經常混在[鐵炮魚]的群體中遊動。"
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "65.0 kg"
@@ -17077,7 +17077,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]"
-                    .Description = "傳說[由克希]四處飛行時，人們獲得了賴以解決問題的叫做[智慧]的能力。會奪去惡人的記憶，因而受到人們敬畏的寶可夢。吾人曾發現提及此寶可夢司掌知識的紀錄。"
+                    .Description = "傳說[由克希]四處飛行時，人們獲得了賴以解決問題的叫做[智慧]的能力。會奪去惡人的記憶，因而受到人們敬畏的神奇寶貝。吾人曾發現提及此神奇寶貝司掌知識的紀錄。"
                     .GenderRatio = "無性別"
                     .Height = "0.3 m"
                     .Weight = "0.3 kg"
@@ -17112,7 +17112,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]"
-                    .Description = "[艾姆利多]四處飛行時，人們獲得了生活中的喜悅和悲傷之類的[情感]。有著感情之神別名的寶可夢。傳說牠會令對其不敬之人的感情失控，因而受到人們畏懼。"
+                    .Description = "[艾姆利多]四處飛行時，人們獲得了生活中的喜悅和悲傷之類的[情感]。有著感情之神別名的神奇寶貝。傳說牠會令對其不敬之人的感情失控，因而受到人們畏懼。"
                     .GenderRatio = "無性別"
                     .Height = "0.3 m"
                     .Weight = "0.3 kg"
@@ -17147,7 +17147,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]"
-                    .Description = "[亞克諾姆]四處飛行時，人們獲得了使他們下定決心做好事情的[意志力]。以意志之神的身分受人畏懼的寶可夢。傳說牠能操縱與己敵對者的意志，使其化成傀儡。"
+                    .Description = "[亞克諾姆]四處飛行時，人們獲得了使他們下定決心做好事情的[意志力]。以意志之神的身分受人畏懼的神奇寶貝。傳說牠能操縱與己敵對者的意志，使其化成傀儡。"
                     .GenderRatio = "無性別"
                     .Height = "0.3 m"
                     .Weight = "0.3 kg"
@@ -17532,7 +17532,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "據說它從虛無之處的一顆蛋中誕生，然後創造了整個世界。以己身為光源，從天照耀洗翠大地。憑藉其光明引導並守護寶可夢。洗翠神話視其為萬物的創造主。"
+                    .Description = "據說它從虛無之處的一顆蛋中誕生，然後創造了整個世界。以己身為光源，從天照耀洗翠大地。憑藉其光明引導並守護神奇寶貝。洗翠神話視其為萬物的創造主。"
                     .GenderRatio = "無性別"
                     .Height = "3.2 m"
                     .Weight = "320.0 kg"
@@ -17634,7 +17634,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]+[火]"
-                    .Description = "如果得到了由它產生的無限能量，全身會精力旺盛。帶來勝利的寶可夢。據說帶著比克提尼的訓練家，不論任何比賽必能取得勝利。"
+                    .Description = "如果得到了由它產生的無限能量，全身會精力旺盛。帶來勝利的神奇寶貝。據說帶著比克提尼的訓練家，不論任何比賽必能取得勝利。"
                     .GenderRatio = "無性別"
                     .Height = "0.4 m"
                     .Weight = "4.0 kg"
@@ -19349,7 +19349,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]+[毒]"
-                    .Description = "會咬住對手後注入劇毒。即使是天敵的大型鳥寶可夢，也會身體麻痺，動彈不得。用頭部和尾部的觸覺感知空氣的流動，掌握獵物的位置和動向。"
+                    .Description = "會咬住對手後注入劇毒。即使是天敵的大型鳥神奇寶貝，也會身體麻痺，動彈不得。用頭部和尾部的觸覺感知空氣的流動，掌握獵物的位置和動向。"
                     .GenderRatio = "1:1"
                     .Height = "0.4 m"
                     .Weight = "5.3 kg"
@@ -20156,7 +20156,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]+[飛行]"
-                    .Description = "從古代的化石中復活。棲息在樹上，可以不用飛行就在樹枝之間跳來跳去。一直以來被認為是所有鳥寶可夢的祖先，但最近也有研究指出事實並非如此。"
+                    .Description = "從古代的化石中復活。棲息在樹上，可以不用飛行就在樹枝之間跳來跳去。一直以來被認為是所有鳥神奇寶貝的祖先，但最近也有研究指出事實並非如此。"
                     .GenderRatio = "7:1"
                     .Height = "0.5 m"
                     .Weight = "9.5 kg"
@@ -20331,7 +20331,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]"
-                    .Description = "不只會幻化成其他東西，還擁有能夠讓數百人看見幻象的力量。透過迷惑對手來保護族群安全的寶可夢。同類夥伴間非常團結。據說試圖捕捉它的人們都會被囚禁在了虛幻的景象中作為懲罰。"
+                    .Description = "不只會幻化成其他東西，還擁有能夠讓數百人看見幻象的力量。透過迷惑對手來保護族群安全的神奇寶貝。同類夥伴間非常團結。據說試圖捕捉它的人們都會被囚禁在了虛幻的景象中作為懲罰。"
                     .GenderRatio = "7:1"
                     .Height = "1.6 m"
                     .Weight = "81.1 kg"
@@ -26152,7 +26152,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "找到獵物的蹤跡後，就會堅持蹲守在那個地方，但到了傍晚就會昏昏欲睡。喜歡吃小拉達和拉達，但因為是晝行性而沒機會遇到。是以忍耐力強而自豪的寶可夢。"
+                    .Description = "找到獵物的蹤跡後，就會堅持蹲守在那個地方，但到了傍晚就會昏昏欲睡。喜歡吃小拉達和拉達，但因為是晝行性而沒機會遇到。是以忍耐力強而自豪的神奇寶貝。"
                     .GenderRatio = "1:1"
                     .Height = "0.7 m"
                     .Weight = "14.2 kg"
@@ -26187,7 +26187,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]"
-                    .Description = "會用結實的下顎切削樹木，並吸取樹的汁液。平常則是在地底下生活。為了不被鳥寶可夢襲擊，經常聚集在電屬性寶可夢棲息的地方。"
+                    .Description = "會用結實的下顎切削樹木，並吸取樹的汁液。平常則是在地底下生活。為了不被鳥神奇寶貝襲擊，經常聚集在電屬性神奇寶貝棲息的地方。"
                     .GenderRatio = "1:1"
                     .Height = "0.4 m"
                     .Weight = "4.4 kg"
@@ -26222,7 +26222,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]+[電]"
-                    .Description = "擁有在體內蓄電的能力。露營的時候有１隻這種寶可夢在的話，是非常值得慶幸的。吃下食物後進行消化時產生的電能會被儲藏在電力袋中。"
+                    .Description = "擁有在體內蓄電的能力。露營的時候有１隻這種神奇寶貝在的話，是非常值得慶幸的。吃下食物後進行消化時產生的電能會被儲藏在電力袋中。"
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "10.5 kg"
@@ -26257,7 +26257,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]+[電]"
-                    .Description = "來回盤旋尋找機會。用巨大的顎部積蓄電能，向敵人發射。利用位於腹部的發電器官製造電力。靠著電擊光束，即使面對鳥寶可夢也能佔據優勢。"
+                    .Description = "來回盤旋尋找機會。用巨大的顎部積蓄電能，向敵人發射。利用位於腹部的發電器官製造電力。靠著電擊光束，即使面對鳥神奇寶貝也能佔據優勢。"
                     .GenderRatio = "1:1"
                     .Height = "1.5 m"
                     .Weight = "45.0 kg"
@@ -26466,7 +26466,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]"
-                    .Description = "非常容易親近，據說是適合推薦給新手訓練家的寶可夢。可是一旦成長，脾氣就會變得粗暴。從過去開始就一直和人類生活。當訓練家感到悲傷的時候，牠會察覺到，並不會離開對方身邊。"
+                    .Description = "非常容易親近，據說是適合推薦給新手訓練家的神奇寶貝。可是一旦成長，脾氣就會變得粗暴。從過去開始就一直和人類生活。當訓練家感到悲傷的時候，牠會察覺到，並不會離開對方身邊。"
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "9.2 kg"
@@ -26746,7 +26746,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]+[蟲]"
-                    .Description = "用頭部的水泡來進行頭錘攻擊。如果是弱小的寶可夢，會被裹進水泡溺死。與外表不同，性格非常體貼。當發現弱小的夥伴時，會讓對方進入水泡來保護牠。"
+                    .Description = "用頭部的水泡來進行頭錘攻擊。如果是弱小的神奇寶貝，會被裹進水泡溺死。與外表不同，性格非常體貼。當發現弱小的夥伴時，會讓對方進入水泡來保護牠。"
                     .GenderRatio = "1:1"
                     .Height = "1.8 m"
                     .Weight = "82.0 kg"
@@ -26921,7 +26921,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[毒]+[火]"
-                    .Description = "燃燒體液製造毒瓦斯。在吸了毒瓦斯的敵人變得頭暈目眩之後發動襲擊。棲息在火山和乾燥的岩石地帶。放出帶有甜甜香味的毒瓦斯，吸引蟲寶可夢過來後進行襲擊。"
+                    .Description = "燃燒體液製造毒瓦斯。在吸了毒瓦斯的敵人變得頭暈目眩之後發動襲擊。棲息在火山和乾燥的岩石地帶。放出帶有甜甜香味的毒瓦斯，吸引蟲神奇寶貝過來後進行襲擊。"
                     .GenderRatio = "7:1"
                     .Height = "0.6 m"
                     .Weight = "4.8 kg"
@@ -27026,7 +27026,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]+[格鬥]"
-                    .Description = "擁有壓倒性的肌肉力量，是非常危險的寶可夢。棲息地基本上是禁止進入。有和夥伴互相緊抱的習性。被這個力量壓碎脊椎而去世的訓練家也很多。"
+                    .Description = "擁有壓倒性的肌肉力量，是非常危險的神奇寶貝。棲息地基本上是禁止進入。有和夥伴互相緊抱的習性。被這個力量壓碎脊椎而去世的訓練家也很多。"
                     .GenderRatio = "1:1"
                     .Height = "2.1 m"
                     .Weight = "135.0 kg"
@@ -27096,7 +27096,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]"
-                    .Description = "為了保護身體，殼蓋變得很發達。因為相當堅硬，即使被鳥寶可夢啄到，也能完全安然無恙。總是精神飽滿地跳來跳去。因為有著充滿活力的樣子和好聞的香味，寶可夢都會聚集到牠的周圍來。"
+                    .Description = "為了保護身體，殼蓋變得很發達。因為相當堅硬，即使被鳥神奇寶貝啄到，也能完全安然無恙。總是精神飽滿地跳來跳去。因為有著充滿活力的樣子和好聞的香味，神奇寶貝都會聚集到牠的周圍來。"
                     .GenderRatio = "0:1"
                     .Height = "0.7 m"
                     .Weight = "16.0 kg"
@@ -27131,7 +27131,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]"
-                    .Description = "擅長運用自己的腳使出踢擊。會狠狠教訓被打倒的對手，大笑著炫耀自己的勝利。以擁有美腿的寶可夢為人所知，成了美容沙龍等廣告的吉祥物。"
+                    .Description = "擅長運用自己的腳使出踢擊。會狠狠教訓被打倒的對手，大笑著炫耀自己的勝利。以擁有美腿的神奇寶貝為人所知，成了美容沙龍等廣告的吉祥物。"
                     .GenderRatio = "0:1"
                     .Height = "1.2 m"
                     .Weight = "21.4 kg"
@@ -27201,7 +27201,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]+[超能力]"
-                    .Description = "因為非常聰明而被聞名。看不起沒經驗的訓練家，是種適合資深訓練家的寶可夢。棲息在叢林深處的樹上。偶爾會出現在海邊，與呆呆王較量誰聰明。"
+                    .Description = "因為非常聰明而被聞名。看不起沒經驗的訓練家，是種適合資深訓練家的神奇寶貝。棲息在叢林深處的樹上。偶爾會出現在海邊，與呆呆王較量誰聰明。"
                     .GenderRatio = "1:1"
                     .Height = "1.5 m"
                     .Weight = "76.0 kg"
@@ -27446,7 +27446,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "帶著沉重的控制面罩，無法釋放出原有的能力。蘊藏著特別的力量。人工創造出的寶可夢。因為有暴走的危險，所以其力量被控制面罩封印住了。"
+                    .Description = "帶著沉重的控制面罩，無法釋放出原有的能力。蘊藏著特別的力量。人工創造出的神奇寶貝。因為有暴走的危險，所以其力量被控制面罩封印住了。"
                     .GenderRatio = "無性別"
                     .Height = "1.9 m"
                     .Weight = "120.5 kg"
@@ -27516,7 +27516,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]+[飛行]"
-                    .Description = "原本棲息在臭氧層，身體的外殼變重後，就會向著地面落下。若受到強烈的衝擊，外殼就會剝落。是奈米粒子突變而誕生的寶可夢。吃大氣中的塵埃。根據吃下的塵埃的成分，來決定內核的色調。內核如果一直暴露著，就會很快消散。聽說如果趕緊放入精靈球，就能活下來。"
+                    .Description = "原本棲息在臭氧層，身體的外殼變重後，就會向著地面落下。若受到強烈的衝擊，外殼就會剝落。是奈米粒子突變而誕生的神奇寶貝。吃大氣中的塵埃。根據吃下的塵埃的成分，來決定內核的色調。內核如果一直暴露著，就會很快消散。聽說如果趕緊放入精靈球，就能活下來。"
                     .GenderRatio = "無性別"
                     .Height = "0.9 m"
                     .Weight = "18.5 kg"
@@ -27656,7 +27656,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]+[妖精]"
-                    .Description = "真面目是個謎。某個看過破布裡面的學者因為太可怕而被活活嚇死了。用破破爛爛的布隱藏起可怕的模樣，接近人類和其他寶可夢的寂寞傢伙。"
+                    .Description = "真面目是個謎。某個看過破布裡面的學者因為太可怕而被活活嚇死了。用破破爛爛的布隱藏起可怕的模樣，接近人類和其他神奇寶貝的寂寞傢伙。"
                     .GenderRatio = "1:1"
                     .Height = "0.2 m"
                     .Weight = "0.7 kg"
@@ -28041,7 +28041,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]"
-                    .Description = "容易消逝的氣體狀身體。一邊收集大氣中的塵埃，一邊慢慢地成長著。在遙遠的過去被稱為星之子。據說是屬於其他世界的寶可夢，但具體情況不詳。"
+                    .Description = "容易消逝的氣體狀身體。一邊收集大氣中的塵埃，一邊慢慢地成長著。在遙遠的過去被稱為星之子。據說是屬於其他世界的神奇寶貝，但具體情況不詳。"
                     .GenderRatio = "無性別"
                     .Height = "0.2 m"
                     .Weight = "0.1 kg"
@@ -28076,7 +28076,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]"
-                    .Description = "就像死去一樣動也不動，但觸碰後會感到些許溫暖。在遙遠的過去被稱為星之繭。在堅硬的外殼內，有著某種東西在不斷地向黑色核心聚集著。據說是屬於其他世界的寶可夢。"
+                    .Description = "就像死去一樣動也不動，但觸碰後會感到些許溫暖。在遙遠的過去被稱為星之繭。在堅硬的外殼內，有著某種東西在不斷地向黑色核心聚集著。據說是屬於其他世界的神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "0.1 m"
                     .Weight = "999.9 kg"
@@ -28461,7 +28461,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]+[妖精]"
-                    .Description = "５００多年前被製造出的人造寶可夢。可理解人類的語言，但本身無法說話。機械結構的身體只是一個容器。被稱為魂心的人造靈魂才是牠的本體。５００年前被獻給國王的女兒的，剛被發明出來時的瑪機雅娜。因為奢華絢爛的裝飾而受到國王女兒的喜愛。"
+                    .Description = "５００多年前被製造出的人造神奇寶貝。可理解人類的語言，但本身無法說話。機械結構的身體只是一個容器。被稱為魂心的人造靈魂才是牠的本體。５００年前被獻給國王的女兒的，剛被發明出來時的瑪機雅娜。因為奢華絢爛的裝飾而受到國王女兒的喜愛。"
                     .GenderRatio = "無性別"
                     .Height = "1.0 m"
                     .Weight = "80.5 kg"
@@ -28496,7 +28496,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[格鬥]+[幽靈]"
-                    .Description = "可以潛入影子中，因為從不在人前現身，所以其存在曾被視為幻想。會潛入對手的影子，複製其動作和力量。是種性格膽小而孱弱的寶可夢。"
+                    .Description = "可以潛入影子中，因為從不在人前現身，所以其存在曾被視為幻想。會潛入對手的影子，複製其動作和力量。是種性格膽小而孱弱的神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "0.7 m"
                     .Weight = "22.2 kg"
@@ -29195,7 +29195,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "在尾巴裡囤積樹果。雖然囤過頭了就會掉出來，但遲鈍的牠不會發現。無論多麼堅硬的樹果殼都能用引以為傲的大牙咬碎。在伽勒爾是很常見的寶可夢。"
+                    .Description = "在尾巴裡囤積樹果。雖然囤過頭了就會掉出來，但遲鈍的牠不會發現。無論多麼堅硬的樹果殼都能用引以為傲的大牙咬碎。在伽勒爾是很常見的神奇寶貝。"
                     .GenderRatio = "1:1"
                     .Height = "0.6 m"
                     .Weight = "6.0 kg"
@@ -29335,7 +29335,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]"
-                    .Description = "總是孜孜不倦地收集情報，所以頭腦相當地聰明，但是力量方面就差了一些。經常出現在田地裡的寶可夢。會透過長在身體上的毛來感應周圍發生的事。"
+                    .Description = "總是孜孜不倦地收集情報，所以頭腦相當地聰明，但是力量方面就差了一些。經常出現在田地裡的神奇寶貝。會透過長在身體上的毛來感應周圍發生的事。"
                     .GenderRatio = "1:1"
                     .Height = "0.4 m"
                     .Weight = "8.0 kg"
@@ -29440,7 +29440,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]"
-                    .Description = " 	靠搶奪其他寶可夢找到的食物為生。腳上長著軟乎乎的肉球，走路時不會發出絲毫聲響。性情謹慎且狡猾。在偷盜食物逃走的時候會用尾巴擦掉自己的足跡。"
+                    .Description = " 	靠搶奪其他神奇寶貝找到的食物為生。腳上長著軟乎乎的肉球，走路時不會發出絲毫聲響。性情謹慎且狡猾。在偷盜食物逃走的時候會用尾巴擦掉自己的足跡。"
                     .GenderRatio = "1:1"
                     .Height = "0.6 m"
                     .Weight = "8.9 kg"
@@ -29545,7 +29545,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]"
-                    .Description = " 	棉絮的種子營養豐富。牠會藉由風散播種子，讓草木和寶可夢變得活力十足。用牠頭上的棉絮製成的線有著十分美麗動人的光澤，是伽勒爾地區的名產。"
+                    .Description = " 	棉絮的種子營養豐富。牠會藉由風散播種子，讓草木和神奇寶貝變得活力十足。用牠頭上的棉絮製成的線有著十分美麗動人的光澤，是伽勒爾地區的名產。"
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "2.5 kg"
@@ -29685,7 +29685,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]+[岩石]"
-                    .Description = "性情凶暴的寶可夢。會用能咬斷鐵棍的顎部大口咬住獵物。頸部可以伸縮。能從遠處迅速伸長頸部，用銳利的牙齒解決對手。"
+                    .Description = "性情凶暴的神奇寶貝。會用能咬斷鐵棍的顎部大口咬住獵物。頸部可以伸縮。能從遠處迅速伸長頸部，用銳利的牙齒解決對手。"
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "115.5 kg"
@@ -29895,7 +29895,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]+[龍]"
-                    .Description = "終其一生都在蘋果裡度過。遇到天敵鳥寶可夢時，會裝成蘋果保護自己。一出生就躲進了蘋果中，一邊吃果肉一邊成長。進化方向依蘋果的味道而定。"
+                    .Description = "終其一生都在蘋果裡度過。遇到天敵鳥神奇寶貝時，會裝成蘋果保護自己。一出生就躲進了蘋果中，一邊吃果肉一邊成長。進化方向依蘋果的味道而定。"
                     .GenderRatio = "1:1"
                     .Height = "0.2 m"
                     .Weight = "0.5 kg"
@@ -29965,7 +29965,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]+[龍]"
-                    .Description = "啃果蟲吃了甜蘋果後進化而成。以蟲寶可夢為食，會從體內發出甜甜的香味引誘牠們上鉤。身體被甜甜的蜜汁包裹，背部的皮尤其甘甜，過去曾經是小孩的零食。"
+                    .Description = "啃果蟲吃了甜蘋果後進化而成。以蟲神奇寶貝為食，會從體內發出甜甜的香味引誘牠們上鉤。身體被甜甜的蜜汁包裹，背部的皮尤其甘甜，過去曾經是小孩的零食。"
                     .GenderRatio = "1:1"
                     .Height = "0.4 m"
                     .Weight = "13.0 kg"
@@ -30070,7 +30070,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[飛行]+[水]"
-                    .Description = "雖然擁有一擊定勝負的威力，但因為記性實在太差，對戰還沒結束就會忘記對手是誰。非常貪吃，會把刺梭魚整隻吞進嘴裡。偶爾也會搞錯對象去咬其他的寶可夢。"
+                    .Description = "雖然擁有一擊定勝負的威力，但因為記性實在太差，對戰還沒結束就會忘記對手是誰。非常貪吃，會把刺梭魚整隻吞進嘴裡。偶爾也會搞錯對象去咬其他的神奇寶貝。"
                     .GenderRatio = "1:1"
                     .Height = "0.8 m"
                     .Weight = "18.0 kg"
@@ -30385,7 +30385,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]"
-                    .Description = "據說這隻寶可夢是因為害怕寂寞的靈魂住進了涼透的喝剩紅茶而誕生的。被牠當成住處的茶杯是有名的古董餐具。市面上有很多贗品。弱點是身上的漩渦。如果把漩渦攪亂了，牠就會頭暈目眩。會吸走飲用者的精氣。雖然牠會等待著別人來喝自己，但大家都會因為牠太難喝而馬上把牠吐出來。"
+                    .Description = "據說這隻神奇寶貝是因為害怕寂寞的靈魂住進了涼透的喝剩紅茶而誕生的。被牠當成住處的茶杯是有名的古董餐具。市面上有很多贗品。弱點是身上的漩渦。如果把漩渦攪亂了，牠就會頭暈目眩。會吸走飲用者的精氣。雖然牠會等待著別人來喝自己，但大家都會因為牠太難喝而馬上把牠吐出來。"
                     .GenderRatio = "無性別"
                     .Height = "0.1 m"
                     .Weight = "0.2 kg"
@@ -30560,7 +30560,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[妖精]"
-                    .Description = "會用鼻子吸收人類或寶可夢情緒糟糕時產生的負能量，來為自己補充活力。不但會溜進民宅偷盜，還會吸收人們悔恨時的負面能量。"
+                    .Description = "會用鼻子吸收人類或神奇寶貝情緒糟糕時產生的負能量，來為自己補充活力。不但會溜進民宅偷盜，還會吸收人們悔恨時的負面能量。"
                     .GenderRatio = "1:0"
                     .Height = "0.4 m"
                     .Weight = "5.5 kg"
@@ -30945,7 +30945,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[格鬥]"
-                    .Description = "列陣兵由１個頭頭和５個跟班組成。頭頭的命令不可違抗。６隻為一體的寶可夢。慣於團隊行動，會一邊變換陣形一邊戰鬥。"
+                    .Description = "列陣兵由１個頭頭和５個跟班組成。頭頭的命令不可違抗。６隻為一體的神奇寶貝。慣於團隊行動，會一邊變換陣形一邊戰鬥。"
                     .GenderRatio = "無性別"
                     .Height = "3.0 m"
                     .Weight = "62.0 kg"
@@ -31155,7 +31155,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]+[一般]"
-                    .Description = "會用頭上的角讀取對方的心情。雄性就像管家一樣，在主人的身邊打理一切。能透過自己的角去感受附近生物的情感。正面情緒是牠的能量之源。擁有高度智能的寶可夢，能透過夥伴間角與角的互碰來彼此交換訊息。為了收集感謝之情而為人和寶可夢貼心服務。雌性十分擅長帶孩子。"
+                    .Description = "會用頭上的角讀取對方的心情。雄性就像管家一樣，在主人的身邊打理一切。能透過自己的角去感受附近生物的情感。正面情緒是牠的能量之源。擁有高度智能的神奇寶貝，能透過夥伴間角與角的互碰來彼此交換訊息。為了收集感謝之情而為人和神奇寶貝貼心服務。雌性十分擅長帶孩子。"
                     .GenderRatio = "1:1"
                     .Height = "0.9 m"
                     .Weight = "28.0 kg"
@@ -31225,7 +31225,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]"
-                    .Description = "能輕鬆舉起重達５噸的貨物的大力士寶可夢。會用鼻子挖地。擅長需要力氣的工作。銅質的身體會因雨水而生鏽，轉變成鮮豔的綠色。 "
+                    .Description = "能輕鬆舉起重達５噸的貨物的大力士神奇寶貝。會用鼻子挖地。擅長需要力氣的工作。銅質的身體會因雨水而生鏽，轉變成鮮豔的綠色。 "
                     .GenderRatio = "1:1"
                     .Height = "1.2 m"
                     .Weight = "100.0 kg"
@@ -31260,7 +31260,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]"
-                    .Description = "綠色的皮膚非常耐水。在很久以前從其他地區過來，之後便一直與人類一起工作。群居的寶可夢。鼻子的握力十分強勁，甚至能把大石頭弄得粉碎。"
+                    .Description = "綠色的皮膚非常耐水。在很久以前從其他地區過來，之後便一直與人類一起工作。群居的神奇寶貝。鼻子的握力十分強勁，甚至能把大石頭弄得粉碎。"
                     .GenderRatio = "1:1"
                     .Height = "3.0 m"
                     .Weight = "650.0 kg"
@@ -31470,7 +31470,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[龍]+[幽靈]"
-                    .Description = "曾經棲息在古代的大海。在重生為幽靈寶可夢後，會在昔日的住處徘徊。雖然單獨１隻弱得甚至敵不過小孩，但會和夥伴合作一起鍛鍊，透過進化而變得更強。"
+                    .Description = "曾經棲息在古代的大海。在重生為幽靈神奇寶貝後，會在昔日的住處徘徊。雖然單獨１隻弱得甚至敵不過小孩，但會和夥伴合作一起鍛鍊，透過進化而變得更強。"
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "2.0 kg"
@@ -31505,7 +31505,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[龍]+[幽靈]"
-                    .Description = "飛行速度為每小時２００公里。與多龍梅西亞一起戰鬥，到牠進化為止都會細心照顧。要是沒讓自己在照顧的多龍梅西亞乘在頭上就靜不下心來，甚至會因此試圖把別的寶可夢放到頭上。"
+                    .Description = "飛行速度為每小時２００公里。與多龍梅西亞一起戰鬥，到牠進化為止都會細心照顧。要是沒讓自己在照顧的多龍梅西亞乘在頭上就靜不下心來，甚至會因此試圖把別的神奇寶貝放到頭上。"
                     .GenderRatio = "1:1"
                     .Height = "1.4 m"
                     .Weight = "11.0 kg"
@@ -31575,7 +31575,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[妖精]"
-                    .Description = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻寶可夢被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
+                    .Description = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻神奇寶貝被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
                     .GenderRatio = "無性別"
                     .Height = "2.8 m"
                     .Weight = "110.0 kg"
@@ -31610,7 +31610,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[格鬥]"
-                    .Description = "與眾人之王協力拯救了伽勒爾的寶可夢。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的寶可夢。幾乎就要被人們所遺忘。"
+                    .Description = "與眾人之王協力拯救了伽勒爾的神奇寶貝。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的神奇寶貝。幾乎就要被人們所遺忘。"
                     .GenderRatio = "無性別"
                     .Height = "2.9 m"
                     .Weight = "210.0 kg"
@@ -31748,7 +31748,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[草]"
-                    .Description = "集結成群生活在密林裡。攻擊性很強，令棲息在森林的寶可夢們畏懼不已。生長在身上的藤蔓斷落後會化為土壤的養分，孕育森林裡的各種植物。為了養育人類的小孩而離開了自己的群體。身上披的布帶有能讓孩子停止哭泣的氣味。撿到了人類的嬰兒，並將他撫養長大。對這孩子的關心會帶給牠特別的力量。"
+                    .Description = "集結成群生活在密林裡。攻擊性很強，令棲息在森林的神奇寶貝們畏懼不已。生長在身上的藤蔓斷落後會化為土壤的養分，孕育森林裡的各種植物。為了養育人類的小孩而離開了自己的群體。身上披的布帶有能讓孩子停止哭泣的氣味。撿到了人類的嬰兒，並將他撫養長大。對這孩子的關心會帶給牠特別的力量。"
                     .GenderRatio = "無性別"
                     .Height = "1.8 m"
                     .Weight = "70.0 kg"
@@ -31783,7 +31783,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[電]"
-                    .Description = "由電能凝聚而成的寶可夢。據說拿下牠身上的圓環後，就會解放牠潛藏的力量。全身都是能發電的器官。牠製造的電能可以滿足伽勒爾全域的電力需求。"
+                    .Description = "由電能凝聚而成的神奇寶貝。據說拿下牠身上的圓環後，就會解放牠潛藏的力量。全身都是能發電的器官。牠製造的電能可以滿足伽勒爾全域的電力需求。"
                     .GenderRatio = "無性別"
                     .Height = "1.2 m"
                     .Weight = "145.0 kg"
@@ -31818,7 +31818,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[龍]"
-                    .Description = "有學者認為牠的手臂是古代龍寶可夢頭部的形狀。但這個學說尚未被證實。全身是由龍之能量的結晶打造而成。據說牠擁有所有的龍寶可夢的力量。"
+                    .Description = "有學者認為牠的手臂是古代龍神奇寶貝頭部的形狀。但這個學說尚未被證實。全身是由龍之能量的結晶打造而成。據說牠擁有所有的龍神奇寶貝的力量。"
                     .GenderRatio = "無性別"
                     .Height = "2.1 m"
                     .Weight = "200.0 kg"
@@ -31923,7 +31923,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[超能力]+[草]"
-                    .Description = "擁有治癒與賜恩之力，且滿懷慈愛的寶可夢。在遠古時代曾統治伽勒爾。曾在很久以前統治伽勒爾的傳說之王。擁有治癒心靈，讓草木發芽的力量。"
+                    .Description = "擁有治癒與賜恩之力，且滿懷慈愛的神奇寶貝。在遠古時代曾統治伽勒爾。曾在很久以前統治伽勒爾的傳說之王。擁有治癒心靈，讓草木發芽的力量。"
                     .GenderRatio = "無性別"
                     .Height = "1.1 m"
                     .Weight = "7.7 kg"
@@ -32137,7 +32137,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[毒]"
-                    .Description = "身上如同槍尖般的針以及凶暴的性情使這種寶可夢得到了海鬼的外號。會吞下毒物作為己身糧食。 "
+                    .Description = "身上如同槍尖般的針以及凶暴的性情使這種神奇寶貝得到了海鬼的外號。會吞下毒物作為己身糧食。 "
                     .GenderRatio = "1:1"
                     .Height = "2.5 m"
                     .Weight = "60.5 kg"
@@ -32525,7 +32525,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]"
-                    .Description = "會在淺灘不斷跑步來鍛鍊下盤的筋骨，好跟夥伴們競爭誰的腿技最為華麗。個性勤奮，會觀察各地區的人和寶可夢，並將其動作融入自己的舞蹈裡。"
+                    .Description = "會在淺灘不斷跑步來鍛鍊下盤的筋骨，好跟夥伴們競爭誰的腿技最為華麗。個性勤奮，會觀察各地區的人和神奇寶貝，並將其動作融入自己的舞蹈裡。"
                     .GenderRatio = "7:1"
                     .Height = "1.2 m"
                     .Weight = "21.5 kg"
@@ -32595,7 +32595,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "一整天都在覓食。雖然擁有優秀的嗅覺，但卻只被用在覓食上。只吃精挑細選過的食物。蟲寶可夢很討厭牠身上散發的那種聞起來像是香草的氣味。"
+                    .Description = "一整天都在覓食。雖然擁有優秀的嗅覺，但卻只被用在覓食上。只吃精挑細選過的食物。蟲神奇寶貝很討厭牠身上散發的那種聞起來像是香草的氣味。"
                     .GenderRatio = "1:1"
                     .Height = "0.5 m"
                     .Weight = "10.2 kg"
@@ -32630,7 +32630,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "以自己細緻透亮的肌膚為傲。會從尾巴的前端釋放出凝縮的香氣。會從全身散發出香甜妖豔的氣味，令雌性的寶可夢為牠神魂顛倒。"
+                    .Description = "以自己細緻透亮的肌膚為傲。會從尾巴的前端釋放出凝縮的香氣。會從全身散發出香甜妖豔的氣味，令雌性的神奇寶貝為牠神魂顛倒。"
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "120.0 kg"
@@ -33120,7 +33120,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]+[一般]"
-                    .Description = "性情溫和，慈悲為懷。會把營養豐富且美味可口的油分給虛弱的寶可夢。會把香醇濃郁的油以連岩石都能粉碎的力道發射出去，擊退敵人。"
+                    .Description = "性情溫和，慈悲為懷。會把營養豐富且美味可口的油分給虛弱的神奇寶貝。會把香醇濃郁的油以連岩石都能粉碎的力道發射出去，擊退敵人。"
                     .GenderRatio = "1:1"
                     .Height = "1.4 m"
                     .Weight = "48.2 kg"
@@ -33260,7 +33260,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]"
-                    .Description = "只要合起指尖，搓出鹽來灑在受傷的寶可夢身上，就算再重的傷都會瞬間痊癒。為了舔牠富含礦物質的鹽，鹽石巨靈的周圍總是會有大量的寶可夢聚集而來。"
+                    .Description = "只要合起指尖，搓出鹽來灑在受傷的神奇寶貝身上，就算再重的傷都會瞬間痊癒。為了舔牠富含礦物質的鹽，鹽石巨靈的周圍總是會有大量的神奇寶貝聚集而來。"
                     .GenderRatio = "1:1"
                     .Height = "2.3 m"
                     .Weight = "240.0 kg"
@@ -33295,7 +33295,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[火]"
-                    .Description = "生命寄宿在燃燒的木炭上變成了寶可夢。即使敵人再強，也會以燃燒的鬥志迎面而戰。在進入戰鬥狀態後，火力會上升至攝氏１０００度。喜歡吃油脂含量高的樹果。"
+                    .Description = "生命寄宿在燃燒的木炭上變成了神奇寶貝。即使敵人再強，也會以燃燒的鬥志迎面而戰。在進入戰鬥狀態後，火力會上升至攝氏１０００度。喜歡吃油脂含量高的樹果。"
                     .GenderRatio = "1:1"
                     .Height = "0.6 m"
                     .Weight = "10.5 kg"
@@ -33330,7 +33330,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[火]+[超能力]"
-                    .Description = "藉由立下眾多勛績的戰士所穿的鎧甲進化成的樣子。是忠心耿耿的寶可夢。身上包裹著受到超能力和火焰能量強化的鎧甲。會釋放熾熱的火球。"
+                    .Description = "藉由立下眾多勛績的戰士所穿的鎧甲進化成的樣子。是忠心耿耿的神奇寶貝。身上包裹著受到超能力和火焰能量強化的鎧甲。會釋放熾熱的火球。"
                     .GenderRatio = "1:1"
                     .Height = "1.5 m"
                     .Weight = "85.0 kg"
@@ -33680,7 +33680,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]+[幽靈]"
-                    .Description = "無法升天的靈魂在風的吹拂下被捲進枯草裡，變成了寶可夢。在風的吹拂下滾動於荒野間，就連自己也不知道會滾到哪裡去。最討厭身體被弄得濕答答的。"
+                    .Description = "無法升天的靈魂在風的吹拂下被捲進枯草裡，變成了神奇寶貝。在風的吹拂下滾動於荒野間，就連自己也不知道會滾到哪裡去。最討厭身體被弄得濕答答的。"
                     .GenderRatio = "1:1"
                     .Height = "0.6 m"
                     .Weight = "0.6 kg"
@@ -34065,7 +34065,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[妖精]+[鋼]"
-                    .Description = "雖然會揮舞著手工打造的錘子來保護自己，但卻常被以金屬為食的寶可夢搶走。敲打鐵屑來製作錘子。直到做出自己滿意的作品前，會一次又一次地重做。"
+                    .Description = "雖然會揮舞著手工打造的錘子來保護自己，但卻常被以金屬為食的神奇寶貝搶走。敲打鐵屑來製作錘子。直到做出自己滿意的作品前，會一次又一次地重做。"
                     .GenderRatio = "0:1"
                     .Height = "0.4 m"
                     .Weight = "8.9 kg"
@@ -34205,7 +34205,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[水]"
-                    .Description = "有別於外表，性格非常粗暴。會用長長的身體勒緊獵物，然後拖進自己的巢穴裡。魚寶可夢的一種。曾經也有人認為牠是三地鼠的地區形態。"
+                    .Description = "有別於外表，性格非常粗暴。會用長長的身體勒緊獵物，然後拖進自己的巢穴裡。魚神奇寶貝的一種。曾經也有人認為牠是三地鼠的地區形態。"
                     .GenderRatio = "1:1"
                     .Height = "1.2 m"
                     .Weight = "5.4 kg"
@@ -34345,7 +34345,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[鋼]+[毒]"
-                    .Description = "據說牠是神秘的毒寶可夢鑽進了被放置在廢鐵工廠的引擎裡而誕生的。鋼鐵身軀才是本體。會貼在岩石上將其成分轉換成活動用的能量。"
+                    .Description = "據說牠是神秘的毒神奇寶貝鑽進了被放置在廢鐵工廠的引擎裡而誕生的。鋼鐵身軀才是本體。會貼在岩石上將其成分轉換成活動用的能量。"
                     .GenderRatio = "1:1"
                     .Height = "1.0 m"
                     .Weight = "35.0 kg"
@@ -34555,7 +34555,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]"
-                    .Description = "據說牠是不曾接觸過人類就死去的流浪犬寶可夢轉生而來的。愛親近人，害怕寂寞。就算只跟牠玩了一下下，牠也會一直跟在後面。"
+                    .Description = "據說牠是不曾接觸過人類就死去的流浪犬神奇寶貝轉生而來的。愛親近人，害怕寂寞。就算只跟牠玩了一下下，牠也會一直跟在後面。"
                     .GenderRatio = "1:1"
                     .Height = "0.6 m"
                     .Weight = "35.0 kg"
@@ -34590,7 +34590,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]"
-                    .Description = "平時都在墳場裡睡覺。在為數眾多的犬寶可夢中，牠是對主人最為忠實的。受到深摯悼念的寶可夢轉生而成的樣子。不喜歡被摸到頭上的突起物。"
+                    .Description = "平時都在墳場裡睡覺。在為數眾多的犬神奇寶貝中，牠是對主人最為忠實的。受到深摯悼念的神奇寶貝轉生而成的樣子。不喜歡被摸到頭上的突起物。"
                     .GenderRatio = "1:1"
                     .Height = "2.0 m"
                     .Weight = "15.0 kg"
@@ -34695,7 +34695,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[冰]"
-                    .Description = "迴游在冰雪地帶的寶可夢。會用強韌的肌肉和厚實的皮下脂肪保護自己的身體。會集中冰能量使上顎的角變得超低溫，然後將自己附近的一切都凍成冰塊。"
+                    .Description = "迴游在冰雪地帶的神奇寶貝。會用強韌的肌肉和厚實的皮下脂肪保護自己的身體。會集中冰能量使上顎的角變得超低溫，然後將自己附近的一切都凍成冰塊。"
                     .GenderRatio = "1:1"
                     .Height = "4.5 m"
                     .Weight = "700.0 kg"
@@ -34800,7 +34800,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[龍]+[水]"
-                    .Description = "小型的龍寶可夢。會住在吃吼霸嘴裡，保護自己免於外敵襲擊。極為奸詐狡猾的寶可夢。會假裝虛弱來吸引獵物接近，接著讓同夥的寶可夢發動攻擊。"
+                    .Description = "小型的龍神奇寶貝。會住在吃吼霸嘴裡，保護自己免於外敵襲擊。極為奸詐狡猾的神奇寶貝。會假裝虛弱來吸引獵物接近，接著讓同夥的神奇寶貝發動攻擊。"
                     .GenderRatio = "1:1"
                     .Height = "0.3 m"
                     .Weight = "8.0 kg"
@@ -34940,7 +34940,7 @@
                     .IsNoGenderOrSingleGender = False
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[一般]"
-                    .Description = "會用堅硬的尾巴挖穿地下深處的岩盤來築巢。巢穴可以長達１０公里。性格溫馴，會讓誤闖進巢穴的寶可夢乘在自己的背上，將其送到入口。會吸進空氣充滿細長的肺部，然後掀起強烈的爆炸氣浪將敵人趕出自己的巢穴。最近的研究發現，牠的身體會有幾節，全是由基因決定的。"
+                    .Description = "會用堅硬的尾巴挖穿地下深處的岩盤來築巢。巢穴可以長達１０公里。性格溫馴，會讓誤闖進巢穴的神奇寶貝乘在自己的背上，將其送到入口。會吸進空氣充滿細長的肺部，然後掀起強烈的爆炸氣浪將敵人趕出自己的巢穴。最近的研究發現，牠的身體會有幾節，全是由基因決定的。"
                     .GenderRatio = "1:1"
                     .Height = "3.6 m"
                     .Weight = "39.2 kg"
@@ -35010,7 +35010,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[地面]+[格鬥]"
-                    .Description = "近年曾經有人目擊到牠。雄偉牙這個名字來自於某本書裡記載的生物。長得就像是超自然雜誌曾介紹的自太古以來就存活至今的謎之寶可夢。"
+                    .Description = "近年曾經有人目擊到牠。雄偉牙這個名字來自於某本書裡記載的生物。長得就像是超自然雜誌曾介紹的自太古以來就存活至今的謎之神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "2.2 m"
                     .Weight = "320.0 kg"
@@ -35045,7 +35045,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[妖精]+[超能力]"
-                    .Description = "過去只有過１次目擊紀錄。是與古老的探險記裡記載的神秘生物長得很像的寶可夢。與超自然雜誌裡被當成１０億年前的胖丁來介紹的謎之寶可夢長得很相似。"
+                    .Description = "過去只有過１次目擊紀錄。是與古老的探險記裡記載的神秘生物長得很像的神奇寶貝。與超自然雜誌裡被當成１０億年前的胖丁來介紹的謎之神奇寶貝長得很相似。"
                     .GenderRatio = "無性別"
                     .Height = "1.2 m"
                     .Weight = "8.0 kg"
@@ -35080,7 +35080,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[草]+[惡]"
-                    .Description = "某本書裡記載的一種叫做猛惡菇的生物，有可能就是這隻寶可夢。與可疑的雜誌裡被介紹成由恐龍與蘑菇融合而成的寶可夢有點相似。"
+                    .Description = "某本書裡記載的一種叫做猛惡菇的生物，有可能就是這隻神奇寶貝。與可疑的雜誌裡被介紹成由恐龍與蘑菇融合而成的神奇寶貝有點相似。"
                     .GenderRatio = "無性別"
                     .Height = "1.2 m"
                     .Weight = "21.0 kg"
@@ -35115,7 +35115,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]+[妖精]"
-                    .Description = "與某本書裡記載的一種叫做振翼髮的生物有著相似特徵的寶可夢。只有特徵長得像是超自然雜誌所報導的翼龍的幽靈。"
+                    .Description = "與某本書裡記載的一種叫做振翼髮的生物有著相似特徵的神奇寶貝。只有特徵長得像是超自然雜誌所報導的翼龍的幽靈。"
                     .GenderRatio = "無性別"
                     .Height = "1.4 m"
                     .Weight = "4.0 kg"
@@ -35150,7 +35150,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[蟲]+[格鬥]"
-                    .Description = "與古老書籍裡介紹的一種叫做爬地翅的生物有著相似點的神秘寶可夢。與可疑的雜誌介紹的火神蛾太古時代的樣子長得有點像的寶可夢。"
+                    .Description = "與古老書籍裡介紹的一種叫做爬地翅的生物有著相似點的神秘神奇寶貝。與可疑的雜誌介紹的火神蛾太古時代的樣子長得有點像的神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "3.2 m"
                     .Weight = "92.0 kg"
@@ -35220,7 +35220,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[地面]+[鋼]"
-                    .Description = "與超自然雜誌裡介紹的外星人送來的科學兵器長得極為相似。近年曾經有人目擊到牠。是與古老的探險記裡記載的不明物體長得很像的寶可夢。"
+                    .Description = "與超自然雜誌裡介紹的外星人送來的科學兵器長得極為相似。近年曾經有人目擊到牠。是與古老的探險記裡記載的不明物體長得很像的神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "0.9 m"
                     .Weight = "240.0 kg"
@@ -35255,7 +35255,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[冰]+[水]"
-                    .Description = "身形長得很像超自然雜誌所報導的在太古時代的文明下誕生的機器人。與古書裡記載的神秘物體長得很相像的寶可夢。過去只被目擊過２次。"
+                    .Description = "身形長得很像超自然雜誌所報導的在太古時代的文明下誕生的機器人。與古書裡記載的神秘物體長得很相像的神奇寶貝。過去只被目擊過２次。"
                     .GenderRatio = "無性別"
                     .Height = "0.6 m"
                     .Weight = "11.0 kg"
@@ -35290,7 +35290,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[格鬥]+[電]"
-                    .Description = "長相近似於超自然雜誌以頭條來報導的某運動選手被改造成生化人後的樣子。與某本探險記裡記載的一種叫做鐵臂膀的物體有許多相似處的寶可夢。"
+                    .Description = "長相近似於超自然雜誌以頭條來報導的某運動選手被改造成生化人後的樣子。與某本探險記裡記載的一種叫做鐵臂膀的物體有許多相似處的神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "0.6 m"
                     .Weight = "11.0 kg"
@@ -35325,7 +35325,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[飛行]"
-                    .Description = "牠與超自然雜誌曾報導過的寶可夢很相似。報導中的寶可夢是愛上機器人的三首惡龍所生的孩子。古書裡所記載的叫做鐵脖頸的物體，說不定就是這隻寶可夢。"
+                    .Description = "牠與超自然雜誌曾報導過的神奇寶貝很相似。報導中的神奇寶貝是愛上機器人的三首惡龍所生的孩子。古書裡所記載的叫做鐵脖頸的物體，說不定就是這隻神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "1.3 m"
                     .Weight = "111.0 kg"
@@ -35395,7 +35395,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[岩石]+[電]"
-                    .Description = "有部分特徵與可疑雜誌當成１０億年後的班基拉斯來報導的寶可夢很相似。有一部分的特徵與某本探險記裡以鐵荊棘來介紹的物體一致。"
+                    .Description = "有部分特徵與可疑雜誌當成１０億年後的班基拉斯來報導的神奇寶貝很相似。有一部分的特徵與某本探險記裡以鐵荊棘來介紹的物體一致。"
                     .GenderRatio = "無性別"
                     .Height = "1.6 m"
                     .Weight = "303.0 kg"
@@ -35535,7 +35535,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[幽靈]"
-                    .Description = "約１５００年前出生在寶箱裡。如果有惡棍打算偷走寶藏，就會被牠吸走精氣。棲息在老舊的寶箱中。有時會因沒人注意到自己是寶可夢，而被擱置在道具店的角落。"
+                    .Description = "約１５００年前出生在寶箱裡。如果有惡棍打算偷走寶藏，就會被牠吸走精氣。棲息在老舊的寶箱中。有時會因沒人注意到自己是神奇寶貝，而被擱置在道具店的角落。"
                     .GenderRatio = "無性別"
                     .Height = "0.3 m"
                     .Weight = "5.0 kg"
@@ -35605,7 +35605,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[草]"
-                    .Description = "將王所行之惡事記於木簡而遭懲罰者的恨意裹上了枯落的葉子，變成了寶可夢。會吸取草木的能量，使周圍的森林霎時乾枯，田地的農作物歉收。"
+                    .Description = "將王所行之惡事記於木簡而遭懲罰者的恨意裹上了枯落的葉子，變成了神奇寶貝。會吸取草木的能量，使周圍的森林霎時乾枯，田地的農作物歉收。"
                     .GenderRatio = "無性別"
                     .Height = "1.5 m"
                     .Weight = "74.2 kg"
@@ -35640,7 +35640,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[冰]"
-                    .Description = "能操控１００噸的積雪。會自由進出在自己引起的雪崩裡，天真無邪地玩耍。遙遠過去喪命於劍下者的憎恨之情纏繞在雪上，變成了寶可夢。"
+                    .Description = "能操控１００噸的積雪。會自由進出在自己引起的雪崩裡，天真無邪地玩耍。遙遠過去喪命於劍下者的憎恨之情纏繞在雪上，變成了神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "1.9 m"
                     .Weight = "152.2 kg"
@@ -35675,7 +35675,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[地面]"
-                    .Description = "古老儀式用的容器中注入的恐懼把土石裹在自己身上，變成了寶可夢。當牠緩緩揮下自己笨重的頭部時，會造成地面出現深度達５０公尺的巨大裂縫。"
+                    .Description = "古老儀式用的容器中注入的恐懼把土石裹在自己身上，變成了神奇寶貝。當牠緩緩揮下自己笨重的頭部時，會造成地面出現深度達５０公尺的巨大裂縫。"
                     .GenderRatio = "無性別"
                     .Height = "2.7 m"
                     .Weight = "699.7 kg"
@@ -35710,7 +35710,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[惡]+[火]"
-                    .Description = "能操控３０００度的火焰。會熔化岩石和沙礫做成熔岩海，並在裡面悠閒自在地游泳。曾引起無數鬥爭的勾玉聚集了嫉妒之情。這些嫉妒之情纏繞了火焰，變成了寶可夢。"
+                    .Description = "能操控３０００度的火焰。會熔化岩石和沙礫做成熔岩海，並在裡面悠閒自在地游泳。曾引起無數鬥爭的勾玉聚集了嫉妒之情。這些嫉妒之情纏繞了火焰，變成了神奇寶貝。"
                     .GenderRatio = "無性別"
                     .Height = "0.4 m"
                     .Weight = "4.9 kg"
@@ -35745,7 +35745,7 @@
                     .IsNoGenderOrSingleGender = True
                     .DexIDNumber = PokemonNationalDexNumberToQuery
                     .Type = "[龍]+[惡]"
-                    .Description = "牠有可能就是在謎團重重的探險記裡，以轟鳴月這個名字被記載下來的生物。根據可疑雜誌的報導來看，這種寶可夢好像跟某個地區會發生的現象有關連。"
+                    .Description = "牠有可能就是在謎團重重的探險記裡，以轟鳴月這個名字被記載下來的生物。根據可疑雜誌的報導來看，這種神奇寶貝好像跟某個地區會發生的現象有關連。"
                     .GenderRatio = "無性別"
                     .Height = "2.0 m"
                     .Weight = "380.0 kg"

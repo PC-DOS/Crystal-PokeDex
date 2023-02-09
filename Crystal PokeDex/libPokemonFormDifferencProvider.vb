@@ -306,7 +306,7 @@
                     .Category = "鼠神奇寶貝"
                     .BodyColor = "黑"
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "率領小拉達組成團隊。每個團隊各有自己的地盤，會為了爭奪食物而發生爭鬥。對食物的味道和新鮮度非常講究的美食家寶可夢。據說有拉達棲息的餐廳肯定是好餐廳。"
+                    .UniqueDescription = "率領小拉達組成團隊。每個團隊各有自己的地盤，會為了爭奪食物而發生爭鬥。對食物的味道和新鮮度非常講究的美食家神奇寶貝。據說有拉達棲息的餐廳肯定是好餐廳。"
                     .ImagePath = "/FormDifferenceImages/020/Alola.png"
                     With .SpeciesStrengthValues
                         .HP = 75
@@ -631,7 +631,7 @@
                     .Ability2 = "101"
                     .AbilityHidden = "155"
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "圓圓的臉孔，比最高級的天鵝絨還光滑的毛髮，在阿羅拉是非常受歡迎的寶可夢。蔑視自己之外的一切。喜歡採用突襲和夜襲等卑劣無恥的戰法。"
+                    .UniqueDescription = "圓圓的臉孔，比最高級的天鵝絨還光滑的毛髮，在阿羅拉是非常受歡迎的神奇寶貝。蔑視自己之外的一切。喜歡採用突襲和夜襲等卑劣無恥的戰法。"
                     .ImagePath = "/FormDifferenceImages/053/Alola.png"
                     .Height = "1.1 m"
                     .Weight = "33.0 kg"
@@ -2244,7 +2244,7 @@
                     .Category = "豆狸神奇寶貝"
                     .BodyColor = "白"
                     .ImagePath = "/FormDifferenceImages/263/Galar.png"
-                    .UniqueDescription = "一直在奔跑，永遠靜不下來。如果發現了其他的寶可夢，就會故意撞上去挑起事端。這似乎是蛇紋熊最古老的樣子。會之字形亂走，把周圍弄得一團糟。"
+                    .UniqueDescription = "一直在奔跑，永遠靜不下來。如果發現了其他的神奇寶貝，就會故意撞上去挑起事端。這似乎是蛇紋熊最古老的樣子。會之字形亂走，把周圍弄得一團糟。"
                     With .SpeciesStrengthValues
                         .HP = 38
                         .ATTACK = 30
@@ -3812,7 +3812,7 @@
                     .BodyColor = "綠"
                     .Type = "[水]"
                     .ImagePath = "/FormDifferenceImages/550/Blue.png"
-                    .UniqueDescription = "凶暴出了名的寶可夢。牠們最常和紅條紋野蠻鱸魚打群架。從前經常被拿來食用。據說藍條紋野蠻鱸魚的肉滋味清淡，容易入口。"
+                    .UniqueDescription = "凶暴出了名的神奇寶貝。牠們最常和紅條紋野蠻鱸魚打群架。從前經常被拿來食用。據說藍條紋野蠻鱸魚的肉滋味清淡，容易入口。"
                     With .SpeciesStrengthValues
                         .HP = 70
                         .ATTACK = 92
@@ -3834,7 +3834,7 @@
                     .BodyColor = "綠"
                     .Type = "[水]"
                     .ImagePath = "/FormDifferenceImages/550/White.png"
-                    .UniqueDescription = "此寶可夢具有多項野蠻鱸魚的特徵，雖然有性情溫馴等不同點存在，吾人仍將其定義為野蠻鱸魚的地區形態。"
+                    .UniqueDescription = "此神奇寶貝具有多項野蠻鱸魚的特徵，雖然有性情溫馴等不同點存在，吾人仍將其定義為野蠻鱸魚的地區形態。"
                     With .SpeciesStrengthValues
                         .HP = 70
                         .ATTACK = 92
@@ -3974,7 +3974,7 @@
                     .Ability2 = "---"
                     .AbilityHidden = "---"
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "據說牠是古代黏土板被帶有強烈怨念的靈魂吸引後誕生的寶可夢。刻有詛咒的黏土板附在了哭哭面具上。據說會吸收怨念的能量。"
+                    .UniqueDescription = "據說牠是古代黏土板被帶有強烈怨念的靈魂吸引後誕生的神奇寶貝。刻有詛咒的黏土板附在了哭哭面具上。據說會吸收怨念的能量。"
                     .ImagePath = "/FormDifferenceImages/562/Galar.png"
                     .Height = "0.5 m"
                     .Weight = "1.5 kg"
@@ -4180,7 +4180,7 @@
                     .Category = "季節神奇寶貝"
                     .BodyColor = "褐"
                     .Type = "[草]+[一般]"
-                    .UniqueDescription = "有許多愛好者的寶可夢。愛好者們認為牠角上綻放的淡紅色花朵顏色越淡越是美麗。角上有很多花的萌芽鹿由於會被花搶走養分，而導致成長速度略顯緩慢。"
+                    .UniqueDescription = "有許多愛好者的神奇寶貝。愛好者們認為牠角上綻放的淡紅色花朵顏色越淡越是美麗。角上有很多花的萌芽鹿由於會被花搶走養分，而導致成長速度略顯緩慢。"
                     .ImagePath = "/FormDifferenceImages/586/Spring.png"
                     With .SpeciesStrengthValues
                         .HP = 80
@@ -4202,7 +4202,7 @@
                     .Category = "季節神奇寶貝"
                     .BodyColor = "褐"
                     .Type = "[草]+[一般]"
-                    .UniqueDescription = "有許多愛好者的寶可夢。愛好者們認為牠角上的枝葉越厚大越是美麗。牠的葉子能用來做成紅茶。其風味根據產地而不同，產自帕底亞的帶有濃濃香氣。"
+                    .UniqueDescription = "有許多愛好者的神奇寶貝。愛好者們認為牠角上的枝葉越厚大越是美麗。牠的葉子能用來做成紅茶。其風味根據產地而不同，產自帕底亞的帶有濃濃香氣。"
                     .ImagePath = "/FormDifferenceImages/586/Summer.png"
                     With .SpeciesStrengthValues
                         .HP = 80
@@ -4224,7 +4224,7 @@
                     .Category = "季節神奇寶貝"
                     .BodyColor = "褐"
                     .Type = "[草]+[一般]"
-                    .UniqueDescription = "有許多愛好者的寶可夢。愛好者們認為牠角上垂下的枝葉顏色越紅越是氣派。秋天的樣子的萌芽鹿以性情粗暴聞名。雄性間一天到晚都在打架。"
+                    .UniqueDescription = "有許多愛好者的神奇寶貝。愛好者們認為牠角上垂下的枝葉顏色越紅越是氣派。秋天的樣子的萌芽鹿以性情粗暴聞名。雄性間一天到晚都在打架。"
                     .ImagePath = "/FormDifferenceImages/586/Autumn.png"
                     With .SpeciesStrengthValues
                         .HP = 80
@@ -4246,7 +4246,7 @@
                     .Category = "季節神奇寶貝"
                     .BodyColor = "褐"
                     .Type = "[草]+[一般]"
-                    .UniqueDescription = "有許多愛好者的寶可夢。但唯獨這個季節的樣子卻偏偏沒什麼人喜歡。據說變成這個樣子的時期性情較為穩重、極易馴化，是與牠成為夥伴的好機會。"
+                    .UniqueDescription = "有許多愛好者的神奇寶貝。但唯獨這個季節的樣子卻偏偏沒什麼人喜歡。據說變成這個樣子的時期性情較為穩重、極易馴化，是與牠成為夥伴的好機會。"
                     .ImagePath = "/FormDifferenceImages/586/Winter.png"
                     With .SpeciesStrengthValues
                         .HP = 80
@@ -4352,7 +4352,7 @@
                     .BodyColor = "綠"
                     .Type = "[飛行]"
                     .ImagePath = "/FormDifferenceImages/641/Incarnate.png"
-                    .UniqueDescription = "引發風暴的寶可夢。傳說由於牠攪拌大氣，季節因此得以循環不息。據吾人考察，近似人類的形態才是假象而非真身。"
+                    .UniqueDescription = "引發風暴的神奇寶貝。傳說由於牠攪拌大氣，季節因此得以循環不息。據吾人考察，近似人類的形態才是假象而非真身。"
                     With .SpeciesStrengthValues
                         .HP = 79
                         .ATTACK = 115
@@ -4401,7 +4401,7 @@
                     .BodyColor = "藍"
                     .Type = "[電]+[飛行]"
                     .ImagePath = "/FormDifferenceImages/642/Incarnate.png"
-                    .UniqueDescription = "引發風暴的寶可夢。傳說由於牠攪拌大氣，季節因此得以循環不息。據吾人考察，近似人類的形態才是假象而非真身。"
+                    .UniqueDescription = "引發風暴的神奇寶貝。傳說由於牠攪拌大氣，季節因此得以循環不息。據吾人考察，近似人類的形態才是假象而非真身。"
                     With .SpeciesStrengthValues
                         .HP = 79
                         .ATTACK = 115
@@ -4547,7 +4547,7 @@
                     .BodyColor = "灰"
                     .Type = "[龍]+[冰]"
                     .ImagePath = "/FormDifferenceImages/646/White.png"
-                    .UniqueDescription = "吸收了與自己擁有相同基因的萊希拉姆，因此能使用火與冰的能量。已經看出寶可夢和人類之間的真實世界將會到來，牠試圖去保護這樣的未來。"
+                    .UniqueDescription = "吸收了與自己擁有相同基因的萊希拉姆，因此能使用火與冰的能量。已經看出神奇寶貝和人類之間的真實世界將會到來，牠試圖去保護這樣的未來。"
                     With .SpeciesStrengthValues
                         .HP = 125
                         .ATTACK = 120
@@ -4569,7 +4569,7 @@
                     .BodyColor = "灰"
                     .Type = "[龍]+[冰]"
                     .ImagePath = "/FormDifferenceImages/646/WhiteActivated.png"
-                    .UniqueDescription = "吸收了與自己擁有相同基因的萊希拉姆，因此能使用火與冰的能量。已經看出寶可夢和人類之間的真實世界將會到來，牠試圖去保護這樣的未來。"
+                    .UniqueDescription = "吸收了與自己擁有相同基因的萊希拉姆，因此能使用火與冰的能量。已經看出神奇寶貝和人類之間的真實世界將會到來，牠試圖去保護這樣的未來。"
                     With .SpeciesStrengthValues
                         .HP = 125
                         .ATTACK = 120
@@ -4591,7 +4591,7 @@
                     .BodyColor = "灰"
                     .Type = "[龍]+[冰]"
                     .ImagePath = "/FormDifferenceImages/646/Black.png"
-                    .UniqueDescription = "吸收了與自己擁有相同基因的捷克羅姆，因此能使用電與冰的能量。傳說牠是為了保護寶可夢與人類之間那將在未來實現的理想世界而戰鬥。"
+                    .UniqueDescription = "吸收了與自己擁有相同基因的捷克羅姆，因此能使用電與冰的能量。傳說牠是為了保護神奇寶貝與人類之間那將在未來實現的理想世界而戰鬥。"
                     With .SpeciesStrengthValues
                         .HP = 125
                         .ATTACK = 170
@@ -4613,7 +4613,7 @@
                     .BodyColor = "灰"
                     .Type = "[龍]+[冰]"
                     .ImagePath = "/FormDifferenceImages/646/BlackActivated.png"
-                    .UniqueDescription = "吸收了與自己擁有相同基因的捷克羅姆，因此能使用電與冰的能量。傳說牠是為了保護寶可夢與人類之間那將在未來實現的理想世界而戰鬥。"
+                    .UniqueDescription = "吸收了與自己擁有相同基因的捷克羅姆，因此能使用電與冰的能量。傳說牠是為了保護神奇寶貝與人類之間那將在未來實現的理想世界而戰鬥。"
                     With .SpeciesStrengthValues
                         .HP = 125
                         .ATTACK = 170
@@ -5814,7 +5814,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "原本棲息在臭氧層，身體的外殼變重後，就會向著地面落下。若受到強烈的衝擊，外殼就會剝落。是奈米粒子突變而誕生的寶可夢。"
+                    .UniqueDescription = "原本棲息在臭氧層，身體的外殼變重後，就會向著地面落下。若受到強烈的衝擊，外殼就會剝落。是奈米粒子突變而誕生的神奇寶貝。"
                     .Ability1 = 197
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -5865,7 +5865,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "真面目是個謎。某個看過破布裡面的學者因為太可怕而被活活嚇死了。用破破爛爛的布隱藏起可怕的模樣，接近人類和其他寶可夢的寂寞傢伙。"
+                    .UniqueDescription = "真面目是個謎。某個看過破布裡面的學者因為太可怕而被活活嚇死了。用破破爛爛的布隱藏起可怕的模樣，接近人類和其他神奇寶貝的寂寞傢伙。"
                     .Ability1 = 209
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6385,7 +6385,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "超極巨化之力使牠的蜜量增加，最後外貌變成了巨大的蘋果。當牠把脖子伸長時，會散發出強烈的蜜汁甜味，讓聞到的寶可夢失去知覺。"
+                    .UniqueDescription = "超極巨化之力使牠的蜜量增加，最後外貌變成了巨大的蘋果。當牠把脖子伸長時，會散發出強烈的蜜汁甜味，讓聞到的神奇寶貝失去知覺。"
                     .Ability1 = 247
                     .Ability2 = 82
                     .AbilityHidden = 55
@@ -6763,7 +6763,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "變得如同摩天大樓般高大。受到體內能量溢出的影響，身體的一部分會發出亮光。細胞的硬度在鋼屬性寶可夢之中也是頂級的。擁有抗震的構造。"
+                    .UniqueDescription = "變得如同摩天大樓般高大。受到體內能量溢出的影響，身體的一部分會發出亮光。細胞的硬度在鋼屬性神奇寶貝之中也是頂級的。擁有抗震的構造。"
                     .Ability1 = 135
                     .Ability2 = 134
                     .AbilityHidden = 242
@@ -6792,7 +6792,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻寶可夢被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
+                    .UniqueDescription = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻神奇寶貝被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
                     .Ability1 = 234
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6814,7 +6814,7 @@
                 End With
                 With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "用過去使用的兵器武裝自己。即使是超極巨化寶可夢，也能以一劍將之拿下。能斬斷世間萬物，因此被稱為妖精王之劍，讓敵友都對牠敬畏不已。"
+                    .UniqueDescription = "用過去使用的兵器武裝自己。即使是超極巨化神奇寶貝，也能以一劍將之拿下。能斬斷世間萬物，因此被稱為妖精王之劍，讓敵友都對牠敬畏不已。"
                     .Ability1 = 234
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6836,7 +6836,7 @@
                 End With
                 With FormDifferenceInformation(2)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻寶可夢被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
+                    .UniqueDescription = "被稱為傳說中的英雄。能夠吸收金屬，並將之轉化為武器来戰鬥。這隻神奇寶貝被認為是沉睡已久的藏瑪然特的姐姐，也有人認為牠們之間是勁敵關係。"
                     .Ability1 = 234
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6858,7 +6858,7 @@
                 End With
                 With FormDifferenceInformation(3)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "用過去使用的兵器武裝自己。即使是超極巨化寶可夢，也能以一劍將之拿下。能斬斷世間萬物，因此被稱為妖精王之劍，讓敵友都對牠敬畏不已。"
+                    .UniqueDescription = "用過去使用的兵器武裝自己。即使是超極巨化神奇寶貝，也能以一劍將之拿下。能斬斷世間萬物，因此被稱為妖精王之劍，讓敵友都對牠敬畏不已。"
                     .Ability1 = 234
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6887,7 +6887,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "與眾人之王協力拯救了伽勒爾的寶可夢。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的寶可夢。幾乎就要被人們所遺忘。"
+                    .UniqueDescription = "與眾人之王協力拯救了伽勒爾的神奇寶貝。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的神奇寶貝。幾乎就要被人們所遺忘。"
                     .Ability1 = 235
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6909,7 +6909,7 @@
                 End With
                 With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "能夠反彈一切的攻擊，因此被稱為格鬥王之盾，受到人們的畏懼與尊崇。全副武裝的樣子。即使是極巨化寶可夢的攻擊也能輕易抵擋。"
+                    .UniqueDescription = "能夠反彈一切的攻擊，因此被稱為格鬥王之盾，受到人們的畏懼與尊崇。全副武裝的樣子。即使是極巨化神奇寶貝的攻擊也能輕易抵擋。"
                     .Ability1 = 235
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6931,7 +6931,7 @@
                 End With
                 With FormDifferenceInformation(2)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "與眾人之王協力拯救了伽勒爾的寶可夢。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的寶可夢。幾乎就要被人們所遺忘。"
+                    .UniqueDescription = "與眾人之王協力拯救了伽勒爾的神奇寶貝。吸收金屬來進行戰鬥。以石像般的姿態陷入長久沉眠的神奇寶貝。幾乎就要被人們所遺忘。"
                     .Ability1 = 235
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -6953,7 +6953,7 @@
                 End With
                 With FormDifferenceInformation(3)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "能夠反彈一切的攻擊，因此被稱為格鬥王之盾，受到人們的畏懼與尊崇。全副武裝的樣子。即使是極巨化寶可夢的攻擊也能輕易抵擋。"
+                    .UniqueDescription = "能夠反彈一切的攻擊，因此被稱為格鬥王之盾，受到人們的畏懼與尊崇。全副武裝的樣子。即使是極巨化神奇寶貝的攻擊也能輕易抵擋。"
                     .Ability1 = 235
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -7121,7 +7121,7 @@
                 End With
                 With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "據說牠為了讓荒地長出綠意，曾與牽絆深厚的寶可夢一同馳騁在伽勒爾的大地。據說牠曾利用能夠看穿過去和未來所有事情的能力，在隕石掉落時拯救了森林的生物。"
+                    .UniqueDescription = "據說牠為了讓荒地長出綠意，曾與牽絆深厚的神奇寶貝一同馳騁在伽勒爾的大地。據說牠曾利用能夠看穿過去和未來所有事情的能力，在隕石掉落時拯救了森林的生物。"
                     .Ability1 = 267
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -7246,7 +7246,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "以自己細緻透亮的肌膚為傲。會從尾巴的前端釋放出凝縮的香氣。會從全身散發出香甜妖豔的氣味，令雌性的寶可夢為牠神魂顛倒。"
+                    .UniqueDescription = "以自己細緻透亮的肌膚為傲。會從尾巴的前端釋放出凝縮的香氣。會從全身散發出香甜妖豔的氣味，令雌性的神奇寶貝為牠神魂顛倒。"
                     .Ability1 = 268
                     .Ability2 = 82
                     .AbilityHidden = 47
@@ -7268,7 +7268,7 @@
                 End With
                 With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "會釋放出如花般的香氣。腿部肌肉發達，要跳超過５公尺高也是輕而易舉。喜好乾淨，個性一絲不苟。會讓花香包覆全身來療癒周圍的寶可夢們。"
+                    .UniqueDescription = "會釋放出如花般的香氣。腿部肌肉發達，要跳超過５公尺高也是輕而易舉。喜好乾淨，個性一絲不苟。會讓花香包覆全身來療癒周圍的神奇寶貝們。"
                     .Ability1 = 165
                     .Ability2 = 82
                     .AbilityHidden = 47
@@ -7390,7 +7390,7 @@
                 End With
                 With FormDifferenceInformation(2)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "黃色的怒鸚哥最為粗暴。有時還會把其他鳥寶可夢趕到城鎮外面去。性情和戰鬥方式都很粗暴。會衝進對手的懷裡，以自己的肉身發動攻擊。"
+                    .UniqueDescription = "黃色的怒鸚哥最為粗暴。有時還會把其他鳥神奇寶貝趕到城鎮外面去。性情和戰鬥方式都很粗暴。會衝進對手的懷裡，以自己的肉身發動攻擊。"
                     .Ability1 = 22
                     .Ability2 = 55
                     .AbilityHidden = 62
@@ -7461,7 +7461,7 @@
                 End With
                 With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "太古基因覺醒之後的樣子。力氣很大，只用單邊的鰭也可以輕輕鬆鬆舉起遊輪。會以５０節的泳速來救助溺水的人類和寶可夢，可以說是大海英雄。"
+                    .UniqueDescription = "太古基因覺醒之後的樣子。力氣很大，只用單邊的鰭也可以輕輕鬆鬆舉起遊輪。會以５０節的泳速來救助溺水的人類和神奇寶貝，可以說是大海英雄。"
                     .Ability1 = 278
                     .Ability2 = "---"
                     .AbilityHidden = "---"
@@ -7489,7 +7489,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "小型的龍寶可夢。會住在吃吼霸嘴裡，保護自己免於外敵襲擊。極為奸詐狡猾的寶可夢。會假裝虛弱來吸引獵物接近，接著讓同夥的寶可夢發動攻擊。"
+                    .UniqueDescription = "小型的龍神奇寶貝。會住在吃吼霸嘴裡，保護自己免於外敵襲擊。極為奸詐狡猾的神奇寶貝。會假裝虛弱來吸引獵物接近，接著讓同夥的神奇寶貝發動攻擊。"
                     .Ability1 = 279
                     .Ability2 = "---"
                     .AbilityHidden = 114
@@ -7533,7 +7533,7 @@
                 End With
                 With FormDifferenceInformation(2)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "鳥寶可夢是牠主要的獵物。對自己的弱小心知肚明，因此都會和夥伴結伴狩獵。牠的智商即使在龍寶可夢中也可以說是數一數二。會鼓起喉囊來擬態。"
+                    .UniqueDescription = "鳥神奇寶貝是牠主要的獵物。對自己的弱小心知肚明，因此都會和夥伴結伴狩獵。牠的智商即使在龍神奇寶貝中也可以說是數一數二。會鼓起喉囊來擬態。"
                     .Ability1 = 279
                     .Ability2 = "---"
                     .AbilityHidden = 114
@@ -7582,7 +7582,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "性格溫馴，會讓誤闖進巢穴的寶可夢乘在自己的背上，將其送到入口。最近的研究發現，牠的身體會有幾節，全是由基因決定的。"
+                    .UniqueDescription = "性格溫馴，會讓誤闖進巢穴的神奇寶貝乘在自己的背上，將其送到入口。最近的研究發現，牠的身體會有幾節，全是由基因決定的。"
                     .Ability1 = 32
                     .Ability2 = 50
                     .AbilityHidden = 155
@@ -7609,7 +7609,7 @@
                 End With
                 With FormDifferenceInformation(0)
                     .IsUniqueDescriptionAvailable = True
-                    .UniqueDescription = "約１５００年前出生在寶箱裡。如果有惡棍打算偷走寶藏，就會被牠吸走精氣。棲息在老舊的寶箱中。有時會因沒人注意到自己是寶可夢，而被擱置在道具店的角落。"
+                    .UniqueDescription = "約１５００年前出生在寶箱裡。如果有惡棍打算偷走寶藏，就會被牠吸走精氣。棲息在老舊的寶箱中。有時會因沒人注意到自己是神奇寶貝，而被擱置在道具店的角落。"
                     .Ability1 = 155
                     .Ability2 = "---"
                     .AbilityHidden = "---"

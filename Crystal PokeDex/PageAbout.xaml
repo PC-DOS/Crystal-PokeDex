@@ -46,50 +46,54 @@
 
             <!--Panorama 項目 2-->
             <phone:PanoramaItem Header="鳴謝">
-                <Grid>
-                    <TextBlock Margin="10,10,0,0" TextWrapping="Wrap" FontSize="25">
-                    	<Run Text="感謝以下機構或個人提供的支援:"/>
-                    	<LineBreak/>
-                         <Run Text="所有參與測試的使用者"/>
-                    	<LineBreak/>
-                    	<Run Text="Bing 網典"/>
-                    	<LineBreak/>
-                    	<Run Text="口袋百科"/>
-                    	<LineBreak/>
-                    	<Run Text="神奇寶貝百科 (wiki.52poke.com)"/>
-                    	<LineBreak/>
-                    	<Run Text="Smogon University &amp; Smogon WP"/>
-                    	<LineBreak/>
-                    	<Run Text="The Pokemon Company "/>
-                    	<LineBreak/>
-                    	<Run Text="Nintendo"/>
-                    	<LineBreak/>
-                    	<Run Text="Creatures Inc."/>
-                    	<LineBreak/>
-                    	<Run Text="Game Freak Inc."/>
-                    	<LineBreak/>
-                    	<Run/>
-                    	<LineBreak/>
-                    	<Run Text="感謝口袋百科提供的免費網頁以及相關圖像及文字資訊。"/>
-                    	<LineBreak/>
-                    	<Run Text="感謝 Bing 提供的搜尋服務。"/>
-                    	<LineBreak/>
-                    	<Run Text="感謝所有參與 Crystal PokeDex 測試的使用者。"/>
-                    	<LineBreak/>
-                    </TextBlock>
-                </Grid>
+                <ScrollViewer>
+                    <Grid>
+                        <TextBlock Margin="10,10,0,0" TextWrapping="Wrap" FontSize="25">
+                    	    <Run Text="感謝以下機構或個人提供的支援:"/>
+                    	    <LineBreak/>
+                             <Run Text="所有參與測試的使用者"/>
+                    	    <LineBreak/>
+                    	    <Run Text="Bing 網典"/>
+                    	    <LineBreak/>
+                    	    <Run Text="口袋百科"/>
+                    	    <LineBreak/>
+                    	    <Run Text="神奇寶貝百科 (wiki.52poke.com)"/>
+                    	    <LineBreak/>
+                    	    <Run Text="Smogon University &amp; Smogon WP"/>
+                    	    <LineBreak/>
+                    	    <Run Text="The Pokemon Company "/>
+                    	    <LineBreak/>
+                    	    <Run Text="Nintendo"/>
+                    	    <LineBreak/>
+                    	    <Run Text="Creatures Inc."/>
+                    	    <LineBreak/>
+                    	    <Run Text="Game Freak Inc."/>
+                    	    <LineBreak/>
+                    	    <Run/>
+                    	    <LineBreak/>
+                    	    <Run Text="感謝口袋百科提供的免費網頁以及相關圖像及文字資訊。"/>
+                    	    <LineBreak/>
+                    	    <Run Text="感謝 Bing 提供的搜尋服務。"/>
+                    	    <LineBreak/>
+                    	    <Run Text="感謝所有參與 Crystal PokeDex 測試的使用者。"/>
+                    	    <LineBreak/>
+                        </TextBlock>
+                    </Grid>
+                </ScrollViewer>
             </phone:PanoramaItem>
             <phone:PanoramaItem Header="法律" Foreground="{StaticResource PhoneForegroundBrush}">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Margin="10,10,0,0" TextWrapping="Wrap" FontSize="25">
-                		<Run Text="依照相關國際智慧財產權保護準則，本應用程式授權您將其中所包含的所有數據無償用於非商業用途，同時您也承諾允許將它們授權給其他人用於非商業用途。"/>
-                		<LineBreak/>
-                        <Run />
-                        <LineBreak/>
-                		<Run Text="PC-DOS Workshop 承諾保護您的隱私，本程式不會收集任何可能識別您的信息。"/>
-                    </TextBlock>
-                    <HyperlinkButton x:Name="lnkPrivacy" Content="隱私權聲明" NavigateUri="http://github.com/PC-DOS/privacy/wiki/" HorizontalAlignment="Left" Margin="0,100,0,0"/>
-                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="10,10,0,0" TextWrapping="Wrap" FontSize="25">
+                		    <Run Text="依照相關國際智慧財產權保護準則，本應用程式授權您將其中所包含的所有數據無償用於非商業用途，同時您也承諾允許將它們授權給其他人用於非商業用途。"/>
+                		    <LineBreak/>
+                            <Run />
+                            <LineBreak/>
+                		    <Run Text="PC-DOS Workshop 承諾保護您的隱私，本程式不會收集任何可能識別您的信息。"/>
+                        </TextBlock>
+                        <HyperlinkButton x:Name="lnkPrivacy" Content="隱私權聲明" NavigateUri="http://github.com/PC-DOS/privacy/wiki/" HorizontalAlignment="Left" Margin="0,100,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>

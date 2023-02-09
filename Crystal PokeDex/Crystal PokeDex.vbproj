@@ -133,7 +133,7 @@
     </Compile>
     <Compile Include="libColors.vb" />
     <Compile Include="libAbilities.vb" />
-    <Compile Include="libEvolutions.vb" />
+    <Compile Include="libPokemonEvolutions.vb" />
     <Compile Include="libItems.vb" />
     <Compile Include="libMoves.vb" />
     <Compile Include="libPokemonFormDifferencProvider.vb" />
