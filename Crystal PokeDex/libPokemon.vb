@@ -28234,7 +28234,7 @@
                     .Ability2 = "---"
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
-                        .HP = 109
+                        .HP = 107
                         .ATTACK = 139
                         .DEFEND = 139
                         .SPATTACK = 53
