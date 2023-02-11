@@ -34,12 +34,12 @@
             <StackPanel Grid.Row="0">
                 <RadioButton x:Name="rdCHT" Content="招式繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top" IsChecked="True"/>
                 <RadioButton x:Name="rdCHS" Content="招式簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rdCHTO" Content="招式官方繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rdCHSO" Content="招式官方簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
                 <!--RadioButton x:Name="rdCHS" Content="神奇寶貝簡體中文名字" HorizontalAlignment="Left" Height="76" Margin="10,0,0,0" VerticalAlignment="Top"/-->
                 <RadioButton x:Name="rdENG" Content="招式英文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
                 <!--RadioButton x:Name="rdKOR" Content="神奇寶貝韓文名字" HorizontalAlignment="Left" Height="76" Margin="10,0,0,0" VerticalAlignment="Top"/-->
                 <RadioButton x:Name="rdJPN" Content="招式日文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="rdCHTO" Content="招式官方繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="rdCHSO" Content="招式官方簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
             </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

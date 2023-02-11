@@ -8141,6 +8141,19 @@
         End If
         IsPokemonNameSimplifiedChineseEnabled = IsoSettingsLib(PokemonNameUseSimplifiedChineseKey)
         IsPokemonNameOfficialTranslationEnabled = IsoSettingsLib(PokemonNameUseOfficialTranslationKey)
+        If IsPokemonNameSimplifiedChineseEnabled Then
+            If IsPokemonNameOfficialTranslationEnabled Then
+                UIPokemonNameDisplayConfig = ChineseDisplayConfig.OfficialChineseSimplified
+            Else
+                UIPokemonNameDisplayConfig = ChineseDisplayConfig.InformalChineseSimplified
+            End If
+        Else
+            If IsPokemonNameOfficialTranslationEnabled Then
+                UIPokemonNameDisplayConfig = ChineseDisplayConfig.OfficialChineseTraditional
+            Else
+                UIPokemonNameDisplayConfig = ChineseDisplayConfig.InformalChineseTraditional
+            End If
+        End If
     End Sub
     Public Sub SavePokemonNameDisplayConfig(IsCHS As Boolean, IsOfficial As Boolean)
         If IsCHS Then
