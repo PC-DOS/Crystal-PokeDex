@@ -1,4 +1,5 @@
-﻿Module libPokemon
+﻿Imports System.Runtime.Serialization
+Public Module libPokemon
     Public Const DefaultPokemonImagePath = "/Assets/PagePokemonDetails/NoImage.png"
     Public Const CurrentPokemonCount = 1008
     '各個版本中的神奇寶貝總數
@@ -14,49 +15,49 @@
         SV = 1008
     End Enum
     Public Structure PokemonSpeciesStrengthValues
-        Dim HP As Integer
-        Dim ATTACK As Integer
-        Dim DEFEND As Integer
-        Dim SPATTACK As Integer
-        Dim SPDEFEND As Integer
-        Dim SPEED As Integer
-        Dim TOTAL As Integer
+        Public HP As Integer
+        Public Attack As Integer
+        Public Defence As Integer
+        Public SpecialAttack As Integer
+        Public SpecialDefence As Integer
+        Public Speed As Integer
+        Public Total As Integer
     End Structure
     Public Structure PokemonInfo
-        Dim Title As String
-        Dim IsMissingNo As Boolean '缺號,設置錯誤,默認為False
-        Dim NameCHT As String '繁体中文名字
-        Dim NameCHS As String '简体中文名字
-        Dim NameCHTO As String '官方繁體中文名字
-        Dim NameCHSO As String '官方簡體中文名字
-        Dim NameENG As String '英語名字
-        Dim NameJPN As String '日語名字
-        Dim NameGER As String '德語名字
-        Dim NameFRA As String '法語名字
-        Dim NameKOR As String '韓文名字
-        Dim DexIDNumber As String '图鉴编号
-        Dim Description As String '圖鑑介紹
-        Dim Category As String '类型
-        Dim Height As String  '身高
-        Dim Weight As String  '体重
-        Dim IsNoGenderOrSingleGender As Boolean '無性別或者僅有單一性別
-        Dim GenderRatio As String '性别比,雄性:雌性
-        Dim Type As String '属性
-        Dim BodyColor As String '设计编录颜色
-        Dim Sheleter As String '栖息地
-        Dim EggGroup1 As String '生蛋分組1
-        Dim EggGroup2 As String '生蛋分組2
-        Dim HatchEggCycles As String '孵化週期數，步數=週期數*257
-        Dim CatchRate As String '捕獲率
-        Dim InitialFriendshipValue As String '初始親密度
-        Dim BasicExpPoint As String '基礎經驗值
-        Dim FullLevelExpPoint As String '滿級經驗值
-        Dim Ability1 As String '特性1
-        Dim Ability2 As String '特性2
-        Dim AbilityHidden As String '特性3(隱藏)
-        Dim SpeciesStrengthValues As PokemonSpeciesStrengthValues '種族值
-        Dim ImageMaleURI As String '雄性圖像的URI
-        Dim ImageFemaleURI As String '雌性圖像的URI
+        Public Title As String
+        Public IsMissingNo As Boolean '缺號,設置錯誤,默認為False
+        Public NameCHT As String '繁体中文名字
+        Public NameCHS As String '简体中文名字
+        Public NameCHTO As String '官方繁體中文名字
+        Public NameCHSO As String '官方簡體中文名字
+        Public NameENG As String '英語名字
+        Public NameJPN As String '日語名字
+        Public NameGER As String '德語名字
+        Public NameFRA As String '法語名字
+        Public NameKOR As String '韓文名字
+        Public DexIDNumber As String '图鉴编号
+        Public Description As String '圖鑑介紹
+        Public Category As String '类型
+        Public Height As String  '身高
+        Public Weight As String  '体重
+        Public IsNoGenderOrSingleGender As Boolean '無性別或者僅有單一性別
+        Public GenderRatio As String '性别比,雄性:雌性
+        Public Type As String '属性
+        Public BodyColor As String '设计编录颜色
+        Public Sheleter As String '栖息地
+        Public EggGroup1 As String '生蛋分組1
+        Public EggGroup2 As String '生蛋分組2
+        Public HatchEggCycles As String '孵化週期數，步數=週期數*257
+        Public CatchRate As String '捕獲率
+        Public InitialFriendshipValue As String '初始親密度
+        Public BasicExpPoint As String '基礎經驗值
+        Public FullLevelExpPoint As String '滿級經驗值
+        Public Ability1 As String '特性1
+        Public Ability2 As String '特性2
+        Public AbilityHidden As String '特性3(隱藏)
+        Public SpeciesStrengthValues As PokemonSpeciesStrengthValues '種族值
+        Public ImageMaleURI As String '雄性圖像的URI
+        Public ImageFemaleURI As String '雌性圖像的URI
     End Structure
     Public PokemonInformationShared As New PokemonInfo
     Public Function GenerateEmptyPokemonInfo() As PokemonInfo
@@ -76,13 +77,13 @@
             .Ability2 = "ERROR"
             .AbilityHidden = "ERROR"
             With .SpeciesStrengthValues
-                .ATTACK = 255
-                .DEFEND = 255
+                .Attack = 255
+                .Defence = 255
                 .HP = 255
-                .SPATTACK = 255
-                .SPDEFEND = 255
-                .SPEED = 255
-                .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                .SpecialAttack = 255
+                .SpecialDefence = 255
+                .Speed = 255
+                .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
             End With
             .BasicExpPoint = "ERROR"
             .HatchEggCycles = "ERROR"
@@ -95,8 +96,6 @@
             .Height = "ERROR"
             .ImageFemaleURI = DefaultPokemonImagePath
             .ImageMaleURI = DefaultPokemonImagePath
-            FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-            FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
             .DexIDNumber = "000"
             .GenderRatio = "ERROR"
             .Sheleter = "ERROR"
@@ -149,13 +148,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -168,8 +167,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -199,7 +196,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 1
@@ -226,13 +223,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
-                        .ATTACK = 49
-                        .DEFEND = 49
+                        .Attack = 49
+                        .Defence = 49
                         .HP = 45
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/001.png"
                     .ImageFemaleURI = "/Pokemons/001.png"
@@ -261,13 +258,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
-                        .ATTACK = 62
-                        .DEFEND = 63
+                        .Attack = 62
+                        .Defence = 63
                         .HP = 60
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/002.png"
                     .ImageFemaleURI = "/Pokemons/002.png"
@@ -296,13 +293,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
-                        .ATTACK = 82
-                        .DEFEND = 83
+                        .Attack = 82
+                        .Defence = 83
                         .HP = 80
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/003.png"
                     .ImageFemaleURI = "/Pokemons/003.png"
@@ -331,13 +328,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 94
                     With .SpeciesStrengthValues
-                        .ATTACK = 52
-                        .DEFEND = 43
+                        .Attack = 52
+                        .Defence = 43
                         .HP = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 50
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 60
+                        .SpecialDefence = 50
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/004.png"
                     .ImageFemaleURI = "/Pokemons/004.png"
@@ -366,13 +363,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 94
                     With .SpeciesStrengthValues
-                        .ATTACK = 64
-                        .DEFEND = 58
+                        .Attack = 64
+                        .Defence = 58
                         .HP = 58
-                        .SPATTACK = 80
-                        .SPDEFEND = 65
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 80
+                        .SpecialDefence = 65
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/005.png"
                     .ImageFemaleURI = "/Pokemons/005.png"
@@ -401,13 +398,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 94
                     With .SpeciesStrengthValues
-                        .ATTACK = 84
-                        .DEFEND = 78
+                        .Attack = 84
+                        .Defence = 78
                         .HP = 78
-                        .SPATTACK = 109
-                        .SPDEFEND = 85
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 109
+                        .SpecialDefence = 85
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/006.png"
                     .ImageFemaleURI = "/Pokemons/006.png"
@@ -436,13 +433,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
-                        .ATTACK = 48
-                        .DEFEND = 65
+                        .Attack = 48
+                        .Defence = 65
                         .HP = 44
-                        .SPATTACK = 50
-                        .SPDEFEND = 64
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 50
+                        .SpecialDefence = 64
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/007.png"
                     .ImageFemaleURI = "/Pokemons/007.png"
@@ -471,13 +468,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
-                        .ATTACK = 63
-                        .DEFEND = 80
+                        .Attack = 63
+                        .Defence = 80
                         .HP = 59
-                        .SPATTACK = 65
-                        .SPDEFEND = 80
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 65
+                        .SpecialDefence = 80
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/008.png"
                     .ImageFemaleURI = "/Pokemons/008.png"
@@ -506,13 +503,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
-                        .ATTACK = 83
-                        .DEFEND = 100
+                        .Attack = 83
+                        .Defence = 100
                         .HP = 79
-                        .SPATTACK = 85
-                        .SPDEFEND = 105
-                        .SPEED = 78
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 85
+                        .SpecialDefence = 105
+                        .Speed = 78
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/009.png"
                     .ImageFemaleURI = "/Pokemons/009.png"
@@ -541,13 +538,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
-                        .ATTACK = 30
-                        .DEFEND = 35
+                        .Attack = 30
+                        .Defence = 35
                         .HP = 45
-                        .SPATTACK = 20
-                        .SPDEFEND = 20
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 20
+                        .SpecialDefence = 20
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/010.png"
                     .ImageFemaleURI = "/Pokemons/010.png"
@@ -576,13 +573,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
-                        .ATTACK = 20
-                        .DEFEND = 55
+                        .Attack = 20
+                        .Defence = 55
                         .HP = 50
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/011.png"
                     .ImageFemaleURI = "/Pokemons/011.png"
@@ -613,13 +610,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
-                        .ATTACK = 45
-                        .DEFEND = 50
+                        .Attack = 45
+                        .Defence = 50
                         .HP = 60
-                        .SPATTACK = 90
-                        .SPDEFEND = 80
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 90
+                        .SpecialDefence = 80
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                 End With
             Case 13
@@ -646,13 +643,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
-                        .ATTACK = 35
-                        .DEFEND = 30
+                        .Attack = 35
+                        .Defence = 30
                         .HP = 40
-                        .SPATTACK = 20
-                        .SPDEFEND = 20
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 20
+                        .SpecialDefence = 20
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/013.png"
                     .ImageFemaleURI = "/Pokemons/013.png"
@@ -681,13 +678,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
-                        .ATTACK = 25
-                        .DEFEND = 50
+                        .Attack = 25
+                        .Defence = 50
                         .HP = 45
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/014.png"
                     .ImageFemaleURI = "/Pokemons/014.png"
@@ -716,13 +713,13 @@
                     .Ability2 = "---"
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
-                        .ATTACK = 90
-                        .DEFEND = 40
+                        .Attack = 90
+                        .Defence = 40
                         .HP = 65
-                        .SPATTACK = 45
-                        .SPDEFEND = 80
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 45
+                        .SpecialDefence = 80
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/015.png"
                     .ImageFemaleURI = "/Pokemons/015.png"
@@ -751,13 +748,13 @@
                     .Ability2 = 77
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
-                        .ATTACK = 45
-                        .DEFEND = 40
+                        .Attack = 45
+                        .Defence = 40
                         .HP = 40
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 56
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 56
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/016.png"
                     .ImageFemaleURI = "/Pokemons/016.png"
@@ -786,13 +783,13 @@
                     .Ability2 = 77
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
-                        .ATTACK = 60
-                        .DEFEND = 55
+                        .Attack = 60
+                        .Defence = 55
                         .HP = 63
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/017.png"
                     .ImageFemaleURI = "/Pokemons/017.png"
@@ -821,13 +818,13 @@
                     .Ability2 = 77
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
-                        .ATTACK = 80
-                        .DEFEND = 75
+                        .Attack = 80
+                        .Defence = 75
                         .HP = 83
-                        .SPATTACK = 70
-                        .SPDEFEND = 70
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .SpecialAttack = 70
+                        .SpecialDefence = 70
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/018.png"
                     .ImageFemaleURI = "/Pokemons/018.png"
@@ -857,12 +854,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 56
-                        .DEFEND = 35
-                        .SPATTACK = 25
-                        .SPDEFEND = 35
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 56
+                        .Defence = 35
+                        .SpecialAttack = 25
+                        .SpecialDefence = 35
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/019.png"
                     .ImageFemaleURI = "/Pokemons/019.png"
@@ -892,12 +889,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 81
-                        .DEFEND = 60
-                        .SPATTACK = 50
-                        .SPDEFEND = 70
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 81
+                        .Defence = 60
+                        .SpecialAttack = 50
+                        .SpecialDefence = 70
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/020.png"
                     .ImageFemaleURI = "/Pokemons/020.png"
@@ -927,12 +924,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 60
-                        .DEFEND = 30
-                        .SPATTACK = 31
-                        .SPDEFEND = 31
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 30
+                        .SpecialAttack = 31
+                        .SpecialDefence = 31
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/021.png"
                     .ImageFemaleURI = "/Pokemons/021.png"
@@ -962,12 +959,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 90
-                        .DEFEND = 65
-                        .SPATTACK = 61
-                        .SPDEFEND = 61
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 65
+                        .SpecialAttack = 61
+                        .SpecialDefence = 61
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/022.png"
                     .ImageFemaleURI = "/Pokemons/022.png"
@@ -997,12 +994,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 60
-                        .DEFEND = 44
-                        .SPATTACK = 40
-                        .SPDEFEND = 54
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 44
+                        .SpecialAttack = 40
+                        .SpecialDefence = 54
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/023.png"
                     .ImageFemaleURI = "/Pokemons/023.png"
@@ -1032,12 +1029,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 69
-                        .SPATTACK = 65
-                        .SPDEFEND = 79
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 69
+                        .SpecialAttack = 65
+                        .SpecialDefence = 79
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/024.png"
                     .ImageFemaleURI = "/Pokemons/024.png"
@@ -1067,12 +1064,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 55
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/025.png"
                     .ImageFemaleURI = "/Pokemons/025.png"
@@ -1102,12 +1099,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 90
-                        .DEFEND = 55
-                        .SPATTACK = 90
-                        .SPDEFEND = 80
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 55
+                        .SpecialAttack = 90
+                        .SpecialDefence = 80
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/026.png"
                     .ImageFemaleURI = "/Pokemons/026.png"
@@ -1137,12 +1134,12 @@
                     .AbilityHidden = 146
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 75
-                        .DEFEND = 85
-                        .SPATTACK = 20
-                        .SPDEFEND = 30
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 85
+                        .SpecialAttack = 20
+                        .SpecialDefence = 30
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/027.png"
                     .ImageFemaleURI = "/Pokemons/027.png"
@@ -1172,12 +1169,12 @@
                     .AbilityHidden = 146
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 100
-                        .DEFEND = 110
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 110
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/028.png"
                     .ImageFemaleURI = "/Pokemons/028.png"
@@ -1207,12 +1204,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 47
-                        .DEFEND = 52
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 41
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 47
+                        .Defence = 52
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 41
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/029.png"
                     .ImageFemaleURI = "/Pokemons/029.png"
@@ -1242,12 +1239,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 62
-                        .DEFEND = 67
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 56
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 62
+                        .Defence = 67
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 56
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/030.png"
                     .ImageFemaleURI = "/Pokemons/030.png"
@@ -1277,12 +1274,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 92
-                        .DEFEND = 87
-                        .SPATTACK = 75
-                        .SPDEFEND = 85
-                        .SPEED = 76
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 87
+                        .SpecialAttack = 75
+                        .SpecialDefence = 85
+                        .Speed = 76
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/031.png"
                     .ImageFemaleURI = "/Pokemons/031.png"
@@ -1312,12 +1309,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 46
-                        .ATTACK = 57
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 57
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/032.png"
                     .ImageFemaleURI = "/Pokemons/032.png"
@@ -1347,12 +1344,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 72
-                        .DEFEND = 57
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 57
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/033.png"
                     .ImageFemaleURI = "/Pokemons/033.png"
@@ -1382,12 +1379,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 81
-                        .ATTACK = 102
-                        .DEFEND = 77
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 102
+                        .Defence = 77
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/034.png"
                     .ImageFemaleURI = "/Pokemons/034.png"
@@ -1417,12 +1414,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 45
-                        .DEFEND = 48
-                        .SPATTACK = 60
-                        .SPDEFEND = 65
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 48
+                        .SpecialAttack = 60
+                        .SpecialDefence = 65
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/035.png"
                     .ImageFemaleURI = "/Pokemons/035.png"
@@ -1452,12 +1449,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 70
-                        .DEFEND = 73
-                        .SPATTACK = 95
-                        .SPDEFEND = 90
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 73
+                        .SpecialAttack = 95
+                        .SpecialDefence = 90
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/036.png"
                     .ImageFemaleURI = "/Pokemons/036.png"
@@ -1487,12 +1484,12 @@
                     .AbilityHidden = 70
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 41
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 65
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 41
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 65
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/037.png"
                     .ImageFemaleURI = "/Pokemons/037.png"
@@ -1522,12 +1519,12 @@
                     .AbilityHidden = 70
                     With .SpeciesStrengthValues
                         .HP = 73
-                        .ATTACK = 76
-                        .DEFEND = 75
-                        .SPATTACK = 81
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 76
+                        .Defence = 75
+                        .SpecialAttack = 81
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/038.png"
                     .ImageFemaleURI = "/Pokemons/038.png"
@@ -1557,12 +1554,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 45
-                        .DEFEND = 20
-                        .SPATTACK = 45
-                        .SPDEFEND = 25
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 20
+                        .SpecialAttack = 45
+                        .SpecialDefence = 25
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/039.png"
                     .ImageFemaleURI = "/Pokemons/039.png"
@@ -1592,12 +1589,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 45
-                        .DEFEND = 20
-                        .SPATTACK = 45
-                        .SPDEFEND = 25
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 20
+                        .SpecialAttack = 45
+                        .SpecialDefence = 25
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/040.png"
                     .ImageFemaleURI = "/Pokemons/040.png"
@@ -1627,12 +1624,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 35
-                        .SPATTACK = 30
-                        .SPDEFEND = 40
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 35
+                        .SpecialAttack = 30
+                        .SpecialDefence = 40
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/041.png"
                     .ImageFemaleURI = "/Pokemons/041.png"
@@ -1662,12 +1659,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 70
-                        .SPATTACK = 65
-                        .SPDEFEND = 75
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 70
+                        .SpecialAttack = 65
+                        .SpecialDefence = 75
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/042.png"
                     .ImageFemaleURI = "/Pokemons/042.png"
@@ -1697,12 +1694,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 50
-                        .DEFEND = 55
-                        .SPATTACK = 75
-                        .SPDEFEND = 65
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 55
+                        .SpecialAttack = 75
+                        .SpecialDefence = 65
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/043.png"
                     .ImageFemaleURI = "/Pokemons/043.png"
@@ -1732,12 +1729,12 @@
                     .AbilityHidden = 1
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 65
-                        .DEFEND = 70
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 70
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/044.png"
                     .ImageFemaleURI = "/Pokemons/044.png"
@@ -1767,12 +1764,12 @@
                     .AbilityHidden = 27
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 85
-                        .SPATTACK = 110
-                        .SPDEFEND = 90
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 85
+                        .SpecialAttack = 110
+                        .SpecialDefence = 90
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/045.png"
                     .ImageFemaleURI = "/Pokemons/045.png"
@@ -1802,12 +1799,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 70
-                        .DEFEND = 55
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 55
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/046.png"
                     .ImageFemaleURI = "/Pokemons/046.png"
@@ -1837,12 +1834,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 95
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 80
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 80
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/047.png"
                     .ImageFemaleURI = "/Pokemons/047.png"
@@ -1872,12 +1869,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 55
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 55
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 55
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/048.png"
                     .ImageFemaleURI = "/Pokemons/048.png"
@@ -1907,12 +1904,12 @@
                     .AbilityHidden = 147
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 90
-                        .SPDEFEND = 75
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 90
+                        .SpecialDefence = 75
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/049.png"
                     .ImageFemaleURI = "/Pokemons/049.png"
@@ -1942,12 +1939,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 10
-                        .ATTACK = 55
-                        .DEFEND = 25
-                        .SPATTACK = 35
-                        .SPDEFEND = 45
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 25
+                        .SpecialAttack = 35
+                        .SpecialDefence = 45
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/050.png"
                     .ImageFemaleURI = "/Pokemons/050.png"
@@ -1977,12 +1974,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 70
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 70
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/051.png"
                     .ImageFemaleURI = "/Pokemons/051.png"
@@ -2012,12 +2009,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 35
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 35
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/052.png"
                     .ImageFemaleURI = "/Pokemons/052.png"
@@ -2047,12 +2044,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 70
-                        .DEFEND = 60
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 60
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/053.png"
                     .ImageFemaleURI = "/Pokemons/053.png"
@@ -2082,12 +2079,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 52
-                        .DEFEND = 48
-                        .SPATTACK = 65
-                        .SPDEFEND = 50
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 48
+                        .SpecialAttack = 65
+                        .SpecialDefence = 50
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/054.png"
                     .ImageFemaleURI = "/Pokemons/054.png"
@@ -2117,12 +2114,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 82
-                        .DEFEND = 78
-                        .SPATTACK = 95
-                        .SPDEFEND = 80
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 78
+                        .SpecialAttack = 95
+                        .SpecialDefence = 80
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/055.png"
                     .ImageFemaleURI = "/Pokemons/055.png"
@@ -2152,12 +2149,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 80
-                        .DEFEND = 35
-                        .SPATTACK = 35
-                        .SPDEFEND = 45
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 35
+                        .SpecialAttack = 35
+                        .SpecialDefence = 45
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/056.png"
                     .ImageFemaleURI = "/Pokemons/056.png"
@@ -2187,12 +2184,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 105
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/057.png"
                     .ImageFemaleURI = "/Pokemons/057.png"
@@ -2222,12 +2219,12 @@
                     .AbilityHidden = 154
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 70
-                        .DEFEND = 45
-                        .SPATTACK = 70
-                        .SPDEFEND = 50
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 45
+                        .SpecialAttack = 70
+                        .SpecialDefence = 50
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/058.png"
                     .ImageFemaleURI = "/Pokemons/058.png"
@@ -2257,12 +2254,12 @@
                     .AbilityHidden = 154
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 110
-                        .DEFEND = 80
-                        .SPATTACK = 100
-                        .SPDEFEND = 80
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 80
+                        .SpecialAttack = 100
+                        .SpecialDefence = 80
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/059.png"
                     .ImageFemaleURI = "/Pokemons/059.png"
@@ -2292,12 +2289,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/060.png"
                     .ImageFemaleURI = "/Pokemons/060.png"
@@ -2327,12 +2324,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/061.png"
                     .ImageFemaleURI = "/Pokemons/061.png"
@@ -2362,12 +2359,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 70
-                        .SPDEFEND = 90
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 70
+                        .SpecialDefence = 90
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/062.png"
                     .ImageFemaleURI = "/Pokemons/062.png"
@@ -2397,12 +2394,12 @@
                     .AbilityHidden = 98
                     With .SpeciesStrengthValues
                         .HP = 25
-                        .ATTACK = 20
-                        .DEFEND = 15
-                        .SPATTACK = 105
-                        .SPDEFEND = 55
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 15
+                        .SpecialAttack = 105
+                        .SpecialDefence = 55
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/063.png"
                     .ImageFemaleURI = "/Pokemons/063.png"
@@ -2432,12 +2429,12 @@
                     .AbilityHidden = 98
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 35
-                        .DEFEND = 30
-                        .SPATTACK = 120
-                        .SPDEFEND = 70
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 30
+                        .SpecialAttack = 120
+                        .SpecialDefence = 70
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/064.png"
                     .ImageFemaleURI = "/Pokemons/064.png"
@@ -2467,12 +2464,12 @@
                     .AbilityHidden = 98
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 50
-                        .DEFEND = 45
-                        .SPATTACK = 135
-                        .SPDEFEND = 95
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 45
+                        .SpecialAttack = 135
+                        .SpecialDefence = 95
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/065.png"
                     .ImageFemaleURI = "/Pokemons/065.png"
@@ -2502,12 +2499,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/066.png"
                     .ImageFemaleURI = "/Pokemons/066.png"
@@ -2537,12 +2534,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 50
-                        .SPDEFEND = 60
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 50
+                        .SpecialDefence = 60
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/067.png"
                     .ImageFemaleURI = "/Pokemons/067.png"
@@ -2572,12 +2569,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 130
-                        .DEFEND = 80
-                        .SPATTACK = 65
-                        .SPDEFEND = 85
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 80
+                        .SpecialAttack = 65
+                        .SpecialDefence = 85
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/068.png"
                     .ImageFemaleURI = "/Pokemons/068.png"
@@ -2607,12 +2604,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 75
-                        .DEFEND = 35
-                        .SPATTACK = 70
-                        .SPDEFEND = 30
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 35
+                        .SpecialAttack = 70
+                        .SpecialDefence = 30
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/069.png"
                     .ImageFemaleURI = "/Pokemons/069.png"
@@ -2642,12 +2639,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 90
-                        .DEFEND = 50
-                        .SPATTACK = 85
-                        .SPDEFEND = 45
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 50
+                        .SpecialAttack = 85
+                        .SpecialDefence = 45
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/070.png"
                     .ImageFemaleURI = "/Pokemons/070.png"
@@ -2677,12 +2674,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 105
-                        .DEFEND = 65
-                        .SPATTACK = 100
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 65
+                        .SpecialAttack = 100
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/071.png"
                     .ImageFemaleURI = "/Pokemons/071.png"
@@ -2712,12 +2709,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 35
-                        .SPATTACK = 50
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 35
+                        .SpecialAttack = 50
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/072.png"
                     .ImageFemaleURI = "/Pokemons/072.png"
@@ -2747,12 +2744,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 70
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 120
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 120
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/073.png"
                     .ImageFemaleURI = "/Pokemons/073.png"
@@ -2782,12 +2779,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 80
-                        .DEFEND = 100
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 100
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/074.png"
                     .ImageFemaleURI = "/Pokemons/074.png"
@@ -2817,12 +2814,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 95
-                        .DEFEND = 115
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 115
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/075.png"
                     .ImageFemaleURI = "/Pokemons/075.png"
@@ -2852,12 +2849,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 120
-                        .DEFEND = 130
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 130
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/076.png"
                     .ImageFemaleURI = "/Pokemons/076.png"
@@ -2887,12 +2884,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 85
-                        .DEFEND = 55
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 55
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/077.png"
                     .ImageFemaleURI = "/Pokemons/077.png"
@@ -2922,12 +2919,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/078.png"
                     .ImageFemaleURI = "/Pokemons/078.png"
@@ -2957,12 +2954,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/079.png"
                     .ImageFemaleURI = "/Pokemons/079.png"
@@ -2992,12 +2989,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 75
-                        .DEFEND = 110
-                        .SPATTACK = 100
-                        .SPDEFEND = 80
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 110
+                        .SpecialAttack = 100
+                        .SpecialDefence = 80
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/080.png"
                     .ImageFemaleURI = "/Pokemons/080.png"
@@ -3027,12 +3024,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 25
-                        .ATTACK = 35
-                        .DEFEND = 70
-                        .SPATTACK = 95
-                        .SPDEFEND = 55
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 70
+                        .SpecialAttack = 95
+                        .SpecialDefence = 55
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/081.png"
                     .ImageFemaleURI = "/Pokemons/081.png"
@@ -3062,12 +3059,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 60
-                        .DEFEND = 95
-                        .SPATTACK = 120
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 95
+                        .SpecialAttack = 120
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/082.png"
                     .ImageFemaleURI = "/Pokemons/082.png"
@@ -3097,12 +3094,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 52
-                        .ATTACK = 90
-                        .DEFEND = 55
-                        .SPATTACK = 58
-                        .SPDEFEND = 62
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 55
+                        .SpecialAttack = 58
+                        .SpecialDefence = 62
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/083.png"
                     .ImageFemaleURI = "/Pokemons/083.png"
@@ -3132,12 +3129,12 @@
                     .AbilityHidden = 77
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 85
-                        .DEFEND = 45
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 45
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/084.png"
                     .ImageFemaleURI = "/Pokemons/084.png"
@@ -3167,12 +3164,12 @@
                     .AbilityHidden = 77
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 110
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/085.png"
                     .ImageFemaleURI = "/Pokemons/085.png"
@@ -3202,12 +3199,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 45
-                        .DEFEND = 55
-                        .SPATTACK = 45
-                        .SPDEFEND = 70
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 55
+                        .SpecialAttack = 45
+                        .SpecialDefence = 70
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/086.png"
                     .ImageFemaleURI = "/Pokemons/086.png"
@@ -3237,12 +3234,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 70
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 95
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 95
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/087.png"
                     .ImageFemaleURI = "/Pokemons/087.png"
@@ -3272,12 +3269,12 @@
                     .AbilityHidden = 143
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/088.png"
                     .ImageFemaleURI = "/Pokemons/088.png"
@@ -3307,12 +3304,12 @@
                     .AbilityHidden = 143
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 105
-                        .DEFEND = 75
-                        .SPATTACK = 65
-                        .SPDEFEND = 100
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 75
+                        .SpecialAttack = 65
+                        .SpecialDefence = 100
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/089.png"
                     .ImageFemaleURI = "/Pokemons/089.png"
@@ -3342,12 +3339,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 65
-                        .DEFEND = 100
-                        .SPATTACK = 45
-                        .SPDEFEND = 24
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 100
+                        .SpecialAttack = 45
+                        .SpecialDefence = 24
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/090.png"
                     .ImageFemaleURI = "/Pokemons/090.png"
@@ -3377,12 +3374,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 95
-                        .DEFEND = 180
-                        .SPATTACK = 85
-                        .SPDEFEND = 45
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 180
+                        .SpecialAttack = 85
+                        .SpecialDefence = 45
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/091.png"
                     .ImageFemaleURI = "/Pokemons/091.png"
@@ -3412,12 +3409,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 35
-                        .DEFEND = 30
-                        .SPATTACK = 100
-                        .SPDEFEND = 35
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 30
+                        .SpecialAttack = 100
+                        .SpecialDefence = 35
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/092.png"
                     .ImageFemaleURI = "/Pokemons/092.png"
@@ -3447,12 +3444,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 50
-                        .DEFEND = 45
-                        .SPATTACK = 115
-                        .SPDEFEND = 55
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 45
+                        .SpecialAttack = 115
+                        .SpecialDefence = 55
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/093.png"
                     .ImageFemaleURI = "/Pokemons/093.png"
@@ -3482,12 +3479,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 130
-                        .SPDEFEND = 75
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 130
+                        .SpecialDefence = 75
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/094.png"
                     .ImageFemaleURI = "/Pokemons/094.png"
@@ -3517,12 +3514,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 45
-                        .DEFEND = 160
-                        .SPATTACK = 30
-                        .SPDEFEND = 45
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 160
+                        .SpecialAttack = 30
+                        .SpecialDefence = 45
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/095.png"
                     .ImageFemaleURI = "/Pokemons/095.png"
@@ -3552,12 +3549,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 48
-                        .DEFEND = 45
-                        .SPATTACK = 43
-                        .SPDEFEND = 90
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 45
+                        .SpecialAttack = 43
+                        .SpecialDefence = 90
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/096.png"
                     .ImageFemaleURI = "/Pokemons/096.png"
@@ -3587,12 +3584,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 73
-                        .DEFEND = 70
-                        .SPATTACK = 73
-                        .SPDEFEND = 115
-                        .SPEED = 67
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 70
+                        .SpecialAttack = 73
+                        .SpecialDefence = 115
+                        .Speed = 67
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/097.png"
                     .ImageFemaleURI = "/Pokemons/097.png"
@@ -3622,17 +3619,15 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 105
-                        .DEFEND = 90
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 90
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/098.png"
                     .ImageFemaleURI = "/Pokemons/098.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 99
                 With ReturnValue
@@ -3659,12 +3654,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 130
-                        .DEFEND = 115
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 115
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/099.png"
                     .ImageFemaleURI = "/Pokemons/099.png"
@@ -3694,12 +3689,12 @@
                     .AbilityHidden = 106
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 50
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 50
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/100.png"
                     .ImageFemaleURI = "/Pokemons/100.png"
@@ -3729,12 +3724,12 @@
                     .AbilityHidden = 106
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 70
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 150
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 70
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 150
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/101.png"
                     .ImageFemaleURI = "/Pokemons/101.png"
@@ -3764,12 +3759,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 40
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 45
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 45
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/102.png"
                     .ImageFemaleURI = "/Pokemons/102.png"
@@ -3799,12 +3794,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 95
-                        .DEFEND = 85
-                        .SPATTACK = 125
-                        .SPDEFEND = 75
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 85
+                        .SpecialAttack = 125
+                        .SpecialDefence = 75
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/103.png"
                     .ImageFemaleURI = "/Pokemons/103.png"
@@ -3834,12 +3829,12 @@
                     .AbilityHidden = 4
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 95
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 95
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/104.png"
                     .ImageFemaleURI = "/Pokemons/104.png"
@@ -3869,12 +3864,12 @@
                     .AbilityHidden = 4
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 80
-                        .DEFEND = 110
-                        .SPATTACK = 50
-                        .SPDEFEND = 80
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 110
+                        .SpecialAttack = 50
+                        .SpecialDefence = 80
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/105.png"
                     .ImageFemaleURI = "/Pokemons/105.png"
@@ -3904,12 +3899,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 120
-                        .DEFEND = 53
-                        .SPATTACK = 35
-                        .SPDEFEND = 110
-                        .SPEED = 87
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 53
+                        .SpecialAttack = 35
+                        .SpecialDefence = 110
+                        .Speed = 87
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/106.png"
                     .ImageFemaleURI = "/Pokemons/106.png"
@@ -3939,12 +3934,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 105
-                        .DEFEND = 79
-                        .SPATTACK = 35
-                        .SPDEFEND = 110
-                        .SPEED = 76
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 79
+                        .SpecialAttack = 35
+                        .SpecialDefence = 110
+                        .Speed = 76
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/107.png"
                     .ImageFemaleURI = "/Pokemons/107.png"
@@ -3974,17 +3969,15 @@
                     .AbilityHidden = 13
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 55
-                        .DEFEND = 75
-                        .SPATTACK = 60
-                        .SPDEFEND = 75
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 75
+                        .SpecialAttack = 60
+                        .SpecialDefence = 75
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/108.png"
                     .ImageFemaleURI = "/Pokemons/108.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 109
                 With ReturnValue
@@ -4011,12 +4004,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 65
-                        .DEFEND = 95
-                        .SPATTACK = 60
-                        .SPDEFEND = 45
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 95
+                        .SpecialAttack = 60
+                        .SpecialDefence = 45
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/109.png"
                     .ImageFemaleURI = "/Pokemons/109.png"
@@ -4046,12 +4039,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 90
-                        .DEFEND = 120
-                        .SPATTACK = 85
-                        .SPDEFEND = 70
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 120
+                        .SpecialAttack = 85
+                        .SpecialDefence = 70
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/110.png"
                     .ImageFemaleURI = "/Pokemons/110.png"
@@ -4081,12 +4074,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 85
-                        .DEFEND = 95
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 95
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/111.png"
                     .ImageFemaleURI = "/Pokemons/111.png"
@@ -4116,12 +4109,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 130
-                        .DEFEND = 120
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 120
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/112.png"
                     .ImageFemaleURI = "/Pokemons/112.png"
@@ -4151,12 +4144,12 @@
                     .AbilityHidden = 131
                     With .SpeciesStrengthValues
                         .HP = 250
-                        .ATTACK = 5
-                        .DEFEND = 5
-                        .SPATTACK = 35
-                        .SPDEFEND = 105
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 5
+                        .Defence = 5
+                        .SpecialAttack = 35
+                        .SpecialDefence = 105
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/113.png"
                     .ImageFemaleURI = "/Pokemons/113.png"
@@ -4186,12 +4179,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 55
-                        .DEFEND = 115
-                        .SPATTACK = 100
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 115
+                        .SpecialAttack = 100
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/114.png"
                     .ImageFemaleURI = "/Pokemons/114.png"
@@ -4221,12 +4214,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 95
-                        .DEFEND = 80
-                        .SPATTACK = 40
-                        .SPDEFEND = 80
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 80
+                        .SpecialAttack = 40
+                        .SpecialDefence = 80
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/115.png"
                     .ImageFemaleURI = "/Pokemons/115.png"
@@ -4256,12 +4249,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 40
-                        .DEFEND = 70
-                        .SPATTACK = 70
-                        .SPDEFEND = 25
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 70
+                        .SpecialAttack = 70
+                        .SpecialDefence = 25
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/116.png"
                     .ImageFemaleURI = "/Pokemons/116.png"
@@ -4291,12 +4284,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 65
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 45
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 45
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/117.png"
                     .ImageFemaleURI = "/Pokemons/117.png"
@@ -4326,12 +4319,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 67
-                        .DEFEND = 60
-                        .SPATTACK = 35
-                        .SPDEFEND = 50
-                        .SPEED = 63
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 67
+                        .Defence = 60
+                        .SpecialAttack = 35
+                        .SpecialDefence = 50
+                        .Speed = 63
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/118.png"
                     .ImageFemaleURI = "/Pokemons/118.png"
@@ -4361,12 +4354,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 92
-                        .DEFEND = 65
-                        .SPATTACK = 65
-                        .SPDEFEND = 80
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 65
+                        .SpecialAttack = 65
+                        .SpecialDefence = 80
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/119.png"
                     .ImageFemaleURI = "/Pokemons/119.png"
@@ -4396,12 +4389,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 45
-                        .DEFEND = 55
-                        .SPATTACK = 70
-                        .SPDEFEND = 55
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 55
+                        .SpecialAttack = 70
+                        .SpecialDefence = 55
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/120.png"
                     .ImageFemaleURI = "/Pokemons/120.png"
@@ -4431,12 +4424,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 75
-                        .DEFEND = 85
-                        .SPATTACK = 100
-                        .SPDEFEND = 85
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 85
+                        .SpecialAttack = 100
+                        .SpecialDefence = 85
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/121.png"
                     .ImageFemaleURI = "/Pokemons/121.png"
@@ -4466,17 +4459,15 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 65
-                        .SPATTACK = 100
-                        .SPDEFEND = 120
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 65
+                        .SpecialAttack = 100
+                        .SpecialDefence = 120
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/122.png"
                     .ImageFemaleURI = "/Pokemons/122.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 123
                 With ReturnValue
@@ -4503,12 +4494,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 110
-                        .DEFEND = 80
-                        .SPATTACK = 55
-                        .SPDEFEND = 80
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 80
+                        .SpecialAttack = 55
+                        .SpecialDefence = 80
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/123.png"
                     .ImageFemaleURI = "/Pokemons/123.png"
@@ -4538,12 +4529,12 @@
                     .AbilityHidden = 87
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 50
-                        .DEFEND = 35
-                        .SPATTACK = 115
-                        .SPDEFEND = 95
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 35
+                        .SpecialAttack = 115
+                        .SpecialDefence = 95
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/124.png"
                     .ImageFemaleURI = "/Pokemons/124.png"
@@ -4573,12 +4564,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 83
-                        .DEFEND = 57
-                        .SPATTACK = 95
-                        .SPDEFEND = 85
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 83
+                        .Defence = 57
+                        .SpecialAttack = 95
+                        .SpecialDefence = 85
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/125.png"
                     .ImageFemaleURI = "/Pokemons/125.png"
@@ -4608,12 +4599,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 95
-                        .DEFEND = 57
-                        .SPATTACK = 100
-                        .SPDEFEND = 85
-                        .SPEED = 93
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 57
+                        .SpecialAttack = 100
+                        .SpecialDefence = 85
+                        .Speed = 93
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/126.png"
                     .ImageFemaleURI = "/Pokemons/126.png"
@@ -4643,12 +4634,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 125
-                        .DEFEND = 100
-                        .SPATTACK = 55
-                        .SPDEFEND = 70
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 100
+                        .SpecialAttack = 55
+                        .SpecialDefence = 70
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/127.png"
                     .ImageFemaleURI = "/Pokemons/127.png"
@@ -4678,12 +4669,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 100
-                        .DEFEND = 95
-                        .SPATTACK = 40
-                        .SPDEFEND = 70
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 95
+                        .SpecialAttack = 40
+                        .SpecialDefence = 70
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/128.png"
                     .ImageFemaleURI = "/Pokemons/128.png"
@@ -4713,17 +4704,15 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 10
-                        .DEFEND = 55
-                        .SPATTACK = 15
-                        .SPDEFEND = 20
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 10
+                        .Defence = 55
+                        .SpecialAttack = 15
+                        .SpecialDefence = 20
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/129.png"
                     .ImageFemaleURI = "/Pokemons/129.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 130
                 With ReturnValue
@@ -4750,12 +4739,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 125
-                        .DEFEND = 79
-                        .SPATTACK = 60
-                        .SPDEFEND = 100
-                        .SPEED = 81
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 79
+                        .SpecialAttack = 60
+                        .SpecialDefence = 100
+                        .Speed = 81
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/130.png"
                     .ImageFemaleURI = "/Pokemons/130.png"
@@ -4785,12 +4774,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 130
-                        .ATTACK = 85
-                        .DEFEND = 80
-                        .SPATTACK = 85
-                        .SPDEFEND = 95
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 80
+                        .SpecialAttack = 85
+                        .SpecialDefence = 95
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/131.png"
                     .ImageFemaleURI = "/Pokemons/131.png"
@@ -4820,12 +4809,12 @@
                     .AbilityHidden = 150
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 48
-                        .DEFEND = 48
-                        .SPATTACK = 48
-                        .SPDEFEND = 48
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 48
+                        .SpecialAttack = 48
+                        .SpecialDefence = 48
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/132.png"
                     .ImageFemaleURI = "/Pokemons/132.png"
@@ -4855,12 +4844,12 @@
                     .AbilityHidden = 107
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 50
-                        .SPATTACK = 45
-                        .SPDEFEND = 65
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 50
+                        .SpecialAttack = 45
+                        .SpecialDefence = 65
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/133.png"
                     .ImageFemaleURI = "/Pokemons/133F.png"
@@ -4890,12 +4879,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 130
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 110
-                        .SPDEFEND = 95
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 110
+                        .SpecialDefence = 95
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/134.png"
                     .ImageFemaleURI = "/Pokemons/134.png"
@@ -4925,12 +4914,12 @@
                     .AbilityHidden = 95
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 110
-                        .SPDEFEND = 95
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 110
+                        .SpecialDefence = 95
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/135.png"
                     .ImageFemaleURI = "/Pokemons/135.png"
@@ -4960,12 +4949,12 @@
                     .AbilityHidden = 62
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 130
-                        .DEFEND = 60
-                        .SPATTACK = 95
-                        .SPDEFEND = 110
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 60
+                        .SpecialAttack = 95
+                        .SpecialDefence = 110
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/136.png"
                     .ImageFemaleURI = "/Pokemons/136.png"
@@ -4995,12 +4984,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 60
-                        .DEFEND = 70
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 70
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/137.png"
                     .ImageFemaleURI = "/Pokemons/137.png"
@@ -5030,12 +5019,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 40
-                        .DEFEND = 100
-                        .SPATTACK = 90
-                        .SPDEFEND = 55
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 100
+                        .SpecialAttack = 90
+                        .SpecialDefence = 55
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/138.png"
                     .ImageFemaleURI = "/Pokemons/138.png"
@@ -5065,12 +5054,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 60
-                        .DEFEND = 125
-                        .SPATTACK = 115
-                        .SPDEFEND = 70
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 125
+                        .SpecialAttack = 115
+                        .SpecialDefence = 70
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/139.png"
                     .ImageFemaleURI = "/Pokemons/139.png"
@@ -5100,12 +5089,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 80
-                        .DEFEND = 90
-                        .SPATTACK = 55
-                        .SPDEFEND = 45
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 90
+                        .SpecialAttack = 55
+                        .SpecialDefence = 45
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/140.png"
                     .ImageFemaleURI = "/Pokemons/140.png"
@@ -5135,12 +5124,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 115
-                        .DEFEND = 105
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 105
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/141.png"
                     .ImageFemaleURI = "/Pokemons/141.png"
@@ -5170,12 +5159,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 105
-                        .DEFEND = 65
-                        .SPATTACK = 60
-                        .SPDEFEND = 75
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 65
+                        .SpecialAttack = 60
+                        .SpecialDefence = 75
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/142.png"
                     .ImageFemaleURI = "/Pokemons/142.png"
@@ -5205,12 +5194,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 160
-                        .ATTACK = 110
-                        .DEFEND = 65
-                        .SPATTACK = 65
-                        .SPDEFEND = 110
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 65
+                        .SpecialAttack = 65
+                        .SpecialDefence = 110
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/143.png"
                     .ImageFemaleURI = "/Pokemons/143.png"
@@ -5240,12 +5229,12 @@
                     .AbilityHidden = 81
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 85
-                        .DEFEND = 100
-                        .SPATTACK = 95
-                        .SPDEFEND = 125
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 95
+                        .SpecialDefence = 125
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/144.png"
                     .ImageFemaleURI = "/Pokemons/144.png"
@@ -5275,12 +5264,12 @@
                     .AbilityHidden = 9
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 90
-                        .DEFEND = 85
-                        .SPATTACK = 125
-                        .SPDEFEND = 90
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 85
+                        .SpecialAttack = 125
+                        .SpecialDefence = 90
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/145.png"
                     .ImageFemaleURI = "/Pokemons/145.png"
@@ -5310,12 +5299,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 100
-                        .DEFEND = 90
-                        .SPATTACK = 125
-                        .SPDEFEND = 85
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 90
+                        .SpecialAttack = 125
+                        .SpecialDefence = 85
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/146.png"
                     .ImageFemaleURI = "/Pokemons/146.png"
@@ -5345,12 +5334,12 @@
                     .AbilityHidden = "63"
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 64
-                        .DEFEND = 45
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 45
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/147.png"
                     .ImageFemaleURI = "/Pokemons/147.png"
@@ -5380,12 +5369,12 @@
                     .AbilityHidden = 63
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 84
-                        .DEFEND = 65
-                        .SPATTACK = 70
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 84
+                        .Defence = 65
+                        .SpecialAttack = 70
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/148.png"
                     .ImageFemaleURI = "/Pokemons/148.png"
@@ -5415,12 +5404,12 @@
                     .AbilityHidden = 136
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 134
-                        .DEFEND = 95
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 134
+                        .Defence = 95
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/149.png"
                     .ImageFemaleURI = "/Pokemons/149.png"
@@ -5450,12 +5439,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 106
-                        .ATTACK = 110
-                        .DEFEND = 90
-                        .SPATTACK = 154
-                        .SPDEFEND = 90
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 90
+                        .SpecialAttack = 154
+                        .SpecialDefence = 90
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/150.png"
                     .ImageFemaleURI = "/Pokemons/150.png"
@@ -5485,12 +5474,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/151.png"
                     .ImageFemaleURI = "/Pokemons/151.png"
@@ -5520,12 +5509,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 49
-                        .DEFEND = 65
-                        .SPATTACK = 49
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 49
+                        .Defence = 65
+                        .SpecialAttack = 49
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/152.png"
                     .ImageFemaleURI = "/Pokemons/152.png"
@@ -5555,12 +5544,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 62
-                        .DEFEND = 80
-                        .SPATTACK = 63
-                        .SPDEFEND = 80
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 62
+                        .Defence = 80
+                        .SpecialAttack = 63
+                        .SpecialDefence = 80
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/153.png"
                     .ImageFemaleURI = "/Pokemons/153.png"
@@ -5590,12 +5579,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 82
-                        .DEFEND = 100
-                        .SPATTACK = 83
-                        .SPDEFEND = 100
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 100
+                        .SpecialAttack = 83
+                        .SpecialDefence = 100
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/154.png"
                     .ImageFemaleURI = "/Pokemons/154.png"
@@ -5625,12 +5614,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 39
-                        .ATTACK = 52
-                        .DEFEND = 43
-                        .SPATTACK = 60
-                        .SPDEFEND = 50
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 43
+                        .SpecialAttack = 60
+                        .SpecialDefence = 50
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/155.png"
                     .ImageFemaleURI = "/Pokemons/155.png"
@@ -5660,12 +5649,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 64
-                        .DEFEND = 58
-                        .SPATTACK = 80
-                        .SPDEFEND = 65
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 58
+                        .SpecialAttack = 80
+                        .SpecialDefence = 65
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/156.png"
                     .ImageFemaleURI = "/Pokemons/156.png"
@@ -5695,12 +5684,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 84
-                        .DEFEND = 78
-                        .SPATTACK = 109
-                        .SPDEFEND = 85
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 84
+                        .Defence = 78
+                        .SpecialAttack = 109
+                        .SpecialDefence = 85
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/157.png"
                     .ImageFemaleURI = "/Pokemons/157.png"
@@ -5730,12 +5719,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 64
-                        .SPATTACK = 44
-                        .SPDEFEND = 48
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 64
+                        .SpecialAttack = 44
+                        .SpecialDefence = 48
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/158.png"
                     .ImageFemaleURI = "/Pokemons/158.png"
@@ -5765,12 +5754,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 59
-                        .SPDEFEND = 63
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 59
+                        .SpecialDefence = 63
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/159.png"
                     .ImageFemaleURI = "/Pokemons/159.png"
@@ -5800,12 +5789,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 105
-                        .DEFEND = 100
-                        .SPATTACK = 79
-                        .SPDEFEND = 83
-                        .SPEED = 78
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 100
+                        .SpecialAttack = 79
+                        .SpecialDefence = 83
+                        .Speed = 78
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/160.png"
                     .ImageFemaleURI = "/Pokemons/160.png"
@@ -5835,12 +5824,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 46
-                        .DEFEND = 34
-                        .SPATTACK = 35
-                        .SPDEFEND = 45
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 46
+                        .Defence = 34
+                        .SpecialAttack = 35
+                        .SpecialDefence = 45
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/161.png"
                     .ImageFemaleURI = "/Pokemons/161.png"
@@ -5870,12 +5859,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 76
-                        .DEFEND = 64
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 76
+                        .Defence = 64
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/162.png"
                     .ImageFemaleURI = "/Pokemons/162.png"
@@ -5905,12 +5894,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 30
-                        .DEFEND = 30
-                        .SPATTACK = 36
-                        .SPDEFEND = 56
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 30
+                        .SpecialAttack = 36
+                        .SpecialDefence = 56
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/163.png"
                     .ImageFemaleURI = "/Pokemons/163.png"
@@ -5940,12 +5929,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 50
-                        .DEFEND = 50
-                        .SPATTACK = 76
-                        .SPDEFEND = 96
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 50
+                        .SpecialAttack = 76
+                        .SpecialDefence = 96
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/164.png"
                     .ImageFemaleURI = "/Pokemons/164.png"
@@ -5975,12 +5964,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 20
-                        .DEFEND = 30
-                        .SPATTACK = 40
-                        .SPDEFEND = 80
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 30
+                        .SpecialAttack = 40
+                        .SpecialDefence = 80
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/165.png"
                     .ImageFemaleURI = "/Pokemons/165.png"
@@ -6010,12 +5999,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 35
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 110
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 110
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/166.png"
                     .ImageFemaleURI = "/Pokemons/166.png"
@@ -6045,12 +6034,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 60
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/167.png"
                     .ImageFemaleURI = "/Pokemons/167.png"
@@ -6080,12 +6069,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 90
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/168.png"
                     .ImageFemaleURI = "/Pokemons/168.png"
@@ -6115,12 +6104,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 90
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/169.png"
                     .ImageFemaleURI = "/Pokemons/169.png"
@@ -6150,12 +6139,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 38
-                        .DEFEND = 38
-                        .SPATTACK = 56
-                        .SPDEFEND = 56
-                        .SPEED = 67
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 38
+                        .Defence = 38
+                        .SpecialAttack = 56
+                        .SpecialDefence = 56
+                        .Speed = 67
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/170.png"
                     .ImageFemaleURI = "/Pokemons/170.png"
@@ -6185,12 +6174,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 125
-                        .ATTACK = 58
-                        .DEFEND = 58
-                        .SPATTACK = 76
-                        .SPDEFEND = 76
-                        .SPEED = 67
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 58
+                        .Defence = 58
+                        .SpecialAttack = 76
+                        .SpecialDefence = 76
+                        .Speed = 67
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/171.png"
                     .ImageFemaleURI = "/Pokemons/171.png"
@@ -6220,12 +6209,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 40
-                        .DEFEND = 15
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 15
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/172.png"
                     .ImageFemaleURI = "/Pokemons/172.png"
@@ -6255,12 +6244,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 25
-                        .DEFEND = 28
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 28
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/173.png"
                     .ImageFemaleURI = "/Pokemons/173.png"
@@ -6290,12 +6279,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 30
-                        .DEFEND = 15
-                        .SPATTACK = 40
-                        .SPDEFEND = 20
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 15
+                        .SpecialAttack = 40
+                        .SpecialDefence = 20
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/174.png"
                     .ImageFemaleURI = "/Pokemons/174.png"
@@ -6325,12 +6314,12 @@
                     .AbilityHidden = 105
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 20
-                        .DEFEND = 65
-                        .SPATTACK = 40
-                        .SPDEFEND = 65
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 65
+                        .SpecialAttack = 40
+                        .SpecialDefence = 65
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/175.png"
                     .ImageFemaleURI = "/Pokemons/175.png"
@@ -6360,12 +6349,12 @@
                     .AbilityHidden = 105
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 40
-                        .DEFEND = 85
-                        .SPATTACK = 80
-                        .SPDEFEND = 105
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 85
+                        .SpecialAttack = 80
+                        .SpecialDefence = 105
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/176.png"
                     .ImageFemaleURI = "/Pokemons/176.png"
@@ -6395,12 +6384,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 50
-                        .DEFEND = 45
-                        .SPATTACK = 70
-                        .SPDEFEND = 45
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 45
+                        .SpecialAttack = 70
+                        .SpecialDefence = 45
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/177.png"
                     .ImageFemaleURI = "/Pokemons/177.png"
@@ -6430,12 +6419,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 75
-                        .DEFEND = 70
-                        .SPATTACK = 95
-                        .SPDEFEND = 70
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 70
+                        .SpecialAttack = 95
+                        .SpecialDefence = 70
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/178.png"
                     .ImageFemaleURI = "/Pokemons/178.png"
@@ -6465,12 +6454,12 @@
                     .AbilityHidden = 57
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 40
-                        .DEFEND = 40
-                        .SPATTACK = 65
-                        .SPDEFEND = 45
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 40
+                        .SpecialAttack = 65
+                        .SpecialDefence = 45
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/179.png"
                     .ImageFemaleURI = "/Pokemons/179.png"
@@ -6500,12 +6489,12 @@
                     .AbilityHidden = 57
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 80
-                        .SPDEFEND = 60
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 80
+                        .SpecialDefence = 60
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/180.png"
                     .ImageFemaleURI = "/Pokemons/180.png"
@@ -6535,17 +6524,15 @@
                     .AbilityHidden = 57
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 75
-                        .DEFEND = 85
-                        .SPATTACK = 115
-                        .SPDEFEND = 90
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 85
+                        .SpecialAttack = 115
+                        .SpecialDefence = 90
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/181.png"
                     .ImageFemaleURI = "/Pokemons/181.png"
-                    FormDifferenceInformation(0).ImagePath = "/Pokemons/181.01.png"
-                    FormDifferenceInformation(1).ImagePath = "/Pokemons/181.01.png"
                 End With
             Case 182
                 With ReturnValue
@@ -6572,12 +6559,12 @@
                     .AbilityHidden = 131
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 95
-                        .SPATTACK = 90
-                        .SPDEFEND = 100
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 95
+                        .SpecialAttack = 90
+                        .SpecialDefence = 100
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/182.png"
                     .ImageFemaleURI = "/Pokemons/182.png"
@@ -6607,12 +6594,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 20
-                        .DEFEND = 50
-                        .SPATTACK = 20
-                        .SPDEFEND = 50
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 50
+                        .SpecialAttack = 20
+                        .SpecialDefence = 50
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/183.png"
                     .ImageFemaleURI = "/Pokemons/183.png"
@@ -6642,12 +6629,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 50
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 80
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 80
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/184.png"
                     .ImageFemaleURI = "/Pokemons/184.png"
@@ -6677,12 +6664,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 100
-                        .DEFEND = 115
-                        .SPATTACK = 30
-                        .SPDEFEND = 65
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 115
+                        .SpecialAttack = 30
+                        .SpecialDefence = 65
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/185.png"
                     .ImageFemaleURI = "/Pokemons/185.png"
@@ -6712,12 +6699,12 @@
                     .AbilityHidden = 2
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 75
-                        .DEFEND = 75
-                        .SPATTACK = 90
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 75
+                        .SpecialAttack = 90
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/186.png"
                     .ImageFemaleURI = "/Pokemons/186.png"
@@ -6747,12 +6734,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 35
-                        .DEFEND = 40
-                        .SPATTACK = 35
-                        .SPDEFEND = 55
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 40
+                        .SpecialAttack = 35
+                        .SpecialDefence = 55
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/187.png"
                     .ImageFemaleURI = "/Pokemons/187.png"
@@ -6782,12 +6769,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 45
-                        .DEFEND = 50
-                        .SPATTACK = 45
-                        .SPDEFEND = 65
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 50
+                        .SpecialAttack = 45
+                        .SpecialDefence = 65
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/188.png"
                     .ImageFemaleURI = "/Pokemons/188.png"
@@ -6817,12 +6804,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 55
-                        .DEFEND = 70
-                        .SPATTACK = 55
-                        .SPDEFEND = 95
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 70
+                        .SpecialAttack = 55
+                        .SpecialDefence = 95
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/189.png"
                     .ImageFemaleURI = "/Pokemons/189.png"
@@ -6852,12 +6839,12 @@
                     .AbilityHidden = 92
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 70
-                        .DEFEND = 55
-                        .SPATTACK = 40
-                        .SPDEFEND = 55
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 55
+                        .SpecialAttack = 40
+                        .SpecialDefence = 55
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/190.png"
                     .ImageFemaleURI = "/Pokemons/190.png"
@@ -6887,12 +6874,12 @@
                     .AbilityHidden = 48
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 30
-                        .DEFEND = 30
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 30
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/191.png"
                     .ImageFemaleURI = "/Pokemons/191.png"
@@ -6922,12 +6909,12 @@
                     .AbilityHidden = 48
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 75
-                        .DEFEND = 55
-                        .SPATTACK = 105
-                        .SPDEFEND = 85
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 55
+                        .SpecialAttack = 105
+                        .SpecialDefence = 85
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/192.png"
                     .ImageFemaleURI = "/Pokemons/192.png"
@@ -6957,17 +6944,15 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 65
-                        .DEFEND = 45
-                        .SPATTACK = 75
-                        .SPDEFEND = 45
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 45
+                        .SpecialAttack = 75
+                        .SpecialDefence = 45
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/193.png"
                     .ImageFemaleURI = "/Pokemons/193.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 194
                 With ReturnValue
@@ -6994,12 +6979,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 45
-                        .DEFEND = 45
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 45
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/194.png"
                     .ImageFemaleURI = "/Pokemons/194.png"
@@ -7029,12 +7014,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 85
-                        .DEFEND = 85
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 85
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/195.png"
                     .ImageFemaleURI = "/Pokemons/195.png"
@@ -7064,12 +7049,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 130
-                        .SPDEFEND = 95
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 130
+                        .SpecialDefence = 95
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/196.png"
                     .ImageFemaleURI = "/Pokemons/196.png"
@@ -7099,12 +7084,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 65
-                        .DEFEND = 110
-                        .SPATTACK = 60
-                        .SPDEFEND = 130
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 110
+                        .SpecialAttack = 60
+                        .SpecialDefence = 130
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/197.png"
                     .ImageFemaleURI = "/Pokemons/197.png"
@@ -7134,12 +7119,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 45
-                        .SPATTACK = 85
-                        .SPDEFEND = 42
-                        .SPEED = 91
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 45
+                        .SpecialAttack = 85
+                        .SpecialDefence = 42
+                        .Speed = 91
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/198.png"
                     .ImageFemaleURI = "/Pokemons/198.png"
@@ -7169,12 +7154,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 75
-                        .DEFEND = 80
-                        .SPATTACK = 100
-                        .SPDEFEND = 110
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 80
+                        .SpecialAttack = 100
+                        .SpecialDefence = 110
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/199.png"
                     .ImageFemaleURI = "/Pokemons/199.png"
@@ -7204,12 +7189,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 85
-                        .SPDEFEND = 85
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 85
+                        .SpecialDefence = 85
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/200.png"
                     .ImageFemaleURI = "/Pokemons/200.png"
@@ -7239,12 +7224,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 72
-                        .DEFEND = 48
-                        .SPATTACK = 72
-                        .SPDEFEND = 48
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 48
+                        .SpecialAttack = 72
+                        .SpecialDefence = 48
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/201.png"
                     .ImageFemaleURI = "/Pokemons/201.png"
@@ -7274,12 +7259,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 190
-                        .ATTACK = 33
-                        .DEFEND = 58
-                        .SPATTACK = 33
-                        .SPDEFEND = 58
-                        .SPEED = 33
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 33
+                        .Defence = 58
+                        .SpecialAttack = 33
+                        .SpecialDefence = 58
+                        .Speed = 33
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/202.png"
                     .ImageFemaleURI = "/Pokemons/202.png"
@@ -7309,12 +7294,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 80
-                        .DEFEND = 65
-                        .SPATTACK = 90
-                        .SPDEFEND = 65
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 65
+                        .SpecialAttack = 90
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/203.png"
                     .ImageFemaleURI = "/Pokemons/203.png"
@@ -7344,12 +7329,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 90
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 90
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/204.png"
                     .ImageFemaleURI = "/Pokemons/204.png"
@@ -7379,12 +7364,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 90
-                        .DEFEND = 140
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 140
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/205.png"
                     .ImageFemaleURI = "/Pokemons/205.png"
@@ -7414,12 +7399,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 70
-                        .DEFEND = 70
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 70
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/206.png"
                     .ImageFemaleURI = "/Pokemons/206.png"
@@ -7449,12 +7434,12 @@
                     .AbilityHidden = 17
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 75
-                        .DEFEND = 105
-                        .SPATTACK = 35
-                        .SPDEFEND = 65
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 105
+                        .SpecialAttack = 35
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/207.png"
                     .ImageFemaleURI = "/Pokemons/207.png"
@@ -7484,12 +7469,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 85
-                        .DEFEND = 200
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 200
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/208.png"
                     .ImageFemaleURI = "/Pokemons/208.png"
@@ -7519,12 +7504,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/209.png"
                     .ImageFemaleURI = "/Pokemons/209.png"
@@ -7554,12 +7539,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 120
-                        .DEFEND = 75
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 75
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/210.png"
                     .ImageFemaleURI = "/Pokemons/210.png"
@@ -7589,12 +7574,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 95
-                        .DEFEND = 85
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 85
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/211.png"
                     .ImageFemaleURI = "/Pokemons/211.png"
@@ -7624,17 +7609,15 @@
                     .AbilityHidden = 135
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 130
-                        .DEFEND = 100
-                        .SPATTACK = 55
-                        .SPDEFEND = 80
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 100
+                        .SpecialAttack = 55
+                        .SpecialDefence = 80
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/212.png"
                     .ImageFemaleURI = "/Pokemons/212.png"
-                    FormDifferenceInformation(0).ImagePath = "/Pokemons/212.01.png"
-                    FormDifferenceInformation(1).ImagePath = "/Pokemons/212.01.png"
                 End With
             Case 213
                 With ReturnValue
@@ -7661,12 +7644,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 10
-                        .DEFEND = 230
-                        .SPATTACK = 10
-                        .SPDEFEND = 230
-                        .SPEED = 5
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 10
+                        .Defence = 230
+                        .SpecialAttack = 10
+                        .SpecialDefence = 230
+                        .Speed = 5
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/213.png"
                     .ImageFemaleURI = "/Pokemons/213.png"
@@ -7696,12 +7679,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 125
-                        .DEFEND = 75
-                        .SPATTACK = 40
-                        .SPDEFEND = 95
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 75
+                        .SpecialAttack = 40
+                        .SpecialDefence = 95
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/214.png"
                     .ImageFemaleURI = "/Pokemons/214.png"
@@ -7731,12 +7714,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 95
-                        .DEFEND = 55
-                        .SPATTACK = 35
-                        .SPDEFEND = 75
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 55
+                        .SpecialAttack = 35
+                        .SpecialDefence = 75
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/215.png"
                     .ImageFemaleURI = "/Pokemons/215.png"
@@ -7766,12 +7749,12 @@
                     .AbilityHidden = 118
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/216.png"
                     .ImageFemaleURI = "/Pokemons/216.png"
@@ -7801,12 +7784,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 130
-                        .DEFEND = 75
-                        .SPATTACK = 75
-                        .SPDEFEND = 75
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 75
+                        .SpecialAttack = 75
+                        .SpecialDefence = 75
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/217.png"
                     .ImageFemaleURI = "/Pokemons/217.png"
@@ -7836,12 +7819,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 40
-                        .SPATTACK = 70
-                        .SPDEFEND = 40
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 40
+                        .SpecialAttack = 70
+                        .SpecialDefence = 40
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/218.png"
                     .ImageFemaleURI = "/Pokemons/218.png"
@@ -7871,12 +7854,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 120
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 120
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/219.png"
                     .ImageFemaleURI = "/Pokemons/219.png"
@@ -7906,12 +7889,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/220.png"
                     .ImageFemaleURI = "/Pokemons/220.png"
@@ -7941,12 +7924,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/221.png"
                     .ImageFemaleURI = "/Pokemons/221.png"
@@ -7976,12 +7959,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 55
-                        .DEFEND = 95
-                        .SPATTACK = 65
-                        .SPDEFEND = 95
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 95
+                        .SpecialAttack = 65
+                        .SpecialDefence = 95
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/222.png"
                     .ImageFemaleURI = "/Pokemons/222.png"
@@ -8011,12 +7994,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 65
-                        .DEFEND = 35
-                        .SPATTACK = 65
-                        .SPDEFEND = 35
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 35
+                        .SpecialAttack = 65
+                        .SpecialDefence = 35
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/223.png"
                     .ImageFemaleURI = "/Pokemons/223.png"
@@ -8046,12 +8029,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 105
-                        .DEFEND = 75
-                        .SPATTACK = 105
-                        .SPDEFEND = 75
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 75
+                        .SpecialAttack = 105
+                        .SpecialDefence = 75
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/224.png"
                     .ImageFemaleURI = "/Pokemons/224.png"
@@ -8081,12 +8064,12 @@
                     .AbilityHidden = 15
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 55
-                        .DEFEND = 45
-                        .SPATTACK = 65
-                        .SPDEFEND = 45
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 45
+                        .SpecialAttack = 65
+                        .SpecialDefence = 45
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/225.png"
                     .ImageFemaleURI = "/Pokemons/225.png"
@@ -8116,12 +8099,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 40
-                        .DEFEND = 70
-                        .SPATTACK = 80
-                        .SPDEFEND = 140
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 70
+                        .SpecialAttack = 80
+                        .SpecialDefence = 140
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/226.png"
                     .ImageFemaleURI = "/Pokemons/226.png"
@@ -8151,12 +8134,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 80
-                        .DEFEND = 140
-                        .SPATTACK = 40
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 140
+                        .SpecialAttack = 40
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/227.png"
                     .ImageFemaleURI = "/Pokemons/227.png"
@@ -8186,17 +8169,15 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 60
-                        .DEFEND = 30
-                        .SPATTACK = 80
-                        .SPDEFEND = 50
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 30
+                        .SpecialAttack = 80
+                        .SpecialDefence = 50
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/228.png"
                     .ImageFemaleURI = "/Pokemons/228.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 229
                 With ReturnValue
@@ -8223,12 +8204,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 90
-                        .DEFEND = 50
-                        .SPATTACK = 110
-                        .SPDEFEND = 80
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 50
+                        .SpecialAttack = 110
+                        .SpecialDefence = 80
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/229.png"
                     .ImageFemaleURI = "/Pokemons/229.png"
@@ -8258,12 +8239,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 95
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 95
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/230.png"
                     .ImageFemaleURI = "/Pokemons/230.png"
@@ -8293,12 +8274,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/231.png"
                     .ImageFemaleURI = "/Pokemons/231.png"
@@ -8328,12 +8309,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 120
-                        .DEFEND = 120
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 120
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/232.png"
                     .ImageFemaleURI = "/Pokemons/232.png"
@@ -8363,12 +8344,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 80
-                        .DEFEND = 90
-                        .SPATTACK = 105
-                        .SPDEFEND = 95
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 90
+                        .SpecialAttack = 105
+                        .SpecialDefence = 95
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/233.png"
                     .ImageFemaleURI = "/Pokemons/233.png"
@@ -8398,12 +8379,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 73
-                        .ATTACK = 95
-                        .DEFEND = 62
-                        .SPATTACK = 85
-                        .SPDEFEND = 65
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 62
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/234.png"
                     .ImageFemaleURI = "/Pokemons/234.png"
@@ -8433,12 +8414,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 20
-                        .DEFEND = 35
-                        .SPATTACK = 20
-                        .SPDEFEND = 45
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 35
+                        .SpecialAttack = 20
+                        .SpecialDefence = 45
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/235.png"
                     .ImageFemaleURI = "/Pokemons/235.png"
@@ -8468,12 +8449,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 35
-                        .DEFEND = 35
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 35
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/236.png"
                     .ImageFemaleURI = "/Pokemons/236.png"
@@ -8503,12 +8484,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 35
-                        .SPDEFEND = 110
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 35
+                        .SpecialDefence = 110
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/237.png"
                     .ImageFemaleURI = "/Pokemons/237.png"
@@ -8538,12 +8519,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 30
-                        .DEFEND = 15
-                        .SPATTACK = 85
-                        .SPDEFEND = 65
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 15
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/238.png"
                     .ImageFemaleURI = "/Pokemons/238.png"
@@ -8573,17 +8554,15 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 63
-                        .DEFEND = 37
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 37
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/239.png"
                     .ImageFemaleURI = "/Pokemons/239.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 240
                 With ReturnValue
@@ -8610,12 +8589,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 75
-                        .DEFEND = 37
-                        .SPATTACK = 70
-                        .SPDEFEND = 55
-                        .SPEED = 83
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 37
+                        .SpecialAttack = 70
+                        .SpecialDefence = 55
+                        .Speed = 83
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/240.png"
                     .ImageFemaleURI = "/Pokemons/240.png"
@@ -8645,12 +8624,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 80
-                        .DEFEND = 105
-                        .SPATTACK = 40
-                        .SPDEFEND = 70
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 105
+                        .SpecialAttack = 40
+                        .SpecialDefence = 70
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/241.png"
                     .ImageFemaleURI = "/Pokemons/241.png"
@@ -8680,12 +8659,12 @@
                     .AbilityHidden = 131
                     With .SpeciesStrengthValues
                         .HP = 255
-                        .ATTACK = 10
-                        .DEFEND = 10
-                        .SPATTACK = 75
-                        .SPDEFEND = 135
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 10
+                        .Defence = 10
+                        .SpecialAttack = 75
+                        .SpecialDefence = 135
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/242.png"
                     .ImageFemaleURI = "/Pokemons/242.png"
@@ -8715,12 +8694,12 @@
                     .AbilityHidden = 10
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 85
-                        .DEFEND = 75
-                        .SPATTACK = 115
-                        .SPDEFEND = 100
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 75
+                        .SpecialAttack = 115
+                        .SpecialDefence = 100
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/243.png"
                     .ImageFemaleURI = "/Pokemons/243.png"
@@ -8750,12 +8729,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 115
-                        .DEFEND = 85
-                        .SPATTACK = 90
-                        .SPDEFEND = 75
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 85
+                        .SpecialAttack = 90
+                        .SpecialDefence = 75
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/244.png"
                     .ImageFemaleURI = "/Pokemons/244.png"
@@ -8785,12 +8764,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 75
-                        .DEFEND = 115
-                        .SPATTACK = 90
-                        .SPDEFEND = 115
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 115
+                        .SpecialAttack = 90
+                        .SpecialDefence = 115
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/245.png"
                     .ImageFemaleURI = "/Pokemons/245.png"
@@ -8820,12 +8799,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 64
-                        .DEFEND = 50
-                        .SPATTACK = 45
-                        .SPDEFEND = 50
-                        .SPEED = 41
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 50
+                        .SpecialAttack = 45
+                        .SpecialDefence = 50
+                        .Speed = 41
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/246.png"
                     .ImageFemaleURI = "/Pokemons/246.png"
@@ -8855,12 +8834,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 84
-                        .DEFEND = 70
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 51
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 84
+                        .Defence = 70
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 51
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/247.png"
                     .ImageFemaleURI = "/Pokemons/247.png"
@@ -8890,12 +8869,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 134
-                        .DEFEND = 110
-                        .SPATTACK = 95
-                        .SPDEFEND = 100
-                        .SPEED = 61
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 134
+                        .Defence = 110
+                        .SpecialAttack = 95
+                        .SpecialDefence = 100
+                        .Speed = 61
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/248.png"
                     .ImageFemaleURI = "/Pokemons/248.png"
@@ -8925,12 +8904,12 @@
                     .AbilityHidden = 136
                     With .SpeciesStrengthValues
                         .HP = 106
-                        .ATTACK = 90
-                        .DEFEND = 130
-                        .SPATTACK = 90
-                        .SPDEFEND = 154
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 130
+                        .SpecialAttack = 90
+                        .SpecialDefence = 154
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/249.png"
                     .ImageFemaleURI = "/Pokemons/249.png"
@@ -8960,12 +8939,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 106
-                        .ATTACK = 130
-                        .DEFEND = 90
-                        .SPATTACK = 110
-                        .SPDEFEND = 154
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 90
+                        .SpecialAttack = 110
+                        .SpecialDefence = 154
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/250.png"
                     .ImageFemaleURI = "/Pokemons/250.png"
@@ -8995,12 +8974,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/251.png"
                     .ImageFemaleURI = "/Pokemons/251.png"
@@ -9030,12 +9009,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 35
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 35
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/252.png"
                     .ImageFemaleURI = "/Pokemons/252.png"
@@ -9065,12 +9044,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 45
-                        .SPATTACK = 85
-                        .SPDEFEND = 95
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 45
+                        .SpecialAttack = 85
+                        .SpecialDefence = 95
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/253.png"
                     .ImageFemaleURI = "/Pokemons/253.png"
@@ -9100,12 +9079,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 65
-                        .SPATTACK = 105
-                        .SPDEFEND = 85
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 65
+                        .SpecialAttack = 105
+                        .SpecialDefence = 85
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/254.png"
                     .ImageFemaleURI = "/Pokemons/254.png"
@@ -9135,12 +9114,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 60
-                        .DEFEND = 40
-                        .SPATTACK = 70
-                        .SPDEFEND = 50
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 40
+                        .SpecialAttack = 70
+                        .SpecialDefence = 50
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/255.png"
                     .ImageFemaleURI = "/Pokemons/255.png"
@@ -9170,12 +9149,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 60
-                        .SPATTACK = 85
-                        .SPDEFEND = 60
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 60
+                        .SpecialAttack = 85
+                        .SpecialDefence = 60
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/257.png"
                     .ImageFemaleURI = "/Pokemons/257.png"
@@ -9205,12 +9184,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 120
-                        .DEFEND = 70
-                        .SPATTACK = 110
-                        .SPDEFEND = 70
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 70
+                        .SpecialAttack = 110
+                        .SpecialDefence = 70
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/257.png"
                     .ImageFemaleURI = "/Pokemons/257.png"
@@ -9240,12 +9219,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 70
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/258.png"
                     .ImageFemaleURI = "/Pokemons/258.png"
@@ -9275,12 +9254,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/259.png"
                     .ImageFemaleURI = "/Pokemons/259.png"
@@ -9310,12 +9289,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 110
-                        .DEFEND = 90
-                        .SPATTACK = 85
-                        .SPDEFEND = 90
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 90
+                        .SpecialAttack = 85
+                        .SpecialDefence = 90
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/260.png"
                     .ImageFemaleURI = "/Pokemons/260.png"
@@ -9345,12 +9324,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 55
-                        .DEFEND = 35
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 35
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/261.png"
                     .ImageFemaleURI = "/Pokemons/261.png"
@@ -9380,12 +9359,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 90
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/262.png"
                     .ImageFemaleURI = "/Pokemons/262.png"
@@ -9415,12 +9394,12 @@
                     .AbilityHidden = 95
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 30
-                        .DEFEND = 41
-                        .SPATTACK = 30
-                        .SPDEFEND = 41
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 41
+                        .SpecialAttack = 30
+                        .SpecialDefence = 41
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/263.png"
                     .ImageFemaleURI = "/Pokemons/263.png"
@@ -9450,12 +9429,12 @@
                     .AbilityHidden = 95
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 70
-                        .DEFEND = 61
-                        .SPATTACK = 50
-                        .SPDEFEND = 61
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 61
+                        .SpecialAttack = 50
+                        .SpecialDefence = 61
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/264.png"
                     .ImageFemaleURI = "/Pokemons/264.png"
@@ -9485,12 +9464,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 45
-                        .DEFEND = 35
-                        .SPATTACK = 20
-                        .SPDEFEND = 30
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 35
+                        .SpecialAttack = 20
+                        .SpecialDefence = 30
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/265.png"
                     .ImageFemaleURI = "/Pokemons/265.png"
@@ -9520,12 +9499,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 35
-                        .DEFEND = 55
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 55
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/266.png"
                     .ImageFemaleURI = "/Pokemons/266.png"
@@ -9555,12 +9534,12 @@
                     .AbilityHidden = 79
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 70
-                        .DEFEND = 50
-                        .SPATTACK = 100
-                        .SPDEFEND = 50
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 50
+                        .SpecialAttack = 100
+                        .SpecialDefence = 50
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/267.png"
                     .ImageFemaleURI = "/Pokemons/267.png"
@@ -9590,12 +9569,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 35
-                        .DEFEND = 55
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 55
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/268.png"
                     .ImageFemaleURI = "/Pokemons/268.png"
@@ -9625,12 +9604,12 @@
                     .AbilityHidden = 14
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 70
-                        .SPATTACK = 50
-                        .SPDEFEND = 90
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 70
+                        .SpecialAttack = 50
+                        .SpecialDefence = 90
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/269.png"
                     .ImageFemaleURI = "/Pokemons/269.png"
@@ -9660,12 +9639,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 30
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 30
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/270.png"
                     .ImageFemaleURI = "/Pokemons/270.png"
@@ -9695,12 +9674,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 50
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 50
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/271.png"
                     .ImageFemaleURI = "/Pokemons/271.png"
@@ -9730,12 +9709,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 70
-                        .DEFEND = 70
-                        .SPATTACK = 90
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 70
+                        .SpecialAttack = 90
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/272.png"
                     .ImageFemaleURI = "/Pokemons/272.png"
@@ -9765,12 +9744,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 50
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 50
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/273.png"
                     .ImageFemaleURI = "/Pokemons/273.png"
@@ -9800,12 +9779,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 70
-                        .DEFEND = 40
-                        .SPATTACK = 60
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 40
+                        .SpecialAttack = 60
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/274.png"
                     .ImageFemaleURI = "/Pokemons/274.png"
@@ -9835,12 +9814,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 100
-                        .DEFEND = 60
-                        .SPATTACK = 90
-                        .SPDEFEND = 60
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 60
+                        .SpecialAttack = 90
+                        .SpecialDefence = 60
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/275.png"
                     .ImageFemaleURI = "/Pokemons/275.png"
@@ -9870,12 +9849,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 30
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 30
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/276.png"
                     .ImageFemaleURI = "/Pokemons/276.png"
@@ -9905,12 +9884,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 60
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 125
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 60
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 125
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/277.png"
                     .ImageFemaleURI = "/Pokemons/277.png"
@@ -9940,17 +9919,15 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 30
-                        .SPATTACK = 55
-                        .SPDEFEND = 30
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 30
+                        .SpecialAttack = 55
+                        .SpecialDefence = 30
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/278.png"
                     .ImageFemaleURI = "/Pokemons/278.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 279
                 With ReturnValue
@@ -9977,12 +9954,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 100
-                        .SPATTACK = 85
-                        .SPDEFEND = 70
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 100
+                        .SpecialAttack = 85
+                        .SpecialDefence = 70
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/279.png"
                     .ImageFemaleURI = "/Pokemons/279.png"
@@ -10012,12 +9989,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 28
-                        .ATTACK = 25
-                        .DEFEND = 25
-                        .SPATTACK = 45
-                        .SPDEFEND = 35
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 25
+                        .SpecialAttack = 45
+                        .SpecialDefence = 35
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/280.png"
                     .ImageFemaleURI = "/Pokemons/280.png"
@@ -10047,12 +10024,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 35
-                        .DEFEND = 35
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 35
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/281.png"
                     .ImageFemaleURI = "/Pokemons/281.png"
@@ -10082,12 +10059,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 125
-                        .SPDEFEND = 115
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 125
+                        .SpecialDefence = 115
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/282.png"
                     .ImageFemaleURI = "/Pokemons/282.png"
@@ -10117,12 +10094,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 32
-                        .SPATTACK = 50
-                        .SPDEFEND = 52
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 32
+                        .SpecialAttack = 50
+                        .SpecialDefence = 52
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/283.png"
                     .ImageFemaleURI = "/Pokemons/283.png"
@@ -10152,12 +10129,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 60
-                        .DEFEND = 62
-                        .SPATTACK = 80
-                        .SPDEFEND = 82
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 62
+                        .SpecialAttack = 80
+                        .SpecialDefence = 82
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/284.png"
                     .ImageFemaleURI = "/Pokemons/284.png"
@@ -10187,12 +10164,12 @@
                     .AbilityHidden = 95
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 40
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 60
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 60
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/285.png"
                     .ImageFemaleURI = "/Pokemons/285.png"
@@ -10222,12 +10199,12 @@
                     .AbilityHidden = 95
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 130
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/286.png"
                     .ImageFemaleURI = "/Pokemons/286.png"
@@ -10257,12 +10234,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/287.png"
                     .ImageFemaleURI = "/Pokemons/287.png"
@@ -10292,12 +10269,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/288.png"
                     .ImageFemaleURI = "/Pokemons/288.png"
@@ -10327,12 +10304,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 150
-                        .ATTACK = 160
-                        .DEFEND = 100
-                        .SPATTACK = 95
-                        .SPDEFEND = 65
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 160
+                        .Defence = 100
+                        .SpecialAttack = 95
+                        .SpecialDefence = 65
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/289.png"
                     .ImageFemaleURI = "/Pokemons/289.png"
@@ -10362,12 +10339,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 31
-                        .ATTACK = 45
-                        .DEFEND = 90
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 90
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/290.png"
                     .ImageFemaleURI = "/Pokemons/290.png"
@@ -10397,12 +10374,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 90
-                        .DEFEND = 45
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 160
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 45
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 160
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/291.png"
                     .ImageFemaleURI = "/Pokemons/291.png"
@@ -10432,12 +10409,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 1
-                        .ATTACK = 90
-                        .DEFEND = 45
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 45
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/292.png"
                     .ImageFemaleURI = "/Pokemons/292.png"
@@ -10467,12 +10444,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 64
-                        .ATTACK = 51
-                        .DEFEND = 23
-                        .SPATTACK = 51
-                        .SPDEFEND = 23
-                        .SPEED = 28
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 51
+                        .Defence = 23
+                        .SpecialAttack = 51
+                        .SpecialDefence = 23
+                        .Speed = 28
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/293.png"
                     .ImageFemaleURI = "/Pokemons/293.png"
@@ -10502,12 +10479,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 84
-                        .ATTACK = 71
-                        .DEFEND = 43
-                        .SPATTACK = 71
-                        .SPDEFEND = 43
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 71
+                        .Defence = 43
+                        .SpecialAttack = 71
+                        .SpecialDefence = 43
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/294.png"
                     .ImageFemaleURI = "/Pokemons/294.png"
@@ -10537,12 +10514,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 104
-                        .ATTACK = 91
-                        .DEFEND = 63
-                        .SPATTACK = 91
-                        .SPDEFEND = 73
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 91
+                        .Defence = 63
+                        .SpecialAttack = 91
+                        .SpecialDefence = 73
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/295.png"
                     .ImageFemaleURI = "/Pokemons/295.png"
@@ -10572,12 +10549,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 60
-                        .DEFEND = 30
-                        .SPATTACK = 20
-                        .SPDEFEND = 30
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 30
+                        .SpecialAttack = 20
+                        .SpecialDefence = 30
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/296.png"
                     .ImageFemaleURI = "/Pokemons/296.png"
@@ -10607,12 +10584,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 144
-                        .ATTACK = 120
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 60
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 60
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/297.png"
                     .ImageFemaleURI = "/Pokemons/297.png"
@@ -10642,12 +10619,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 20
-                        .DEFEND = 40
-                        .SPATTACK = 20
-                        .SPDEFEND = 40
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 40
+                        .SpecialAttack = 20
+                        .SpecialDefence = 40
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/298.png"
                     .ImageFemaleURI = "/Pokemons/298.png"
@@ -10677,12 +10654,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 45
-                        .DEFEND = 135
-                        .SPATTACK = 45
-                        .SPDEFEND = 90
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 135
+                        .SpecialAttack = 45
+                        .SpecialDefence = 90
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/299.png"
                     .ImageFemaleURI = "/Pokemons/299.png"
@@ -10712,12 +10689,12 @@
                     .AbilityHidden = 147
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 45
-                        .DEFEND = 45
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 45
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/300.png"
                     .ImageFemaleURI = "/Pokemons/300.png"
@@ -10747,12 +10724,12 @@
                     .AbilityHidden = 147
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/301.png"
                     .ImageFemaleURI = "/Pokemons/301.png"
@@ -10782,12 +10759,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 75
-                        .DEFEND = 75
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 75
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/302.png"
                     .ImageFemaleURI = "/Pokemons/302.png"
@@ -10817,12 +10794,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 85
-                        .DEFEND = 85
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 85
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/303.png"
                     .ImageFemaleURI = "/Pokemons/303.png"
@@ -10852,12 +10829,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 70
-                        .DEFEND = 100
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 100
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/304.png"
                     .ImageFemaleURI = "/Pokemons/304.png"
@@ -10887,12 +10864,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 90
-                        .DEFEND = 140
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 140
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/305.png"
                     .ImageFemaleURI = "/Pokemons/305.png"
@@ -10922,12 +10899,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 110
-                        .DEFEND = 180
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 180
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/306.png"
                     .ImageFemaleURI = "/Pokemons/306.png"
@@ -10957,12 +10934,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 40
-                        .DEFEND = 55
-                        .SPATTACK = 40
-                        .SPDEFEND = 55
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 55
+                        .SpecialAttack = 40
+                        .SpecialDefence = 55
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/307.png"
                     .ImageFemaleURI = "/Pokemons/307.png"
@@ -10992,12 +10969,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 75
-                        .SPATTACK = 60
-                        .SPDEFEND = 75
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 75
+                        .SpecialAttack = 60
+                        .SpecialDefence = 75
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/308.png"
                     .ImageFemaleURI = "/Pokemons/308.png"
@@ -11027,17 +11004,15 @@
                     .AbilityHidden = 58
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 65
-                        .SPDEFEND = 40
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 65
+                        .SpecialDefence = 40
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/309.png"
                     .ImageFemaleURI = "/Pokemons/309.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 310
                 With ReturnValue
@@ -11064,12 +11039,12 @@
                     .AbilityHidden = 58
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 75
-                        .DEFEND = 60
-                        .SPATTACK = 105
-                        .SPDEFEND = 60
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 60
+                        .SpecialAttack = 105
+                        .SpecialDefence = 60
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/310.png"
                     .ImageFemaleURI = "/Pokemons/310.png"
@@ -11099,12 +11074,12 @@
                     .AbilityHidden = 31
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/311.png"
                     .ImageFemaleURI = "/Pokemons/311.png"
@@ -11134,12 +11109,12 @@
                     .AbilityHidden = 10
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/312.png"
                     .ImageFemaleURI = "/Pokemons/312.png"
@@ -11169,12 +11144,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 73
-                        .DEFEND = 55
-                        .SPATTACK = 47
-                        .SPDEFEND = 75
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 55
+                        .SpecialAttack = 47
+                        .SpecialDefence = 75
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/313.png"
                     .ImageFemaleURI = "/Pokemons/313.png"
@@ -11204,12 +11179,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 47
-                        .DEFEND = 55
-                        .SPATTACK = 73
-                        .SPDEFEND = 75
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 47
+                        .Defence = 55
+                        .SpecialAttack = 73
+                        .SpecialDefence = 75
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/314.png"
                     .ImageFemaleURI = "/Pokemons/314.png"
@@ -11239,12 +11214,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 60
-                        .DEFEND = 45
-                        .SPATTACK = 100
-                        .SPDEFEND = 80
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 45
+                        .SpecialAttack = 100
+                        .SpecialDefence = 80
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/315.png"
                     .ImageFemaleURI = "/Pokemons/315.png"
@@ -11274,12 +11249,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 43
-                        .DEFEND = 53
-                        .SPATTACK = 43
-                        .SPDEFEND = 53
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 43
+                        .Defence = 53
+                        .SpecialAttack = 43
+                        .SpecialDefence = 53
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/316.png"
                     .ImageFemaleURI = "/Pokemons/316.png"
@@ -11309,12 +11284,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 73
-                        .DEFEND = 83
-                        .SPATTACK = 73
-                        .SPDEFEND = 83
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 83
+                        .SpecialAttack = 73
+                        .SpecialDefence = 83
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/317.png"
                     .ImageFemaleURI = "/Pokemons/317.png"
@@ -11344,12 +11319,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 90
-                        .DEFEND = 20
-                        .SPATTACK = 65
-                        .SPDEFEND = 20
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 20
+                        .SpecialAttack = 65
+                        .SpecialDefence = 20
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/318.png"
                     .ImageFemaleURI = "/Pokemons/318.png"
@@ -11379,12 +11354,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 120
-                        .DEFEND = 40
-                        .SPATTACK = 95
-                        .SPDEFEND = 40
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 40
+                        .SpecialAttack = 95
+                        .SpecialDefence = 40
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/319.png"
                     .ImageFemaleURI = "/Pokemons/319.png"
@@ -11414,12 +11389,12 @@
                     .AbilityHidden = 46
                     With .SpeciesStrengthValues
                         .HP = 130
-                        .ATTACK = 70
-                        .DEFEND = 35
-                        .SPATTACK = 70
-                        .SPDEFEND = 35
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 35
+                        .SpecialAttack = 70
+                        .SpecialDefence = 35
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/320.png"
                     .ImageFemaleURI = "/Pokemons/320.png"
@@ -11449,12 +11424,12 @@
                     .AbilityHidden = 46
                     With .SpeciesStrengthValues
                         .HP = 170
-                        .ATTACK = 90
-                        .DEFEND = 45
-                        .SPATTACK = 90
-                        .SPDEFEND = 45
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 45
+                        .SpecialAttack = 90
+                        .SpecialDefence = 45
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/321.png"
                     .ImageFemaleURI = "/Pokemons/321.png"
@@ -11484,12 +11459,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 40
-                        .SPATTACK = 65
-                        .SPDEFEND = 45
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 40
+                        .SpecialAttack = 65
+                        .SpecialDefence = 45
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/322.png"
                     .ImageFemaleURI = "/Pokemons/322.png"
@@ -11519,12 +11494,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 105
-                        .SPDEFEND = 75
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 105
+                        .SpecialDefence = 75
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/323.png"
                     .ImageFemaleURI = "/Pokemons/323.png"
@@ -11554,12 +11529,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 140
-                        .SPATTACK = 85
-                        .SPDEFEND = 70
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 140
+                        .SpecialAttack = 85
+                        .SpecialDefence = 70
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/324.png"
                     .ImageFemaleURI = "/Pokemons/324.png"
@@ -11589,12 +11564,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 25
-                        .DEFEND = 35
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 35
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/325.png"
                     .ImageFemaleURI = "/Pokemons/325.png"
@@ -11624,12 +11599,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 45
-                        .DEFEND = 65
-                        .SPATTACK = 90
-                        .SPDEFEND = 110
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 65
+                        .SpecialAttack = 90
+                        .SpecialDefence = 110
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/326.png"
                     .ImageFemaleURI = "/Pokemons/326.png"
@@ -11659,12 +11634,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/327.png"
                     .ImageFemaleURI = "/Pokemons/327.png"
@@ -11694,12 +11669,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 100
-                        .DEFEND = 45
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 10
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 45
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 10
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/328.png"
                     .ImageFemaleURI = "/Pokemons/328.png"
@@ -11729,12 +11704,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 70
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11764,12 +11739,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 80
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 80
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11799,12 +11774,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 85
-                        .DEFEND = 40
-                        .SPATTACK = 85
-                        .SPDEFEND = 40
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 40
+                        .SpecialAttack = 85
+                        .SpecialDefence = 40
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11834,12 +11809,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 115
-                        .DEFEND = 60
-                        .SPATTACK = 115
-                        .SPDEFEND = 60
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 60
+                        .SpecialAttack = 115
+                        .SpecialDefence = 60
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11869,12 +11844,12 @@
                     .AbilityHidden = 13
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 40
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 75
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 75
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11904,12 +11879,12 @@
                     .AbilityHidden = 13
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 70
-                        .DEFEND = 90
-                        .SPATTACK = 70
-                        .SPDEFEND = 105
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 90
+                        .SpecialAttack = 70
+                        .SpecialDefence = 105
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11939,12 +11914,12 @@
                     .AbilityHidden = 137
                     With .SpeciesStrengthValues
                         .HP = 73
-                        .ATTACK = 115
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -11974,12 +11949,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 73
-                        .ATTACK = 100
-                        .DEFEND = 60
-                        .SPATTACK = 100
-                        .SPDEFEND = 60
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 60
+                        .SpecialAttack = 100
+                        .SpecialDefence = 60
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12009,12 +11984,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 55
-                        .DEFEND = 65
-                        .SPATTACK = 95
-                        .SPDEFEND = 85
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 65
+                        .SpecialAttack = 95
+                        .SpecialDefence = 85
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12044,12 +12019,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 95
-                        .DEFEND = 85
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 85
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12079,17 +12054,15 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 48
-                        .DEFEND = 43
-                        .SPATTACK = 46
-                        .SPDEFEND = 41
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 43
+                        .SpecialAttack = 46
+                        .SpecialDefence = 41
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 340
                 With ReturnValue
@@ -12116,12 +12089,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 78
-                        .DEFEND = 73
-                        .SPATTACK = 76
-                        .SPDEFEND = 71
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 73
+                        .SpecialAttack = 76
+                        .SpecialDefence = 71
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12151,12 +12124,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 43
-                        .ATTACK = 80
-                        .DEFEND = 65
-                        .SPATTACK = 50
-                        .SPDEFEND = 35
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 65
+                        .SpecialAttack = 50
+                        .SpecialDefence = 35
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12186,12 +12159,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 63
-                        .ATTACK = 120
-                        .DEFEND = 85
-                        .SPATTACK = 90
-                        .SPDEFEND = 55
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 85
+                        .SpecialAttack = 90
+                        .SpecialDefence = 55
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12221,12 +12194,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 55
-                        .SPATTACK = 40
-                        .SPDEFEND = 70
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 55
+                        .SpecialAttack = 40
+                        .SpecialDefence = 70
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12256,12 +12229,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 70
-                        .DEFEND = 105
-                        .SPATTACK = 70
-                        .SPDEFEND = 120
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 105
+                        .SpecialAttack = 70
+                        .SpecialDefence = 120
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12291,12 +12264,12 @@
                     .AbilityHidden = 114
                     With .SpeciesStrengthValues
                         .HP = 66
-                        .ATTACK = 41
-                        .DEFEND = 77
-                        .SPATTACK = 61
-                        .SPDEFEND = 87
-                        .SPEED = 23
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 41
+                        .Defence = 77
+                        .SpecialAttack = 61
+                        .SpecialDefence = 87
+                        .Speed = 23
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12326,12 +12299,12 @@
                     .AbilityHidden = 114
                     With .SpeciesStrengthValues
                         .HP = 86
-                        .ATTACK = 81
-                        .DEFEND = 97
-                        .SPATTACK = 81
-                        .SPDEFEND = 107
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 81
+                        .Defence = 97
+                        .SpecialAttack = 81
+                        .SpecialDefence = 107
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12361,17 +12334,15 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 95
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 348
                 With ReturnValue
@@ -12398,12 +12369,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 125
-                        .DEFEND = 100
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 100
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12433,12 +12404,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 15
-                        .DEFEND = 20
-                        .SPATTACK = 10
-                        .SPDEFEND = 55
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 15
+                        .Defence = 20
+                        .SpecialAttack = 10
+                        .SpecialDefence = 55
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12468,12 +12439,12 @@
                     .AbilityHidden = 56
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 60
-                        .DEFEND = 79
-                        .SPATTACK = 100
-                        .SPDEFEND = 125
-                        .SPEED = 81
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 79
+                        .SpecialAttack = 100
+                        .SpecialDefence = 125
+                        .Speed = 81
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12503,12 +12474,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 70
-                        .DEFEND = 70
-                        .SPATTACK = 70
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 70
+                        .SpecialAttack = 70
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12538,12 +12509,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 90
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 120
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 120
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12573,12 +12544,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 75
-                        .DEFEND = 35
-                        .SPATTACK = 63
-                        .SPDEFEND = 33
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 35
+                        .SpecialAttack = 63
+                        .SpecialDefence = 33
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12608,12 +12579,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 64
-                        .ATTACK = 115
-                        .DEFEND = 65
-                        .SPATTACK = 83
-                        .SPDEFEND = 63
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 65
+                        .SpecialAttack = 83
+                        .SpecialDefence = 63
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12643,12 +12614,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 40
-                        .DEFEND = 90
-                        .SPATTACK = 30
-                        .SPDEFEND = 90
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 90
+                        .SpecialAttack = 30
+                        .SpecialDefence = 90
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12678,12 +12649,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 70
-                        .DEFEND = 130
-                        .SPATTACK = 60
-                        .SPDEFEND = 130
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 130
+                        .SpecialAttack = 60
+                        .SpecialDefence = 130
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12713,12 +12684,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 99
-                        .ATTACK = 68
-                        .DEFEND = 83
-                        .SPATTACK = 72
-                        .SPDEFEND = 87
-                        .SPEED = 51
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 68
+                        .Defence = 83
+                        .SpecialAttack = 72
+                        .SpecialDefence = 87
+                        .Speed = 51
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12748,12 +12719,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 50
-                        .DEFEND = 70
-                        .SPATTACK = 95
-                        .SPDEFEND = 80
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 70
+                        .SpecialAttack = 95
+                        .SpecialDefence = 80
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12783,12 +12754,12 @@
                     .AbilityHidden = 154
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 130
-                        .DEFEND = 60
-                        .SPATTACK = 75
-                        .SPDEFEND = 60
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 60
+                        .SpecialAttack = 75
+                        .SpecialDefence = 60
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12818,12 +12789,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 23
-                        .DEFEND = 48
-                        .SPATTACK = 23
-                        .SPDEFEND = 48
-                        .SPEED = 23
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 23
+                        .Defence = 48
+                        .SpecialAttack = 23
+                        .SpecialDefence = 48
+                        .Speed = 23
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12853,12 +12824,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12888,12 +12859,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12923,12 +12894,12 @@
                     .AbilityHidden = 12
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 40
-                        .DEFEND = 50
-                        .SPATTACK = 55
-                        .SPDEFEND = 50
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 50
+                        .SpecialAttack = 55
+                        .SpecialDefence = 50
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12958,12 +12929,12 @@
                     .AbilityHidden = 12
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 70
-                        .SPDEFEND = 75
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 70
+                        .SpecialDefence = 75
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -12993,12 +12964,12 @@
                     .AbilityHidden = 12
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 80
-                        .DEFEND = 90
-                        .SPATTACK = 95
-                        .SPDEFEND = 90
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 90
+                        .SpecialAttack = 95
+                        .SpecialDefence = 90
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13028,12 +12999,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 64
-                        .DEFEND = 85
-                        .SPATTACK = 74
-                        .SPDEFEND = 55
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 85
+                        .SpecialAttack = 74
+                        .SpecialDefence = 55
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13063,12 +13034,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 104
-                        .DEFEND = 105
-                        .SPATTACK = 94
-                        .SPDEFEND = 75
-                        .SPEED = 52
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 104
+                        .Defence = 105
+                        .SpecialAttack = 94
+                        .SpecialDefence = 75
+                        .Speed = 52
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13098,12 +13069,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 84
-                        .DEFEND = 105
-                        .SPATTACK = 114
-                        .SPDEFEND = 75
-                        .SPEED = 52
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 84
+                        .Defence = 105
+                        .SpecialAttack = 114
+                        .SpecialDefence = 75
+                        .Speed = 52
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13133,12 +13104,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 90
-                        .DEFEND = 130
-                        .SPATTACK = 45
-                        .SPDEFEND = 65
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 130
+                        .SpecialAttack = 45
+                        .SpecialDefence = 65
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13168,12 +13139,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 43
-                        .ATTACK = 30
-                        .DEFEND = 55
-                        .SPATTACK = 40
-                        .SPDEFEND = 65
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 55
+                        .SpecialAttack = 40
+                        .SpecialDefence = 65
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13203,12 +13174,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 75
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 30
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 30
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13238,12 +13209,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 95
-                        .DEFEND = 100
-                        .SPATTACK = 60
-                        .SPDEFEND = 50
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 100
+                        .SpecialAttack = 60
+                        .SpecialDefence = 50
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13273,12 +13244,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 135
-                        .DEFEND = 80
-                        .SPATTACK = 110
-                        .SPDEFEND = 80
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 80
+                        .SpecialAttack = 110
+                        .SpecialDefence = 80
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13308,12 +13279,12 @@
                     .AbilityHidden = 135
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 80
-                        .SPATTACK = 35
-                        .SPDEFEND = 60
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 80
+                        .SpecialAttack = 35
+                        .SpecialDefence = 60
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13343,12 +13314,12 @@
                     .AbilityHidden = 135
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 75
-                        .DEFEND = 100
-                        .SPATTACK = 55
-                        .SPDEFEND = 80
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 100
+                        .SpecialAttack = 55
+                        .SpecialDefence = 80
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13378,12 +13349,12 @@
                     .AbilityHidden = 135
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 135
-                        .DEFEND = 130
-                        .SPATTACK = 95
-                        .SPDEFEND = 90
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 130
+                        .SpecialAttack = 95
+                        .SpecialDefence = 90
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13413,12 +13384,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 200
-                        .SPATTACK = 50
-                        .SPDEFEND = 100
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 200
+                        .SpecialAttack = 50
+                        .SpecialDefence = 100
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13448,12 +13419,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 50
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 200
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 200
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13483,12 +13454,12 @@
                     .AbilityHidden = 135
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 75
-                        .DEFEND = 150
-                        .SPATTACK = 75
-                        .SPDEFEND = 150
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 150
+                        .SpecialAttack = 75
+                        .SpecialDefence = 150
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13518,12 +13489,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 80
-                        .DEFEND = 90
-                        .SPATTACK = 110
-                        .SPDEFEND = 130
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 90
+                        .SpecialAttack = 110
+                        .SpecialDefence = 130
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13553,12 +13524,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 90
-                        .DEFEND = 80
-                        .SPATTACK = 130
-                        .SPDEFEND = 110
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 80
+                        .SpecialAttack = 130
+                        .SpecialDefence = 110
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13588,12 +13559,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 90
-                        .SPATTACK = 150
-                        .SPDEFEND = 140
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 90
+                        .SpecialAttack = 150
+                        .SpecialDefence = 140
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13623,12 +13594,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 150
-                        .DEFEND = 140
-                        .SPATTACK = 100
-                        .SPDEFEND = 90
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 150
+                        .Defence = 140
+                        .SpecialAttack = 100
+                        .SpecialDefence = 90
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13658,12 +13629,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 150
-                        .DEFEND = 90
-                        .SPATTACK = 150
-                        .SPDEFEND = 90
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 150
+                        .Defence = 90
+                        .SpecialAttack = 150
+                        .SpecialDefence = 90
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13693,12 +13664,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13728,12 +13699,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 150
-                        .DEFEND = 50
-                        .SPATTACK = 150
-                        .SPDEFEND = 50
-                        .SPEED = 150
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 150
+                        .Defence = 50
+                        .SpecialAttack = 150
+                        .SpecialDefence = 50
+                        .Speed = 150
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13759,13 +13730,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -13778,8 +13749,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -13809,7 +13778,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 387
@@ -13837,12 +13806,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 68
-                        .DEFEND = 64
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 31
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 68
+                        .Defence = 64
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 31
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13872,12 +13841,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 89
-                        .DEFEND = 85
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 89
+                        .Defence = 85
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13907,12 +13876,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 109
-                        .DEFEND = 105
-                        .SPATTACK = 75
-                        .SPDEFEND = 85
-                        .SPEED = 56
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 109
+                        .Defence = 105
+                        .SpecialAttack = 75
+                        .SpecialDefence = 85
+                        .Speed = 56
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13942,12 +13911,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 58
-                        .DEFEND = 44
-                        .SPATTACK = 58
-                        .SPDEFEND = 44
-                        .SPEED = 61
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 58
+                        .Defence = 44
+                        .SpecialAttack = 58
+                        .SpecialDefence = 44
+                        .Speed = 61
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -13977,12 +13946,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 64
-                        .ATTACK = 78
-                        .DEFEND = 52
-                        .SPATTACK = 78
-                        .SPDEFEND = 52
-                        .SPEED = 81
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 52
+                        .SpecialAttack = 78
+                        .SpecialDefence = 52
+                        .Speed = 81
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14012,12 +13981,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 104
-                        .DEFEND = 71
-                        .SPATTACK = 104
-                        .SPDEFEND = 71
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 104
+                        .Defence = 71
+                        .SpecialAttack = 104
+                        .SpecialDefence = 71
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14047,12 +14016,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 53
-                        .ATTACK = 51
-                        .DEFEND = 53
-                        .SPATTACK = 61
-                        .SPDEFEND = 56
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 51
+                        .Defence = 53
+                        .SpecialAttack = 61
+                        .SpecialDefence = 56
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14082,12 +14051,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 64
-                        .ATTACK = 66
-                        .DEFEND = 68
-                        .SPATTACK = 81
-                        .SPDEFEND = 76
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 66
+                        .Defence = 68
+                        .SpecialAttack = 81
+                        .SpecialDefence = 76
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14117,12 +14086,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 84
-                        .ATTACK = 86
-                        .DEFEND = 88
-                        .SPATTACK = 111
-                        .SPDEFEND = 101
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 86
+                        .Defence = 88
+                        .SpecialAttack = 111
+                        .SpecialDefence = 101
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14152,12 +14121,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 30
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 30
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14187,12 +14156,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 75
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14222,12 +14191,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 120
-                        .DEFEND = 70
-                        .SPATTACK = 50
-                        .SPDEFEND = 60
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 70
+                        .SpecialAttack = 50
+                        .SpecialDefence = 60
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14257,12 +14226,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 35
-                        .SPDEFEND = 40
-                        .SPEED = 31
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 35
+                        .SpecialDefence = 40
+                        .Speed = 31
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14292,12 +14261,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 79
-                        .ATTACK = 85
-                        .DEFEND = 60
-                        .SPATTACK = 55
-                        .SPDEFEND = 60
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 60
+                        .SpecialAttack = 55
+                        .SpecialDefence = 60
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14327,12 +14296,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 37
-                        .ATTACK = 25
-                        .DEFEND = 41
-                        .SPATTACK = 25
-                        .SPDEFEND = 41
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 41
+                        .SpecialAttack = 25
+                        .SpecialDefence = 41
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14362,12 +14331,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 77
-                        .ATTACK = 85
-                        .DEFEND = 51
-                        .SPATTACK = 55
-                        .SPDEFEND = 51
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 51
+                        .SpecialAttack = 55
+                        .SpecialDefence = 51
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14397,12 +14366,12 @@
                     .AbilityHidden = 62
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 65
-                        .DEFEND = 34
-                        .SPATTACK = 40
-                        .SPDEFEND = 34
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 34
+                        .SpecialAttack = 40
+                        .SpecialDefence = 34
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14432,12 +14401,12 @@
                     .AbilityHidden = 62
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 49
-                        .SPATTACK = 60
-                        .SPDEFEND = 49
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 49
+                        .SpecialAttack = 60
+                        .SpecialDefence = 49
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14467,12 +14436,12 @@
                     .AbilityHidden = 62
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 120
-                        .DEFEND = 79
-                        .SPATTACK = 95
-                        .SPDEFEND = 79
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 79
+                        .SpecialAttack = 95
+                        .SpecialDefence = 79
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14502,12 +14471,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 35
-                        .SPATTACK = 50
-                        .SPDEFEND = 70
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 35
+                        .SpecialAttack = 50
+                        .SpecialDefence = 70
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14537,12 +14506,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 70
-                        .DEFEND = 65
-                        .SPATTACK = 125
-                        .SPDEFEND = 105
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 65
+                        .SpecialAttack = 125
+                        .SpecialDefence = 105
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14572,12 +14541,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 125
-                        .DEFEND = 40
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 40
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14607,12 +14576,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 97
-                        .ATTACK = 165
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 65
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 165
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 65
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14642,12 +14611,12 @@
                     .AbilityHidden = 43
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 42
-                        .DEFEND = 118
-                        .SPATTACK = 42
-                        .SPDEFEND = 88
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 42
+                        .Defence = 118
+                        .SpecialAttack = 42
+                        .SpecialDefence = 88
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14677,12 +14646,12 @@
                     .AbilityHidden = 43
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 52
-                        .DEFEND = 168
-                        .SPATTACK = 47
-                        .SPDEFEND = 138
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 168
+                        .SpecialAttack = 47
+                        .SpecialDefence = 138
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14712,12 +14681,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 29
-                        .DEFEND = 45
-                        .SPATTACK = 29
-                        .SPDEFEND = 45
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 29
+                        .Defence = 45
+                        .SpecialAttack = 29
+                        .SpecialDefence = 45
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14747,12 +14716,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 59
-                        .DEFEND = 85
-                        .SPATTACK = 79
-                        .SPDEFEND = 105
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 59
+                        .Defence = 85
+                        .SpecialAttack = 79
+                        .SpecialDefence = 105
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14782,12 +14751,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 94
-                        .DEFEND = 50
-                        .SPATTACK = 94
-                        .SPDEFEND = 50
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 94
+                        .Defence = 50
+                        .SpecialAttack = 94
+                        .SpecialDefence = 50
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14817,12 +14786,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 30
-                        .DEFEND = 42
-                        .SPATTACK = 30
-                        .SPDEFEND = 42
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 42
+                        .SpecialAttack = 30
+                        .SpecialDefence = 42
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14852,12 +14821,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 80
-                        .DEFEND = 102
-                        .SPATTACK = 80
-                        .SPDEFEND = 102
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 102
+                        .SpecialAttack = 80
+                        .SpecialDefence = 102
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14887,12 +14856,12 @@
                     .AbilityHidden = 10
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 45
-                        .DEFEND = 70
-                        .SPATTACK = 45
-                        .SPDEFEND = 90
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 70
+                        .SpecialAttack = 45
+                        .SpecialDefence = 90
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14922,17 +14891,15 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 65
-                        .DEFEND = 35
-                        .SPATTACK = 60
-                        .SPDEFEND = 30
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 35
+                        .SpecialAttack = 60
+                        .SpecialDefence = 30
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 419
                 With ReturnValue
@@ -14959,12 +14926,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 105
-                        .DEFEND = 55
-                        .SPATTACK = 85
-                        .SPDEFEND = 50
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 55
+                        .SpecialAttack = 85
+                        .SpecialDefence = 50
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -14994,12 +14961,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 35
-                        .DEFEND = 45
-                        .SPATTACK = 62
-                        .SPDEFEND = 53
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 45
+                        .SpecialAttack = 62
+                        .SpecialDefence = 53
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15029,12 +14996,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 60
-                        .DEFEND = 70
-                        .SPATTACK = 87
-                        .SPDEFEND = 78
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 70
+                        .SpecialAttack = 87
+                        .SpecialDefence = 78
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15064,12 +15031,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 48
-                        .DEFEND = 48
-                        .SPATTACK = 57
-                        .SPDEFEND = 62
-                        .SPEED = 34
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 48
+                        .SpecialAttack = 57
+                        .SpecialDefence = 62
+                        .Speed = 34
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15099,12 +15066,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 111
-                        .ATTACK = 83
-                        .DEFEND = 68
-                        .SPATTACK = 92
-                        .SPDEFEND = 82
-                        .SPEED = 39
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 83
+                        .Defence = 68
+                        .SpecialAttack = 92
+                        .SpecialDefence = 82
+                        .Speed = 39
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15134,12 +15101,12 @@
                     .AbilityHidden = 92
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 100
-                        .DEFEND = 66
-                        .SPATTACK = 60
-                        .SPDEFEND = 66
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 66
+                        .SpecialAttack = 60
+                        .SpecialDefence = 66
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15169,12 +15136,12 @@
                     .AbilityHidden = 138
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 50
-                        .DEFEND = 34
-                        .SPATTACK = 60
-                        .SPDEFEND = 44
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 34
+                        .SpecialAttack = 60
+                        .SpecialDefence = 44
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15204,12 +15171,12 @@
                     .AbilityHidden = 138
                     With .SpeciesStrengthValues
                         .HP = 150
-                        .ATTACK = 80
-                        .DEFEND = 44
-                        .SPATTACK = 90
-                        .SPDEFEND = 54
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 44
+                        .SpecialAttack = 90
+                        .SpecialDefence = 54
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15239,12 +15206,12 @@
                     .AbilityHidden = 7
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 66
-                        .DEFEND = 44
-                        .SPATTACK = 44
-                        .SPDEFEND = 56
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 66
+                        .Defence = 44
+                        .SpecialAttack = 44
+                        .SpecialDefence = 56
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15274,12 +15241,12 @@
                     .AbilityHidden = 7
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 76
-                        .DEFEND = 84
-                        .SPATTACK = 54
-                        .SPDEFEND = 96
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 76
+                        .Defence = 84
+                        .SpecialAttack = 54
+                        .SpecialDefence = 96
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15309,12 +15276,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 105
-                        .SPDEFEND = 105
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 105
+                        .SpecialDefence = 105
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15344,12 +15311,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 125
-                        .DEFEND = 52
-                        .SPATTACK = 105
-                        .SPDEFEND = 52
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 52
+                        .SpecialAttack = 105
+                        .SpecialDefence = 52
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15379,12 +15346,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 49
-                        .ATTACK = 55
-                        .DEFEND = 42
-                        .SPATTACK = 42
-                        .SPDEFEND = 37
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 42
+                        .SpecialAttack = 42
+                        .SpecialDefence = 37
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15414,12 +15381,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 82
-                        .DEFEND = 64
-                        .SPATTACK = 64
-                        .SPDEFEND = 59
-                        .SPEED = 112
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 64
+                        .SpecialAttack = 64
+                        .SpecialDefence = 59
+                        .Speed = 112
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15449,12 +15416,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 30
-                        .DEFEND = 50
-                        .SPATTACK = 65
-                        .SPDEFEND = 50
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 50
+                        .SpecialAttack = 65
+                        .SpecialDefence = 50
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15484,12 +15451,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 63
-                        .ATTACK = 63
-                        .DEFEND = 47
-                        .SPATTACK = 41
-                        .SPDEFEND = 41
-                        .SPEED = 74
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 47
+                        .SpecialAttack = 41
+                        .SpecialDefence = 41
+                        .Speed = 74
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15519,12 +15486,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 103
-                        .ATTACK = 93
-                        .DEFEND = 67
-                        .SPATTACK = 71
-                        .SPDEFEND = 61
-                        .SPEED = 84
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 93
+                        .Defence = 67
+                        .SpecialAttack = 71
+                        .SpecialDefence = 61
+                        .Speed = 84
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15554,17 +15521,15 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 24
-                        .DEFEND = 86
-                        .SPATTACK = 24
-                        .SPDEFEND = 86
-                        .SPEED = 23
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 24
+                        .Defence = 86
+                        .SpecialAttack = 24
+                        .SpecialDefence = 86
+                        .Speed = 23
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 437
                 With ReturnValue
@@ -15591,12 +15556,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 89
-                        .DEFEND = 116
-                        .SPATTACK = 79
-                        .SPDEFEND = 116
-                        .SPEED = 33
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 89
+                        .Defence = 116
+                        .SpecialAttack = 79
+                        .SpecialDefence = 116
+                        .Speed = 33
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15626,12 +15591,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 80
-                        .DEFEND = 95
-                        .SPATTACK = 10
-                        .SPDEFEND = 45
-                        .SPEED = 10
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 95
+                        .SpecialAttack = 10
+                        .SpecialDefence = 45
+                        .Speed = 10
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15661,12 +15626,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 20
-                        .ATTACK = 25
-                        .DEFEND = 45
-                        .SPATTACK = 70
-                        .SPDEFEND = 90
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 45
+                        .SpecialAttack = 70
+                        .SpecialDefence = 90
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15696,12 +15661,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 5
-                        .DEFEND = 5
-                        .SPATTACK = 15
-                        .SPDEFEND = 65
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 5
+                        .Defence = 5
+                        .SpecialAttack = 15
+                        .SpecialDefence = 65
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15731,12 +15696,12 @@
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 65
-                        .DEFEND = 45
-                        .SPATTACK = 92
-                        .SPDEFEND = 42
-                        .SPEED = 91
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 45
+                        .SpecialAttack = 92
+                        .SpecialDefence = 42
+                        .Speed = 91
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15766,12 +15731,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 92
-                        .DEFEND = 108
-                        .SPATTACK = 92
-                        .SPDEFEND = 108
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 108
+                        .SpecialAttack = 92
+                        .SpecialDefence = 108
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15801,12 +15766,12 @@
                     .AbilityHidden = 24
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 70
-                        .DEFEND = 45
-                        .SPATTACK = 40
-                        .SPDEFEND = 45
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 45
+                        .SpecialAttack = 40
+                        .SpecialDefence = 45
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15836,12 +15801,12 @@
                     .AbilityHidden = 24
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 90
-                        .DEFEND = 65
-                        .SPATTACK = 50
-                        .SPDEFEND = 55
-                        .SPEED = 82
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 65
+                        .SpecialAttack = 50
+                        .SpecialDefence = 55
+                        .Speed = 82
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15871,12 +15836,12 @@
                     .AbilityHidden = 24
                     With .SpeciesStrengthValues
                         .HP = 108
-                        .ATTACK = 130
-                        .DEFEND = 95
-                        .SPATTACK = 80
-                        .SPDEFEND = 85
-                        .SPEED = 102
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 95
+                        .SpecialAttack = 80
+                        .SpecialDefence = 85
+                        .Speed = 102
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15906,12 +15871,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 135
-                        .ATTACK = 185
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 85
-                        .SPEED = 5
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 185
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 85
+                        .Speed = 5
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15941,12 +15906,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 70
-                        .DEFEND = 40
-                        .SPATTACK = 35
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 40
+                        .SpecialAttack = 35
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -15976,12 +15941,12 @@
                     .AbilityHidden = 154
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 110
-                        .DEFEND = 70
-                        .SPATTACK = 115
-                        .SPDEFEND = 70
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 70
+                        .SpecialAttack = 115
+                        .SpecialDefence = 70
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16011,12 +15976,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 72
-                        .DEFEND = 78
-                        .SPATTACK = 38
-                        .SPDEFEND = 42
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 78
+                        .SpecialAttack = 38
+                        .SpecialDefence = 42
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16046,12 +16011,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 108
-                        .ATTACK = 112
-                        .DEFEND = 118
-                        .SPATTACK = 68
-                        .SPDEFEND = 72
-                        .SPEED = 47
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 112
+                        .Defence = 118
+                        .SpecialAttack = 68
+                        .SpecialDefence = 72
+                        .Speed = 47
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16081,12 +16046,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 50
-                        .DEFEND = 90
-                        .SPATTACK = 30
-                        .SPDEFEND = 55
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 90
+                        .SpecialAttack = 30
+                        .SpecialDefence = 55
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16116,12 +16081,12 @@
                     .AbilityHidden = 51
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 90
-                        .DEFEND = 110
-                        .SPATTACK = 60
-                        .SPDEFEND = 75
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 110
+                        .SpecialAttack = 60
+                        .SpecialDefence = 75
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16151,12 +16116,12 @@
                     .AbilityHidden = 143
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 61
-                        .DEFEND = 40
-                        .SPATTACK = 61
-                        .SPDEFEND = 40
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 61
+                        .Defence = 40
+                        .SpecialAttack = 61
+                        .SpecialDefence = 40
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16186,12 +16151,12 @@
                     .AbilityHidden = 143
                     With .SpeciesStrengthValues
                         .HP = 83
-                        .ATTACK = 106
-                        .DEFEND = 65
-                        .SPATTACK = 86
-                        .SPDEFEND = 65
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 106
+                        .Defence = 65
+                        .SpecialAttack = 86
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16221,12 +16186,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 100
-                        .DEFEND = 72
-                        .SPATTACK = 90
-                        .SPDEFEND = 72
-                        .SPEED = 46
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 72
+                        .SpecialAttack = 90
+                        .SpecialDefence = 72
+                        .Speed = 46
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16256,12 +16221,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 49
-                        .ATTACK = 49
-                        .DEFEND = 56
-                        .SPATTACK = 49
-                        .SPDEFEND = 61
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 49
+                        .Defence = 56
+                        .SpecialAttack = 49
+                        .SpecialDefence = 61
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16291,12 +16256,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 69
-                        .ATTACK = 69
-                        .DEFEND = 76
-                        .SPATTACK = 69
-                        .SPDEFEND = 86
-                        .SPEED = 91
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 69
+                        .Defence = 76
+                        .SpecialAttack = 69
+                        .SpecialDefence = 86
+                        .Speed = 91
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16326,12 +16291,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 20
-                        .DEFEND = 50
-                        .SPATTACK = 60
-                        .SPDEFEND = 120
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 50
+                        .SpecialAttack = 60
+                        .SpecialDefence = 120
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16361,12 +16326,12 @@
                     .AbilityHidden = 43
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 62
-                        .DEFEND = 50
-                        .SPATTACK = 62
-                        .SPDEFEND = 60
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 62
+                        .Defence = 50
+                        .SpecialAttack = 62
+                        .SpecialDefence = 60
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16396,12 +16361,12 @@
                     .AbilityHidden = 43
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 92
-                        .DEFEND = 75
-                        .SPATTACK = 92
-                        .SPDEFEND = 85
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 75
+                        .SpecialAttack = 92
+                        .SpecialDefence = 85
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16431,12 +16396,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 120
-                        .DEFEND = 65
-                        .SPATTACK = 45
-                        .SPDEFEND = 85
-                        .SPEED = 125
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 65
+                        .SpecialAttack = 45
+                        .SpecialDefence = 85
+                        .Speed = 125
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16466,12 +16431,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 70
-                        .DEFEND = 115
-                        .SPATTACK = 130
-                        .SPDEFEND = 90
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 115
+                        .SpecialAttack = 130
+                        .SpecialDefence = 90
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16501,12 +16466,12 @@
                     .AbilityHidden = 13
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 85
-                        .DEFEND = 95
-                        .SPATTACK = 80
-                        .SPDEFEND = 95
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 95
+                        .SpecialAttack = 80
+                        .SpecialDefence = 95
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16536,12 +16501,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 140
-                        .DEFEND = 130
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 130
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16571,12 +16536,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 125
-                        .SPATTACK = 110
-                        .SPDEFEND = 50
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 125
+                        .SpecialAttack = 110
+                        .SpecialDefence = 50
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16606,12 +16571,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 123
-                        .DEFEND = 67
-                        .SPATTACK = 95
-                        .SPDEFEND = 85
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 123
+                        .Defence = 67
+                        .SpecialAttack = 95
+                        .SpecialDefence = 85
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16641,12 +16606,12 @@
                     .AbilityHidden = 72
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 95
-                        .DEFEND = 67
-                        .SPATTACK = 125
-                        .SPDEFEND = 95
-                        .SPEED = 83
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 67
+                        .SpecialAttack = 125
+                        .SpecialDefence = 95
+                        .Speed = 83
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16676,12 +16641,12 @@
                     .AbilityHidden = 105
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 50
-                        .DEFEND = 95
-                        .SPATTACK = 120
-                        .SPDEFEND = 115
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 95
+                        .SpecialAttack = 120
+                        .SpecialDefence = 115
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16711,12 +16676,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 86
-                        .ATTACK = 76
-                        .DEFEND = 86
-                        .SPATTACK = 116
-                        .SPDEFEND = 56
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 76
+                        .Defence = 86
+                        .SpecialAttack = 116
+                        .SpecialDefence = 56
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16746,12 +16711,12 @@
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 110
-                        .DEFEND = 130
-                        .SPATTACK = 60
-                        .SPDEFEND = 65
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 130
+                        .SpecialAttack = 60
+                        .SpecialDefence = 65
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16781,12 +16746,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 60
-                        .DEFEND = 110
-                        .SPATTACK = 130
-                        .SPDEFEND = 95
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 110
+                        .SpecialAttack = 130
+                        .SpecialDefence = 95
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16816,12 +16781,12 @@
                     .AbilityHidden = 90
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 95
-                        .DEFEND = 125
-                        .SPATTACK = 45
-                        .SPDEFEND = 75
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 125
+                        .SpecialAttack = 45
+                        .SpecialDefence = 75
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16851,12 +16816,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 130
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 60
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 60
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16886,12 +16851,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 80
-                        .DEFEND = 70
-                        .SPATTACK = 135
-                        .SPDEFEND = 75
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 70
+                        .SpecialAttack = 135
+                        .SpecialDefence = 75
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16921,12 +16886,12 @@
                     .AbilityHidden = 154
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 125
-                        .DEFEND = 65
-                        .SPATTACK = 65
-                        .SPDEFEND = 115
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 65
+                        .SpecialAttack = 65
+                        .SpecialDefence = 115
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16956,12 +16921,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 55
-                        .DEFEND = 145
-                        .SPATTACK = 75
-                        .SPDEFEND = 150
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 145
+                        .SpecialAttack = 75
+                        .SpecialDefence = 150
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -16991,12 +16956,12 @@
                     .AbilityHidden = 119
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 100
-                        .DEFEND = 135
-                        .SPATTACK = 65
-                        .SPDEFEND = 135
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 135
+                        .SpecialAttack = 65
+                        .SpecialDefence = 135
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17026,12 +16991,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 80
-                        .DEFEND = 70
-                        .SPATTACK = 80
-                        .SPDEFEND = 70
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 70
+                        .SpecialAttack = 80
+                        .SpecialDefence = 70
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17061,12 +17026,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 77
-                        .SPATTACK = 95
-                        .SPDEFEND = 77
-                        .SPEED = 91
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 77
+                        .SpecialAttack = 95
+                        .SpecialDefence = 77
+                        .Speed = 91
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17096,12 +17061,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 75
-                        .DEFEND = 130
-                        .SPATTACK = 75
-                        .SPDEFEND = 130
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 130
+                        .SpecialAttack = 75
+                        .SpecialDefence = 130
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17131,12 +17096,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 105
-                        .DEFEND = 105
-                        .SPATTACK = 105
-                        .SPDEFEND = 105
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 105
+                        .SpecialAttack = 105
+                        .SpecialDefence = 105
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17166,12 +17131,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 125
-                        .DEFEND = 70
-                        .SPATTACK = 125
-                        .SPDEFEND = 70
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 70
+                        .SpecialAttack = 125
+                        .SpecialDefence = 70
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17201,12 +17166,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 120
-                        .DEFEND = 120
-                        .SPATTACK = 150
-                        .SPDEFEND = 100
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 120
+                        .SpecialAttack = 150
+                        .SpecialDefence = 100
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17236,12 +17201,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 120
-                        .DEFEND = 100
-                        .SPATTACK = 150
-                        .SPDEFEND = 120
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 100
+                        .SpecialAttack = 150
+                        .SpecialDefence = 120
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17271,12 +17236,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 90
-                        .DEFEND = 106
-                        .SPATTACK = 130
-                        .SPDEFEND = 106
-                        .SPEED = 77
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 106
+                        .SpecialAttack = 130
+                        .SpecialDefence = 106
+                        .Speed = 77
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17306,12 +17271,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 160
-                        .DEFEND = 110
-                        .SPATTACK = 80
-                        .SPDEFEND = 110
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 160
+                        .Defence = 110
+                        .SpecialAttack = 80
+                        .SpecialDefence = 110
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17341,12 +17306,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 150
-                        .ATTACK = 100
-                        .DEFEND = 120
-                        .SPATTACK = 100
-                        .SPDEFEND = 120
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 120
+                        .SpecialAttack = 100
+                        .SpecialDefence = 120
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17376,12 +17341,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 70
-                        .DEFEND = 110
-                        .SPATTACK = 75
-                        .SPDEFEND = 120
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 110
+                        .SpecialAttack = 75
+                        .SpecialDefence = 120
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17411,12 +17376,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17446,12 +17411,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17481,12 +17446,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 90
-                        .DEFEND = 90
-                        .SPATTACK = 135
-                        .SPDEFEND = 90
-                        .SPEED = 125
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 90
+                        .SpecialAttack = 135
+                        .SpecialDefence = 90
+                        .Speed = 125
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17516,12 +17481,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17551,12 +17516,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 120
-                        .DEFEND = 120
-                        .SPATTACK = 120
-                        .SPDEFEND = 120
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 120
+                        .SpecialAttack = 120
+                        .SpecialDefence = 120
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17579,13 +17544,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -17598,8 +17563,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -17625,7 +17588,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 494
@@ -17653,12 +17616,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17688,12 +17651,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 45
-                        .DEFEND = 55
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 63
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 55
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 63
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17723,12 +17686,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 75
-                        .SPATTACK = 60
-                        .SPDEFEND = 75
-                        .SPEED = 83
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 75
+                        .SpecialAttack = 60
+                        .SpecialDefence = 75
+                        .Speed = 83
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17758,12 +17721,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 75
-                        .DEFEND = 95
-                        .SPATTACK = 75
-                        .SPDEFEND = 95
-                        .SPEED = 113
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 95
+                        .SpecialAttack = 75
+                        .SpecialDefence = 95
+                        .Speed = 113
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17793,12 +17756,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 63
-                        .DEFEND = 45
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 45
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17828,12 +17791,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 93
-                        .DEFEND = 55
-                        .SPATTACK = 70
-                        .SPDEFEND = 55
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 93
+                        .Defence = 55
+                        .SpecialAttack = 70
+                        .SpecialDefence = 55
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17863,12 +17826,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 123
-                        .DEFEND = 65
-                        .SPATTACK = 100
-                        .SPDEFEND = 65
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 123
+                        .Defence = 65
+                        .SpecialAttack = 100
+                        .SpecialDefence = 65
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17898,12 +17861,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 45
-                        .SPATTACK = 63
-                        .SPDEFEND = 45
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 45
+                        .SpecialAttack = 63
+                        .SpecialDefence = 45
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17933,12 +17896,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 75
-                        .DEFEND = 60
-                        .SPATTACK = 83
-                        .SPDEFEND = 60
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 60
+                        .SpecialAttack = 83
+                        .SpecialDefence = 60
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -17968,12 +17931,12 @@
                     .AbilityHidden = 75
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 100
-                        .DEFEND = 85
-                        .SPATTACK = 108
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 85
+                        .SpecialAttack = 108
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18003,12 +17966,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 55
-                        .DEFEND = 39
-                        .SPATTACK = 35
-                        .SPDEFEND = 39
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 39
+                        .SpecialAttack = 35
+                        .SpecialDefence = 39
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18038,12 +18001,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 69
-                        .SPATTACK = 60
-                        .SPDEFEND = 69
-                        .SPEED = 77
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 69
+                        .SpecialAttack = 60
+                        .SpecialDefence = 69
+                        .Speed = 77
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18073,12 +18036,12 @@
                     .AbilityHidden = 50
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 60
-                        .DEFEND = 45
-                        .SPATTACK = 25
-                        .SPDEFEND = 45
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 45
+                        .SpecialAttack = 25
+                        .SpecialDefence = 45
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18108,12 +18071,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 80
-                        .DEFEND = 65
-                        .SPATTACK = 35
-                        .SPDEFEND = 65
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 65
+                        .SpecialAttack = 35
+                        .SpecialDefence = 65
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18143,12 +18106,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 110
-                        .DEFEND = 90
-                        .SPATTACK = 45
-                        .SPDEFEND = 90
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 90
+                        .SpecialAttack = 45
+                        .SpecialDefence = 90
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18178,12 +18141,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 50
-                        .DEFEND = 37
-                        .SPATTACK = 50
-                        .SPDEFEND = 37
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 37
+                        .SpecialAttack = 50
+                        .SpecialDefence = 37
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18213,12 +18176,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 64
-                        .ATTACK = 88
-                        .DEFEND = 50
-                        .SPATTACK = 88
-                        .SPDEFEND = 50
-                        .SPEED = 106
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 88
+                        .Defence = 50
+                        .SpecialAttack = 88
+                        .SpecialDefence = 50
+                        .Speed = 106
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18248,12 +18211,12 @@
                     .AbilityHidden = 65
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 53
-                        .DEFEND = 48
-                        .SPATTACK = 53
-                        .SPDEFEND = 48
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 48
+                        .SpecialAttack = 53
+                        .SpecialDefence = 48
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18283,12 +18246,12 @@
                     .AbilityHidden = 65
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 98
-                        .DEFEND = 63
-                        .SPATTACK = 98
-                        .SPDEFEND = 63
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 98
+                        .Defence = 63
+                        .SpecialAttack = 98
+                        .SpecialDefence = 63
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18318,12 +18281,12 @@
                     .AbilityHidden = 66
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 53
-                        .DEFEND = 48
-                        .SPATTACK = 53
-                        .SPDEFEND = 48
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 48
+                        .SpecialAttack = 53
+                        .SpecialDefence = 48
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18353,12 +18316,12 @@
                     .AbilityHidden = 66
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 98
-                        .DEFEND = 63
-                        .SPATTACK = 98
-                        .SPDEFEND = 63
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 98
+                        .Defence = 63
+                        .SpecialAttack = 98
+                        .SpecialDefence = 63
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18388,12 +18351,12 @@
                     .AbilityHidden = 67
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 53
-                        .DEFEND = 48
-                        .SPATTACK = 53
-                        .SPDEFEND = 48
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 48
+                        .SpecialAttack = 53
+                        .SpecialDefence = 48
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18423,12 +18386,12 @@
                     .AbilityHidden = 67
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 98
-                        .DEFEND = 63
-                        .SPATTACK = 98
-                        .SPDEFEND = 63
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 98
+                        .Defence = 63
+                        .SpecialAttack = 98
+                        .SpecialDefence = 63
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18458,12 +18421,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 25
-                        .DEFEND = 45
-                        .SPATTACK = 67
-                        .SPDEFEND = 55
-                        .SPEED = 24
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 45
+                        .SpecialAttack = 67
+                        .SpecialDefence = 55
+                        .Speed = 24
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18493,12 +18456,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 116
-                        .ATTACK = 55
-                        .DEFEND = 85
-                        .SPATTACK = 107
-                        .SPDEFEND = 95
-                        .SPEED = 29
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 85
+                        .SpecialAttack = 107
+                        .SpecialDefence = 95
+                        .Speed = 29
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18528,12 +18491,12 @@
                     .AbilityHidden = 79
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 55
-                        .DEFEND = 50
-                        .SPATTACK = 36
-                        .SPDEFEND = 30
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 50
+                        .SpecialAttack = 36
+                        .SpecialDefence = 30
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18563,12 +18526,12 @@
                     .AbilityHidden = 79
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 77
-                        .DEFEND = 62
-                        .SPATTACK = 50
-                        .SPDEFEND = 42
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 77
+                        .Defence = 62
+                        .SpecialAttack = 50
+                        .SpecialDefence = 42
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18598,12 +18561,12 @@
                     .AbilityHidden = 79
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 115
-                        .DEFEND = 80
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 93
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 80
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 93
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -18633,12 +18596,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 60
-                        .DEFEND = 32
-                        .SPATTACK = 50
-                        .SPDEFEND = 32
-                        .SPEED = 76
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 32
+                        .SpecialAttack = 50
+                        .SpecialDefence = 32
+                        .Speed = 76
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18668,12 +18631,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 100
-                        .DEFEND = 63
-                        .SPATTACK = 80
-                        .SPDEFEND = 63
-                        .SPEED = 116
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 63
+                        .SpecialAttack = 80
+                        .SpecialDefence = 63
+                        .Speed = 116
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18703,12 +18666,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 75
-                        .DEFEND = 85
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 85
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18738,12 +18701,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 105
-                        .DEFEND = 105
-                        .SPATTACK = 50
-                        .SPDEFEND = 40
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 105
+                        .SpecialAttack = 50
+                        .SpecialDefence = 40
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18773,12 +18736,12 @@
                     .AbilityHidden = 159
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 135
-                        .DEFEND = 130
-                        .SPATTACK = 60
-                        .SPDEFEND = 80
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 130
+                        .SpecialAttack = 60
+                        .SpecialDefence = 80
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18808,12 +18771,12 @@
                     .AbilityHidden = 86
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 45
-                        .DEFEND = 43
-                        .SPATTACK = 55
-                        .SPDEFEND = 43
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 43
+                        .SpecialAttack = 55
+                        .SpecialDefence = 43
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18843,12 +18806,12 @@
                     .AbilityHidden = 86
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 57
-                        .DEFEND = 55
-                        .SPATTACK = 77
-                        .SPDEFEND = 55
-                        .SPEED = 114
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 57
+                        .Defence = 55
+                        .SpecialAttack = 77
+                        .SpecialDefence = 55
+                        .Speed = 114
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18878,12 +18841,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 85
-                        .DEFEND = 40
-                        .SPATTACK = 30
-                        .SPDEFEND = 45
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 40
+                        .SpecialAttack = 30
+                        .SpecialDefence = 45
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18913,12 +18876,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 135
-                        .DEFEND = 60
-                        .SPATTACK = 50
-                        .SPDEFEND = 65
-                        .SPEED = 88
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 60
+                        .SpecialAttack = 50
+                        .SpecialDefence = 65
+                        .Speed = 88
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18948,12 +18911,12 @@
                     .AbilityHidden = 103
                     With .SpeciesStrengthValues
                         .HP = 103
-                        .ATTACK = 60
-                        .DEFEND = 86
-                        .SPATTACK = 60
-                        .SPDEFEND = 86
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 86
+                        .SpecialAttack = 60
+                        .SpecialDefence = 86
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -18983,12 +18946,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 55
-                        .SPATTACK = 25
-                        .SPDEFEND = 35
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 55
+                        .SpecialAttack = 25
+                        .SpecialDefence = 35
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19018,12 +18981,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 105
-                        .DEFEND = 85
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 85
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19053,12 +19016,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 140
-                        .DEFEND = 95
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 95
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19088,12 +19051,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 40
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 40
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19123,12 +19086,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 65
-                        .DEFEND = 55
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 69
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 55
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 69
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19158,12 +19121,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 95
-                        .DEFEND = 75
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 74
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 75
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 74
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19193,12 +19156,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 100
-                        .DEFEND = 85
-                        .SPATTACK = 30
-                        .SPDEFEND = 85
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 85
+                        .SpecialAttack = 30
+                        .SpecialDefence = 85
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19228,12 +19191,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 125
-                        .DEFEND = 75
-                        .SPATTACK = 30
-                        .SPDEFEND = 75
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 75
+                        .SpecialAttack = 30
+                        .SpecialDefence = 75
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19263,12 +19226,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 53
-                        .DEFEND = 70
-                        .SPATTACK = 40
-                        .SPDEFEND = 60
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 70
+                        .SpecialAttack = 40
+                        .SpecialDefence = 60
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19298,12 +19261,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 63
-                        .DEFEND = 90
-                        .SPATTACK = 50
-                        .SPDEFEND = 80
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 90
+                        .SpecialAttack = 50
+                        .SpecialDefence = 80
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19333,12 +19296,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 103
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 92
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 103
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 92
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19368,12 +19331,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 45
-                        .DEFEND = 59
-                        .SPATTACK = 30
-                        .SPDEFEND = 39
-                        .SPEED = 57
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 59
+                        .SpecialAttack = 30
+                        .SpecialDefence = 39
+                        .Speed = 57
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19403,12 +19366,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 99
-                        .SPATTACK = 40
-                        .SPDEFEND = 79
-                        .SPEED = 47
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 99
+                        .SpecialAttack = 40
+                        .SpecialDefence = 79
+                        .Speed = 47
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19438,12 +19401,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 100
-                        .DEFEND = 89
-                        .SPATTACK = 55
-                        .SPDEFEND = 69
-                        .SPEED = 112
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 89
+                        .SpecialAttack = 55
+                        .SpecialDefence = 69
+                        .Speed = 112
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19473,17 +19436,15 @@
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 27
-                        .DEFEND = 60
-                        .SPATTACK = 37
-                        .SPDEFEND = 50
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 27
+                        .Defence = 60
+                        .SpecialAttack = 37
+                        .SpecialDefence = 50
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 547
                 With ReturnValue
@@ -19510,12 +19471,12 @@
                     .AbilityHidden = 34
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 67
-                        .DEFEND = 85
-                        .SPATTACK = 77
-                        .SPDEFEND = 75
-                        .SPEED = 116
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 67
+                        .Defence = 85
+                        .SpecialAttack = 77
+                        .SpecialDefence = 75
+                        .Speed = 116
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19545,12 +19506,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 35
-                        .DEFEND = 50
-                        .SPATTACK = 70
-                        .SPDEFEND = 50
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 50
+                        .SpecialAttack = 70
+                        .SpecialDefence = 50
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19580,12 +19541,12 @@
                     .AbilityHidden = 102
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 60
-                        .DEFEND = 75
-                        .SPATTACK = 110
-                        .SPDEFEND = 75
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 75
+                        .SpecialAttack = 110
+                        .SpecialDefence = 75
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19615,12 +19576,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 92
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 55
-                        .SPEED = 98
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 55
+                        .Speed = 98
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19650,12 +19611,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 72
-                        .DEFEND = 35
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 35
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19685,12 +19646,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 82
-                        .DEFEND = 45
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 74
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 45
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 74
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19720,12 +19681,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 117
-                        .DEFEND = 80
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 92
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 117
+                        .Defence = 80
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 92
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19755,12 +19716,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 90
-                        .DEFEND = 45
-                        .SPATTACK = 15
-                        .SPDEFEND = 45
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 45
+                        .SpecialAttack = 15
+                        .SpecialDefence = 45
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19790,12 +19751,12 @@
                     .AbilityHidden = 161
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 140
-                        .DEFEND = 55
-                        .SPATTACK = 30
-                        .SPDEFEND = 55
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 55
+                        .SpecialAttack = 30
+                        .SpecialDefence = 55
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19825,12 +19786,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 86
-                        .DEFEND = 67
-                        .SPATTACK = 106
-                        .SPDEFEND = 67
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 86
+                        .Defence = 67
+                        .SpecialAttack = 106
+                        .SpecialDefence = 67
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19860,12 +19821,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 85
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 85
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19895,12 +19856,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 95
-                        .DEFEND = 125
-                        .SPATTACK = 65
-                        .SPDEFEND = 75
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 125
+                        .SpecialAttack = 65
+                        .SpecialDefence = 75
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19930,12 +19891,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 75
-                        .DEFEND = 70
-                        .SPATTACK = 35
-                        .SPDEFEND = 70
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 70
+                        .SpecialAttack = 35
+                        .SpecialDefence = 70
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -19965,12 +19926,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 90
-                        .DEFEND = 115
-                        .SPATTACK = 45
-                        .SPDEFEND = 115
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 115
+                        .SpecialAttack = 45
+                        .SpecialDefence = 115
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20000,12 +19961,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 58
-                        .DEFEND = 80
-                        .SPATTACK = 103
-                        .SPDEFEND = 80
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 58
+                        .Defence = 80
+                        .SpecialAttack = 103
+                        .SpecialDefence = 80
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20035,12 +19996,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 30
-                        .DEFEND = 85
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 85
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20070,12 +20031,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 50
-                        .DEFEND = 145
-                        .SPATTACK = 95
-                        .SPDEFEND = 105
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 145
+                        .SpecialAttack = 95
+                        .SpecialDefence = 105
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20105,12 +20066,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 54
-                        .ATTACK = 78
-                        .DEFEND = 103
-                        .SPATTACK = 53
-                        .SPDEFEND = 45
-                        .SPEED = 22
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 103
+                        .SpecialAttack = 53
+                        .SpecialDefence = 45
+                        .Speed = 22
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20140,12 +20101,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 108
-                        .DEFEND = 133
-                        .SPATTACK = 83
-                        .SPDEFEND = 65
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 108
+                        .Defence = 133
+                        .SpecialAttack = 83
+                        .SpecialDefence = 65
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20175,12 +20136,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 112
-                        .DEFEND = 45
-                        .SPATTACK = 74
-                        .SPDEFEND = 45
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 112
+                        .Defence = 45
+                        .SpecialAttack = 74
+                        .SpecialDefence = 45
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20210,12 +20171,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 140
-                        .DEFEND = 65
-                        .SPATTACK = 112
-                        .SPDEFEND = 65
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 65
+                        .SpecialAttack = 112
+                        .SpecialDefence = 65
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20245,12 +20206,12 @@
                     .AbilityHidden = 106
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 62
-                        .SPATTACK = 40
-                        .SPDEFEND = 62
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 62
+                        .SpecialAttack = 40
+                        .SpecialDefence = 62
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20280,12 +20241,12 @@
                     .AbilityHidden = 106
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 95
-                        .DEFEND = 82
-                        .SPATTACK = 60
-                        .SPDEFEND = 82
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 82
+                        .SpecialAttack = 60
+                        .SpecialDefence = 82
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20315,12 +20276,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 65
-                        .DEFEND = 40
-                        .SPATTACK = 80
-                        .SPDEFEND = 40
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 40
+                        .SpecialAttack = 80
+                        .SpecialDefence = 40
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20350,12 +20311,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 105
-                        .DEFEND = 60
-                        .SPATTACK = 120
-                        .SPDEFEND = 60
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 60
+                        .SpecialAttack = 120
+                        .SpecialDefence = 60
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20385,12 +20346,12 @@
                     .AbilityHidden = 92
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20420,12 +20381,12 @@
                     .AbilityHidden = 92
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 95
-                        .DEFEND = 60
-                        .SPATTACK = 65
-                        .SPDEFEND = 60
-                        .SPEED = 115
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 60
+                        .SpecialAttack = 65
+                        .SpecialDefence = 60
+                        .Speed = 115
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20455,12 +20416,12 @@
                     .AbilityHidden = 23
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 30
-                        .DEFEND = 50
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 50
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20490,12 +20451,12 @@
                     .AbilityHidden = 23
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 45
-                        .DEFEND = 70
-                        .SPATTACK = 75
-                        .SPDEFEND = 85
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 70
+                        .SpecialAttack = 75
+                        .SpecialDefence = 85
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20525,12 +20486,12 @@
                     .AbilityHidden = 23
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 55
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 110
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 110
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20560,12 +20521,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 30
-                        .DEFEND = 40
-                        .SPATTACK = 105
-                        .SPDEFEND = 50
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 40
+                        .SpecialAttack = 105
+                        .SpecialDefence = 50
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20595,12 +20556,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 40
-                        .DEFEND = 50
-                        .SPATTACK = 125
-                        .SPDEFEND = 60
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 50
+                        .SpecialAttack = 125
+                        .SpecialDefence = 60
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20630,12 +20591,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 65
-                        .DEFEND = 75
-                        .SPATTACK = 125
-                        .SPDEFEND = 85
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 75
+                        .SpecialAttack = 125
+                        .SpecialDefence = 85
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20665,12 +20626,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 44
-                        .DEFEND = 50
-                        .SPATTACK = 44
-                        .SPDEFEND = 50
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 44
+                        .Defence = 50
+                        .SpecialAttack = 44
+                        .SpecialDefence = 50
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20700,12 +20661,12 @@
                     .AbilityHidden = 93
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 87
-                        .DEFEND = 63
-                        .SPATTACK = 87
-                        .SPDEFEND = 63
-                        .SPEED = 98
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 87
+                        .Defence = 63
+                        .SpecialAttack = 87
+                        .SpecialDefence = 63
+                        .Speed = 98
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20735,12 +20696,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 36
-                        .ATTACK = 50
-                        .DEFEND = 50
-                        .SPATTACK = 65
-                        .SPDEFEND = 60
-                        .SPEED = 44
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 50
+                        .SpecialAttack = 65
+                        .SpecialDefence = 60
+                        .Speed = 44
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20770,12 +20731,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 51
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 75
-                        .SPEED = 59
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 75
+                        .Speed = 59
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20805,12 +20766,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 95
-                        .DEFEND = 85
-                        .SPATTACK = 110
-                        .SPDEFEND = 95
-                        .SPEED = 79
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 85
+                        .SpecialAttack = 110
+                        .SpecialDefence = 95
+                        .Speed = 79
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20840,12 +20801,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20875,12 +20836,12 @@
                     .AbilityHidden = 32
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20910,12 +20871,12 @@
                     .AbilityHidden = 78
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 75
-                        .DEFEND = 60
-                        .SPATTACK = 75
-                        .SPDEFEND = 60
-                        .SPEED = 103
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 60
+                        .SpecialAttack = 75
+                        .SpecialDefence = 60
+                        .Speed = 103
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20945,12 +20906,12 @@
                     .AbilityHidden = 99
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 75
-                        .DEFEND = 45
-                        .SPATTACK = 40
-                        .SPDEFEND = 45
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 45
+                        .SpecialAttack = 40
+                        .SpecialDefence = 45
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -20980,12 +20941,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 135
-                        .DEFEND = 105
-                        .SPATTACK = 60
-                        .SPDEFEND = 105
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 105
+                        .SpecialAttack = 60
+                        .SpecialDefence = 105
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21015,12 +20976,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 69
-                        .ATTACK = 55
-                        .DEFEND = 45
-                        .SPATTACK = 55
-                        .SPDEFEND = 55
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 45
+                        .SpecialAttack = 55
+                        .SpecialDefence = 55
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21050,12 +21011,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 114
-                        .ATTACK = 85
-                        .DEFEND = 70
-                        .SPATTACK = 85
-                        .SPDEFEND = 80
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 70
+                        .SpecialAttack = 85
+                        .SpecialDefence = 80
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21085,12 +21046,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 40
-                        .DEFEND = 50
-                        .SPATTACK = 65
-                        .SPDEFEND = 85
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 50
+                        .SpecialAttack = 65
+                        .SpecialDefence = 85
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -21120,12 +21081,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 60
-                        .DEFEND = 70
-                        .SPATTACK = 85
-                        .SPDEFEND = 105
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 70
+                        .SpecialAttack = 85
+                        .SpecialDefence = 105
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -21155,12 +21116,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 165
-                        .ATTACK = 75
-                        .DEFEND = 80
-                        .SPATTACK = 40
-                        .SPDEFEND = 45
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 80
+                        .SpecialAttack = 40
+                        .SpecialDefence = 45
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21190,17 +21151,15 @@
                     .AbilityHidden = 68
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 47
-                        .DEFEND = 50
-                        .SPATTACK = 57
-                        .SPDEFEND = 50
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 47
+                        .Defence = 50
+                        .SpecialAttack = 57
+                        .SpecialDefence = 50
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 596
                 With ReturnValue
@@ -21227,12 +21186,12 @@
                     .AbilityHidden = 68
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 77
-                        .DEFEND = 60
-                        .SPATTACK = 97
-                        .SPDEFEND = 60
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 77
+                        .Defence = 60
+                        .SpecialAttack = 97
+                        .SpecialDefence = 60
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21262,12 +21221,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 50
-                        .DEFEND = 91
-                        .SPATTACK = 24
-                        .SPDEFEND = 86
-                        .SPEED = 10
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 91
+                        .SpecialAttack = 24
+                        .SpecialDefence = 86
+                        .Speed = 10
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21297,12 +21256,12 @@
                     .AbilityHidden = 107
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 94
-                        .DEFEND = 131
-                        .SPATTACK = 54
-                        .SPDEFEND = 116
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 94
+                        .Defence = 131
+                        .SpecialAttack = 54
+                        .SpecialDefence = 116
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21332,12 +21291,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 70
-                        .SPATTACK = 45
-                        .SPDEFEND = 60
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 70
+                        .SpecialAttack = 45
+                        .SpecialDefence = 60
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21367,12 +21326,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 80
-                        .DEFEND = 95
-                        .SPATTACK = 70
-                        .SPDEFEND = 85
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 95
+                        .SpecialAttack = 70
+                        .SpecialDefence = 85
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21402,12 +21361,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 100
-                        .DEFEND = 115
-                        .SPATTACK = 70
-                        .SPDEFEND = 85
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 115
+                        .SpecialAttack = 70
+                        .SpecialDefence = 85
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21437,12 +21396,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 55
-                        .DEFEND = 40
-                        .SPATTACK = 45
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 40
+                        .SpecialAttack = 45
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21472,12 +21431,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 85
-                        .DEFEND = 70
-                        .SPATTACK = 75
-                        .SPDEFEND = 70
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 70
+                        .SpecialAttack = 75
+                        .SpecialDefence = 70
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21507,12 +21466,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 115
-                        .DEFEND = 80
-                        .SPATTACK = 105
-                        .SPDEFEND = 80
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 80
+                        .SpecialAttack = 105
+                        .SpecialDefence = 80
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21542,17 +21501,15 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 85
-                        .SPDEFEND = 55
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 85
+                        .SpecialDefence = 55
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 606
                 With ReturnValue
@@ -21579,12 +21536,12 @@
                     .AbilityHidden = 148
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 75
-                        .DEFEND = 75
-                        .SPATTACK = 125
-                        .SPDEFEND = 95
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 75
+                        .SpecialAttack = 125
+                        .SpecialDefence = 95
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21614,12 +21571,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 30
-                        .DEFEND = 55
-                        .SPATTACK = 65
-                        .SPDEFEND = 55
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 55
+                        .SpecialAttack = 65
+                        .SpecialDefence = 55
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21649,12 +21606,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 40
-                        .DEFEND = 60
-                        .SPATTACK = 95
-                        .SPDEFEND = 60
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 60
+                        .SpecialAttack = 95
+                        .SpecialDefence = 60
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21684,12 +21641,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 55
-                        .DEFEND = 90
-                        .SPATTACK = 145
-                        .SPDEFEND = 90
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 90
+                        .SpecialAttack = 145
+                        .SpecialDefence = 90
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21719,12 +21676,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 46
-                        .ATTACK = 87
-                        .DEFEND = 60
-                        .SPATTACK = 30
-                        .SPDEFEND = 40
-                        .SPEED = 57
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 87
+                        .Defence = 60
+                        .SpecialAttack = 30
+                        .SpecialDefence = 40
+                        .Speed = 57
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21754,12 +21711,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 66
-                        .ATTACK = 117
-                        .DEFEND = 70
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 67
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 117
+                        .Defence = 70
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 67
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21789,12 +21746,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 147
-                        .DEFEND = 90
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 147
+                        .Defence = 90
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21824,12 +21781,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 70
-                        .DEFEND = 40
-                        .SPATTACK = 60
-                        .SPDEFEND = 40
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 40
+                        .SpecialAttack = 60
+                        .SpecialDefence = 40
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21859,12 +21816,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 110
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21894,12 +21851,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 50
-                        .DEFEND = 50
-                        .SPATTACK = 95
-                        .SPDEFEND = 135
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 50
+                        .SpecialAttack = 95
+                        .SpecialDefence = 135
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21929,12 +21886,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 40
-                        .DEFEND = 85
-                        .SPATTACK = 40
-                        .SPDEFEND = 65
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 85
+                        .SpecialAttack = 40
+                        .SpecialDefence = 65
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21964,12 +21921,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 70
-                        .DEFEND = 40
-                        .SPATTACK = 100
-                        .SPDEFEND = 60
-                        .SPEED = 145
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 40
+                        .SpecialAttack = 100
+                        .SpecialDefence = 60
+                        .Speed = 145
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -21999,17 +21956,15 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 109
-                        .ATTACK = 66
-                        .DEFEND = 84
-                        .SPATTACK = 81
-                        .SPDEFEND = 99
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 66
+                        .Defence = 84
+                        .SpecialAttack = 81
+                        .SpecialDefence = 99
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 619
                 With ReturnValue
@@ -22036,12 +21991,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 85
-                        .DEFEND = 50
-                        .SPATTACK = 55
-                        .SPDEFEND = 50
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 50
+                        .SpecialAttack = 55
+                        .SpecialDefence = 50
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22071,12 +22026,12 @@
                     .AbilityHidden = 120
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 125
-                        .DEFEND = 60
-                        .SPATTACK = 95
-                        .SPDEFEND = 60
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 60
+                        .SpecialAttack = 95
+                        .SpecialDefence = 60
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22106,12 +22061,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 77
-                        .ATTACK = 120
-                        .DEFEND = 90
-                        .SPATTACK = 60
-                        .SPDEFEND = 90
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 90
+                        .SpecialAttack = 60
+                        .SpecialDefence = 90
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22141,12 +22096,12 @@
                     .AbilityHidden = 99
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 74
-                        .DEFEND = 50
-                        .SPATTACK = 35
-                        .SPDEFEND = 50
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 74
+                        .Defence = 50
+                        .SpecialAttack = 35
+                        .SpecialDefence = 50
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22176,12 +22131,12 @@
                     .AbilityHidden = 99
                     With .SpeciesStrengthValues
                         .HP = 89
-                        .ATTACK = 124
-                        .DEFEND = 80
-                        .SPATTACK = 55
-                        .SPDEFEND = 80
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 124
+                        .Defence = 80
+                        .SpecialAttack = 55
+                        .SpecialDefence = 80
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22211,12 +22166,12 @@
                     .AbilityHidden = 46
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 85
-                        .DEFEND = 70
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 70
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22246,12 +22201,12 @@
                     .AbilityHidden = 46
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 125
-                        .DEFEND = 100
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 100
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22281,12 +22236,12 @@
                     .AbilityHidden = 43
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 110
-                        .DEFEND = 95
-                        .SPATTACK = 40
-                        .SPDEFEND = 95
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 95
+                        .SpecialAttack = 40
+                        .SpecialDefence = 95
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22316,12 +22271,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 83
-                        .DEFEND = 50
-                        .SPATTACK = 37
-                        .SPDEFEND = 50
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 83
+                        .Defence = 50
+                        .SpecialAttack = 37
+                        .SpecialDefence = 50
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22351,12 +22306,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 123
-                        .DEFEND = 75
-                        .SPATTACK = 57
-                        .SPDEFEND = 75
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 123
+                        .Defence = 75
+                        .SpecialAttack = 57
+                        .SpecialDefence = 75
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22386,12 +22341,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 55
-                        .DEFEND = 75
-                        .SPATTACK = 45
-                        .SPDEFEND = 65
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 75
+                        .SpecialAttack = 45
+                        .SpecialDefence = 65
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22421,12 +22376,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 65
-                        .DEFEND = 105
-                        .SPATTACK = 55
-                        .SPDEFEND = 95
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 105
+                        .SpecialAttack = 55
+                        .SpecialDefence = 95
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22456,12 +22411,12 @@
                     .AbilityHidden = 73
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 97
-                        .DEFEND = 66
-                        .SPATTACK = 105
-                        .SPDEFEND = 66
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 97
+                        .Defence = 66
+                        .SpecialAttack = 105
+                        .SpecialDefence = 66
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22491,12 +22446,12 @@
                     .AbilityHidden = 54
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 109
-                        .DEFEND = 112
-                        .SPATTACK = 48
-                        .SPDEFEND = 48
-                        .SPEED = 109
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 109
+                        .Defence = 112
+                        .SpecialAttack = 48
+                        .SpecialDefence = 48
+                        .Speed = 109
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22526,12 +22481,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 52
-                        .ATTACK = 65
-                        .DEFEND = 50
-                        .SPATTACK = 45
-                        .SPDEFEND = 50
-                        .SPEED = 38
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 50
+                        .SpecialAttack = 45
+                        .SpecialDefence = 50
+                        .Speed = 38
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22561,12 +22516,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 85
-                        .DEFEND = 75
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 75
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22596,12 +22551,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 92
-                        .ATTACK = 105
-                        .DEFEND = 90
-                        .SPATTACK = 125
-                        .SPDEFEND = 90
-                        .SPEED = 98
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 90
+                        .SpecialAttack = 125
+                        .SpecialDefence = 90
+                        .Speed = 98
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22631,12 +22586,12 @@
                     .AbilityHidden = 68
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 85
-                        .DEFEND = 55
-                        .SPATTACK = 50
-                        .SPDEFEND = 55
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 55
+                        .SpecialAttack = 50
+                        .SpecialDefence = 55
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22666,12 +22621,12 @@
                     .AbilityHidden = 68
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 60
-                        .DEFEND = 65
-                        .SPATTACK = 135
-                        .SPDEFEND = 105
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 65
+                        .SpecialAttack = 135
+                        .SpecialDefence = 105
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22701,12 +22656,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 90
-                        .DEFEND = 129
-                        .SPATTACK = 90
-                        .SPDEFEND = 72
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 129
+                        .SpecialAttack = 90
+                        .SpecialDefence = 72
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22736,12 +22691,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 129
-                        .DEFEND = 90
-                        .SPATTACK = 72
-                        .SPDEFEND = 90
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 129
+                        .Defence = 90
+                        .SpecialAttack = 72
+                        .SpecialDefence = 90
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22771,12 +22726,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 90
-                        .DEFEND = 72
-                        .SPATTACK = 90
-                        .SPDEFEND = 129
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 72
+                        .SpecialAttack = 90
+                        .SpecialDefence = 129
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22806,12 +22761,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 79
-                        .ATTACK = 115
-                        .DEFEND = 70
-                        .SPATTACK = 125
-                        .SPDEFEND = 80
-                        .SPEED = 111
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 70
+                        .SpecialAttack = 125
+                        .SpecialDefence = 80
+                        .Speed = 111
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22841,12 +22796,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 79
-                        .ATTACK = 115
-                        .DEFEND = 70
-                        .SPATTACK = 125
-                        .SPDEFEND = 80
-                        .SPEED = 111
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 70
+                        .SpecialAttack = 125
+                        .SpecialDefence = 80
+                        .Speed = 111
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22876,12 +22831,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 120
-                        .DEFEND = 100
-                        .SPATTACK = 150
-                        .SPDEFEND = 120
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 100
+                        .SpecialAttack = 150
+                        .SpecialDefence = 120
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22911,12 +22866,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 150
-                        .DEFEND = 120
-                        .SPATTACK = 120
-                        .SPDEFEND = 100
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 150
+                        .Defence = 120
+                        .SpecialAttack = 120
+                        .SpecialDefence = 100
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22946,12 +22901,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 89
-                        .ATTACK = 125
-                        .DEFEND = 90
-                        .SPATTACK = 115
-                        .SPDEFEND = 80
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 90
+                        .SpecialAttack = 115
+                        .SpecialDefence = 80
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -22981,12 +22936,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 125
-                        .ATTACK = 130
-                        .DEFEND = 90
-                        .SPATTACK = 130
-                        .SPDEFEND = 90
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 90
+                        .SpecialAttack = 130
+                        .SpecialDefence = 90
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23016,12 +22971,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 91
-                        .ATTACK = 72
-                        .DEFEND = 90
-                        .SPATTACK = 129
-                        .SPDEFEND = 90
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 90
+                        .SpecialAttack = 129
+                        .SpecialDefence = 90
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23051,12 +23006,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 77
-                        .DEFEND = 77
-                        .SPATTACK = 128
-                        .SPDEFEND = 128
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 77
+                        .Defence = 77
+                        .SpecialAttack = 128
+                        .SpecialDefence = 128
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23086,12 +23041,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 120
-                        .DEFEND = 95
-                        .SPATTACK = 120
-                        .SPDEFEND = 95
-                        .SPEED = 99
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 95
+                        .SpecialAttack = 120
+                        .SpecialDefence = 95
+                        .Speed = 99
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23121,12 +23076,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 56
-                        .ATTACK = 61
-                        .DEFEND = 65
-                        .SPATTACK = 48
-                        .SPDEFEND = 45
-                        .SPEED = 33
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 61
+                        .Defence = 65
+                        .SpecialAttack = 48
+                        .SpecialDefence = 45
+                        .Speed = 33
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23156,12 +23111,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 78
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 56
-                        .SPEED = 57
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 56
+                        .Speed = 57
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23191,12 +23146,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 88
-                        .ATTACK = 107
-                        .DEFEND = 122
-                        .SPATTACK = 74
-                        .SPDEFEND = 75
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 107
+                        .Defence = 122
+                        .SpecialAttack = 74
+                        .SpecialDefence = 75
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23226,12 +23181,12 @@
                     .AbilityHidden = 170
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 62
-                        .SPDEFEND = 60
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 62
+                        .SpecialDefence = 60
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23261,12 +23216,12 @@
                     .AbilityHidden = 170
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 59
-                        .DEFEND = 58
-                        .SPATTACK = 90
-                        .SPDEFEND = 70
-                        .SPEED = 73
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 59
+                        .Defence = 58
+                        .SpecialAttack = 90
+                        .SpecialDefence = 70
+                        .Speed = 73
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23296,12 +23251,12 @@
                     .AbilityHidden = 170
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 69
-                        .DEFEND = 72
-                        .SPATTACK = 114
-                        .SPDEFEND = 100
-                        .SPEED = 104
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 69
+                        .Defence = 72
+                        .SpecialAttack = 114
+                        .SpecialDefence = 100
+                        .Speed = 104
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23331,12 +23286,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 56
-                        .DEFEND = 40
-                        .SPATTACK = 62
-                        .SPDEFEND = 44
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 56
+                        .Defence = 40
+                        .SpecialAttack = 62
+                        .SpecialDefence = 44
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23366,12 +23321,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 54
-                        .ATTACK = 63
-                        .DEFEND = 52
-                        .SPATTACK = 83
-                        .SPDEFEND = 56
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 52
+                        .SpecialAttack = 83
+                        .SpecialDefence = 56
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23401,12 +23356,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 95
-                        .DEFEND = 67
-                        .SPATTACK = 103
-                        .SPDEFEND = 71
-                        .SPEED = 122
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 67
+                        .SpecialAttack = 103
+                        .SpecialDefence = 71
+                        .Speed = 122
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23436,12 +23391,12 @@
                     .AbilityHidden = 37
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 36
-                        .DEFEND = 38
-                        .SPATTACK = 32
-                        .SPDEFEND = 36
-                        .SPEED = 57
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 36
+                        .Defence = 38
+                        .SpecialAttack = 32
+                        .SpecialDefence = 36
+                        .Speed = 57
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23471,12 +23426,12 @@
                     .AbilityHidden = 37
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 56
-                        .DEFEND = 77
-                        .SPATTACK = 50
-                        .SPDEFEND = 77
-                        .SPEED = 78
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 56
+                        .Defence = 77
+                        .SpecialAttack = 50
+                        .SpecialDefence = 77
+                        .Speed = 78
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23506,12 +23461,12 @@
                     .AbilityHidden = 177
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 50
-                        .DEFEND = 43
-                        .SPATTACK = 40
-                        .SPDEFEND = 38
-                        .SPEED = 62
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 43
+                        .SpecialAttack = 40
+                        .SpecialDefence = 38
+                        .Speed = 62
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23541,12 +23496,12 @@
                     .AbilityHidden = 177
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 73
-                        .DEFEND = 55
-                        .SPATTACK = 56
-                        .SPDEFEND = 52
-                        .SPEED = 84
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 55
+                        .SpecialAttack = 56
+                        .SpecialDefence = 52
+                        .Speed = 84
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23576,12 +23531,12 @@
                     .AbilityHidden = 177
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 81
-                        .DEFEND = 71
-                        .SPATTACK = 74
-                        .SPDEFEND = 69
-                        .SPEED = 126
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 81
+                        .Defence = 71
+                        .SpecialAttack = 74
+                        .SpecialDefence = 69
+                        .Speed = 126
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23611,12 +23566,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 35
-                        .DEFEND = 40
-                        .SPATTACK = 27
-                        .SPDEFEND = 25
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 40
+                        .SpecialAttack = 27
+                        .SpecialDefence = 25
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23646,12 +23601,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 22
-                        .DEFEND = 60
-                        .SPATTACK = 27
-                        .SPDEFEND = 30
-                        .SPEED = 29
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 22
+                        .Defence = 60
+                        .SpecialAttack = 27
+                        .SpecialDefence = 30
+                        .Speed = 29
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23681,12 +23636,12 @@
                     .AbilityHidden = 132
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 52
-                        .DEFEND = 50
-                        .SPATTACK = 90
-                        .SPDEFEND = 50
-                        .SPEED = 89
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 50
+                        .SpecialAttack = 90
+                        .SpecialDefence = 50
+                        .Speed = 89
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23716,12 +23671,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 50
-                        .DEFEND = 58
-                        .SPATTACK = 73
-                        .SPDEFEND = 54
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 58
+                        .SpecialAttack = 73
+                        .SpecialDefence = 54
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23751,12 +23706,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 86
-                        .ATTACK = 68
-                        .DEFEND = 72
-                        .SPATTACK = 109
-                        .SPDEFEND = 66
-                        .SPEED = 106
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 68
+                        .Defence = 72
+                        .SpecialAttack = 109
+                        .SpecialDefence = 66
+                        .Speed = 106
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -23786,12 +23741,12 @@
                     .AbilityHidden = 180
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 38
-                        .DEFEND = 39
-                        .SPATTACK = 61
-                        .SPDEFEND = 79
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 38
+                        .Defence = 39
+                        .SpecialAttack = 61
+                        .SpecialDefence = 79
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23821,12 +23776,12 @@
                     .AbilityHidden = 180
                     With .SpeciesStrengthValues
                         .HP = 54
-                        .ATTACK = 45
-                        .DEFEND = 47
-                        .SPATTACK = 75
-                        .SPDEFEND = 98
-                        .SPEED = 52
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 47
+                        .SpecialAttack = 75
+                        .SpecialDefence = 98
+                        .Speed = 52
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23856,12 +23811,12 @@
                     .AbilityHidden = 180
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 65
-                        .DEFEND = 68
-                        .SPATTACK = 112
-                        .SPDEFEND = 154
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 68
+                        .SpecialAttack = 112
+                        .SpecialDefence = 154
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23891,12 +23846,12 @@
                     .AbilityHidden = 179
                     With .SpeciesStrengthValues
                         .HP = 66
-                        .ATTACK = 65
-                        .DEFEND = 48
-                        .SPATTACK = 62
-                        .SPDEFEND = 57
-                        .SPEED = 52
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 48
+                        .SpecialAttack = 62
+                        .SpecialDefence = 57
+                        .Speed = 52
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23926,12 +23881,12 @@
                     .AbilityHidden = 179
                     With .SpeciesStrengthValues
                         .HP = 123
-                        .ATTACK = 100
-                        .DEFEND = 62
-                        .SPATTACK = 97
-                        .SPDEFEND = 81
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 62
+                        .SpecialAttack = 97
+                        .SpecialDefence = 81
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23961,12 +23916,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 82
-                        .DEFEND = 62
-                        .SPATTACK = 46
-                        .SPDEFEND = 48
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 62
+                        .SpecialAttack = 46
+                        .SpecialDefence = 48
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -23996,12 +23951,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 124
-                        .DEFEND = 78
-                        .SPATTACK = 69
-                        .SPDEFEND = 71
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 124
+                        .Defence = 78
+                        .SpecialAttack = 69
+                        .SpecialDefence = 71
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24031,12 +23986,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 60
-                        .SPATTACK = 65
-                        .SPDEFEND = 90
-                        .SPEED = 102
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 60
+                        .SpecialAttack = 65
+                        .SpecialDefence = 90
+                        .Speed = 102
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24066,12 +24021,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 48
-                        .DEFEND = 54
-                        .SPATTACK = 63
-                        .SPDEFEND = 60
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 54
+                        .SpecialAttack = 63
+                        .SpecialDefence = 60
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24101,12 +24056,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 48
-                        .DEFEND = 76
-                        .SPATTACK = 83
-                        .SPDEFEND = 81
-                        .SPEED = 104
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 76
+                        .SpecialAttack = 83
+                        .SpecialDefence = 81
+                        .Speed = 104
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -24136,12 +24091,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 80
-                        .DEFEND = 100
-                        .SPATTACK = 35
-                        .SPDEFEND = 37
-                        .SPEED = 28
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 100
+                        .SpecialAttack = 35
+                        .SpecialDefence = 37
+                        .Speed = 28
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24171,12 +24126,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 110
-                        .DEFEND = 150
-                        .SPATTACK = 45
-                        .SPDEFEND = 49
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 150
+                        .SpecialAttack = 45
+                        .SpecialDefence = 49
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24206,12 +24161,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 150
-                        .SPATTACK = 50
-                        .SPDEFEND = 150
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 150
+                        .SpecialAttack = 50
+                        .SpecialDefence = 150
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24241,12 +24196,12 @@
                     .AbilityHidden = 165
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 52
-                        .DEFEND = 60
-                        .SPATTACK = 63
-                        .SPDEFEND = 65
-                        .SPEED = 23
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 60
+                        .SpecialAttack = 63
+                        .SpecialDefence = 65
+                        .Speed = 23
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24276,12 +24231,12 @@
                     .AbilityHidden = 165
                     With .SpeciesStrengthValues
                         .HP = 101
-                        .ATTACK = 72
-                        .DEFEND = 72
-                        .SPATTACK = 99
-                        .SPDEFEND = 89
-                        .SPEED = 29
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 72
+                        .Defence = 72
+                        .SpecialAttack = 99
+                        .SpecialDefence = 89
+                        .Speed = 29
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24311,12 +24266,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 48
-                        .DEFEND = 66
-                        .SPATTACK = 59
-                        .SPDEFEND = 57
-                        .SPEED = 49
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 48
+                        .Defence = 66
+                        .SpecialAttack = 59
+                        .SpecialDefence = 57
+                        .Speed = 49
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24346,12 +24301,12 @@
                     .AbilityHidden = 84
                     With .SpeciesStrengthValues
                         .HP = 82
-                        .ATTACK = 80
-                        .DEFEND = 86
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 86
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24381,12 +24336,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 53
-                        .ATTACK = 54
-                        .DEFEND = 37
-                        .SPATTACK = 46
-                        .SPDEFEND = 45
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 54
+                        .Defence = 37
+                        .SpecialAttack = 46
+                        .SpecialDefence = 45
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24416,12 +24371,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 86
-                        .ATTACK = 92
-                        .DEFEND = 88
-                        .SPATTACK = 68
-                        .SPDEFEND = 75
-                        .SPEED = 73
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 88
+                        .SpecialAttack = 68
+                        .SpecialDefence = 75
+                        .Speed = 73
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24451,12 +24406,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 42
-                        .ATTACK = 52
-                        .DEFEND = 67
-                        .SPATTACK = 39
-                        .SPDEFEND = 56
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 67
+                        .SpecialAttack = 39
+                        .SpecialDefence = 56
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24486,12 +24441,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 105
-                        .DEFEND = 115
-                        .SPATTACK = 54
-                        .SPDEFEND = 86
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 115
+                        .SpecialAttack = 54
+                        .SpecialDefence = 86
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24521,12 +24476,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 60
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 60
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24556,12 +24511,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 75
-                        .DEFEND = 90
-                        .SPATTACK = 97
-                        .SPDEFEND = 123
-                        .SPEED = 44
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 90
+                        .SpecialAttack = 97
+                        .SpecialDefence = 123
+                        .Speed = 44
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24591,12 +24546,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 53
-                        .DEFEND = 62
-                        .SPATTACK = 58
-                        .SPDEFEND = 63
-                        .SPEED = 44
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 62
+                        .SpecialAttack = 58
+                        .SpecialDefence = 63
+                        .Speed = 44
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24626,12 +24581,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 73
-                        .DEFEND = 88
-                        .SPATTACK = 120
-                        .SPDEFEND = 89
-                        .SPEED = 59
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 88
+                        .SpecialAttack = 120
+                        .SpecialDefence = 89
+                        .Speed = 59
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24661,12 +24616,12 @@
                     .AbilityHidden = 94
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 38
-                        .DEFEND = 33
-                        .SPATTACK = 61
-                        .SPDEFEND = 43
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 38
+                        .Defence = 33
+                        .SpecialAttack = 61
+                        .SpecialDefence = 43
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24696,12 +24651,12 @@
                     .AbilityHidden = 94
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 55
-                        .DEFEND = 52
-                        .SPATTACK = 109
-                        .SPDEFEND = 94
-                        .SPEED = 109
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 52
+                        .SpecialAttack = 109
+                        .SpecialDefence = 94
+                        .Speed = 109
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24731,12 +24686,12 @@
                     .AbilityHidden = 69
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 89
-                        .DEFEND = 77
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 89
+                        .Defence = 77
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24766,12 +24721,12 @@
                     .AbilityHidden = 69
                     With .SpeciesStrengthValues
                         .HP = 82
-                        .ATTACK = 121
-                        .DEFEND = 119
-                        .SPATTACK = 69
-                        .SPDEFEND = 69
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 121
+                        .Defence = 119
+                        .SpecialAttack = 69
+                        .SpecialDefence = 69
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24801,12 +24756,12 @@
                     .AbilityHidden = 117
                     With .SpeciesStrengthValues
                         .HP = 77
-                        .ATTACK = 59
-                        .DEFEND = 50
-                        .SPATTACK = 67
-                        .SPDEFEND = 63
-                        .SPEED = 46
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 59
+                        .Defence = 50
+                        .SpecialAttack = 67
+                        .SpecialDefence = 63
+                        .Speed = 46
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24836,12 +24791,12 @@
                     .AbilityHidden = 117
                     With .SpeciesStrengthValues
                         .HP = 123
-                        .ATTACK = 77
-                        .DEFEND = 72
-                        .SPATTACK = 99
-                        .SPDEFEND = 92
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 77
+                        .Defence = 72
+                        .SpecialAttack = 99
+                        .SpecialDefence = 92
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24871,12 +24826,12 @@
                     .AbilityHidden = 182
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 110
-                        .SPDEFEND = 130
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 110
+                        .SpecialDefence = 130
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24906,12 +24861,12 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 92
-                        .DEFEND = 75
-                        .SPATTACK = 74
-                        .SPDEFEND = 63
-                        .SPEED = 118
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 92
+                        .Defence = 75
+                        .SpecialAttack = 74
+                        .SpecialDefence = 63
+                        .Speed = 118
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24941,12 +24896,12 @@
                     .AbilityHidden = 57
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 58
-                        .DEFEND = 57
-                        .SPATTACK = 81
-                        .SPDEFEND = 67
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 58
+                        .Defence = 57
+                        .SpecialAttack = 81
+                        .SpecialDefence = 67
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -24976,12 +24931,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 150
-                        .SPATTACK = 50
-                        .SPDEFEND = 150
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 150
+                        .SpecialAttack = 50
+                        .SpecialDefence = 150
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25011,12 +24966,12 @@
                     .AbilityHidden = 183
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 50
-                        .DEFEND = 35
-                        .SPATTACK = 55
-                        .SPDEFEND = 75
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 35
+                        .SpecialAttack = 55
+                        .SpecialDefence = 75
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25046,12 +25001,12 @@
                     .AbilityHidden = 183
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 75
-                        .DEFEND = 53
-                        .SPATTACK = 83
-                        .SPDEFEND = 113
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 53
+                        .SpecialAttack = 83
+                        .SpecialDefence = 113
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25081,12 +25036,12 @@
                     .AbilityHidden = 183
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 110
-                        .SPDEFEND = 150
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 110
+                        .SpecialDefence = 150
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25116,12 +25071,12 @@
                     .AbilityHidden = 170
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 80
-                        .DEFEND = 91
-                        .SPATTACK = 80
-                        .SPDEFEND = 87
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 91
+                        .SpecialAttack = 80
+                        .SpecialDefence = 87
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25151,12 +25106,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 43
-                        .ATTACK = 70
-                        .DEFEND = 48
-                        .SPATTACK = 50
-                        .SPDEFEND = 60
-                        .SPEED = 38
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 48
+                        .SpecialAttack = 50
+                        .SpecialDefence = 60
+                        .Speed = 38
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25186,12 +25141,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 110
-                        .DEFEND = 76
-                        .SPATTACK = 65
-                        .SPDEFEND = 82
-                        .SPEED = 56
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 76
+                        .SpecialAttack = 65
+                        .SpecialDefence = 82
+                        .Speed = 56
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25221,12 +25176,12 @@
                     .AbilityHidden = 15
                     With .SpeciesStrengthValues
                         .HP = 44
-                        .ATTACK = 66
-                        .DEFEND = 70
-                        .SPATTACK = 44
-                        .SPDEFEND = 55
-                        .SPEED = 56
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 66
+                        .Defence = 70
+                        .SpecialAttack = 44
+                        .SpecialDefence = 55
+                        .Speed = 56
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25256,12 +25211,12 @@
                     .AbilityHidden = 15
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 85
-                        .DEFEND = 122
-                        .SPATTACK = 58
-                        .SPDEFEND = 75
-                        .SPEED = 99
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 122
+                        .SpecialAttack = 58
+                        .SpecialDefence = 75
+                        .Speed = 99
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25291,12 +25246,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 69
-                        .DEFEND = 85
-                        .SPATTACK = 32
-                        .SPDEFEND = 35
-                        .SPEED = 28
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 69
+                        .Defence = 85
+                        .SpecialAttack = 32
+                        .SpecialDefence = 35
+                        .Speed = 28
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25326,12 +25281,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 117
-                        .DEFEND = 184
-                        .SPATTACK = 44
-                        .SPDEFEND = 46
-                        .SPEED = 28
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 117
+                        .Defence = 184
+                        .SpecialAttack = 44
+                        .SpecialDefence = 46
+                        .Speed = 28
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25361,12 +25316,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 30
-                        .DEFEND = 35
-                        .SPATTACK = 45
-                        .SPDEFEND = 40
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 35
+                        .SpecialAttack = 45
+                        .SpecialDefence = 40
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25396,12 +25351,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 70
-                        .DEFEND = 80
-                        .SPATTACK = 97
-                        .SPDEFEND = 80
-                        .SPEED = 123
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 80
+                        .SpecialAttack = 97
+                        .SpecialDefence = 80
+                        .Speed = 123
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25431,12 +25386,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 126
-                        .ATTACK = 131
-                        .DEFEND = 95
-                        .SPATTACK = 131
-                        .SPDEFEND = 98
-                        .SPEED = 99
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 131
+                        .Defence = 95
+                        .SpecialAttack = 131
+                        .SpecialDefence = 98
+                        .Speed = 99
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25466,12 +25421,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 126
-                        .ATTACK = 131
-                        .DEFEND = 95
-                        .SPATTACK = 131
-                        .SPDEFEND = 98
-                        .SPEED = 99
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 131
+                        .Defence = 95
+                        .SpecialAttack = 131
+                        .SpecialDefence = 98
+                        .Speed = 99
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25501,12 +25456,12 @@
                     .AbilityHidden = "211"
                     With .SpeciesStrengthValues
                         .HP = 108
-                        .ATTACK = 100
-                        .DEFEND = 121
-                        .SPATTACK = 81
-                        .SPDEFEND = 95
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 121
+                        .SpecialAttack = 81
+                        .SpecialDefence = 95
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25536,12 +25491,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 100
-                        .DEFEND = 150
-                        .SPATTACK = 100
-                        .SPDEFEND = 150
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 150
+                        .SpecialAttack = 100
+                        .SpecialDefence = 150
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25571,12 +25526,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 110
-                        .DEFEND = 60
-                        .SPATTACK = 150
-                        .SPDEFEND = 130
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 60
+                        .SpecialAttack = 150
+                        .SpecialDefence = 130
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25606,12 +25561,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 110
-                        .DEFEND = 120
-                        .SPATTACK = 130
-                        .SPDEFEND = 90
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 120
+                        .SpecialAttack = 130
+                        .SpecialDefence = 90
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25634,13 +25589,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -25653,8 +25608,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -25684,7 +25637,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 722
@@ -25712,17 +25665,15 @@
                     .AbilityHidden = 203
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 723
                 With ReturnValue
@@ -25749,12 +25700,12 @@
                     .AbilityHidden = 203
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 75
-                        .DEFEND = 75
-                        .SPATTACK = 70
-                        .SPDEFEND = 70
-                        .SPEED = 52
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 75
+                        .SpecialAttack = 70
+                        .SpecialDefence = 70
+                        .Speed = 52
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25784,12 +25735,12 @@
                     .AbilityHidden = 203
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 107
-                        .DEFEND = 75
-                        .SPATTACK = 100
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 107
+                        .Defence = 75
+                        .SpecialAttack = 100
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25819,12 +25770,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 65
-                        .DEFEND = 40
-                        .SPATTACK = 60
-                        .SPDEFEND = 40
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 40
+                        .SpecialAttack = 60
+                        .SpecialDefence = 40
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25854,12 +25805,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 85
-                        .DEFEND = 50
-                        .SPATTACK = 80
-                        .SPDEFEND = 50
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 50
+                        .SpecialAttack = 80
+                        .SpecialDefence = 50
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25889,12 +25840,12 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 115
-                        .DEFEND = 90
-                        .SPATTACK = 80
-                        .SPDEFEND = 90
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 90
+                        .SpecialAttack = 80
+                        .SpecialDefence = 90
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25924,12 +25875,12 @@
                     .AbilityHidden = 204
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 54
-                        .DEFEND = 54
-                        .SPATTACK = 66
-                        .SPDEFEND = 56
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 54
+                        .Defence = 54
+                        .SpecialAttack = 66
+                        .SpecialDefence = 56
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25959,12 +25910,12 @@
                     .AbilityHidden = 204
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 69
-                        .DEFEND = 69
-                        .SPATTACK = 91
-                        .SPDEFEND = 81
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 69
+                        .Defence = 69
+                        .SpecialAttack = 91
+                        .SpecialDefence = 81
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -25994,12 +25945,12 @@
                     .AbilityHidden = 204
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 74
-                        .DEFEND = 74
-                        .SPATTACK = 126
-                        .SPDEFEND = 116
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 74
+                        .Defence = 74
+                        .SpecialAttack = 126
+                        .SpecialDefence = 116
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26029,17 +25980,15 @@
                     .AbilityHidden = 53
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 75
-                        .DEFEND = 30
-                        .SPATTACK = 30
-                        .SPDEFEND = 30
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 30
+                        .SpecialAttack = 30
+                        .SpecialDefence = 30
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 732
                 With ReturnValue
@@ -26066,12 +26015,12 @@
                     .AbilityHidden = 53
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 85
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26101,12 +26050,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 85
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26136,12 +26085,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 85
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26171,12 +26120,12 @@
                     .AbilityHidden = 91
                     With .SpeciesStrengthValues
                         .HP = 88
-                        .ATTACK = 110
-                        .DEFEND = 60
-                        .SPATTACK = 55
-                        .SPDEFEND = 60
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 60
+                        .SpecialAttack = 55
+                        .SpecialDefence = 60
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26206,12 +26155,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 47
-                        .ATTACK = 62
-                        .DEFEND = 45
-                        .SPATTACK = 55
-                        .SPDEFEND = 45
-                        .SPEED = 46
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 62
+                        .Defence = 45
+                        .SpecialAttack = 55
+                        .SpecialDefence = 45
+                        .Speed = 46
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26241,12 +26190,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 82
-                        .DEFEND = 95
-                        .SPATTACK = 55
-                        .SPDEFEND = 75
-                        .SPEED = 86
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 95
+                        .SpecialAttack = 55
+                        .SpecialDefence = 75
+                        .Speed = 86
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26276,12 +26225,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 77
-                        .ATTACK = 70
-                        .DEFEND = 90
-                        .SPATTACK = 145
-                        .SPDEFEND = 75
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 90
+                        .SpecialAttack = 145
+                        .SpecialDefence = 75
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26311,12 +26260,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 47
-                        .ATTACK = 82
-                        .DEFEND = 57
-                        .SPATTACK = 42
-                        .SPDEFEND = 47
-                        .SPEED = 63
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 82
+                        .Defence = 57
+                        .SpecialAttack = 42
+                        .SpecialDefence = 47
+                        .Speed = 63
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26346,12 +26295,12 @@
                     .AbilityHidden = 83
                     With .SpeciesStrengthValues
                         .HP = 97
-                        .ATTACK = 132
-                        .DEFEND = 77
-                        .SPATTACK = 62
-                        .SPDEFEND = 67
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 132
+                        .Defence = 77
+                        .SpecialAttack = 62
+                        .SpecialDefence = 67
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26381,12 +26330,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 70
-                        .DEFEND = 70
-                        .SPATTACK = 98
-                        .SPDEFEND = 70
-                        .SPEED = 93
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 70
+                        .SpecialAttack = 98
+                        .SpecialDefence = 70
+                        .Speed = 93
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26416,12 +26365,12 @@
                     .AbilityHidden = 175
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 55
-                        .SPDEFEND = 40
-                        .SPEED = 84
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 55
+                        .SpecialDefence = 40
+                        .Speed = 84
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26450,12 +26399,12 @@
                     .AbilityHidden = 175
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 55
-                        .DEFEND = 60
-                        .SPATTACK = 95
-                        .SPDEFEND = 70
-                        .SPEED = 124
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 60
+                        .SpecialAttack = 95
+                        .SpecialDefence = 70
+                        .Speed = 124
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26485,12 +26434,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 65
-                        .DEFEND = 40
-                        .SPATTACK = 30
-                        .SPDEFEND = 40
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 40
+                        .SpecialAttack = 30
+                        .SpecialDefence = 40
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26520,12 +26469,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 115
-                        .DEFEND = 65
-                        .SPATTACK = 55
-                        .SPDEFEND = 65
-                        .SPEED = 112
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 65
+                        .SpecialAttack = 55
+                        .SpecialDefence = 65
+                        .Speed = 112
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26555,12 +26504,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 20
-                        .DEFEND = 20
-                        .SPATTACK = 25
-                        .SPDEFEND = 25
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 20
+                        .SpecialAttack = 25
+                        .SpecialDefence = 25
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26590,12 +26539,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 53
-                        .DEFEND = 62
-                        .SPATTACK = 43
-                        .SPDEFEND = 52
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 62
+                        .SpecialAttack = 43
+                        .SpecialDefence = 52
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26625,12 +26574,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 63
-                        .DEFEND = 152
-                        .SPATTACK = 53
-                        .SPDEFEND = 142
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 152
+                        .SpecialAttack = 53
+                        .SpecialDefence = 142
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26660,12 +26609,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 100
-                        .DEFEND = 70
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 70
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26695,12 +26644,12 @@
                     .AbilityHidden = 39
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 125
-                        .DEFEND = 100
-                        .SPATTACK = 55
-                        .SPDEFEND = 85
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 100
+                        .SpecialAttack = 55
+                        .SpecialDefence = 85
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26730,12 +26679,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 88
-                        .ATTACK = 40
-                        .DEFEND = 52
-                        .SPATTACK = 40
-                        .SPDEFEND = 72
-                        .SPEED = 27
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 52
+                        .SpecialAttack = 40
+                        .SpecialDefence = 72
+                        .Speed = 27
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26765,12 +26714,12 @@
                     .AbilityHidden = 11
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 70
-                        .DEFEND = 92
-                        .SPATTACK = 50
-                        .SPDEFEND = 132
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 92
+                        .SpecialAttack = 50
+                        .SpecialDefence = 132
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26800,12 +26749,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 55
-                        .DEFEND = 35
-                        .SPATTACK = 50
-                        .SPDEFEND = 35
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 35
+                        .SpecialAttack = 50
+                        .SpecialDefence = 35
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26835,12 +26784,12 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 105
-                        .DEFEND = 90
-                        .SPATTACK = 80
-                        .SPDEFEND = 90
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 90
+                        .SpecialAttack = 80
+                        .SpecialDefence = 90
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26870,12 +26819,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 35
-                        .DEFEND = 55
-                        .SPATTACK = 65
-                        .SPDEFEND = 75
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 55
+                        .SpecialAttack = 65
+                        .SpecialDefence = 75
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26905,12 +26854,12 @@
                     .AbilityHidden = 44
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 45
-                        .DEFEND = 80
-                        .SPATTACK = 90
-                        .SPDEFEND = 100
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 80
+                        .SpecialAttack = 90
+                        .SpecialDefence = 100
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26940,12 +26889,12 @@
                     .AbilityHidden = 12
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 44
-                        .DEFEND = 40
-                        .SPATTACK = 71
-                        .SPDEFEND = 40
-                        .SPEED = 77
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 44
+                        .Defence = 40
+                        .SpecialAttack = 71
+                        .SpecialDefence = 40
+                        .Speed = 77
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -26975,12 +26924,12 @@
                     .AbilityHidden = 12
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 64
-                        .DEFEND = 60
-                        .SPATTACK = 111
-                        .SPDEFEND = 60
-                        .SPEED = 117
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 60
+                        .SpecialAttack = 111
+                        .SpecialDefence = 60
+                        .Speed = 117
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27010,12 +26959,12 @@
                     .AbilityHidden = 56
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 75
-                        .DEFEND = 50
-                        .SPATTACK = 45
-                        .SPDEFEND = 50
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 50
+                        .SpecialAttack = 45
+                        .SpecialDefence = 50
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27045,12 +26994,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 125
-                        .DEFEND = 80
-                        .SPATTACK = 55
-                        .SPDEFEND = 60
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 80
+                        .SpecialAttack = 55
+                        .SpecialDefence = 60
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27080,12 +27029,12 @@
                     .AbilityHidden = 175
                     With .SpeciesStrengthValues
                         .HP = 42
-                        .ATTACK = 30
-                        .DEFEND = 38
-                        .SPATTACK = 30
-                        .SPDEFEND = 38
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 38
+                        .SpecialAttack = 30
+                        .SpecialDefence = 38
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27115,12 +27064,12 @@
                     .AbilityHidden = 175
                     With .SpeciesStrengthValues
                         .HP = 52
-                        .ATTACK = 40
-                        .DEFEND = 48
-                        .SPATTACK = 40
-                        .SPDEFEND = 48
-                        .SPEED = 62
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 48
+                        .SpecialAttack = 40
+                        .SpecialDefence = 48
+                        .Speed = 62
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27150,12 +27099,12 @@
                     .AbilityHidden = 175
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 120
-                        .DEFEND = 98
-                        .SPATTACK = 50
-                        .SPDEFEND = 98
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 98
+                        .SpecialAttack = 50
+                        .SpecialDefence = 98
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27185,12 +27134,12 @@
                     .AbilityHidden = 30
                     With .SpeciesStrengthValues
                         .HP = 51
-                        .ATTACK = 52
-                        .DEFEND = 90
-                        .SPATTACK = 82
-                        .SPDEFEND = 110
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 52
+                        .Defence = 90
+                        .SpecialAttack = 82
+                        .SpecialDefence = 110
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27220,12 +27169,12 @@
                     .AbilityHidden = 180
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 60
-                        .DEFEND = 80
-                        .SPATTACK = 90
-                        .SPDEFEND = 110
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 80
+                        .SpecialAttack = 90
+                        .SpecialDefence = 110
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27255,12 +27204,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 120
-                        .DEFEND = 90
-                        .SPATTACK = 40
-                        .SPDEFEND = 60
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 90
+                        .SpecialAttack = 40
+                        .SpecialDefence = 60
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27290,12 +27239,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 25
-                        .ATTACK = 35
-                        .DEFEND = 40
-                        .SPATTACK = 20
-                        .SPDEFEND = 30
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 40
+                        .SpecialAttack = 20
+                        .SpecialDefence = 30
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27325,12 +27274,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 125
-                        .DEFEND = 140
-                        .SPATTACK = 60
-                        .SPDEFEND = 90
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 140
+                        .SpecialAttack = 60
+                        .SpecialDefence = 90
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27360,12 +27309,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 80
-                        .SPATTACK = 70
-                        .SPDEFEND = 45
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 80
+                        .SpecialAttack = 70
+                        .SpecialDefence = 45
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27395,12 +27344,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 75
-                        .DEFEND = 110
-                        .SPATTACK = 100
-                        .SPDEFEND = 75
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 110
+                        .SpecialAttack = 100
+                        .SpecialDefence = 75
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27430,12 +27379,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 60
-                        .DEFEND = 130
-                        .SPATTACK = 30
-                        .SPDEFEND = 130
-                        .SPEED = 5
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 130
+                        .SpecialAttack = 30
+                        .SpecialDefence = 130
+                        .Speed = 5
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27465,12 +27414,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 95
-                        .SPEED = 59
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 95
+                        .Speed = 59
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27500,12 +27449,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 95
-                        .SPDEFEND = 95
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 95
+                        .SpecialDefence = 95
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27535,12 +27484,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 100
-                        .SPATTACK = 60
-                        .SPDEFEND = 100
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 100
+                        .SpecialAttack = 60
+                        .SpecialDefence = 100
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27570,12 +27519,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 115
-                        .DEFEND = 65
-                        .SPATTACK = 75
-                        .SPDEFEND = 95
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 65
+                        .SpecialAttack = 75
+                        .SpecialDefence = 95
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27605,12 +27554,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 78
-                        .DEFEND = 135
-                        .SPATTACK = 91
-                        .SPDEFEND = 85
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 135
+                        .SpecialAttack = 91
+                        .SpecialDefence = 85
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27640,12 +27589,12 @@
                     .AbilityHidden = 5
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 98
-                        .DEFEND = 63
-                        .SPATTACK = 40
-                        .SPDEFEND = 73
-                        .SPEED = 96
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 98
+                        .Defence = 63
+                        .SpecialAttack = 40
+                        .SpecialDefence = 73
+                        .Speed = 96
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27675,12 +27624,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 90
-                        .DEFEND = 80
-                        .SPATTACK = 50
-                        .SPDEFEND = 105
-                        .SPEED = 96
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 80
+                        .SpecialAttack = 50
+                        .SpecialDefence = 105
+                        .Speed = 96
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27710,12 +27659,12 @@
                     .AbilityHidden = 147
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 105
-                        .DEFEND = 70
-                        .SPATTACK = 70
-                        .SPDEFEND = 70
-                        .SPEED = 92
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 70
+                        .SpecialAttack = 70
+                        .SpecialDefence = 70
+                        .Speed = 92
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27745,12 +27694,12 @@
                     .AbilityHidden = 13
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 60
-                        .DEFEND = 85
-                        .SPATTACK = 135
-                        .SPDEFEND = 91
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 85
+                        .SpecialAttack = 135
+                        .SpecialDefence = 91
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27780,12 +27729,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 131
-                        .DEFEND = 100
-                        .SPATTACK = 86
-                        .SPDEFEND = 90
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 131
+                        .Defence = 100
+                        .SpecialAttack = 86
+                        .SpecialDefence = 90
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27815,12 +27764,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 55
-                        .DEFEND = 65
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 65
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27850,12 +27799,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 75
-                        .DEFEND = 90
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 90
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27885,12 +27834,12 @@
                     .AbilityHidden = 142
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 110
-                        .DEFEND = 125
-                        .SPATTACK = 100
-                        .SPDEFEND = 105
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 125
+                        .SpecialAttack = 100
+                        .SpecialDefence = 105
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27920,12 +27869,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 115
-                        .DEFEND = 85
-                        .SPATTACK = 95
-                        .SPDEFEND = 75
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 85
+                        .SpecialAttack = 95
+                        .SpecialDefence = 75
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27955,12 +27904,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 75
-                        .SPATTACK = 130
-                        .SPDEFEND = 115
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 75
+                        .SpecialAttack = 130
+                        .SpecialDefence = 115
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -27990,12 +27939,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 130
-                        .DEFEND = 115
-                        .SPATTACK = 85
-                        .SPDEFEND = 95
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 95
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28025,12 +27974,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 75
-                        .DEFEND = 115
-                        .SPATTACK = 95
-                        .SPDEFEND = 130
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 115
+                        .SpecialAttack = 95
+                        .SpecialDefence = 130
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28060,12 +28009,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 43
-                        .ATTACK = 29
-                        .DEFEND = 31
-                        .SPATTACK = 29
-                        .SPDEFEND = 31
-                        .SPEED = 37
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 29
+                        .Defence = 31
+                        .SpecialAttack = 29
+                        .SpecialDefence = 31
+                        .Speed = 37
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28095,12 +28044,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 43
-                        .ATTACK = 29
-                        .DEFEND = 131
-                        .SPATTACK = 29
-                        .SPDEFEND = 131
-                        .SPEED = 37
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 29
+                        .Defence = 131
+                        .SpecialAttack = 29
+                        .SpecialDefence = 131
+                        .Speed = 37
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28130,12 +28079,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 137
-                        .ATTACK = 137
-                        .DEFEND = 107
-                        .SPATTACK = 113
-                        .SPDEFEND = 89
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 137
+                        .Defence = 107
+                        .SpecialAttack = 113
+                        .SpecialDefence = 89
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28165,12 +28114,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 137
-                        .ATTACK = 113
-                        .DEFEND = 89
-                        .SPATTACK = 137
-                        .SPDEFEND = 107
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 113
+                        .Defence = 89
+                        .SpecialAttack = 137
+                        .SpecialDefence = 107
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28200,12 +28149,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 109
-                        .ATTACK = 53
-                        .DEFEND = 47
-                        .SPATTACK = 127
-                        .SPDEFEND = 131
-                        .SPEED = 103
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 47
+                        .SpecialAttack = 127
+                        .SpecialDefence = 131
+                        .Speed = 103
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28235,12 +28184,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 107
-                        .ATTACK = 139
-                        .DEFEND = 139
-                        .SPATTACK = 53
-                        .SPDEFEND = 53
-                        .SPEED = 79
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 139
+                        .Defence = 139
+                        .SpecialAttack = 53
+                        .SpecialDefence = 53
+                        .Speed = 79
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28270,12 +28219,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 137
-                        .DEFEND = 37
-                        .SPATTACK = 137
-                        .SPDEFEND = 37
-                        .SPEED = 151
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 137
+                        .Defence = 37
+                        .SpecialAttack = 137
+                        .SpecialDefence = 37
+                        .Speed = 151
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28305,12 +28254,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 83
-                        .ATTACK = 89
-                        .DEFEND = 71
-                        .SPATTACK = 173
-                        .SPDEFEND = 71
-                        .SPEED = 83
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 89
+                        .Defence = 71
+                        .SpecialAttack = 173
+                        .SpecialDefence = 71
+                        .Speed = 83
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28340,12 +28289,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 97
-                        .ATTACK = 101
-                        .DEFEND = 103
-                        .SPATTACK = 107
-                        .SPDEFEND = 101
-                        .SPEED = 61
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 101
+                        .Defence = 103
+                        .SpecialAttack = 107
+                        .SpecialDefence = 101
+                        .Speed = 61
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28375,12 +28324,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 181
-                        .DEFEND = 131
-                        .SPATTACK = 59
-                        .SPDEFEND = 31
-                        .SPEED = 109
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 181
+                        .Defence = 131
+                        .SpecialAttack = 59
+                        .SpecialDefence = 31
+                        .Speed = 109
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28410,12 +28359,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 225
-                        .ATTACK = 101
-                        .DEFEND = 53
-                        .SPATTACK = 97
-                        .SPDEFEND = 53
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 101
+                        .Defence = 53
+                        .SpecialAttack = 97
+                        .SpecialDefence = 53
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28445,12 +28394,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 97
-                        .ATTACK = 107
-                        .DEFEND = 101
-                        .SPATTACK = 127
-                        .SPDEFEND = 89
-                        .SPEED = 79
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 107
+                        .Defence = 101
+                        .SpecialAttack = 127
+                        .SpecialDefence = 89
+                        .Speed = 79
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28480,12 +28429,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 95
-                        .DEFEND = 115
-                        .SPATTACK = 130
-                        .SPDEFEND = 115
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 115
+                        .SpecialAttack = 130
+                        .SpecialDefence = 115
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28515,12 +28464,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 125
-                        .DEFEND = 80
-                        .SPATTACK = 90
-                        .SPDEFEND = 90
-                        .SPEED = 125
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 80
+                        .SpecialAttack = 90
+                        .SpecialDefence = 90
+                        .Speed = 125
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28550,12 +28499,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 73
-                        .DEFEND = 67
-                        .SPATTACK = 73
-                        .SPDEFEND = 67
-                        .SPEED = 73
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 67
+                        .SpecialAttack = 73
+                        .SpecialDefence = 67
+                        .Speed = 73
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28585,12 +28534,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 73
-                        .ATTACK = 73
-                        .DEFEND = 73
-                        .SPATTACK = 127
-                        .SPDEFEND = 73
-                        .SPEED = 121
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 73
+                        .Defence = 73
+                        .SpecialAttack = 127
+                        .SpecialDefence = 73
+                        .Speed = 121
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28620,12 +28569,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 131
-                        .DEFEND = 211
-                        .SPATTACK = 53
-                        .SPDEFEND = 101
-                        .SPEED = 13
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 131
+                        .Defence = 211
+                        .SpecialAttack = 53
+                        .SpecialDefence = 101
+                        .Speed = 13
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28655,12 +28604,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 53
-                        .ATTACK = 127
-                        .DEFEND = 53
-                        .SPATTACK = 151
-                        .SPDEFEND = 79
-                        .SPEED = 107
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 127
+                        .Defence = 53
+                        .SpecialAttack = 151
+                        .SpecialDefence = 79
+                        .Speed = 107
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28690,12 +28639,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 88
-                        .ATTACK = 112
-                        .DEFEND = 75
-                        .SPATTACK = 102
-                        .SPDEFEND = 80
-                        .SPEED = 143
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 112
+                        .Defence = 75
+                        .SpecialAttack = 102
+                        .SpecialDefence = 80
+                        .Speed = 143
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28725,12 +28674,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 46
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 55
-                        .SPDEFEND = 35
-                        .SPEED = 34
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 55
+                        .SpecialDefence = 35
+                        .Speed = 34
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28760,12 +28709,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 135
-                        .ATTACK = 143
-                        .DEFEND = 143
-                        .SPATTACK = 80
-                        .SPDEFEND = 65
-                        .SPEED = 34
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 143
+                        .Defence = 143
+                        .SpecialAttack = 80
+                        .SpecialDefence = 65
+                        .Speed = 34
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28786,13 +28735,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -28805,8 +28754,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -28836,7 +28783,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 810
@@ -28864,12 +28811,12 @@
                     .AbilityHidden = 229
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28899,12 +28846,12 @@
                     .AbilityHidden = 229
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 70
-                        .SPATTACK = 55
-                        .SPDEFEND = 60
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 70
+                        .SpecialAttack = 55
+                        .SpecialDefence = 60
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28934,12 +28881,12 @@
                     .AbilityHidden = 229
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 125
-                        .DEFEND = 90
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 90
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -28969,12 +28916,12 @@
                     .AbilityHidden = 236
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 71
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 69
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 71
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 69
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29004,12 +28951,12 @@
                     .AbilityHidden = 236
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 86
-                        .DEFEND = 60
-                        .SPATTACK = 55
-                        .SPDEFEND = 60
-                        .SPEED = 94
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 86
+                        .Defence = 60
+                        .SpecialAttack = 55
+                        .SpecialDefence = 60
+                        .Speed = 94
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29039,12 +28986,12 @@
                     .AbilityHidden = 236
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 116
-                        .DEFEND = 75
-                        .SPATTACK = 65
-                        .SPDEFEND = 75
-                        .SPEED = 119
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 116
+                        .Defence = 75
+                        .SpecialAttack = 65
+                        .SpecialDefence = 75
+                        .Speed = 119
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29074,12 +29021,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 40
-                        .DEFEND = 40
-                        .SPATTACK = 70
-                        .SPDEFEND = 40
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 40
+                        .SpecialAttack = 70
+                        .SpecialDefence = 40
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29109,12 +29056,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 60
-                        .DEFEND = 55
-                        .SPATTACK = 95
-                        .SPDEFEND = 55
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 55
+                        .SpecialAttack = 95
+                        .SpecialDefence = 55
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29144,12 +29091,12 @@
                     .AbilityHidden = 97
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 65
-                        .SPATTACK = 125
-                        .SPDEFEND = 65
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 65
+                        .SpecialAttack = 125
+                        .SpecialDefence = 65
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29179,12 +29126,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29214,12 +29161,12 @@
                     .AbilityHidden = 82
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 95
-                        .DEFEND = 95
-                        .SPATTACK = 55
-                        .SPDEFEND = 75
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 95
+                        .SpecialAttack = 55
+                        .SpecialDefence = 75
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29249,12 +29196,12 @@
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
                         .HP = 38
-                        .ATTACK = 47
-                        .DEFEND = 35
-                        .SPATTACK = 33
-                        .SPDEFEND = 35
-                        .SPEED = 57
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 47
+                        .Defence = 35
+                        .SpecialAttack = 33
+                        .SpecialDefence = 35
+                        .Speed = 57
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29284,12 +29231,12 @@
                     .AbilityHidden = 145
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 67
-                        .DEFEND = 55
-                        .SPATTACK = 43
-                        .SPDEFEND = 55
-                        .SPEED = 77
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 67
+                        .Defence = 55
+                        .SpecialAttack = 43
+                        .SpecialDefence = 55
+                        .Speed = 77
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29319,12 +29266,12 @@
                     .AbilityHidden = 240
                     With .SpeciesStrengthValues
                         .HP = 98
-                        .ATTACK = 87
-                        .DEFEND = 105
-                        .SPATTACK = 53
-                        .SPDEFEND = 85
-                        .SPEED = 67
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 87
+                        .Defence = 105
+                        .SpecialAttack = 53
+                        .SpecialDefence = 85
+                        .Speed = 67
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29354,12 +29301,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 25
-                        .ATTACK = 20
-                        .DEFEND = 20
-                        .SPATTACK = 25
-                        .SPDEFEND = 45
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 20
+                        .Defence = 20
+                        .SpecialAttack = 25
+                        .SpecialDefence = 45
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29389,12 +29336,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 35
-                        .DEFEND = 80
-                        .SPATTACK = 50
-                        .SPDEFEND = 90
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 80
+                        .SpecialAttack = 50
+                        .SpecialDefence = 90
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29424,12 +29371,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 45
-                        .DEFEND = 110
-                        .SPATTACK = 80
-                        .SPDEFEND = 120
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 110
+                        .SpecialAttack = 80
+                        .SpecialDefence = 120
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29459,12 +29406,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 28
-                        .DEFEND = 28
-                        .SPATTACK = 47
-                        .SPDEFEND = 52
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 28
+                        .Defence = 28
+                        .SpecialAttack = 47
+                        .SpecialDefence = 52
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29494,12 +29441,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 58
-                        .DEFEND = 58
-                        .SPATTACK = 87
-                        .SPDEFEND = 92
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 58
+                        .Defence = 58
+                        .SpecialAttack = 87
+                        .SpecialDefence = 92
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29529,12 +29476,12 @@
                     .AbilityHidden = 27
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 60
-                        .SPEED = 10
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 60
+                        .Speed = 10
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29564,12 +29511,12 @@
                     .AbilityHidden = 27
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 50
-                        .DEFEND = 90
-                        .SPATTACK = 80
-                        .SPDEFEND = 120
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 90
+                        .SpecialAttack = 80
+                        .SpecialDefence = 120
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29599,12 +29546,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 42
-                        .ATTACK = 40
-                        .DEFEND = 55
-                        .SPATTACK = 40
-                        .SPDEFEND = 45
-                        .SPEED = 48
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 55
+                        .SpecialAttack = 40
+                        .SpecialDefence = 45
+                        .Speed = 48
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29634,12 +29581,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 80
-                        .DEFEND = 100
-                        .SPATTACK = 60
-                        .SPDEFEND = 90
-                        .SPEED = 88
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 100
+                        .SpecialAttack = 60
+                        .SpecialDefence = 90
+                        .Speed = 88
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29669,12 +29616,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 64
-                        .DEFEND = 50
-                        .SPATTACK = 38
-                        .SPDEFEND = 38
-                        .SPEED = 44
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 50
+                        .SpecialAttack = 38
+                        .SpecialDefence = 38
+                        .Speed = 44
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29704,12 +29651,12 @@
                     .AbilityHidden = 33
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 115
-                        .DEFEND = 90
-                        .SPATTACK = 48
-                        .SPDEFEND = 68
-                        .SPEED = 74
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 90
+                        .SpecialAttack = 48
+                        .SpecialDefence = 68
+                        .Speed = 74
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29739,12 +29686,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 59
-                        .ATTACK = 45
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 26
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 26
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29774,12 +29721,12 @@
                     .AbilityHidden = 172
                     With .SpeciesStrengthValues
                         .HP = 69
-                        .ATTACK = 90
-                        .DEFEND = 60
-                        .SPATTACK = 90
-                        .SPDEFEND = 60
-                        .SPEED = 121
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 60
+                        .SpecialAttack = 90
+                        .SpecialDefence = 60
+                        .Speed = 121
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29809,12 +29756,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 40
-                        .DEFEND = 50
-                        .SPATTACK = 40
-                        .SPDEFEND = 50
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 50
+                        .SpecialAttack = 40
+                        .SpecialDefence = 50
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29844,12 +29791,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 60
-                        .DEFEND = 90
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 90
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29879,12 +29826,12 @@
                     .AbilityHidden = 18
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 80
-                        .DEFEND = 120
-                        .SPATTACK = 80
-                        .SPDEFEND = 90
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 120
+                        .SpecialAttack = 80
+                        .SpecialDefence = 90
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29914,12 +29861,12 @@
                     .AbilityHidden = 171
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 80
-                        .SPATTACK = 40
-                        .SPDEFEND = 40
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 80
+                        .SpecialAttack = 40
+                        .SpecialDefence = 40
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29949,12 +29896,12 @@
                     .AbilityHidden = 55
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 110
-                        .DEFEND = 80
-                        .SPATTACK = 95
-                        .SPDEFEND = 60
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 80
+                        .SpecialAttack = 95
+                        .SpecialDefence = 60
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -29984,12 +29931,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 85
-                        .DEFEND = 80
-                        .SPATTACK = 100
-                        .SPDEFEND = 80
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 80
+                        .SpecialAttack = 100
+                        .SpecialDefence = 80
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30019,12 +29966,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 52
-                        .ATTACK = 57
-                        .DEFEND = 75
-                        .SPATTACK = 35
-                        .SPDEFEND = 50
-                        .SPEED = 46
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 57
+                        .Defence = 75
+                        .SpecialAttack = 35
+                        .SpecialDefence = 50
+                        .Speed = 46
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30054,12 +30001,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 107
-                        .DEFEND = 125
-                        .SPATTACK = 65
-                        .SPDEFEND = 70
-                        .SPEED = 71
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 107
+                        .Defence = 125
+                        .SpecialAttack = 65
+                        .SpecialDefence = 70
+                        .Speed = 71
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30089,12 +30036,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 55
-                        .SPATTACK = 85
-                        .SPDEFEND = 95
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 55
+                        .SpecialAttack = 85
+                        .SpecialDefence = 95
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30124,12 +30071,12 @@
                     .AbilityHidden = 239
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 63
-                        .DEFEND = 40
-                        .SPATTACK = 40
-                        .SPDEFEND = 30
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 63
+                        .Defence = 40
+                        .SpecialAttack = 40
+                        .SpecialDefence = 30
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30159,12 +30106,12 @@
                     .AbilityHidden = 239
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 123
-                        .DEFEND = 60
-                        .SPATTACK = 60
-                        .SPDEFEND = 50
-                        .SPEED = 136
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 123
+                        .Defence = 60
+                        .SpecialAttack = 60
+                        .SpecialDefence = 50
+                        .Speed = 136
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30194,12 +30141,12 @@
                     .AbilityHidden = 103
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 38
-                        .DEFEND = 35
-                        .SPATTACK = 54
-                        .SPDEFEND = 35
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 38
+                        .Defence = 35
+                        .SpecialAttack = 54
+                        .SpecialDefence = 35
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30229,12 +30176,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 98
-                        .DEFEND = 70
-                        .SPATTACK = 114
-                        .SPDEFEND = 70
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 98
+                        .Defence = 70
+                        .SpecialAttack = 114
+                        .SpecialDefence = 70
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30264,12 +30211,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 65
-                        .DEFEND = 45
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 45
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30299,12 +30246,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 115
-                        .DEFEND = 65
-                        .SPATTACK = 90
-                        .SPDEFEND = 90
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 65
+                        .SpecialAttack = 90
+                        .SpecialDefence = 90
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30334,12 +30281,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 68
-                        .DEFEND = 60
-                        .SPATTACK = 50
-                        .SPDEFEND = 50
-                        .SPEED = 32
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 68
+                        .Defence = 60
+                        .SpecialAttack = 50
+                        .SpecialDefence = 50
+                        .Speed = 32
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30369,12 +30316,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 118
-                        .DEFEND = 90
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 42
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 118
+                        .Defence = 90
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 42
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30404,12 +30351,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 45
-                        .DEFEND = 45
-                        .SPATTACK = 74
-                        .SPDEFEND = 54
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 45
+                        .SpecialAttack = 74
+                        .SpecialDefence = 54
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30439,12 +30386,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 65
-                        .DEFEND = 65
-                        .SPATTACK = 134
-                        .SPDEFEND = 114
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 65
+                        .SpecialAttack = 134
+                        .SpecialDefence = 114
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30474,12 +30421,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 42
-                        .ATTACK = 30
-                        .DEFEND = 45
-                        .SPATTACK = 56
-                        .SPDEFEND = 53
-                        .SPEED = 39
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 45
+                        .SpecialAttack = 56
+                        .SpecialDefence = 53
+                        .Speed = 39
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30509,12 +30456,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 40
-                        .DEFEND = 65
-                        .SPATTACK = 86
-                        .SPDEFEND = 73
-                        .SPEED = 49
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 65
+                        .SpecialAttack = 86
+                        .SpecialDefence = 73
+                        .Speed = 49
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30544,12 +30491,12 @@
                     .AbilityHidden = 156
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 90
-                        .DEFEND = 95
-                        .SPATTACK = 136
-                        .SPDEFEND = 103
-                        .SPEED = 29
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 95
+                        .SpecialAttack = 136
+                        .SpecialDefence = 103
+                        .Speed = 29
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30579,12 +30526,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 45
-                        .DEFEND = 30
-                        .SPATTACK = 55
-                        .SPDEFEND = 40
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 30
+                        .SpecialAttack = 55
+                        .SpecialDefence = 40
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30614,12 +30561,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 60
-                        .DEFEND = 45
-                        .SPATTACK = 75
-                        .SPDEFEND = 55
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 45
+                        .SpecialAttack = 75
+                        .SpecialDefence = 55
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30649,12 +30596,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 120
-                        .DEFEND = 65
-                        .SPATTACK = 95
-                        .SPDEFEND = 75
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 65
+                        .SpecialAttack = 95
+                        .SpecialDefence = 75
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30684,12 +30631,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 93
-                        .ATTACK = 90
-                        .DEFEND = 101
-                        .SPATTACK = 60
-                        .SPDEFEND = 81
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 101
+                        .SpecialAttack = 60
+                        .SpecialDefence = 81
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30719,12 +30666,12 @@
                     .AbilityHidden = 252
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 110
-                        .DEFEND = 100
-                        .SPATTACK = 50
-                        .SPDEFEND = 60
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 100
+                        .SpecialAttack = 50
+                        .SpecialDefence = 60
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30754,12 +30701,12 @@
                     .AbilityHidden = 253
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 95
-                        .DEFEND = 50
-                        .SPATTACK = 145
-                        .SPDEFEND = 130
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 50
+                        .SpecialAttack = 145
+                        .SpecialDefence = 130
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30789,12 +30736,12 @@
                     .AbilityHidden = 113
                     With .SpeciesStrengthValues
                         .HP = 62
-                        .ATTACK = 135
-                        .DEFEND = 95
-                        .SPATTACK = 68
-                        .SPDEFEND = 82
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 95
+                        .SpecialAttack = 68
+                        .SpecialDefence = 82
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30824,12 +30771,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 85
-                        .DEFEND = 75
-                        .SPATTACK = 110
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 75
+                        .SpecialAttack = 110
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30859,12 +30806,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 95
-                        .DEFEND = 145
-                        .SPATTACK = 50
-                        .SPDEFEND = 105
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 145
+                        .SpecialAttack = 50
+                        .SpecialDefence = 105
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30894,12 +30841,12 @@
                     .AbilityHidden = 165
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 40
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 61
-                        .SPEED = 34
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 61
+                        .Speed = 34
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30929,12 +30876,12 @@
                     .AbilityHidden = 165
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 60
-                        .DEFEND = 75
-                        .SPATTACK = 110
-                        .SPDEFEND = 121
-                        .SPEED = 64
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 75
+                        .SpecialAttack = 110
+                        .SpecialDefence = 121
+                        .Speed = 64
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30964,12 +30911,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 100
-                        .DEFEND = 100
-                        .SPATTACK = 70
-                        .SPDEFEND = 60
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 100
+                        .SpecialAttack = 70
+                        .SpecialDefence = 60
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -30999,12 +30946,12 @@
                     .AbilityHidden = 226
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 101
-                        .DEFEND = 95
-                        .SPATTACK = 91
-                        .SPDEFEND = 85
-                        .SPEED = 15
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 101
+                        .Defence = 95
+                        .SpecialAttack = 91
+                        .SpecialDefence = 85
+                        .Speed = 15
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31034,12 +30981,12 @@
                     .AbilityHidden = 246
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 25
-                        .DEFEND = 35
-                        .SPATTACK = 45
-                        .SPDEFEND = 30
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 25
+                        .Defence = 35
+                        .SpecialAttack = 45
+                        .SpecialDefence = 30
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31069,12 +31016,12 @@
                     .AbilityHidden = 246
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 125
-                        .SPDEFEND = 90
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 125
+                        .SpecialDefence = 90
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31104,12 +31051,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 125
-                        .DEFEND = 135
-                        .SPATTACK = 20
-                        .SPDEFEND = 20
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 135
+                        .SpecialAttack = 20
+                        .SpecialDefence = 20
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31139,12 +31086,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 80
-                        .DEFEND = 110
-                        .SPATTACK = 65
-                        .SPDEFEND = 90
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 110
+                        .SpecialAttack = 65
+                        .SpecialDefence = 90
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31174,12 +31121,12 @@
                     .AbilityHidden = 227
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 65
-                        .DEFEND = 55
-                        .SPATTACK = 105
-                        .SPDEFEND = 95
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 55
+                        .SpecialAttack = 105
+                        .SpecialDefence = 95
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -31209,12 +31156,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 58
-                        .ATTACK = 95
-                        .DEFEND = 58
-                        .SPATTACK = 70
-                        .SPDEFEND = 58
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 58
+                        .SpecialAttack = 70
+                        .SpecialDefence = 58
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31244,12 +31191,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 80
-                        .DEFEND = 49
-                        .SPATTACK = 40
-                        .SPDEFEND = 49
-                        .SPEED = 40
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 49
+                        .SpecialAttack = 40
+                        .SpecialDefence = 49
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31279,12 +31226,12 @@
                     .AbilityHidden = 134
                     With .SpeciesStrengthValues
                         .HP = 122
-                        .ATTACK = 130
-                        .DEFEND = 69
-                        .SPATTACK = 80
-                        .SPDEFEND = 69
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 69
+                        .SpecialAttack = 80
+                        .SpecialDefence = 69
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31314,12 +31261,12 @@
                     .AbilityHidden = 146
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 100
-                        .DEFEND = 90
-                        .SPATTACK = 80
-                        .SPDEFEND = 70
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 90
+                        .SpecialAttack = 80
+                        .SpecialDefence = 70
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31349,12 +31296,12 @@
                     .AbilityHidden = 202
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 100
-                        .DEFEND = 90
-                        .SPATTACK = 90
-                        .SPDEFEND = 80
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 90
+                        .SpecialAttack = 90
+                        .SpecialDefence = 80
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31384,12 +31331,12 @@
                     .AbilityHidden = 146
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 90
-                        .DEFEND = 100
-                        .SPATTACK = 70
-                        .SPDEFEND = 80
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 100
+                        .SpecialAttack = 70
+                        .SpecialDefence = 80
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31419,12 +31366,12 @@
                     .AbilityHidden = 202
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 90
-                        .DEFEND = 100
-                        .SPATTACK = 80
-                        .SPDEFEND = 90
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 100
+                        .SpecialAttack = 80
+                        .SpecialDefence = 90
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31454,12 +31401,12 @@
                     .AbilityHidden = 242
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 95
-                        .DEFEND = 115
-                        .SPATTACK = 120
-                        .SPDEFEND = 50
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 115
+                        .SpecialAttack = 120
+                        .SpecialDefence = 50
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31489,12 +31436,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 28
-                        .ATTACK = 60
-                        .DEFEND = 30
-                        .SPATTACK = 40
-                        .SPDEFEND = 30
-                        .SPEED = 82
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 30
+                        .SpecialAttack = 40
+                        .SpecialDefence = 30
+                        .Speed = 82
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31524,12 +31471,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 80
-                        .DEFEND = 50
-                        .SPATTACK = 60
-                        .SPDEFEND = 50
-                        .SPEED = 102
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 50
+                        .SpecialAttack = 60
+                        .SpecialDefence = 50
+                        .Speed = 102
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31559,12 +31506,12 @@
                     .AbilityHidden = 130
                     With .SpeciesStrengthValues
                         .HP = 88
-                        .ATTACK = 120
-                        .DEFEND = 75
-                        .SPATTACK = 100
-                        .SPDEFEND = 75
-                        .SPEED = 142
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 75
+                        .SpecialAttack = 100
+                        .SpecialDefence = 75
+                        .Speed = 142
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31594,12 +31541,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 92
-                        .ATTACK = 120
-                        .DEFEND = 115
-                        .SPATTACK = 80
-                        .SPDEFEND = 115
-                        .SPEED = 138
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 115
+                        .SpecialAttack = 80
+                        .SpecialDefence = 115
+                        .Speed = 138
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31629,12 +31576,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 92
-                        .ATTACK = 120
-                        .DEFEND = 115
-                        .SPATTACK = 80
-                        .SPDEFEND = 115
-                        .SPEED = 138
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 115
+                        .SpecialAttack = 80
+                        .SpecialDefence = 115
+                        .Speed = 138
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                 End With
             Case 890
@@ -31662,12 +31609,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 140
-                        .ATTACK = 85
-                        .DEFEND = 95
-                        .SPATTACK = 145
-                        .SPDEFEND = 95
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 95
+                        .SpecialAttack = 145
+                        .SpecialDefence = 95
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31697,12 +31644,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 90
-                        .DEFEND = 60
-                        .SPATTACK = 53
-                        .SPDEFEND = 50
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 60
+                        .SpecialAttack = 53
+                        .SpecialDefence = 50
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31732,12 +31679,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 130
-                        .DEFEND = 100
-                        .SPATTACK = 63
-                        .SPDEFEND = 60
-                        .SPEED = 97
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 100
+                        .SpecialAttack = 63
+                        .SpecialDefence = 60
+                        .Speed = 97
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31767,12 +31714,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 120
-                        .DEFEND = 105
-                        .SPATTACK = 70
-                        .SPDEFEND = 95
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 105
+                        .SpecialAttack = 70
+                        .SpecialDefence = 95
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31802,12 +31749,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 50
-                        .SPATTACK = 100
-                        .SPDEFEND = 50
-                        .SPEED = 200
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 50
+                        .SpecialAttack = 100
+                        .SpecialDefence = 50
+                        .Speed = 200
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31837,12 +31784,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 200
-                        .ATTACK = 100
-                        .DEFEND = 50
-                        .SPATTACK = 100
-                        .SPDEFEND = 50
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 50
+                        .SpecialAttack = 100
+                        .SpecialDefence = 50
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31872,12 +31819,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 145
-                        .DEFEND = 130
-                        .SPATTACK = 65
-                        .SPDEFEND = 110
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 145
+                        .Defence = 130
+                        .SpecialAttack = 65
+                        .SpecialDefence = 110
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31907,12 +31854,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 65
-                        .DEFEND = 60
-                        .SPATTACK = 145
-                        .SPDEFEND = 80
-                        .SPEED = 130
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 60
+                        .SpecialAttack = 145
+                        .SpecialDefence = 80
+                        .Speed = 130
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31942,12 +31889,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 80
-                        .SPDEFEND = 80
-                        .SPEED = 80
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 80
+                        .SpecialDefence = 80
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -31977,12 +31924,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 103
-                        .ATTACK = 105
-                        .DEFEND = 72
-                        .SPATTACK = 105
-                        .SPDEFEND = 75
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 105
+                        .Defence = 72
+                        .SpecialAttack = 105
+                        .SpecialDefence = 75
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32012,12 +31959,12 @@
                     .AbilityHidden = 80
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 135
-                        .DEFEND = 95
-                        .SPATTACK = 45
-                        .SPDEFEND = 70
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 95
+                        .SpecialAttack = 45
+                        .SpecialDefence = 70
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32047,12 +31994,12 @@
                     .AbilityHidden = 127
                     With .SpeciesStrengthValues
                         .HP = 130
-                        .ATTACK = 140
-                        .DEFEND = 105
-                        .SPATTACK = 45
-                        .SPDEFEND = 80
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 105
+                        .SpecialAttack = 45
+                        .SpecialDefence = 80
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32082,17 +32029,15 @@
                     .AbilityHidden = 104
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 112
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 75
-                        .SPEED = 78
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 112
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 75
+                        .Speed = 78
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 903
                 With ReturnValue
@@ -32119,17 +32064,15 @@
                     .AbilityHidden = 143
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 130
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 80
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 80
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 904
                 With ReturnValue
@@ -32156,17 +32099,15 @@
                     .AbilityHidden = 22
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 115
-                        .DEFEND = 95
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 95
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
             Case 905
                 With ReturnValue
@@ -32193,17 +32134,15 @@
                     .AbilityHidden = 126
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 115
-                        .DEFEND = 70
-                        .SPATTACK = 135
-                        .SPDEFEND = 80
-                        .SPEED = 106
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 70
+                        .SpecialAttack = 135
+                        .SpecialDefence = 80
+                        .Speed = 106
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
-                    FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                    FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 End With
         End Select
         Return ReturnValue
@@ -32221,13 +32160,13 @@
                 .Ability2 = "ERROR"
                 .AbilityHidden = "ERROR"
                 With .SpeciesStrengthValues
-                    .ATTACK = 255
-                    .DEFEND = 255
+                    .Attack = 255
+                    .Defence = 255
                     .HP = 255
-                    .SPATTACK = 255
-                    .SPDEFEND = 255
-                    .SPEED = 255
-                    .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    .SpecialAttack = 255
+                    .SpecialDefence = 255
+                    .Speed = 255
+                    .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                 End With
                 .BasicExpPoint = "ERROR"
                 .HatchEggCycles = "ERROR"
@@ -32240,8 +32179,6 @@
                 .Height = "ERROR"
                 .ImageFemaleURI = DefaultPokemonImagePath
                 .ImageMaleURI = DefaultPokemonImagePath
-                FormDifferenceInformation(0).ImagePath = DefaultPokemonImagePath
-                FormDifferenceInformation(1).ImagePath = DefaultPokemonImagePath
                 .DexIDNumber = "000"
                 .GenderRatio = "ERROR"
                 .Sheleter = "ERROR"
@@ -32271,7 +32208,7 @@
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
             .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
-            .Title = CurrentTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
             Case 906
@@ -32299,12 +32236,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 61
-                        .DEFEND = 54
-                        .SPATTACK = 45
-                        .SPDEFEND = 45
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 61
+                        .Defence = 54
+                        .SpecialAttack = 45
+                        .SpecialDefence = 45
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32334,12 +32271,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 80
-                        .DEFEND = 63
-                        .SPATTACK = 60
-                        .SPDEFEND = 63
-                        .SPEED = 83
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 63
+                        .SpecialAttack = 60
+                        .SpecialDefence = 63
+                        .Speed = 83
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32369,12 +32306,12 @@
                     .AbilityHidden = 168
                     With .SpeciesStrengthValues
                         .HP = 76
-                        .ATTACK = 110
-                        .DEFEND = 70
-                        .SPATTACK = 81
-                        .SPDEFEND = 70
-                        .SPEED = 123
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 70
+                        .SpecialAttack = 81
+                        .SpecialDefence = 70
+                        .Speed = 123
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32404,12 +32341,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 67
-                        .ATTACK = 45
-                        .DEFEND = 59
-                        .SPATTACK = 63
-                        .SPDEFEND = 40
-                        .SPEED = 36
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 59
+                        .SpecialAttack = 63
+                        .SpecialDefence = 40
+                        .Speed = 36
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32439,12 +32376,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 81
-                        .ATTACK = 55
-                        .DEFEND = 78
-                        .SPATTACK = 90
-                        .SPDEFEND = 58
-                        .SPEED = 49
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 78
+                        .SpecialAttack = 90
+                        .SpecialDefence = 58
+                        .Speed = 49
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32474,12 +32411,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 104
-                        .ATTACK = 75
-                        .DEFEND = 100
-                        .SPATTACK = 110
-                        .SPDEFEND = 75
-                        .SPEED = 66
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 100
+                        .SpecialAttack = 110
+                        .SpecialDefence = 75
+                        .Speed = 66
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32509,12 +32446,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 65
-                        .DEFEND = 45
-                        .SPATTACK = 50
-                        .SPDEFEND = 45
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 45
+                        .SpecialAttack = 50
+                        .SpecialDefence = 45
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32544,12 +32481,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 65
-                        .SPATTACK = 65
-                        .SPDEFEND = 60
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 65
+                        .SpecialAttack = 65
+                        .SpecialDefence = 60
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32579,12 +32516,12 @@
                     .AbilityHidden = 153
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 120
-                        .DEFEND = 80
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 80
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32614,12 +32551,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 54
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 35
-                        .SPDEFEND = 45
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 35
+                        .SpecialDefence = 45
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32649,12 +32586,12 @@
                     .AbilityHidden = 47
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 100
-                        .DEFEND = 75
-                        .SPATTACK = 59
-                        .SPDEFEND = 80
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 75
+                        .SpecialAttack = 59
+                        .SpecialDefence = 80
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & "F.png"
@@ -32684,12 +32621,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 41
-                        .DEFEND = 45
-                        .SPATTACK = 29
-                        .SPDEFEND = 40
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 41
+                        .Defence = 45
+                        .SpecialAttack = 29
+                        .SpecialDefence = 40
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32719,12 +32656,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 79
-                        .DEFEND = 92
-                        .SPATTACK = 52
-                        .SPDEFEND = 86
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 79
+                        .Defence = 92
+                        .SpecialAttack = 52
+                        .SpecialDefence = 86
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32754,12 +32691,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 33
-                        .ATTACK = 46
-                        .DEFEND = 40
-                        .SPATTACK = 21
-                        .SPDEFEND = 25
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 46
+                        .Defence = 40
+                        .SpecialAttack = 21
+                        .SpecialDefence = 25
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32789,12 +32726,12 @@
                     .AbilityHidden = 110
                     With .SpeciesStrengthValues
                         .HP = 71
-                        .ATTACK = 102
-                        .DEFEND = 78
-                        .SPATTACK = 52
-                        .SPDEFEND = 55
-                        .SPEED = 92
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 102
+                        .Defence = 78
+                        .SpecialAttack = 52
+                        .SpecialDefence = 55
+                        .Speed = 92
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32824,12 +32761,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 50
-                        .DEFEND = 20
-                        .SPATTACK = 40
-                        .SPDEFEND = 25
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 20
+                        .SpecialAttack = 40
+                        .SpecialDefence = 25
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32859,12 +32796,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 75
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 40
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 40
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32894,12 +32831,12 @@
                     .AbilityHidden = 89
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 115
-                        .DEFEND = 70
-                        .SPATTACK = 70
-                        .SPDEFEND = 60
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 70
+                        .SpecialAttack = 70
+                        .SpecialDefence = 60
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32929,12 +32866,12 @@
                     .AbilityHidden = 20
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 50
-                        .DEFEND = 45
-                        .SPATTACK = 40
-                        .SPDEFEND = 45
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 45
+                        .SpecialAttack = 40
+                        .SpecialDefence = 45
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32964,12 +32901,12 @@
                     .AbilityHidden = 101
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 75
-                        .DEFEND = 70
-                        .SPATTACK = 65
-                        .SPDEFEND = 75
-                        .SPEED = 111
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 70
+                        .SpecialAttack = 65
+                        .SpecialDefence = 75
+                        .Speed = 111
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -32999,12 +32936,12 @@
                     .AbilityHidden = 103
                     With .SpeciesStrengthValues
                         .HP = 37
-                        .ATTACK = 55
-                        .DEFEND = 70
-                        .SPATTACK = 30
-                        .SPDEFEND = 55
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 70
+                        .SpecialAttack = 30
+                        .SpecialDefence = 55
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33034,12 +32971,12 @@
                     .AbilityHidden = 165
                     With .SpeciesStrengthValues
                         .HP = 57
-                        .ATTACK = 80
-                        .DEFEND = 115
-                        .SPATTACK = 50
-                        .SPDEFEND = 80
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 115
+                        .SpecialAttack = 50
+                        .SpecialDefence = 80
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33069,12 +33006,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 35
-                        .DEFEND = 45
-                        .SPATTACK = 58
-                        .SPDEFEND = 51
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 45
+                        .SpecialAttack = 58
+                        .SpecialDefence = 51
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33104,12 +33041,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 52
-                        .ATTACK = 53
-                        .DEFEND = 60
-                        .SPATTACK = 78
-                        .SPDEFEND = 78
-                        .SPEED = 33
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 53
+                        .Defence = 60
+                        .SpecialAttack = 78
+                        .SpecialDefence = 78
+                        .Speed = 33
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33139,12 +33076,12 @@
                     .AbilityHidden = 139
                     With .SpeciesStrengthValues
                         .HP = 78
-                        .ATTACK = 69
-                        .DEFEND = 90
-                        .SPATTACK = 125
-                        .SPDEFEND = 109
-                        .SPEED = 39
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 69
+                        .Defence = 90
+                        .SpecialAttack = 125
+                        .SpecialDefence = 109
+                        .Speed = 39
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33174,12 +33111,12 @@
                     .AbilityHidden = 62
                     With .SpeciesStrengthValues
                         .HP = 82
-                        .ATTACK = 96
-                        .DEFEND = 51
-                        .SPATTACK = 45
-                        .SPDEFEND = 51
-                        .SPEED = 92
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 96
+                        .Defence = 51
+                        .SpecialAttack = 45
+                        .SpecialDefence = 51
+                        .Speed = 92
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33209,12 +33146,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 75
-                        .SPATTACK = 35
-                        .SPDEFEND = 35
-                        .SPEED = 25
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 75
+                        .SpecialAttack = 35
+                        .SpecialDefence = 35
+                        .Speed = 25
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33244,12 +33181,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 60
-                        .DEFEND = 100
-                        .SPATTACK = 35
-                        .SPDEFEND = 65
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 100
+                        .SpecialAttack = 35
+                        .SpecialDefence = 65
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33279,12 +33216,12 @@
                     .AbilityHidden = 29
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 100
-                        .DEFEND = 130
-                        .SPATTACK = 45
-                        .SPDEFEND = 90
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 130
+                        .SpecialAttack = 45
+                        .SpecialDefence = 90
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33314,12 +33251,12 @@
                     .AbilityHidden = 49
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 50
-                        .DEFEND = 40
-                        .SPATTACK = 50
-                        .SPDEFEND = 40
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 40
+                        .SpecialAttack = 50
+                        .SpecialDefence = 40
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33349,12 +33286,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 60
-                        .DEFEND = 100
-                        .SPATTACK = 125
-                        .SPDEFEND = 80
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 100
+                        .SpecialAttack = 125
+                        .SpecialDefence = 80
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33384,12 +33321,12 @@
                     .AbilityHidden = 133
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 125
-                        .DEFEND = 80
-                        .SPATTACK = 60
-                        .SPDEFEND = 100
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 125
+                        .Defence = 80
+                        .SpecialAttack = 60
+                        .SpecialDefence = 100
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33419,12 +33356,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 61
-                        .ATTACK = 31
-                        .DEFEND = 41
-                        .SPATTACK = 59
-                        .SPDEFEND = 35
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 31
+                        .Defence = 41
+                        .SpecialAttack = 59
+                        .SpecialDefence = 35
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33454,12 +33391,12 @@
                     .AbilityHidden = 6
                     With .SpeciesStrengthValues
                         .HP = 109
-                        .ATTACK = 64
-                        .DEFEND = 91
-                        .SPATTACK = 103
-                        .SPDEFEND = 83
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 64
+                        .Defence = 91
+                        .SpecialAttack = 103
+                        .SpecialDefence = 83
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33489,12 +33426,12 @@
                     .AbilityHidden = 172
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 35
-                        .SPATTACK = 55
-                        .SPDEFEND = 40
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 35
+                        .SpecialAttack = 55
+                        .SpecialDefence = 40
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33524,12 +33461,12 @@
                     .AbilityHidden = 172
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 70
-                        .DEFEND = 60
-                        .SPATTACK = 105
-                        .SPDEFEND = 60
-                        .SPEED = 125
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 60
+                        .SpecialAttack = 105
+                        .SpecialDefence = 60
+                        .Speed = 125
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33559,12 +33496,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 60
-                        .ATTACK = 78
-                        .DEFEND = 60
-                        .SPATTACK = 40
-                        .SPDEFEND = 51
-                        .SPEED = 51
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 78
+                        .Defence = 60
+                        .SpecialAttack = 40
+                        .SpecialDefence = 51
+                        .Speed = 51
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33594,12 +33531,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 120
-                        .DEFEND = 90
-                        .SPATTACK = 60
-                        .SPDEFEND = 70
-                        .SPEED = 85
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 90
+                        .SpecialAttack = 60
+                        .SpecialDefence = 70
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33629,12 +33566,12 @@
                     .AbilityHidden = 158
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 65
-                        .DEFEND = 35
-                        .SPATTACK = 40
-                        .SPDEFEND = 35
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 35
+                        .SpecialAttack = 40
+                        .SpecialDefence = 35
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33664,12 +33601,12 @@
                     .AbilityHidden = 198
                     With .SpeciesStrengthValues
                         .HP = 63
-                        .ATTACK = 95
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 72
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 72
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33699,12 +33636,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 65
-                        .DEFEND = 30
-                        .SPATTACK = 45
-                        .SPDEFEND = 35
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 30
+                        .SpecialAttack = 45
+                        .SpecialDefence = 35
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33734,12 +33671,12 @@
                     .AbilityHidden = 151
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 115
-                        .DEFEND = 70
-                        .SPATTACK = 80
-                        .SPDEFEND = 70
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 70
+                        .SpecialAttack = 80
+                        .SpecialDefence = 70
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33769,12 +33706,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 40
-                        .ATTACK = 40
-                        .DEFEND = 35
-                        .SPATTACK = 50
-                        .SPDEFEND = 100
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 40
+                        .Defence = 35
+                        .SpecialAttack = 50
+                        .SpecialDefence = 100
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33804,12 +33741,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 70
-                        .DEFEND = 65
-                        .SPATTACK = 80
-                        .SPDEFEND = 120
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 65
+                        .SpecialAttack = 80
+                        .SpecialDefence = 120
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33839,12 +33776,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 100
-                        .DEFEND = 115
-                        .SPATTACK = 35
-                        .SPDEFEND = 55
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 115
+                        .SpecialAttack = 35
+                        .SpecialDefence = 55
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33874,12 +33811,12 @@
                     .AbilityHidden = 103
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 62
-                        .DEFEND = 40
-                        .SPATTACK = 62
-                        .SPDEFEND = 40
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 62
+                        .Defence = 40
+                        .SpecialAttack = 62
+                        .SpecialDefence = 40
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33909,12 +33846,12 @@
                     .AbilityHidden = 141
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 108
-                        .DEFEND = 65
-                        .SPATTACK = 108
-                        .SPDEFEND = 65
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 108
+                        .Defence = 65
+                        .SpecialAttack = 108
+                        .SpecialDefence = 65
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33944,12 +33881,12 @@
                     .AbilityHidden = 61
                     With .SpeciesStrengthValues
                         .HP = 41
-                        .ATTACK = 50
-                        .DEFEND = 60
-                        .SPATTACK = 31
-                        .SPDEFEND = 58
-                        .SPEED = 30
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 60
+                        .SpecialAttack = 31
+                        .SpecialDefence = 58
+                        .Speed = 30
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -33979,12 +33916,12 @@
                     .AbilityHidden = 140
                     With .SpeciesStrengthValues
                         .HP = 75
-                        .ATTACK = 50
-                        .DEFEND = 85
-                        .SPATTACK = 115
-                        .SPDEFEND = 100
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 85
+                        .SpecialAttack = 115
+                        .SpecialDefence = 100
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34014,12 +33951,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 30
-                        .ATTACK = 35
-                        .DEFEND = 30
-                        .SPATTACK = 55
-                        .SPDEFEND = 30
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 30
+                        .SpecialAttack = 55
+                        .SpecialDefence = 30
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34049,12 +33986,12 @@
                     .AbilityHidden = 3
                     With .SpeciesStrengthValues
                         .HP = 95
-                        .ATTACK = 60
-                        .DEFEND = 60
-                        .SPATTACK = 101
-                        .SPDEFEND = 60
-                        .SPEED = 105
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 60
+                        .SpecialAttack = 101
+                        .SpecialDefence = 60
+                        .Speed = 105
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34084,12 +34021,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 45
-                        .DEFEND = 45
-                        .SPATTACK = 35
-                        .SPDEFEND = 64
-                        .SPEED = 58
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 45
+                        .SpecialAttack = 35
+                        .SpecialDefence = 64
+                        .Speed = 58
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34119,12 +34056,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 45
-                        .SPDEFEND = 82
-                        .SPEED = 78
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 45
+                        .SpecialDefence = 82
+                        .Speed = 78
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34154,12 +34091,12 @@
                     .AbilityHidden = 124
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 75
-                        .DEFEND = 77
-                        .SPATTACK = 70
-                        .SPDEFEND = 105
-                        .SPEED = 94
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 77
+                        .SpecialAttack = 70
+                        .SpecialDefence = 105
+                        .Speed = 94
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34189,12 +34126,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 10
-                        .ATTACK = 55
-                        .DEFEND = 25
-                        .SPATTACK = 35
-                        .SPDEFEND = 25
-                        .SPEED = 95
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 25
+                        .SpecialAttack = 35
+                        .SpecialDefence = 25
+                        .Speed = 95
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34224,12 +34161,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 35
-                        .ATTACK = 100
-                        .DEFEND = 50
-                        .SPATTACK = 50
-                        .SPDEFEND = 70
-                        .SPEED = 120
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 50
+                        .SpecialAttack = 50
+                        .SpecialDefence = 70
+                        .Speed = 120
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34259,12 +34196,12 @@
                     .AbilityHidden = 8
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 103
-                        .DEFEND = 85
-                        .SPATTACK = 60
-                        .SPDEFEND = 85
-                        .SPEED = 82
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 103
+                        .Defence = 85
+                        .SpecialAttack = 60
+                        .SpecialDefence = 85
+                        .Speed = 82
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34294,12 +34231,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 45
-                        .DEFEND = 40
-                        .SPATTACK = 45
-                        .SPDEFEND = 40
-                        .SPEED = 75
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 45
+                        .Defence = 40
+                        .SpecialAttack = 45
+                        .SpecialDefence = 40
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34329,12 +34266,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 70
-                        .DEFEND = 72
-                        .SPATTACK = 53
-                        .SPDEFEND = 62
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 72
+                        .SpecialAttack = 53
+                        .SpecialDefence = 62
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34364,12 +34301,12 @@
                     .AbilityHidden = 112
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 70
-                        .DEFEND = 63
-                        .SPATTACK = 30
-                        .SPDEFEND = 45
-                        .SPEED = 47
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 63
+                        .SpecialAttack = 30
+                        .SpecialDefence = 45
+                        .Speed = 47
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34399,12 +34336,12 @@
                     .AbilityHidden = 111
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 119
-                        .DEFEND = 90
-                        .SPATTACK = 54
-                        .SPDEFEND = 67
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 119
+                        .Defence = 90
+                        .SpecialAttack = 54
+                        .SpecialDefence = 67
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34434,12 +34371,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 95
-                        .DEFEND = 65
-                        .SPATTACK = 85
-                        .SPDEFEND = 65
-                        .SPEED = 121
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 65
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 121
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34469,12 +34406,12 @@
                     .AbilityHidden = 144
                     With .SpeciesStrengthValues
                         .HP = 70
-                        .ATTACK = 85
-                        .DEFEND = 145
-                        .SPATTACK = 60
-                        .SPDEFEND = 55
-                        .SPEED = 65
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 145
+                        .SpecialAttack = 60
+                        .SpecialDefence = 55
+                        .Speed = 65
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34504,12 +34441,12 @@
                     .AbilityHidden = 212
                     With .SpeciesStrengthValues
                         .HP = 48
-                        .ATTACK = 35
-                        .DEFEND = 42
-                        .SPATTACK = 105
-                        .SPDEFEND = 60
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 35
+                        .Defence = 42
+                        .SpecialAttack = 105
+                        .SpecialDefence = 60
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34539,12 +34476,12 @@
                     .AbilityHidden = 212
                     With .SpeciesStrengthValues
                         .HP = 83
-                        .ATTACK = 55
-                        .DEFEND = 90
-                        .SPATTACK = 130
-                        .SPDEFEND = 81
-                        .SPEED = 86
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 90
+                        .SpecialAttack = 130
+                        .SpecialDefence = 81
+                        .Speed = 86
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34574,12 +34511,12 @@
                     .AbilityHidden = 218
                     With .SpeciesStrengthValues
                         .HP = 50
-                        .ATTACK = 61
-                        .DEFEND = 60
-                        .SPATTACK = 30
-                        .SPDEFEND = 55
-                        .SPEED = 34
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 61
+                        .Defence = 60
+                        .SpecialAttack = 30
+                        .SpecialDefence = 55
+                        .Speed = 34
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34609,12 +34546,12 @@
                     .AbilityHidden = 218
                     With .SpeciesStrengthValues
                         .HP = 72
-                        .ATTACK = 101
-                        .DEFEND = 100
-                        .SPATTACK = 50
-                        .SPDEFEND = 97
-                        .SPEED = 68
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 101
+                        .Defence = 100
+                        .SpecialAttack = 50
+                        .SpecialDefence = 97
+                        .Speed = 68
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34644,12 +34581,12 @@
                     .AbilityHidden = 294
                     With .SpeciesStrengthValues
                         .HP = 82
-                        .ATTACK = 115
-                        .DEFEND = 74
-                        .SPATTACK = 75
-                        .SPDEFEND = 64
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 74
+                        .SpecialAttack = 75
+                        .SpecialDefence = 64
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34679,12 +34616,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 108
-                        .ATTACK = 68
-                        .DEFEND = 45
-                        .SPATTACK = 30
-                        .SPDEFEND = 40
-                        .SPEED = 43
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 68
+                        .Defence = 45
+                        .SpecialAttack = 30
+                        .SpecialDefence = 40
+                        .Speed = 43
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34714,12 +34651,12 @@
                     .AbilityHidden = 125
                     With .SpeciesStrengthValues
                         .HP = 170
-                        .ATTACK = 113
-                        .DEFEND = 65
-                        .SPATTACK = 45
-                        .SPDEFEND = 55
-                        .SPEED = 73
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 113
+                        .Defence = 65
+                        .SpecialAttack = 45
+                        .SpecialDefence = 55
+                        .Speed = 73
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34749,12 +34686,12 @@
                     .AbilityHidden = 292
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 102
-                        .DEFEND = 73
-                        .SPATTACK = 78
-                        .SPDEFEND = 65
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 102
+                        .Defence = 73
+                        .SpecialAttack = 78
+                        .SpecialDefence = 65
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34784,12 +34721,12 @@
                     .AbilityHidden = 41
                     With .SpeciesStrengthValues
                         .HP = 150
-                        .ATTACK = 100
-                        .DEFEND = 115
-                        .SPATTACK = 65
-                        .SPDEFEND = 65
-                        .SPEED = 35
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 115
+                        .SpecialAttack = 65
+                        .SpecialDefence = 65
+                        .Speed = 35
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34819,12 +34756,12 @@
                     .AbilityHidden = 114
                     With .SpeciesStrengthValues
                         .HP = 68
-                        .ATTACK = 50
-                        .DEFEND = 60
-                        .SPATTACK = 120
-                        .SPDEFEND = 95
-                        .SPEED = 82
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 50
+                        .Defence = 60
+                        .SpecialAttack = 120
+                        .SpecialDefence = 95
+                        .Speed = 82
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34854,12 +34791,12 @@
                     .AbilityHidden = 128
                     With .SpeciesStrengthValues
                         .HP = 110
-                        .ATTACK = 115
-                        .DEFEND = 80
-                        .SPATTACK = 50
-                        .SPDEFEND = 90
-                        .SPEED = 90
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 115
+                        .Defence = 80
+                        .SpecialAttack = 50
+                        .SpecialDefence = 90
+                        .Speed = 90
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34889,12 +34826,12 @@
                     .AbilityHidden = 109
                     With .SpeciesStrengthValues
                         .HP = 130
-                        .ATTACK = 75
-                        .DEFEND = 60
-                        .SPATTACK = 45
-                        .SPDEFEND = 100
-                        .SPEED = 20
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 60
+                        .SpecialAttack = 45
+                        .SpecialDefence = 100
+                        .Speed = 20
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34924,12 +34861,12 @@
                     .AbilityHidden = 157
                     With .SpeciesStrengthValues
                         .HP = 120
-                        .ATTACK = 90
-                        .DEFEND = 70
-                        .SPATTACK = 110
-                        .SPDEFEND = 70
-                        .SPEED = 60
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 90
+                        .Defence = 70
+                        .SpecialAttack = 110
+                        .SpecialDefence = 70
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34959,12 +34896,12 @@
                     .AbilityHidden = 155
                     With .SpeciesStrengthValues
                         .HP = 125
-                        .ATTACK = 100
-                        .DEFEND = 80
-                        .SPATTACK = 85
-                        .SPDEFEND = 75
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 100
+                        .Defence = 80
+                        .SpecialAttack = 85
+                        .SpecialDefence = 75
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -34994,12 +34931,12 @@
                     .AbilityHidden = 46
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 135
-                        .DEFEND = 120
-                        .SPATTACK = 60
-                        .SPDEFEND = 85
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 120
+                        .SpecialAttack = 60
+                        .SpecialDefence = 85
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35029,12 +34966,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 131
-                        .DEFEND = 131
-                        .SPATTACK = 53
-                        .SPDEFEND = 53
-                        .SPEED = 87
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 131
+                        .Defence = 131
+                        .SpecialAttack = 53
+                        .SpecialDefence = 53
+                        .Speed = 87
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35064,12 +35001,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 65
-                        .DEFEND = 99
-                        .SPATTACK = 65
-                        .SPDEFEND = 115
-                        .SPEED = 111
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 65
+                        .Defence = 99
+                        .SpecialAttack = 65
+                        .SpecialDefence = 115
+                        .Speed = 111
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35099,12 +35036,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 111
-                        .ATTACK = 127
-                        .DEFEND = 99
-                        .SPATTACK = 79
-                        .SPDEFEND = 99
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 127
+                        .Defence = 99
+                        .SpecialAttack = 79
+                        .SpecialDefence = 99
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35134,12 +35071,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 55
-                        .DEFEND = 55
-                        .SPATTACK = 135
-                        .SPDEFEND = 135
-                        .SPEED = 135
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 55
+                        .Defence = 55
+                        .SpecialAttack = 135
+                        .SpecialDefence = 135
+                        .Speed = 135
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35169,12 +35106,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 135
-                        .DEFEND = 79
-                        .SPATTACK = 85
-                        .SPDEFEND = 105
-                        .SPEED = 81
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 79
+                        .SpecialAttack = 85
+                        .SpecialDefence = 105
+                        .Speed = 81
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35204,12 +35141,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 81
-                        .DEFEND = 97
-                        .SPATTACK = 121
-                        .SPDEFEND = 85
-                        .SPEED = 101
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 81
+                        .Defence = 97
+                        .SpecialAttack = 121
+                        .SpecialDefence = 85
+                        .Speed = 101
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35239,12 +35176,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 112
-                        .DEFEND = 120
-                        .SPATTACK = 72
-                        .SPDEFEND = 70
-                        .SPEED = 106
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 112
+                        .Defence = 120
+                        .SpecialAttack = 72
+                        .SpecialDefence = 70
+                        .Speed = 106
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35274,12 +35211,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 56
-                        .ATTACK = 80
-                        .DEFEND = 114
-                        .SPATTACK = 124
-                        .SPDEFEND = 60
-                        .SPEED = 136
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 114
+                        .SpecialAttack = 124
+                        .SpecialDefence = 60
+                        .Speed = 136
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35309,12 +35246,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 154
-                        .ATTACK = 140
-                        .DEFEND = 108
-                        .SPATTACK = 50
-                        .SPDEFEND = 68
-                        .SPEED = 50
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 140
+                        .Defence = 108
+                        .SpecialAttack = 50
+                        .SpecialDefence = 68
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35344,12 +35281,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 94
-                        .ATTACK = 80
-                        .DEFEND = 86
-                        .SPATTACK = 122
-                        .SPDEFEND = 80
-                        .SPEED = 108
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 86
+                        .SpecialAttack = 122
+                        .SpecialDefence = 80
+                        .Speed = 108
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35379,12 +35316,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 70
-                        .DEFEND = 60
-                        .SPATTACK = 140
-                        .SPDEFEND = 110
-                        .SPEED = 110
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 70
+                        .Defence = 60
+                        .SpecialAttack = 140
+                        .SpecialDefence = 110
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35414,12 +35351,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 134
-                        .DEFEND = 110
-                        .SPATTACK = 70
-                        .SPDEFEND = 84
-                        .SPEED = 72
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 134
+                        .Defence = 110
+                        .SpecialAttack = 70
+                        .SpecialDefence = 84
+                        .Speed = 72
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35449,12 +35386,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 65
-                        .ATTACK = 75
-                        .DEFEND = 45
-                        .SPATTACK = 35
-                        .SPDEFEND = 45
-                        .SPEED = 55
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 75
+                        .Defence = 45
+                        .SpecialAttack = 35
+                        .SpecialDefence = 45
+                        .Speed = 55
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35484,12 +35421,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 90
-                        .ATTACK = 95
-                        .DEFEND = 66
-                        .SPATTACK = 45
-                        .SPDEFEND = 65
-                        .SPEED = 62
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 95
+                        .Defence = 66
+                        .SpecialAttack = 45
+                        .SpecialDefence = 65
+                        .Speed = 62
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35519,12 +35456,12 @@
                     .AbilityHidden = 115
                     With .SpeciesStrengthValues
                         .HP = 115
-                        .ATTACK = 145
-                        .DEFEND = 92
-                        .SPATTACK = 75
-                        .SPDEFEND = 86
-                        .SPEED = 87
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 145
+                        .Defence = 92
+                        .SpecialAttack = 75
+                        .SpecialDefence = 86
+                        .Speed = 87
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35554,12 +35491,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 45
-                        .ATTACK = 30
-                        .DEFEND = 70
-                        .SPATTACK = 75
-                        .SPDEFEND = 70
-                        .SPEED = 10
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 30
+                        .Defence = 70
+                        .SpecialAttack = 75
+                        .SpecialDefence = 70
+                        .Speed = 10
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35589,12 +35526,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 87
-                        .ATTACK = 60
-                        .DEFEND = 95
-                        .SPATTACK = 133
-                        .SPDEFEND = 91
-                        .SPEED = 84
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 60
+                        .Defence = 95
+                        .SpecialAttack = 133
+                        .SpecialDefence = 91
+                        .Speed = 84
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35624,12 +35561,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 85
-                        .ATTACK = 85
-                        .DEFEND = 100
-                        .SPATTACK = 95
-                        .SPDEFEND = 135
-                        .SPEED = 70
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 95
+                        .SpecialDefence = 135
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35659,12 +35596,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 80
-                        .ATTACK = 120
-                        .DEFEND = 80
-                        .SPATTACK = 90
-                        .SPDEFEND = 65
-                        .SPEED = 135
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 120
+                        .Defence = 80
+                        .SpecialAttack = 90
+                        .SpecialDefence = 65
+                        .Speed = 135
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35694,12 +35631,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 155
-                        .ATTACK = 110
-                        .DEFEND = 125
-                        .SPATTACK = 55
-                        .SPDEFEND = 80
-                        .SPEED = 45
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 110
+                        .Defence = 125
+                        .SpecialAttack = 55
+                        .SpecialDefence = 80
+                        .Speed = 45
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35729,12 +35666,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 55
-                        .ATTACK = 80
-                        .DEFEND = 80
-                        .SPATTACK = 135
-                        .SPDEFEND = 120
-                        .SPEED = 100
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 80
+                        .Defence = 80
+                        .SpecialAttack = 135
+                        .SpecialDefence = 120
+                        .Speed = 100
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35764,12 +35701,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 105
-                        .ATTACK = 139
-                        .DEFEND = 71
-                        .SPATTACK = 55
-                        .SPDEFEND = 101
-                        .SPEED = 119
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 139
+                        .Defence = 71
+                        .SpecialAttack = 55
+                        .SpecialDefence = 101
+                        .Speed = 119
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35799,12 +35736,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 74
-                        .ATTACK = 130
-                        .DEFEND = 90
-                        .SPATTACK = 120
-                        .SPDEFEND = 60
-                        .SPEED = 116
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 130
+                        .Defence = 90
+                        .SpecialAttack = 120
+                        .SpecialDefence = 60
+                        .Speed = 116
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35834,12 +35771,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 135
-                        .DEFEND = 115
-                        .SPATTACK = 85
-                        .SPDEFEND = 100
-                        .SPEED = 135
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
@@ -35869,12 +35806,12 @@
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
                         .HP = 100
-                        .ATTACK = 85
-                        .DEFEND = 100
-                        .SPATTACK = 135
-                        .SPDEFEND = 115
-                        .SPEED = 135
-                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
                     .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"

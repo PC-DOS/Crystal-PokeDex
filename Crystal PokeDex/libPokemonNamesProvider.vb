@@ -1,4 +1,4 @@
-﻿Module libPokemonNamesProvider
+﻿Public Module libPokemonNamesProvider
     Public PokemonNamesCHT As New List(Of String)
     Public PokemonNamesCHS As New List(Of String)
     Public PokemonNamesCHTO As New List(Of String)

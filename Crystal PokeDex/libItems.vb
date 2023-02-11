@@ -1,4 +1,4 @@
-﻿Module libItems
+﻿Public Module libItems
     Public lpSelectedItemNumber As Integer
     Public ItemNamesCHT As New List(Of String)
     Public ItemNamesENG As New List(Of String)

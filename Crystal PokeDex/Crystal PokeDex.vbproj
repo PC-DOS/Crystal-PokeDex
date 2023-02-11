@@ -132,20 +132,20 @@
       <DependentUpon>Browser.xaml</DependentUpon>
     </Compile>
     <Compile Include="libColors.vb" />
-    <Compile Include="libAbilities.vb" />
+    <Compile Include="libAbility.vb" />
     <Compile Include="libPokemonEvolutions.vb" />
     <Compile Include="libItems.vb" />
-    <Compile Include="libMoves.vb" />
-    <Compile Include="libPokemonFormDifferencProvider.vb" />
+    <Compile Include="libMove.vb" />
+    <Compile Include="libPokemonFormDifferenceProvider.vb" />
     <Compile Include="libNumberValidation.vb" />
     <Compile Include="libPokemon.vb" />
     <Compile Include="libPokemonMovesLearning.vb" />
     <Compile Include="libPokemonNamesProvider.vb" />
     <Compile Include="libTypeProperties.vb" />
-    <Compile Include="modOnlineSearch.vb" />
-    <Compile Include="modSettings.vb" />
-    <Compile Include="modHTMLInfo.vb" />
-    <Compile Include="MultiChineseProvider.vb" />
+    <Compile Include="libOnlineSearchProvider.vb" />
+    <Compile Include="libSettingsProvider.vb" />
+    <Compile Include="libHTMLInfo.vb" />
+    <Compile Include="libPokemonNamesMultiChineseProvider.vb" />
     <Compile Include="libTypeRepresentativeColorProvider.vb" />
     <Compile Include="PageBlank.xaml.vb">
       <DependentUpon>PageBlank.xaml</DependentUpon>
@@ -210,14 +210,11 @@
     <Compile Include="PagePokemons.xaml.vb">
       <DependentUpon>PagePokemons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagePokeSearch.xaml.vb">
-      <DependentUpon>PagePokeSearch.xaml</DependentUpon>
+    <Compile Include="PagePokemonSearch.xaml.vb">
+      <DependentUpon>PagePokemonSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageSearchReq.xaml.vb">
-      <DependentUpon>PageSearchReq.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageSettings.xaml.vb">
-      <DependentUpon>PageSettings.xaml</DependentUpon>
+    <Compile Include="PagePokemonOnlineSearchCfg.xaml.vb">
+      <DependentUpon>PagePokemonOnlineSearchCfg.xaml</DependentUpon>
     </Compile>
     <Compile Include="PagePokemonFormDifferenceInfo.xaml.vb">
       <DependentUpon>PagePokemonFormDifferenceInfo.xaml</DependentUpon>
@@ -233,8 +230,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="PivotPageSettings.xaml.vb">
-      <DependentUpon>PivotPageSettings.xaml</DependentUpon>
+    <Compile Include="PageSettings.xaml.vb">
+      <DependentUpon>PageSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\AppResources.Designer.vb" />
     <Compile Include="ResPokemons.Designer.vb">
@@ -344,15 +341,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagePokeSearch.xaml">
+    <Page Include="PagePokemonSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageSearchReq.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageSettings.xaml">
+    <Page Include="PagePokemonOnlineSearchCfg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,7 +361,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PivotPageSettings.xaml">
+    <Page Include="PageSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,18 +404,18 @@
     <Content Include="Assets\PageSharedResources\Construction.png" />
     <Content Include="Assets\PageSharedResources\Info.png" />
     <Content Include="Assets\PageTypes\Types.png" />
-    <Content Include="Assets\PivotPageSettings\Airplane.png" />
-    <Content Include="Assets\PivotPageSettings\Bluetooth.png" />
-    <Content Include="Assets\PivotPageSettings\Celluar.png" />
-    <Content Include="Assets\PivotPageSettings\Location.png" />
-    <Content Include="Assets\PivotPageSettings\Lockscreen.png" />
-    <Content Include="Assets\PivotPageSettings\MailAccounts.png" />
-    <Content Include="Assets\PivotPageSettings\NFC.png" />
-    <Content Include="Assets\PivotPageSettings\Notifications.png" />
-    <Content Include="Assets\PivotPageSettings\Office.png" />
-    <Content Include="Assets\PivotPageSettings\Power.png" />
-    <Content Include="Assets\PivotPageSettings\Rotation.png" />
-    <Content Include="Assets\PivotPageSettings\WiFi.png" />
+    <Content Include="Assets\PageSettings\Airplane.png" />
+    <Content Include="Assets\PageSettings\Bluetooth.png" />
+    <Content Include="Assets\PageSettings\Celluar.png" />
+    <Content Include="Assets\PageSettings\Location.png" />
+    <Content Include="Assets\PageSettings\Lockscreen.png" />
+    <Content Include="Assets\PageSettings\MailAccounts.png" />
+    <Content Include="Assets\PageSettings\NFC.png" />
+    <Content Include="Assets\PageSettings\Notifications.png" />
+    <Content Include="Assets\PageSettings\Office.png" />
+    <Content Include="Assets\PageSettings\Power.png" />
+    <Content Include="Assets\PageSettings\Rotation.png" />
+    <Content Include="Assets\PageSettings\WiFi.png" />
     <Content Include="Assets\UnusedAssets\About.png" />
     <Content Include="Assets\UnusedAssets\BackGround.jpg" />
     <Content Include="Assets\UnusedAssets\Dex.png" />

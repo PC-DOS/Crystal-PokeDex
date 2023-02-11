@@ -1,4 +1,4 @@
-﻿Module libNumberValidation
+﻿Public Module libNumberValidation
     Public Function IsNumber(lpTest As String) As Integer
         Dim t As Long
         Try

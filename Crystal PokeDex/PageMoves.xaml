@@ -23,7 +23,7 @@
         <!--TitlePanel 包含應用程式的名稱和頁面標題-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="CRYSTAL POKEDEX" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="技能列表" Style="{StaticResource PhoneTextTitle1Style}" FontSize="50"/>
+            <TextBlock Text="招式列表" Style="{StaticResource PhoneTextTitle1Style}" FontSize="50"/>
         </StackPanel>
 
         <!--ContentPanel - 其他內容置於此-->

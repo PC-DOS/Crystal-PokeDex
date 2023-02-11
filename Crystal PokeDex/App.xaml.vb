@@ -40,10 +40,9 @@ Partial Public Class App
         ' 語言顯示初始化
         InitializeLanguage()
 
-        IsoSettingsLib = IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings
+        '使用者設定初始化
+        InitializeSettings()
 
-        InitializeList()
-        InitializeMainList()
         ' 偵錯時顯示圖形分析資訊。
         If Debugger.IsAttached Then
             ' 顯示目前的畫面播放速率計數器。
@@ -83,15 +82,13 @@ Partial Public Class App
     ' 關閉應用程式時不會執行這段程式碼
     Private Sub Application_Deactivated(ByVal sender As Object, ByVal e As DeactivatedEventArgs)
         ' 確定此處已保存必要的應用程式狀態。
-        IsoSettingsLib.Item("IsOfficial") = IsOfficialTranslationEnabled
-        IsoSettingsLib.Item("IsCHS") = IsSimplifiedChineseEnabled
+        IsoSettingsLib.Save()
     End Sub
 
     ' 關閉應用程式 (例如，使用者按 [上一頁]) 時要執行的程式碼
     ' 停用應用程式時不會執行這段程式碼
     Private Sub Application_Closing(ByVal sender As Object, ByVal e As ClosingEventArgs)
-        IsoSettingsLib.Item("IsOfficial") = IsOfficialTranslationEnabled
-        IsoSettingsLib.Item("IsCHS") = IsSimplifiedChineseEnabled
+        IsoSettingsLib.Save()
     End Sub
 
     ' 巡覽失敗時要執行的程式碼
@@ -109,7 +106,9 @@ Partial Public Class App
             Debugger.Break()
         End If
         e.Handled = True
-        'MessageBox.Show(e.ExceptionObject.Message & vbCrLf & e.ExceptionObject.Source & vbCrLf & e.ExceptionObject.StackTrace)
+        If IsDebugMessageEnabled Then
+            MessageBox.Show("發生例外情況:" & vbCrLf & e.ExceptionObject.Message & vbCrLf & "發生例外情況的模塊:" & vbCrLf & e.ExceptionObject.Source & vbCrLf & "例外情況的詳細資訊:" & vbCrLf & e.ExceptionObject.StackTrace)
+        End If
     End Sub
 
 #Region "電話應用程式初始化"

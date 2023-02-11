@@ -1,4 +1,4 @@
-﻿Module libTypeProperties
+﻿Public Module libTypeProperties
     Public Const CurrentTypeCount As Integer = 18
     '順序: 無定義 一般 格鬥 飛行 毒 地面 岩石 蟲 幽靈 鋼 火 水 草 電 超能 冰 龍 惡 妖精
     '第一個變數為進攻方，第二個變數為防守方

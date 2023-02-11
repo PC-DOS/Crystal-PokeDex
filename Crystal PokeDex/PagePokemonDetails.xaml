@@ -388,7 +388,7 @@
                         </StackPanel>
                     </Grid>
                     <Grid x:Name="gridEvoRot" Grid.Row="1" Margin="0,10">
-                        <ListBox x:Name="lstEvoRot" FontSize="25" BorderBrush="{StaticResource PhoneTextBoxBrush}" BorderThickness="2.5" FontFamily="Portable User Interface">
+                        <ListBox x:Name="lstEvoRot" FontSize="25" BorderBrush="{StaticResource PhoneTextBoxBrush}" BorderThickness="2.5">
                             <ListBox.Foreground>
                                 <SolidColorBrush Color="{StaticResource PhoneContrastForegroundColor}"/>
                             </ListBox.Foreground>
@@ -433,7 +433,7 @@
                     </Grid>
                 </Grid>
             </phone:PivotItem>
-            <phone:PivotItem Header="技能">
+            <phone:PivotItem Header="招式">
                 <Grid >
                     <ScrollViewer>
                         <StackPanel Orientation="Vertical" >
@@ -486,6 +486,36 @@
                                     </TextBlock.Foreground>
                                 </TextBlock>
                                 <TextBox x:Name="txtPRC" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHT-O.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (繁體，官方翻譯)">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBox x:Name="txtCHTO" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHS-O.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (簡體，官方翻譯)">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBox x:Name="txtCHSO" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
                         </Grid>
                         <Grid Margin="0,5,0,0">
@@ -561,36 +591,6 @@
                                     </TextBlock.Foreground>
                                 </TextBlock>
                                 <TextBox x:Name="txtGER" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
-                            </StackPanel>
-                        </Grid>
-                        <Grid Margin="0,5,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHT-O.png" Stretch="Fill" Margin="10,0,0,0"/>
-                            <StackPanel Grid.Column="1" Orientation="Vertical">
-                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (繁體，官方翻譯)">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
-                                <TextBox x:Name="txtCHTO" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
-                            </StackPanel>
-                        </Grid>
-                        <Grid Margin="0,5,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHS-O.png" Stretch="Fill" Margin="10,0,0,0"/>
-                            <StackPanel Grid.Column="1" Orientation="Vertical">
-                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (簡體，官方翻譯)">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
-                                <TextBox x:Name="txtCHSO" Height="76" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>

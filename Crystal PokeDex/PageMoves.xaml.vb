@@ -103,7 +103,7 @@ Partial Public Class PageMoves
     End Sub
 
     Private Sub PageMoves_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        Select Case UIMovesChineseDisplayConfig
+        Select Case UIMoveNameDisplayConfig
             Case ChineseDisplayConfig.DefaultConfig
                 lstMoves.ItemsSource = ListMovesOfficialCHT
             Case ChineseDisplayConfig.InformalChineseSimplified

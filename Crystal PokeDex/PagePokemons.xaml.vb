@@ -13,19 +13,19 @@ Partial Public Class PagePokemons
     End Sub
 
     Private Sub PagePokemons_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        Select Case UIChineseDisplayConfig
+        Select Case UIPokemonNameDisplayConfig
             Case ChineseDisplayConfig.DefaultConfig
-                lstPokemons.ItemsSource = ListInformalCHT
+                lstPokemons.ItemsSource = ListPokemonInformalCHT
             Case ChineseDisplayConfig.InformalChineseSimplified
-                lstPokemons.ItemsSource = ListInformalCHS
+                lstPokemons.ItemsSource = ListPokemonInformalCHS
             Case ChineseDisplayConfig.InformalChineseTraditional
-                lstPokemons.ItemsSource = ListInformalCHT
+                lstPokemons.ItemsSource = ListPokemonInformalCHT
             Case ChineseDisplayConfig.OfficialChineseSimplified
-                lstPokemons.ItemsSource = ListOfficialCHS
+                lstPokemons.ItemsSource = ListPokemonOfficialCHS
             Case ChineseDisplayConfig.OfficialChineseTraditional
-                lstPokemons.ItemsSource = ListOfficialCHT
+                lstPokemons.ItemsSource = ListPokemonOfficialCHT
             Case Else
-                lstPokemons.ItemsSource = ListInformalCHT
+                lstPokemons.ItemsSource = ListPokemonInformalCHT
         End Select
     End Sub
 
@@ -151,7 +151,7 @@ Partial Public Class PagePokemons
             End If
             lpSearchRequest = lpIPBSearchRequest
             'NavigationService
-            NavigationService.Navigate(New Uri("/PagePokeSearch.xaml", UriKind.RelativeOrAbsolute))
+            NavigationService.Navigate(New Uri("/PagePokemonSearch.xaml", UriKind.RelativeOrAbsolute))
         Else
             Exit Sub
         End If

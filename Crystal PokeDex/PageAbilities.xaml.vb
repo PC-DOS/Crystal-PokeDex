@@ -65,7 +65,7 @@ Partial Public Class PageAblities
         End If
     End Sub
     Private Sub PageAblities_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        Select Case UIAbilityChineseDisplayConfig
+        Select Case UIAbilityNameDisplayConfig
             Case ChineseDisplayConfig.DefaultConfig
                 lstAbilities.ItemsSource = ListAbilityOfficialCHT
             Case ChineseDisplayConfig.InformalChineseSimplified

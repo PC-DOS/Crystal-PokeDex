@@ -10,21 +10,6 @@ Partial Public Class MainPage
     ' 建構函式
     Public Sub New()
         InitializeComponent()
-        If IsoSettingsLib.Keys.Count = 0 Then
-            IsoSettingsLib.Add("IsCHS", False)
-            IsoSettingsLib.Add("IsOfficial", True)
-        End If
-        If IsoSettingsLib.Keys.Count = 1 Then
-            IsoSettingsLib.Add("IsOfficial", True)
-        End If
-        IsSimplifiedChineseEnabled = IsoSettingsLib.Item("IsCHS")
-        IsOfficialTranslationEnabled = IsoSettingsLib.Item("IsOfficial")
-        GetChineseDisplayConfig(IsSimplifiedChineseEnabled, IsOfficialTranslationEnabled)
-        SetCurrentDisplay()
-        InitAbilitySettings()
-        SetCurrentAbilityDisplay()
-        InitMovesSettings()
-        SetCurrentMovesDisplay()
         DataContext = App.ViewModel
     End Sub
 
@@ -72,38 +57,6 @@ Partial Public Class MainPage
     End Sub
 
     Private Sub MainPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        'IsoSettingsLib = IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings
-        'Do
-        'MessageBox.Show(IsoSettingsLib.Keys.Count)
-        'Loop Until 1 = 2
-        'Thread.Sleep(TimeSpan.FromSeconds(5))
-        'If IsoSettingsLib.Keys.Count = 0 Then
-        '   NavigationService.Navigate(New Uri("/PageBlank.xaml", UriKind.RelativeOrAbsolute))
-        'End If
-        'NavigationService.GoBack()
-        'NavigationService.RemoveBackEntry()
-
-        'If IsoSettingsLib.Keys.Count = 2 Then
-        '    InitFirstLaunch()
-        '    With IsoSettingsLib
-        '        .Add("ColorHP", ValueHP)
-        '        .Add("ColorATK", ValueAttack)
-        '        .Add("ColorDEF", ValueDefence)
-        '        .Add("ColorSATK", ValueSpecialAttack)
-        '        .Add("ColorSDEF", ValueSpecialDefence)
-        '        .Add("ColorSPD", ValueSpeed)
-        '        .Add("ColorTotal", ValueTotal)
-        '    End With
-        'End If
-        'InitColors()
-        InitColorStorage()
-
-        'IsChineseNames = IsoSettingsLib.Item("IsCHS")
-        'If IsChineseNames Then
-        '    chkUseCHS.IsChecked = True
-        'Else
-        '    chkUseCHS.IsChecked = False
-        'End If
         InitializeTileIndexServer()
     End Sub
     Private Sub imgMoves_Tap(sender As Object, e As GestureEventArgs) Handles imgMoves.Tap
@@ -190,15 +143,15 @@ Partial Public Class MainPage
     End Sub
 
     Private Sub imgSettings_Tap(sender As Object, e As GestureEventArgs) Handles imgSettings.Tap
-        NavigationService.Navigate(New Uri("/PivotPageSettings.xaml", UriKind.RelativeOrAbsolute))
+        NavigationService.Navigate(New Uri("/PageSettings.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub rectSettings_Tap(sender As Object, e As GestureEventArgs) Handles rectSettings.Tap
-        NavigationService.Navigate(New Uri("/PivotPageSettings.xaml", UriKind.RelativeOrAbsolute))
+        NavigationService.Navigate(New Uri("/PageSettings.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub txtSettings_Tap(sender As Object, e As GestureEventArgs) Handles txtSettings.Tap
-        NavigationService.Navigate(New Uri("/PivotPageSettings.xaml", UriKind.RelativeOrAbsolute))
+        NavigationService.Navigate(New Uri("/PageSettings.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub btnMore_Tap(sender As Object, e As GestureEventArgs) Handles btnMore.Tap

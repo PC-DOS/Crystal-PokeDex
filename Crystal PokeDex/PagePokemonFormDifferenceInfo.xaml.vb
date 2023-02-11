@@ -6,13 +6,13 @@
     End Sub
 
     Private Sub PagePokemonFormDifferenceInfo_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        txtPMName.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
+        txtPMName.Text = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         txtStateName.Text = SharedFormDifferenceInformation.FormName
         Dim imgPokemonURI As Media.Imaging.BitmapImage
         imgPokemonURI = New Imaging.BitmapImage
         imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
         imgPokemon.Source = imgPokemonURI
-        With ValueHP
+        With ColorHP
             If .IsSystemAccent Then
                 prgSVHP.Foreground = prgEXP.Foreground
                 'prgSVHP_MORAS.Foreground = prgEXP.Foreground
@@ -27,7 +27,7 @@
                 'prgSVHP_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueAttack
+        With ColorAttack
             If .IsSystemAccent Then
                 prgSVATK.Foreground = prgEXP.Foreground
                 'prgSVATK_MORAS.Foreground = prgEXP.Foreground
@@ -42,7 +42,7 @@
                 'prgSVATK_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueDefence
+        With ColorDefence
             If .IsSystemAccent Then
                 prgSVDEF.Foreground = prgEXP.Foreground
                 'prgSVDEF_MORAS.Foreground = prgEXP.Foreground
@@ -57,7 +57,7 @@
                 'prgSVDEF_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpecialAttack
+        With ColorSpecialAttack
             If .IsSystemAccent Then
                 prgSVSA.Foreground = prgEXP.Foreground
                 'prgSVSA_MORAS.Foreground = prgEXP.Foreground
@@ -72,7 +72,7 @@
                 'prgSVSA_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpecialDefence
+        With ColorSpecialDefence
             If .IsSystemAccent Then
                 prgSVSD.Foreground = prgEXP.Foreground
                 'prgSVSD_MORAS.Foreground = prgEXP.Foreground
@@ -87,7 +87,7 @@
                 'prgSVSD_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpeed
+        With ColorSpeed
             If .IsSystemAccent Then
                 prgSVSP.Foreground = prgEXP.Foreground
                 'prgSVSP_MORAS.Foreground = prgEXP.Foreground
@@ -102,7 +102,7 @@
                 'prgSVSP_OS.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueTotal
+        With ColorTotal
             If .IsSystemAccent Then
                 prgSVT.Foreground = prgEXP.Foreground
                 'prgSVT_MORAS.Foreground = prgEXP.Foreground
@@ -123,13 +123,13 @@
                 txtDescription.Visibility = System.Windows.Visibility.Collapsed
             End If
             With SharedFormDifferenceInformation.SpeciesStrengthValues
-                txtSVATK.Text = .ATTACK.ToString
-                txtSVDEF.Text = .DEFEND.ToString
+                txtSVATK.Text = .Attack.ToString
+                txtSVDEF.Text = .Defence.ToString
                 txtSVHP.Text = .HP.ToString
-                txtSVSA.Text = .SPATTACK.ToString
-                txtSVSD.Text = .SPDEFEND.ToString
-                txtSVSP.Text = .SPEED
-                txtSVT.Text = .TOTAL.ToString
+                txtSVSA.Text = .SpecialAttack.ToString
+                txtSVSD.Text = .SpecialDefence.ToString
+                txtSVSP.Text = .Speed
+                txtSVT.Text = .Total.ToString
             End With
             With SharedFormDifferenceInformation
                 txtType.Text = .Type
@@ -165,13 +165,13 @@
                     txtAbility3.Text = .AbilityHidden
                 End If
                 With .SpeciesStrengthValues
-                    prgSVATK.Value = .ATTACK
-                    prgSVDEF.Value = .DEFEND
+                    prgSVATK.Value = .Attack
+                    prgSVDEF.Value = .Defence
                     prgSVHP.Value = .HP
-                    prgSVSA.Value = .SPATTACK
-                    prgSVSD.Value = .SPDEFEND
-                    prgSVSP.Value = .SPEED
-                    prgSVT.Value = .TOTAL
+                    prgSVSA.Value = .SpecialAttack
+                    prgSVSD.Value = .SpecialDefence
+                    prgSVSP.Value = .Speed
+                    prgSVT.Value = .Total
                 End With
             End With
 

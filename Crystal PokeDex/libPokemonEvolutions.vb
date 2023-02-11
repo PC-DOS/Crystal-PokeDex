@@ -1,4 +1,4 @@
-﻿Module libPokemonEvolutions
+﻿Public Module libPokemonEvolutions
     Private IsEvolutionsAvailableTemp As Boolean
     Private EvolutionRoutinsTemp As New List(Of String)
     Private EvoluteToNumersTemp As New List(Of String)
@@ -30,7 +30,7 @@
                 For j As Integer = 0 To EvolutionRoutinsTemp.Count - 1
                     If CInt(EvoluteToNumersTemp(j)) = PokemonNationalDexNumberToQuery Then
                         IsEvolutionsAvailable = True
-                        EvolutionRoutins.Add("[" & CurrentTranslationForCommonUse(i - 1) & "] " & EvolutionRoutinsTemp(j))
+                        EvolutionRoutins.Add("[" & CurrentPokemonTranslationForCommonUse(i - 1) & "] " & EvolutionRoutinsTemp(j))
                         EvoluteToNumers.Add(EvolutionSrcNumberSuffix & i.ToString("D3"))
                     End If
                 Next

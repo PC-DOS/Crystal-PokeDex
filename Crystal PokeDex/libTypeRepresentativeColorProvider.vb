@@ -1,4 +1,4 @@
-﻿Module libTypeRepresentativeColorProvider
+﻿Public Module libTypeRepresentativeColorProvider
     Public Structure SingleTypeRepresentativeColor
         Public Red As Integer
         Public Green As Integer

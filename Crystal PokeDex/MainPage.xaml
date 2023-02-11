@@ -48,7 +48,7 @@
                             <Image x:Name="imgPokemons" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/PM.png"/>
                         </Grid>
                         <Grid x:Name="rectMoves" Background="#FFE1D932" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">
-                            <TextBlock x:Name="txtMoves" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="技能列表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
+                            <TextBlock x:Name="txtMoves" HorizontalAlignment="Left" Height="64" Margin="92,18,0,0" TextWrapping="Wrap" Text="招式列表" VerticalAlignment="Top" Width="281" FontSize="45" Foreground="White"/>
                             <Image x:Name="imgMoves" HorizontalAlignment="Left" Height="92" Margin="0,6,0,0" VerticalAlignment="Top" Width="95" Source="/Assets/MainPage/Moves.png"/>
                         </Grid>
                         <Grid x:Name="rectItems" Background="#FFE13A32" HorizontalAlignment="Left" Height="100" Margin="17,10,0,0" VerticalAlignment="Top" Width="374">

@@ -21,7 +21,6 @@
     End Function
 
     Private Sub PagePokemonDetails_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        'InitializeAbilities()
         If IsLaunchedFromPinned Then
             NavigationService.RemoveBackEntry()
         End If
@@ -47,49 +46,49 @@
         imgFemale.Source = imgPokemonFemale
         imgMale.Source = imgPokemonMale
         imgEvoBasic.Source = imgPokemonEvolutionBasic
-        With ValueHP
+        With ColorHP
             If .IsSystemAccent Then
                 prgSVHP.Foreground = prgEXP.Foreground
             Else
                 prgSVHP.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueAttack
+        With ColorAttack
             If .IsSystemAccent Then
                 prgSVATK.Foreground = prgEXP.Foreground
             Else
                 prgSVATK.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueDefence
+        With ColorDefence
             If .IsSystemAccent Then
                 prgSVDEF.Foreground = prgEXP.Foreground
             Else
                 prgSVDEF.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpecialAttack
+        With ColorSpecialAttack
             If .IsSystemAccent Then
                 prgSVSA.Foreground = prgEXP.Foreground
             Else
                 prgSVSA.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpecialDefence
+        With ColorSpecialDefence
             If .IsSystemAccent Then
                 prgSVSD.Foreground = prgEXP.Foreground
             Else
                 prgSVSD.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueSpeed
+        With ColorSpeed
             If .IsSystemAccent Then
                 prgSVSP.Foreground = prgEXP.Foreground
             Else
                 prgSVSP.Foreground = New SolidColorBrush(Color.FromArgb(255, .ColorSettingsRGB.Red, .ColorSettingsRGB.Green, .ColorSettingsRGB.Blue))
             End If
         End With
-        With ValueTotal
+        With ColorTotal
             If .IsSystemAccent Then
                 prgSVT.Foreground = prgEXP.Foreground
             Else
@@ -100,14 +99,14 @@
             imgFemale.Visibility = System.Windows.Visibility.Collapsed
             rectImgFemale.Visibility = System.Windows.Visibility.Collapsed
             txtImgFemale.Visibility = System.Windows.Visibility.Collapsed
-            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
+            txtImgMale.Text = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
         Else
             imgFemale.Visibility = System.Windows.Visibility.Visible
             rectImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgFemale.Visibility = System.Windows.Visibility.Visible
             txtImgMale.Text = "雄性的外貌"
         End If
-        pivotBack.Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
+        pivotBack.Title = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         If FormDifferenceList.Count = 0 Then
             GridNotAvailable_MS.Visibility = System.Windows.Visibility.Visible
         Else
@@ -147,20 +146,20 @@
                 txtHatch.Text = .HatchEggCycles
             End If
             txtHeight.Text = .Height
-            txtName.Text = CurrentTranslationForCommonUse(CInt(.DexIDNumber) - 1)
-            txtName_EVOBasic.Text = CurrentTranslationForCommonUse(CInt(.DexIDNumber) - 1)
+            txtName.Text = CurrentPokemonTranslationForCommonUse(CInt(.DexIDNumber) - 1)
+            txtName_EVOBasic.Text = CurrentPokemonTranslationForCommonUse(CInt(.DexIDNumber) - 1)
             txtNum_EVOBasic.Text = "全國圖鑑登錄號 " & .DexIDNumber
             txtNum.Text = "全國圖鑑登錄號 " & .DexIDNumber
             txtBodyColor.Text = .BodyColor
             txtShelter.Text = .Sheleter
             txtGenderRatio.Text = .GenderRatio
-            txtSVATK.Text = .SpeciesStrengthValues.ATTACK.ToString
-            txtSVDEF.Text = .SpeciesStrengthValues.DEFEND.ToString
+            txtSVATK.Text = .SpeciesStrengthValues.Attack.ToString
+            txtSVDEF.Text = .SpeciesStrengthValues.Defence.ToString
             txtSVHP.Text = .SpeciesStrengthValues.HP.ToString
-            txtSVSA.Text = .SpeciesStrengthValues.SPATTACK.ToString
-            txtSVSD.Text = .SpeciesStrengthValues.SPDEFEND.ToString
-            txtSVSP.Text = .SpeciesStrengthValues.SPEED
-            txtSVT.Text = .SpeciesStrengthValues.TOTAL.ToString
+            txtSVSA.Text = .SpeciesStrengthValues.SpecialAttack.ToString
+            txtSVSD.Text = .SpeciesStrengthValues.SpecialDefence.ToString
+            txtSVSP.Text = .SpeciesStrengthValues.Speed
+            txtSVT.Text = .SpeciesStrengthValues.Total.ToString
             txtCategory.Text = .Category
             txtWeight.Text = .Weight
             If .Ability1 <> "---" And .Ability1 <> "ERROR" Then
@@ -311,19 +310,19 @@
             End If
         End With
         With PokemonInformationShared.SpeciesStrengthValues
-            prgSVATK.Value = .ATTACK
-            prgSVDEF.Value = .DEFEND
+            prgSVATK.Value = .Attack
+            prgSVDEF.Value = .Defence
             prgSVHP.Value = .HP
-            prgSVSA.Value = .SPATTACK
-            prgSVSD.Value = .SPDEFEND
-            prgSVSP.Value = .SPEED
-            prgSVT.Value = .TOTAL
+            prgSVSA.Value = .SpecialAttack
+            prgSVSD.Value = .SpecialDefence
+            prgSVSP.Value = .Speed
+            prgSVT.Value = .Total
         End With
         If PokemonInformationShared.IsNoGenderOrSingleGender Then
             imgFemale.Visibility = System.Windows.Visibility.Collapsed
             rectImgFemale.Visibility = System.Windows.Visibility.Collapsed
             txtImgFemale.Visibility = System.Windows.Visibility.Collapsed
-            txtImgMale.Text = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
+            txtImgMale.Text = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1) & " 的外貌"
         Else
             imgFemale.Visibility = System.Windows.Visibility.Visible
             rectImgFemale.Visibility = System.Windows.Visibility.Visible
@@ -517,7 +516,7 @@
                 Dim lpEvoDestNum As Integer
                 lpEvoDestNum = CInt(EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, ""))
                 Dim imgPokemonEvoDest As Imaging.BitmapImage
-                txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
+                txtName_EVODest.Text = CurrentPokemonTranslationForCommonUse(lpEvoDestNum - 1)
                 imgPokemonEvoDest = New Imaging.BitmapImage
                 imgPokemonEvoDest.UriSource = New Uri("/Pokemons/" & EvoluteToNumers(i).Replace(EvolutionDestNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
                 imgEvoDest.Source = imgPokemonEvoDest
@@ -534,7 +533,7 @@
                 Dim lpEvoDestNum As Integer
                 lpEvoDestNum = CInt(EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, ""))
                 Dim imgPokemonEvoDest As Imaging.BitmapImage
-                txtName_EVODest.Text = CurrentTranslationForCommonUse(lpEvoDestNum - 1)
+                txtName_EVODest.Text = CurrentPokemonTranslationForCommonUse(lpEvoDestNum - 1)
                 imgPokemonEvoDest = New Imaging.BitmapImage
                 imgPokemonEvoDest.UriSource = New Uri("/Pokemons/" & EvoluteToNumers(i).Replace(EvolutionSrcNumberSuffix, "") & ".png", UriKind.RelativeOrAbsolute)
                 imgEvoDest.Source = imgPokemonEvoDest
@@ -544,7 +543,7 @@
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click(sender As Object, e As EventArgs)
-        NavigationService.Navigate(New Uri("/PageSearchReq.xaml", UriKind.RelativeOrAbsolute))
+        NavigationService.Navigate(New Uri("/PagePokemonOnlineSearchCfg.xaml", UriKind.RelativeOrAbsolute))
         Exit Sub
     End Sub
 
@@ -557,7 +556,7 @@
             .BackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
             .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
             .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .Title = CurrentTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
+            .Title = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         End With
         ShellTile.Create(New Uri("/PageTileLauncher.xaml?Index=" & currentTileIndex.ToString & "&Num=" & PkMnNum, UriKind.RelativeOrAbsolute), tile, True)
         currentTileIndex = currentTileIndex + 1
@@ -590,7 +589,7 @@
 
     Private Sub lstFormDifferences_DoubleTap(sender As Object, e As GestureEventArgs) Handles lstFormDifferences.DoubleTap
         If lstFormDifferences.SelectedIndex >= 0 Then
-            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
+            SharedFormDifferenceInformation = FormDifferenceInformationList(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
             imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
@@ -603,7 +602,7 @@
 
     Private Sub lstFormDifferences_Tap(sender As Object, e As GestureEventArgs) Handles lstFormDifferences.Tap
         If lstFormDifferences.SelectedIndex >= 0 Then
-            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
+            SharedFormDifferenceInformation = FormDifferenceInformationList(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
             imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
@@ -658,7 +657,7 @@
 
     Private Sub imgPokemon_Tap(sender As Object, e As GestureEventArgs) Handles imgPokemon.Tap
         If lstFormDifferences.SelectedIndex >= 0 Then
-            SharedFormDifferenceInformation = FormDifferenceInformation(lstFormDifferences.SelectedIndex)
+            SharedFormDifferenceInformation = FormDifferenceInformationList(lstFormDifferences.SelectedIndex)
             Dim imgPokemonURI As Media.Imaging.BitmapImage
             imgPokemonURI = New Imaging.BitmapImage
             imgPokemonURI.UriSource = New Uri(SharedFormDifferenceInformation.ImagePath, UriKind.RelativeOrAbsolute)
