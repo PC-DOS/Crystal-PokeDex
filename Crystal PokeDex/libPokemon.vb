@@ -4863,7 +4863,7 @@
                         .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
                     End With
                     .ImageMaleURI = "/Pokemons/133.png"
-                    .ImageFemaleURI = "/Pokemons/133.png"
+                    .ImageFemaleURI = "/Pokemons/133F.png"
                 End With
             Case 134
                 With ReturnValue

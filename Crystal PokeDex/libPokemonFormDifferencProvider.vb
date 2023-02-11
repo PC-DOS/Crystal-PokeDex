@@ -321,7 +321,22 @@
             Case 25
                 With FormDifferenceList
                     .Add("第六世代之前的種族值")
+                    .Add("搭檔皮卡丘")
                     .Add("超極巨化")
+                    .Add("換裝皮卡丘")
+                    .Add("換裝皮卡丘 - 流行偶像")
+                    .Add("換裝皮卡丘 - 博士")
+                    .Add("換裝皮卡丘 - 面罩摔角手")
+                    .Add("換裝皮卡丘 - 貴婦")
+                    .Add("換裝皮卡丘 - 搖滾巨星")
+                    .Add("戴著帽子的皮卡丘 - 世界")
+                    .Add("戴著帽子的皮卡丘 - 就決定是你了")
+                    .Add("戴著帽子的皮卡丘 - 初始")
+                    .Add("戴著帽子的皮卡丘 - 豐緣")
+                    .Add("戴著帽子的皮卡丘 - 神奧")
+                    .Add("戴著帽子的皮卡丘 - 合眾")
+                    .Add("戴著帽子的皮卡丘 - 卡洛斯")
+                    .Add("戴著帽子的皮卡丘 - 阿羅拉")
                 End With
                 With FormDifferenceInformation(0)
                     .Type = "[電]"
@@ -350,6 +365,28 @@
                     .Ability1 = 9
                     .Ability2 = "---"
                     .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/Pokemons/025.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 45
+                        .ATTACK = 80
+                        .DEFEND = 50
+                        .SPATTACK = 75
+                        .SPDEFEND = 60
+                        .SPEED = 120
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(2)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
                     .Height = "21.0 m以上"
                     .Weight = "<缺數據>"
                     .Category = "鼠神奇寶貝"
@@ -357,6 +394,314 @@
                     .IsUniqueDescriptionAvailable = True
                     .UniqueDescription = "膨脹的超極巨化之力使得牠的身體變大，尾巴也變得高聳入雲。當牠用閃電狀的尾巴擊中目標時，不亞於雷擊的電壓和電流便會貫穿對方的全身。"
                     .ImagePath = "/FormDifferenceImages/025/Gigantamax.png"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(3)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(4)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay-PopStar.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(5)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay-PhD.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(6)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay-Libre.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(7)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay-Belle.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(8)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .ImagePath = "/FormDifferenceImages/025/Cosplay-RockStar.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(9)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在各種世界冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-World.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(10)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多與夥伴相遇時的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Partner.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(11)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在各個地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Original.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(12)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在豐緣地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Hoenn.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(13)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在神奧地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Sinnoh.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(14)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在合眾地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Unova.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(15)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在卡洛斯地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Kalos.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
+                    With .SpeciesStrengthValues
+                        .HP = 35
+                        .ATTACK = 55
+                        .DEFEND = 40
+                        .SPATTACK = 50
+                        .SPDEFEND = 50
+                        .SPEED = 90
+                        .TOTAL = .HP + .ATTACK + .DEFEND + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(16)
+                    .Type = "[電]"
+                    .Ability1 = 9
+                    .Ability2 = "---"
+                    .AbilityHidden = 31
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "戴著同伴訓練家的帽子，樣子有點珍稀的皮卡丘。因為尺寸不太合適，戴起來有點鬆垮垮的。帽子上承載著許許多多在阿羅拉地區冒險的回憶。"
+                    .ImagePath = "/FormDifferenceImages/025/Cap-Alola.png"
+                    .Height = "0.4 m"
+                    .Weight = "6.0 kg"
+                    .Category = "鼠神奇寶貝"
+                    .BodyColor = "黃"
                     With .SpeciesStrengthValues
                         .HP = 35
                         .ATTACK = 55
@@ -1514,9 +1859,32 @@
                 End With
             Case 133
                 With FormDifferenceList
+                    .Add("搭檔伊布")
                     .Add("超極巨化")
                 End With
                 With FormDifferenceInformation(0)
+                    .IsUniqueDescriptionAvailable = True
+                    .Ability1 = 50
+                    .Ability2 = 91
+                    .AbilityHidden = 107
+                    .Type = "[一般]"
+                    .Height = "0.3 m"
+                    .Weight = "6.5 kg"
+                    .Category = "進化神奇寶貝"
+                    .BodyColor = "褐"
+                    .ImagePath = "/Pokemons/133.png"
+                    .UniqueDescription = ""
+                    With .SpeciesStrengthValues
+                        .HP = 65
+                        .ATTACK = 75
+                        .DEFEND = 70
+                        .SPATTACK = 65
+                        .SPDEFEND = 85
+                        .SPEED = 75
+                        .TOTAL = .ATTACK + .DEFEND + .HP + .SPATTACK + .SPDEFEND + .SPEED
+                    End With
+                End With
+                With FormDifferenceInformation(1)
                     .IsUniqueDescriptionAvailable = True
                     .Ability1 = 50
                     .Ability2 = 91
