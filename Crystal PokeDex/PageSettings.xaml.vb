@@ -439,6 +439,7 @@
             txtBlue.IsEnabled = True
             clrPicker.IsEnabled = True
         End If
+        UpdateColorPreview()
         GridColor.Visibility = System.Windows.Visibility.Visible
     End Sub
 
