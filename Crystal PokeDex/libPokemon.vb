@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.Serialization
-Public Module libPokemon
+Public Module LibPokemon
     Public Const DefaultPokemonImagePath = "/Assets/PagePokemonDetails/NoImage.png"
-    Public Const CurrentPokemonCount = 1008
+    Public Const CurrentPokemonCount = 1025
     '各個版本中的神奇寶貝總數
     Public Enum TotalPokemonCountPerVersion
         RGBY = 151
@@ -12,7 +12,7 @@ Public Module libPokemon
         XY = 721
         SM = 809
         SS = 905
-        SV = 1008
+        SV = 1025
     End Enum
     Public Structure PokemonSpeciesStrengthValues
         Public HP As Integer
@@ -26,10 +26,10 @@ Public Module libPokemon
     Public Structure PokemonInfo
         Public Title As String
         Public IsMissingNo As Boolean '缺號,設置錯誤,默認為False
-        Public NameCHT As String '繁体中文名字
-        Public NameCHS As String '简体中文名字
-        Public NameCHTO As String '官方繁體中文名字
-        Public NameCHSO As String '官方簡體中文名字
+        Public NameCHTInformal As String '繁体中文名字
+        Public NameCHTOfficial As String '官方繁體中文名字
+        Public NameCHSInformal As String '简体中文名字
+        Public NameCHSOfficial As String '官方簡體中文名字
         Public NameENG As String '英語名字
         Public NameJPN As String '日語名字
         Public NameGER As String '德語名字
@@ -102,13 +102,13 @@ Public Module libPokemon
             .InitialFriendshipValue = "ERROR"
             .Type = "[ERROR]"
             .Weight = "ERROR"
-            .NameCHS = "ERROR"
-            .NameCHT = "ERROR"
+            .NameCHSInformal = "ERROR"
+            .NameCHTInformal = "ERROR"
             .NameENG = "ERROR"
             .NameJPN = "ERROR"
             .NameKOR = "ERROR"
-            .NameCHSO = "ERROR"
-            .NameCHTO = "ERROR"
+            .NameCHSOfficial = "ERROR"
+            .NameCHTOfficial = "ERROR"
             .NameGER = "ERROR"
             .NameFRA = "ERROR"
         End With
@@ -173,13 +173,13 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                .NameCHSO = "ERROR"
-                .NameCHTO = "ERROR"
+                .NameCHSOfficial = "ERROR"
+                .NameCHTOfficial = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
             End With
@@ -187,15 +187,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
@@ -13755,13 +13755,13 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                .NameCHSO = "ERROR"
-                .NameCHTO = "ERROR"
+                .NameCHSOfficial = "ERROR"
+                .NameCHTOfficial = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
             End With
@@ -13769,15 +13769,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
@@ -17569,8 +17569,8 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
@@ -17579,15 +17579,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
@@ -25614,13 +25614,13 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                .NameCHSO = "ERROR"
-                .NameCHTO = "ERROR"
+                .NameCHSOfficial = "ERROR"
+                .NameCHTOfficial = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
             End With
@@ -25628,15 +25628,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
@@ -28760,13 +28760,13 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                .NameCHSO = "ERROR"
-                .NameCHTO = "ERROR"
+                .NameCHSOfficial = "ERROR"
+                .NameCHTOfficial = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
             End With
@@ -28774,15 +28774,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery
@@ -32185,13 +32185,13 @@ Public Module libPokemon
                 .InitialFriendshipValue = "ERROR"
                 .Type = "[ERROR]"
                 .Weight = "ERROR"
-                .NameCHS = "ERROR"
-                .NameCHT = "ERROR"
+                .NameCHSInformal = "ERROR"
+                .NameCHTInformal = "ERROR"
                 .NameENG = "ERROR"
                 .NameJPN = "ERROR"
                 .NameKOR = "ERROR"
-                .NameCHSO = "ERROR"
-                .NameCHTO = "ERROR"
+                .NameCHSOfficial = "ERROR"
+                .NameCHTOfficial = "ERROR"
                 .NameGER = "ERROR"
                 .NameFRA = "ERROR"
             End With
@@ -32199,15 +32199,15 @@ Public Module libPokemon
             Exit Function
         End If
         With ReturnValue
-            .NameCHT = PokemonNamesCHT.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHS = PokemonNamesCHS.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTInformal = PokemonNamesCHTInformal.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSInformal = PokemonNamesCHSInformal.Item(PokemonNationalDexNumberToQuery - 1)
             .NameENG = PokemonNamesENG.Item(PokemonNationalDexNumberToQuery - 1)
             .NameJPN = PokemonNamesJPN.Item(PokemonNationalDexNumberToQuery - 1)
             .NameKOR = PokemonNamesKOR.Item(PokemonNationalDexNumberToQuery - 1)
             .NameGER = PokemonNamesGER.Item(PokemonNationalDexNumberToQuery - 1)
             .NameFRA = PokemonNamesFRA.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHTO = PokemonNamesCHTO.Item(PokemonNationalDexNumberToQuery - 1)
-            .NameCHSO = PokemonNamesCHSO.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHTOfficial = PokemonNamesCHTOfficial.Item(PokemonNationalDexNumberToQuery - 1)
+            .NameCHSOfficial = PokemonNamesCHSOfficial.Item(PokemonNationalDexNumberToQuery - 1)
             .Title = CurrentPokemonTranslationForCommonUse(PokemonNationalDexNumberToQuery - 1)
         End With
         Select Case PokemonNationalDexNumberToQuery

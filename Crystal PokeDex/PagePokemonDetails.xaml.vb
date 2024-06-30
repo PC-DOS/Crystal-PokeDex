@@ -177,15 +177,15 @@
             Else
                 txtAbility3.Text = .AbilityHidden
             End If
-            txtROC.Text = .NameCHT
-            txtPRC.Text = .NameCHS
+            txtCHTInformal.Text = .NameCHTInformal
+            txtCHTOfficial.Text = .NameCHTOfficial
+            txtCHSInformal.Text = .NameCHSInformal
+            txtCHSOfficial.Text = .NameCHSOfficial
             txtENU.Text = .NameENG
             txtJPN.Text = .NameJPN
             txtKOR.Text = .NameKOR
             txtFRA.Text = .NameFRA
             txtGER.Text = .NameGER
-            txtCHTO.Text = .NameCHTO
-            txtCHSO.Text = .NameCHSO
             Select Case CLng(.DexIDNumber)
                 Case Is <= TotalPokemonCountPerVersion.RGBY
                     btnRGBY.IsEnabled = True
@@ -401,35 +401,35 @@
         e.Handled = True
     End Sub
 
-    Private Sub txtPRC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPRC.KeyDown
+    Private Sub txtCHSInformal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSInformal.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtPRC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtPRC.TextChanged
-        txtPRC.Text = PokemonInformationShared.NameCHS
+    Private Sub txtCHSInformal_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSInformal.TextChanged
+        txtCHSInformal.Text = PokemonInformationShared.NameCHSInformal
     End Sub
 
-    Private Sub txtPRC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtPRC.TextInput
+    Private Sub txtCHSInformal_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSInformal.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtPRC_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtPRC.TextInputStart
+    Private Sub txtCHSInformal_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSInformal.TextInputStart
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtROC.KeyDown
+    Private Sub txtCHTInformal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTInformal.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtROC.TextChanged
-        txtROC.Text = PokemonInformationShared.NameCHT
+    Private Sub txtCHTInformal_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTInformal.TextChanged
+        txtCHTInformal.Text = PokemonInformationShared.NameCHTInformal
     End Sub
 
-    Private Sub txtROC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInput
+    Private Sub txtCHTInformal_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTInformal.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInputStart
+    Private Sub txtCHTInformal_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTInformal.TextInputStart
         e.Handled = True
     End Sub
 
@@ -668,35 +668,35 @@
         End If
     End Sub
 
-    Private Sub txtCHTO_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTO.KeyDown
+    Private Sub txtCHTOfficial_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTOfficial.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtCHTO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTO.TextChanged
-        txtCHTO.Text = PokemonInformationShared.NameCHTO
+    Private Sub txtCHTOfficial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTOfficial.TextChanged
+        txtCHTOfficial.Text = PokemonInformationShared.NameCHTOfficial
     End Sub
 
-    Private Sub txtCHTO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTO.TextInput
+    Private Sub txtCHTOfficial_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTOfficial.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtCHTO_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTO.TextInputStart
+    Private Sub txtCHTOfficial_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTOfficial.TextInputStart
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSO.KeyDown
+    Private Sub txtCHSOfficial_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSOfficial.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSO.TextChanged
-        txtCHSO.Text = PokemonInformationShared.NameCHSO
+    Private Sub txtCHSOfficial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSOfficial.TextChanged
+        txtCHSOfficial.Text = PokemonInformationShared.NameCHSOfficial
     End Sub
 
-    Private Sub txtCHSO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSO.TextInput
+    Private Sub txtCHSOfficial_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSOfficial.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSO.TextInputStart
+    Private Sub txtCHSOfficial_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSOfficial.TextInputStart
         e.Handled = True
     End Sub
 End Class

@@ -9,7 +9,7 @@
         InitializeItemInformation()
         txtName.Text = ItemNamesCHT.Item(lpSelectedItemNumber - 1)
         txtDescription.Text = ItemDescriptions.Item(lpSelectedItemNumber - 1)
-        txtROC.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
+        txtCHT.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
         txtENU.Text = ItemNamesENG(lpSelectedItemNumber - 1)
         txtJPN.Text = ItemNamesJPN(lpSelectedItemNumber - 1)
         pivData.Title = txtName.Text
@@ -29,7 +29,7 @@
 
     Private Sub txtDescription_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtDescription.TextChanged
         txtDescription.Text = ItemDescriptions.Item(lpSelectedItemNumber - 1)
-        txtROC.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
+        txtCHT.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
         txtENU.Text = ItemNamesENG(lpSelectedItemNumber - 1)
         txtJPN.Text = ItemNamesJPN(lpSelectedItemNumber - 1)
     End Sub
@@ -42,22 +42,22 @@
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtROC.KeyDown
+    Private Sub txtCHT_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHT.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtROC.TextChanged
+    Private Sub txtCHT_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHT.TextChanged
         txtDescription.Text = ItemDescriptions.Item(lpSelectedItemNumber - 1)
-        txtROC.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
+        txtCHT.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
         txtENU.Text = ItemNamesENG(lpSelectedItemNumber - 1)
         txtJPN.Text = ItemNamesJPN(lpSelectedItemNumber - 1)
     End Sub
 
-    Private Sub txtROC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInput
+    Private Sub txtCHT_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHT.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtROC_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInputStart
+    Private Sub txtCHT_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHT.TextInputStart
         e.Handled = True
     End Sub
 
@@ -67,7 +67,7 @@
 
     Private Sub txtJPN_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtJPN.TextChanged
         txtDescription.Text = ItemDescriptions.Item(lpSelectedItemNumber - 1)
-        txtROC.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
+        txtCHT.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
         txtENU.Text = ItemNamesENG(lpSelectedItemNumber - 1)
         txtJPN.Text = ItemNamesJPN(lpSelectedItemNumber - 1)
     End Sub
@@ -86,7 +86,7 @@
 
     Private Sub txtENU_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtENU.TextChanged
         txtDescription.Text = ItemDescriptions.Item(lpSelectedItemNumber - 1)
-        txtROC.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
+        txtCHT.Text = ItemNamesCHT(lpSelectedItemNumber - 1)
         txtENU.Text = ItemNamesENG(lpSelectedItemNumber - 1)
         txtJPN.Text = ItemNamesJPN(lpSelectedItemNumber - 1)
     End Sub

@@ -154,14 +154,14 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHT.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/CHTInformal.png" Stretch="Fill" Margin="10,0,0,0"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (繁體)">
                                     <TextBlock.Foreground>
                                         <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                                     </TextBlock.Foreground>
                                 </TextBlock>
-                                <TextBox x:Name="txtROC" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                                <TextBox x:Name="txtCHTInformal" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
                         </Grid>
                         <Grid Margin="0,5,0,0">
@@ -169,29 +169,14 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHS.png" Stretch="Fill" Margin="10,0,0,0"/>
-                            <StackPanel Grid.Column="1" Orientation="Vertical">
-                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (簡體)">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
-                                <TextBox x:Name="txtPRC" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
-                            </StackPanel>
-                        </Grid>
-                        <Grid Margin="0,5,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHT-O.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/CHTOfficial.png" Stretch="Fill" Margin="10,0,0,0"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (繁體，官方翻譯)">
                                     <TextBlock.Foreground>
                                         <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                                     </TextBlock.Foreground>
                                 </TextBlock>
-                                <TextBox x:Name="txtCHTO" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                                <TextBox x:Name="txtCHTOfficial" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
                         </Grid>
                         <Grid Margin="0,5,0,0">
@@ -199,14 +184,29 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/CHS-O.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/CHSInformal.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (簡體)">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBox x:Name="txtCHSInformal" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/CHSOfficial.png" Stretch="Fill" Margin="10,0,0,0"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="中文 (簡體，官方翻譯)">
                                     <TextBlock.Foreground>
                                         <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
                                     </TextBlock.Foreground>
                                 </TextBlock>
-                                <TextBox x:Name="txtCHSO" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
+                                <TextBox x:Name="txtCHSOfficial" Height="76" TextWrapping="NoWrap" Text="水君" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
                         </Grid>
                         <Grid Margin="0,5,0,0">
@@ -214,7 +214,7 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/USA.jpg" Stretch="Fill" Margin="10,0,0,0"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/USA.jpg" Stretch="Fill" Margin="10,0,0,0"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="英文">
                                     <TextBlock.Foreground>
@@ -229,7 +229,7 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/Nations/JPN.png" Stretch="Fill" Margin="10,0,0,0"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="153" Source="/LanguageFlags/JPN.png" Stretch="Fill" Margin="10,0,0,0"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" TextWrapping="Wrap" Text="日文">
                                     <TextBlock.Foreground>

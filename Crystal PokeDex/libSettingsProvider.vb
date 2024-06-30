@@ -1,4 +1,4 @@
-﻿Public Module libSettingsProvider
+﻿Public Module LibSettingsProvider
     Public IsoSettingsLib As IO.IsolatedStorage.IsolatedStorageSettings
 
     '設定索引常數
@@ -22,10 +22,10 @@
 
     Public Enum ChineseDisplayConfig
         DefaultConfig = 0 '默認
-        InformalChineseTraditional = 1 '民間翻譯,繁體
-        InformalChineseSimplified = 2 '民間翻譯,簡體
-        OfficialChineseTraditional = 3 '官方翻譯,繁體
-        OfficialChineseSimplified = 4 '民間翻譯,簡體
+        ChineseTraditionalInformal = 1 '民間翻譯,繁體
+        ChineseTraditionalOfficial = 2 '官方翻譯,繁體
+        ChineseSimplifiedInformal = 3 '民間翻譯,簡體
+        ChineseSimplifiedOfficial = 4 '民間翻譯,簡體
     End Enum
 
     Public Sub InitializeSettings()

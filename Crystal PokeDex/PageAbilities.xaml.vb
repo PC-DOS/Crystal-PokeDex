@@ -67,15 +67,15 @@ Partial Public Class PageAblities
     Private Sub PageAblities_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         Select Case UIAbilityNameDisplayConfig
             Case ChineseDisplayConfig.DefaultConfig
-                lstAbilities.ItemsSource = ListAbilityOfficialCHT
-            Case ChineseDisplayConfig.InformalChineseSimplified
-                lstAbilities.ItemsSource = ListAbilityInformalCHS
-            Case ChineseDisplayConfig.InformalChineseTraditional
-                lstAbilities.ItemsSource = ListAbilityInformalCHT
-            Case ChineseDisplayConfig.OfficialChineseSimplified
-                lstAbilities.ItemsSource = ListAbilityOfficialCHS
-            Case ChineseDisplayConfig.OfficialChineseTraditional
-                lstAbilities.ItemsSource = ListAbilityOfficialCHT
+                lstAbilities.ItemsSource = ListAbilityCHTOfficial
+            Case ChineseDisplayConfig.ChineseSimplifiedInformal
+                lstAbilities.ItemsSource = ListAbilityCHSInformal
+            Case ChineseDisplayConfig.ChineseTraditionalInformal
+                lstAbilities.ItemsSource = ListAbilityCHTInformal
+            Case ChineseDisplayConfig.ChineseSimplifiedOfficial
+                lstAbilities.ItemsSource = ListAbilityCHSOfficial
+            Case ChineseDisplayConfig.ChineseTraditionalOfficial
+                lstAbilities.ItemsSource = ListAbilityCHTOfficial
         End Select
     End Sub
     Private Sub ApplicationBarIconButton_Click_2(sender As Object, e As EventArgs)

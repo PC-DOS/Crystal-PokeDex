@@ -13,20 +13,7 @@ Partial Public Class PagePokemons
     End Sub
 
     Private Sub PagePokemons_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        Select Case UIPokemonNameDisplayConfig
-            Case ChineseDisplayConfig.DefaultConfig
-                lstPokemons.ItemsSource = ListPokemonInformalCHT
-            Case ChineseDisplayConfig.InformalChineseSimplified
-                lstPokemons.ItemsSource = ListPokemonInformalCHS
-            Case ChineseDisplayConfig.InformalChineseTraditional
-                lstPokemons.ItemsSource = ListPokemonInformalCHT
-            Case ChineseDisplayConfig.OfficialChineseSimplified
-                lstPokemons.ItemsSource = ListPokemonOfficialCHS
-            Case ChineseDisplayConfig.OfficialChineseTraditional
-                lstPokemons.ItemsSource = ListPokemonOfficialCHT
-            Case Else
-                lstPokemons.ItemsSource = ListPokemonInformalCHT
-        End Select
+        lstPokemons.ItemsSource = CurrentPokemonTranslationForList
     End Sub
 
     Private Sub lstPokemons_DoubleTap(sender As Object, e As GestureEventArgs) Handles lstPokemons.DoubleTap
@@ -158,17 +145,17 @@ Partial Public Class PagePokemons
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click(sender As Object, e As EventArgs)
-        lpHTMFilePath = "/Mega/Mega.htm"
+        HTMLFilePath = "/Mega/Mega.htm"
         NavigationService.Navigate(New Uri("/Browser.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click_1(sender As Object, e As EventArgs)
-        lpHTMFilePath = "/Mega/Mega-CHT.htm"
+        HTMLFilePath = "/Mega/Mega-CHT.htm"
         NavigationService.Navigate(New Uri("/Browser.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click_2(sender As Object, e As EventArgs)
-        lpHTMFilePath = "/Mega/Mega_ENG.htm"
+        HTMLFilePath = "/Mega/Mega_ENG.htm"
         NavigationService.Navigate(New Uri("/Browser.xaml", UriKind.RelativeOrAbsolute))
     End Sub
 

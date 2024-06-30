@@ -1,4 +1,4 @@
-﻿Public Module libPokemonEvolutions
+﻿Public Module LibPokemonEvolutions
     Private IsEvolutionsAvailableTemp As Boolean
     Private EvolutionRoutinsTemp As New List(Of String)
     Private EvoluteToNumersTemp As New List(Of String)

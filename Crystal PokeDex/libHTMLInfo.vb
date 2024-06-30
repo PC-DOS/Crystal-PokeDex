@@ -1,4 +1,4 @@
-﻿Public Module libHTMLInfo
-    Public lpHTMFilePath As String
-    Public lpHTMSrcPath As String
+﻿Public Module LibHTMLInfo
+    Public HTMLFilePath As String
+    Public HTMLSrcPath As String
 End Module

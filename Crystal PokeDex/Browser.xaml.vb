@@ -14,7 +14,7 @@
             .Text = "正在載入網頁"
         End With
         SystemTray.SetProgressIndicator(Me, trayProgress)
-        webBrowser1.Navigate(New Uri(lpHTMFilePath, UriKind.RelativeOrAbsolute))
+        webBrowser1.Navigate(New Uri(HTMLFilePath, UriKind.RelativeOrAbsolute))
     End Sub
 
     Private Sub webBrowser1_LoadCompleted(sender As Object, e As NavigationEventArgs) Handles webBrowser1.LoadCompleted
@@ -48,6 +48,6 @@
             .Text = "正在載入網頁"
         End With
         SystemTray.SetProgressIndicator(Me, trayProgress)
-        webBrowser1.Navigate(New Uri(lpHTMFilePath, UriKind.RelativeOrAbsolute))
+        webBrowser1.Navigate(New Uri(HTMLFilePath, UriKind.RelativeOrAbsolute))
     End Sub
 End Class

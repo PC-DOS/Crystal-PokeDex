@@ -5,12 +5,20 @@
         InitializeComponent()
     End Sub
 
-    Private Sub rdCHS_Tap(sender As Object, e As GestureEventArgs) Handles rdCHS.Tap
-        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHS
+    Private Sub rdCHTInformal_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTInformal.Tap
+        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHTInformal
     End Sub
 
-    Private Sub rdCHT_Tap(sender As Object, e As GestureEventArgs) Handles rdCHT.Tap
-        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHT
+    Private Sub rdCHTOfficial_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTOfficial.Tap
+        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHTOfficial
+    End Sub
+
+    Private Sub rdCHSInformal_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSInformal.Tap
+        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHSInformal
+    End Sub
+
+    Private Sub rdCHSOfficial_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSOfficial.Tap
+        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHSOfficial
     End Sub
 
     Private Sub rdENG_Tap(sender As Object, e As GestureEventArgs) Handles rdENG.Tap
@@ -29,11 +37,17 @@
     End Sub
 
     Private Sub btnSearch_Tap(sender As Object, e As GestureEventArgs) Handles btnSearch.Tap
-        If rdCHS.IsChecked Then
-            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHS
+        If rdCHTInformal.IsChecked Then
+            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHTInformal
         End If
-        If rdCHT.IsChecked Then
-            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHT
+        If rdCHTOfficial.IsChecked Then
+            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHTOfficial
+        End If
+        If rdCHSInformal.IsChecked Then
+            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHSInformal
+        End If
+        If rdCHSOfficial.IsChecked Then
+            PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHSOfficial
         End If
         If rdENG.IsChecked Then
             PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameENG
@@ -47,15 +61,15 @@
         Dim PokemonSearchRequestHandler As Microsoft.Phone.Tasks.SearchTask
         PokemonSearchRequestHandler = New Microsoft.Phone.Tasks.SearchTask
         Select Case PokemonSearchRequest
-            Case PokemonSearchRequestLanguages.PokemonNameCHS
+            Case PokemonSearchRequestLanguages.PokemonNameCHSInformal
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.NameCHS
+                    .SearchQuery = PokemonInformationShared.NameCHSInformal
                     .Show()
                 End With
                 NavigationService.GoBack()
-            Case PokemonSearchRequestLanguages.PokemonNameCHT
+            Case PokemonSearchRequestLanguages.PokemonNameCHTInformal
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.NameCHT
+                    .SearchQuery = PokemonInformationShared.NameCHTInformal
                     .Show()
                 End With
                 NavigationService.GoBack()
@@ -77,21 +91,21 @@
                     .Show()
                 End With
                 NavigationService.GoBack()
-            Case PokemonSearchRequestLanguages.PokemonNameCHSO
+            Case PokemonSearchRequestLanguages.PokemonNameCHSOfficial
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.NameCHSO
+                    .SearchQuery = PokemonInformationShared.NameCHSOfficial
                     .Show()
                 End With
                 NavigationService.GoBack()
-            Case PokemonSearchRequestLanguages.PokemonNameCHTO
+            Case PokemonSearchRequestLanguages.PokemonNameCHTOfficial
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.NameCHTO
+                    .SearchQuery = PokemonInformationShared.NameCHTOfficial
                     .Show()
                 End With
                 NavigationService.GoBack()
             Case Else
                 With PokemonSearchRequestHandler
-                    .SearchQuery = PokemonInformationShared.NameCHT
+                    .SearchQuery = PokemonInformationShared.NameCHTInformal
                     .Show()
                 End With
                 NavigationService.GoBack()
@@ -102,11 +116,4 @@
         SystemTray.IsVisible = False
     End Sub
 
-    Private Sub rdCHSO_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSO.Tap
-        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHSO
-    End Sub
-
-    Private Sub rdCHTO_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTO.Tap
-        PokemonSearchRequest = PokemonSearchRequestLanguages.PokemonNameCHTO
-    End Sub
 End Class

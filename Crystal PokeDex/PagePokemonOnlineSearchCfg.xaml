@@ -32,10 +32,10 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <RadioButton x:Name="rdCHT" Content="神奇寶貝繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top" IsChecked="True"/>
-                <RadioButton x:Name="rdCHS" Content="神奇寶貝簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="rdCHTO" Content="神奇寶貝官方繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="rdCHSO" Content="神奇寶貝官方簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rdCHTInformal" Content="神奇寶貝繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton x:Name="rdCHTOfficial" Content="神奇寶貝官方繁體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rdCHSInformal" Content="神奇寶貝簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rdCHSOfficial" Content="神奇寶貝官方簡體中文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rdENG" Content="神奇寶貝英文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rdKOR" Content="神奇寶貝韓文名字" Height="76" Margin="10,0,0,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rdJPN" Content="神奇寶貝日文名字" Height="76" Margin="10,0" VerticalAlignment="Top"/>

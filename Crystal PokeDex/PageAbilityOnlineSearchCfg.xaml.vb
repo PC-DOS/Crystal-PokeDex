@@ -5,8 +5,20 @@
         InitializeComponent()
     End Sub
 
-    Private Sub rdCHT_Tap(sender As Object, e As GestureEventArgs) Handles rdCHT.Tap
-        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHT
+    Private Sub rdCHTInformal_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTInformal.Tap
+        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTInformal
+    End Sub
+
+    Private Sub rdCHTOfficial_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTOfficial.Tap
+        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTOfficial
+    End Sub
+
+    Private Sub rdCHSInformal_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSInformal.Tap
+        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSInformal
+    End Sub
+
+    Private Sub rdCHSOfficial_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSOfficial.Tap
+        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSOfficial
     End Sub
 
     Private Sub rdENG_Tap(sender As Object, e As GestureEventArgs) Handles rdENG.Tap
@@ -22,17 +34,17 @@
     End Sub
 
     Private Sub btnSearch_Tap(sender As Object, e As GestureEventArgs) Handles btnSearch.Tap
-        If rdCHT.IsChecked Then
-            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHT
+        If rdCHTInformal.IsChecked Then
+            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTInformal
         End If
-        If rdCHTO.IsChecked Then
-            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTO
+        If rdCHTOfficial.IsChecked Then
+            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTOfficial
         End If
-        If rdCHS.IsChecked Then
-            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHS
+        If rdCHSInformal.IsChecked Then
+            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSInformal
         End If
-        If rdCHSO.IsChecked Then
-            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSO
+        If rdCHSOfficial.IsChecked Then
+            AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSOfficial
         End If
         If rdENG.IsChecked Then
             AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameENG
@@ -43,14 +55,14 @@
         Dim AbilitySearchRequestHandler As Microsoft.Phone.Tasks.SearchTask
         AbilitySearchRequestHandler = New Microsoft.Phone.Tasks.SearchTask
         Select Case AbilitySearchRequest
-            Case AbilitySearchRequestLanguages.AbilityNameCHT
+            Case AbilitySearchRequestLanguages.AbilityNameCHTInformal
                 With AbilitySearchRequestHandler
-                    .SearchQuery = AbilityNamesInformalCHT(AbilitySelectionNumber - 1)
+                    .SearchQuery = AbilityNamesCHTInformal(AbilitySelectionNumber - 1)
                     .Show()
                 End With
-            Case AbilitySearchRequestLanguages.AbilityNameCHS
+            Case AbilitySearchRequestLanguages.AbilityNameCHSInformal
                 With AbilitySearchRequestHandler
-                    .SearchQuery = AbilityNamesInformalCHS(AbilitySelectionNumber - 1)
+                    .SearchQuery = AbilityNamesCHSInformal(AbilitySelectionNumber - 1)
                     .Show()
                 End With
             Case AbilitySearchRequestLanguages.AbilityNameENG
@@ -63,46 +75,34 @@
                     .SearchQuery = AbilityNamesJPN(AbilitySelectionNumber - 1)
                     .Show()
                 End With
-            Case AbilitySearchRequestLanguages.AbilityNameCHSO
+            Case AbilitySearchRequestLanguages.AbilityNameCHSOfficial
                 With AbilitySearchRequestHandler
-                    .SearchQuery = AbilityNamesOfficialCHS(AbilitySelectionNumber - 1)
+                    .SearchQuery = AbilityNamesCHSOfficial(AbilitySelectionNumber - 1)
                     .Show()
                 End With
-            Case AbilitySearchRequestLanguages.AbilityNameCHTO
+            Case AbilitySearchRequestLanguages.AbilityNameCHTOfficial
                 With AbilitySearchRequestHandler
-                    .SearchQuery = AbilityNamesOfficialCHT(AbilitySelectionNumber - 1)
+                    .SearchQuery = AbilityNamesCHTOfficial(AbilitySelectionNumber - 1)
                     .Show()
                 End With
             Case Else
                 With AbilitySearchRequestHandler
-                    .SearchQuery = AbilityNamesInformalCHT(AbilitySelectionNumber - 1)
+                    .SearchQuery = AbilityNamesCHTInformal(AbilitySelectionNumber - 1)
                     .Show()
                 End With
         End Select
         NavigationService.GoBack()
     End Sub
 
-    Private Sub rdCHS_Tap(sender As Object, e As GestureEventArgs) Handles rdCHS.Tap
-        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHS
-    End Sub
-
-    Private Sub rdCHSO_Tap(sender As Object, e As GestureEventArgs) Handles rdCHSO.Tap
-        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHSO
-    End Sub
-
-    Private Sub rdCHTO_Tap(sender As Object, e As GestureEventArgs) Handles rdCHTO.Tap
-        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTO
-    End Sub
-
     Private Sub PageAbilityOnlineSearchCfg_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         SystemTray.IsVisible = False
-        rdCHS.IsChecked = False
-        rdCHSO.IsChecked = False
-        rdCHT.IsChecked = False
-        rdCHTO.IsChecked = False
+        rdCHTInformal.IsChecked = False
+        rdCHTOfficial.IsChecked = False
+        rdCHSInformal.IsChecked = False
+        rdCHSOfficial.IsChecked = False
         rdENG.IsChecked = False
         rdJPN.IsChecked = False
-        rdCHT.IsChecked = True
-        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHT
+        rdCHTInformal.IsChecked = True
+        AbilitySearchRequest = AbilitySearchRequestLanguages.AbilityNameCHTInformal
     End Sub
 End Class

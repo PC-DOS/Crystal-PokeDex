@@ -18,10 +18,10 @@
             'Search Chinese, English, Japanese or Korean
             InitPokemonNameList()
             For i = 0 To CurrentPokemonTranslationForList.Count - 1
-                If PokemonNamesCHT(i).Contains(lpSearchRequest) Or _
-                    PokemonNamesCHTO(i).Contains(lpSearchRequest) Or _
-                    PokemonNamesCHS(i).Contains(lpSearchRequest) Or _
-                    PokemonNamesCHSO(i).Contains(lpSearchRequest) Or _
+                If PokemonNamesCHTInformal(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHTOfficial(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHSInformal(i).Contains(lpSearchRequest) Or _
+                    PokemonNamesCHSOfficial(i).Contains(lpSearchRequest) Or _
                     PokemonNamesENG(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
                     PokemonNamesFRA(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
                     PokemonNamesGER(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _

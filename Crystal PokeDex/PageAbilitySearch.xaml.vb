@@ -17,10 +17,10 @@
             Dim i As Integer
             'Search Chinese, English, Japanese
             For i = 0 To CurrentAbilityList.Count - 1
-                If AbilityNamesInformalCHT(i).Contains(lpSearchRequest) Or _
-                    AbilityNamesOfficialCHT(i).Contains(lpSearchRequest) Or _
-                    AbilityNamesInformalCHS(i).Contains(lpSearchRequest) Or _
-                    AbilityNamesOfficialCHS(i).Contains(lpSearchRequest) Or _
+                If AbilityNamesCHTInformal(i).Contains(lpSearchRequest) Or _
+                    AbilityNamesCHTOfficial(i).Contains(lpSearchRequest) Or _
+                    AbilityNamesCHSInformal(i).Contains(lpSearchRequest) Or _
+                    AbilityNamesCHSOfficial(i).Contains(lpSearchRequest) Or _
                     AbilityNamesENG(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
                     AbilityNamesJPN(i).Contains(lpSearchRequest) Or _
                     CurrentAbilityList(i).Contains(lpSearchRequest) Then

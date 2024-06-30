@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.Serialization
 
-Public Module libPokemonFormDifferenceProvider
+Public Module LibPokemonFormDifferenceProvider
     Public Structure PokemonFormDifferenceInfo
         Public FormName As String
         Public Type As String

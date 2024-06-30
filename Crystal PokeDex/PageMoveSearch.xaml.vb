@@ -17,10 +17,10 @@
             Dim i As Integer
             'Search Chinese, English, Japanese
             For i = 0 To CurrentAbilityList.Count - 1
-                If MoveNamesInformalCHT(i).Contains(lpSearchRequest) Or _
-                    MoveNamesOfficialCHT(i).Contains(lpSearchRequest) Or _
-                    MoveNamesInformalCHS(i).Contains(lpSearchRequest) Or _
-                    MoveNamesOfficialCHS(i).Contains(lpSearchRequest) Or _
+                If MoveNamesCHTInformal(i).Contains(lpSearchRequest) Or _
+                    MoveNamesCHTOfficial(i).Contains(lpSearchRequest) Or _
+                    MoveNamesCHSInformal(i).Contains(lpSearchRequest) Or _
+                    MoveNamesCHSOfficial(i).Contains(lpSearchRequest) Or _
                     MoveNamesENG(i).ToUpper().Contains(lpSearchRequest.ToUpper()) Or _
                     MoveNamesJPN(i).Contains(lpSearchRequest) Or _
                     CurrentMovesList(i).Contains(lpSearchRequest) Then

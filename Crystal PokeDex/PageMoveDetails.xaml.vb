@@ -6,22 +6,22 @@
     End Sub
 
     Private Sub MoveDetail_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        txtCHTInformal.Text = MoveNamesCHTInformal(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
         txtClass.Text = MoveClasses.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
         txtHitrate.Text = MoveHitrate.Item(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtPower.Text = MovePower.Item(MoveSelectionNumber)
         txtPP.Text = MovePP.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
         txtType.Text = MoveTypes.Item(MoveSelectionNumber)
         Dim MoveTypeData As SingleTypeRepresentativeColor = GetSingleTypeRepresentativeColor(MoveTypes.Item(MoveSelectionNumber))
         txtType1.Text = MoveTypes.Item(MoveSelectionNumber)
         gridType1.Background = New SolidColorBrush(Color.FromArgb(255, MoveTypeData.Red, MoveTypeData.Green, MoveTypeData.Blue))
         pivData.Title = CurrentMoves.Item(MoveSelectionNumber)
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
     End Sub
 
     Private Sub ApplicationBarIconButton_Click(sender As Object, e As EventArgs)
@@ -41,10 +41,10 @@
 
     Private Sub txtDescription_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtDescription.TextChanged
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
     End Sub
@@ -57,47 +57,91 @@
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSO.KeyDown
+    Private Sub txtCHSOfficial_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSOfficial.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSO.TextChanged
+    Private Sub txtCHSOfficial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSOfficial.TextChanged
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
     End Sub
 
-    Private Sub txtCHSO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSO.TextInput
+    Private Sub txtCHSOfficial_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSOfficial.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtCHSO_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSO.TextInputStart
+    Private Sub txtCHSOfficial_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSOfficial.TextInputStart
         e.Handled = True
     End Sub
 
-    Private Sub txtCHTO_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTO.KeyDown
+    Private Sub txtCHTOfficial_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTOfficial.KeyDown
         e.Handled = True
     End Sub
 
-    Private Sub txtCHTO_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTO.TextChanged
+    Private Sub txtCHTOfficial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTOfficial.TextChanged
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
     End Sub
 
-    Private Sub txtCHTO_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTO.TextInput
+    Private Sub txtCHTOfficial_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTOfficial.TextInput
         e.Handled = True
     End Sub
 
-    Private Sub txtCHTO_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTO.TextInputStart
+    Private Sub txtCHTOfficial_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTOfficial.TextInputStart
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHSInformal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHSInformal.KeyDown
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHSInformal_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHSInformal.TextChanged
+        txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
+        txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
+        txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
+    End Sub
+
+    Private Sub txtCHSInformal_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHSInformal.TextInput
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHSInformal_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHSInformal.TextInputStart
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHTInformal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCHTInformal.KeyDown
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHTInformal_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtCHTInformal.TextChanged
+        txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
+        txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
+        txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
+    End Sub
+
+    Private Sub txtCHTInformal_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtCHTInformal.TextInput
+        e.Handled = True
+    End Sub
+
+    Private Sub txtCHTInformal_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtCHTInformal.TextInputStart
         e.Handled = True
     End Sub
 
@@ -107,10 +151,10 @@
 
     Private Sub txtENU_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtENU.TextChanged
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
     End Sub
@@ -129,10 +173,10 @@
 
     Private Sub txtJPN_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtJPN.TextChanged
         txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
+        txtCHTInformal.Text = MoveNamesCHTInformal.Item(MoveSelectionNumber)
+        txtCHSInformal.Text = MoveNamesCHSInformal(MoveSelectionNumber)
+        txtCHSOfficial.Text = MoveNamesCHSOfficial(MoveSelectionNumber)
+        txtCHTOfficial.Text = MoveNamesCHTOfficial(MoveSelectionNumber)
         txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
         txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
     End Sub
@@ -142,50 +186,6 @@
     End Sub
 
     Private Sub txtJPN_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtJPN.TextInputStart
-        e.Handled = True
-    End Sub
-
-    Private Sub txtPRC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPRC.KeyDown
-        e.Handled = True
-    End Sub
-
-    Private Sub txtPRC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtPRC.TextChanged
-        txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
-        txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
-        txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
-    End Sub
-
-    Private Sub txtPRC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtPRC.TextInput
-        e.Handled = True
-    End Sub
-
-    Private Sub txtPRC_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtPRC.TextInputStart
-        e.Handled = True
-    End Sub
-
-    Private Sub txtROC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtROC.KeyDown
-        e.Handled = True
-    End Sub
-
-    Private Sub txtROC_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtROC.TextChanged
-        txtDescription.Text = MoveDescription.Item(MoveSelectionNumber)
-        txtROC.Text = MoveNamesInformalCHT.Item(MoveSelectionNumber)
-        txtPRC.Text = MoveNamesInformalCHS(MoveSelectionNumber)
-        txtCHSO.Text = MoveNamesOfficialCHS(MoveSelectionNumber)
-        txtCHTO.Text = MoveNamesOfficialCHT(MoveSelectionNumber)
-        txtJPN.Text = MoveNamesJPN.Item(MoveSelectionNumber)
-        txtENU.Text = MoveNamesENG.Item(MoveSelectionNumber)
-    End Sub
-
-    Private Sub txtROC_TextInput(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInput
-        e.Handled = True
-    End Sub
-
-    Private Sub txtROC_TextInputStart(sender As Object, e As TextCompositionEventArgs) Handles txtROC.TextInputStart
         e.Handled = True
     End Sub
 End Class

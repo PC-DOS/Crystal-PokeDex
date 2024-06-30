@@ -131,22 +131,22 @@
     <Compile Include="Browser.xaml.vb">
       <DependentUpon>Browser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="libColors.vb" />
-    <Compile Include="libAbility.vb" />
-    <Compile Include="libPokemonEvolutions.vb" />
-    <Compile Include="libItems.vb" />
-    <Compile Include="libMove.vb" />
-    <Compile Include="libPokemonFormDifferenceProvider.vb" />
-    <Compile Include="libNumberValidation.vb" />
-    <Compile Include="libPokemon.vb" />
-    <Compile Include="libPokemonMovesLearning.vb" />
-    <Compile Include="libPokemonNamesProvider.vb" />
-    <Compile Include="libTypeProperties.vb" />
-    <Compile Include="libOnlineSearchProvider.vb" />
-    <Compile Include="libSettingsProvider.vb" />
-    <Compile Include="libHTMLInfo.vb" />
-    <Compile Include="libPokemonNamesMultiChineseProvider.vb" />
-    <Compile Include="libTypeRepresentativeColorProvider.vb" />
+    <Compile Include="LibColors.vb" />
+    <Compile Include="LibAbility.vb" />
+    <Compile Include="LibPokemonEvolutions.vb" />
+    <Compile Include="LibItems.vb" />
+    <Compile Include="LibMove.vb" />
+    <Compile Include="LibPokemonFormDifferenceProvider.vb" />
+    <Compile Include="LibNumberValidation.vb" />
+    <Compile Include="LibPokemon.vb" />
+    <Compile Include="LibPokemonMovesLearning.vb" />
+    <Compile Include="LibPokemonNamesProvider.vb" />
+    <Compile Include="LibTypeProperties.vb" />
+    <Compile Include="LibOnlineSearchProvider.vb" />
+    <Compile Include="LibSettingsProvider.vb" />
+    <Compile Include="LibHTMLInfo.vb" />
+    <Compile Include="LibPokemonNamesMultiChineseProvider.vb" />
+    <Compile Include="LibTypeRepresentativeColorProvider.vb" />
     <Compile Include="PageBlank.xaml.vb">
       <DependentUpon>PageBlank.xaml</DependentUpon>
     </Compile>
@@ -858,17 +858,17 @@
     <Content Include="FormDifferenceImages\982\Seg3.png" />
     <Content Include="FormDifferenceImages\999\Chest.png" />
     <Content Include="FormDifferenceImages\999\Roaming.png" />
-    <Content Include="Nations\CHS-O.png" />
-    <Content Include="Nations\CHS.png" />
-    <Content Include="Nations\CHT-O.png" />
-    <Content Include="Nations\CHT.png" />
-    <Content Include="Nations\FRA.png" />
-    <Content Include="Nations\GER.png" />
-    <Content Include="Nations\JPN.png" />
-    <Content Include="Nations\KOR.png" />
-    <Content Include="Nations\PRC.jpg" />
-    <Content Include="Nations\ROC.png" />
-    <Content Include="Nations\USA.jpg" />
+    <Content Include="LanguageFlags\CHSOfficial.png" />
+    <Content Include="LanguageFlags\CHSInformal.png" />
+    <Content Include="LanguageFlags\CHTOfficial.png" />
+    <Content Include="LanguageFlags\CHTInformal.png" />
+    <Content Include="LanguageFlags\FRA.png" />
+    <Content Include="LanguageFlags\GER.png" />
+    <Content Include="LanguageFlags\JPN.png" />
+    <Content Include="LanguageFlags\KOR.png" />
+    <Content Include="LanguageFlags\PRC.jpg" />
+    <Content Include="LanguageFlags\ROC.png" />
+    <Content Include="LanguageFlags\USA.jpg" />
     <Content Include="Pokemons\001.png" />
     <Content Include="Pokemons\002.png" />
     <Content Include="Pokemons\003.png" />
