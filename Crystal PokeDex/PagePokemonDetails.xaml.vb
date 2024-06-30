@@ -140,7 +140,7 @@
             txtExpBasic.Text = .BasicExpPoint
             txtExpFullLV.Text = .FullLevelExpPoint
             txtHatch.Text = .HatchEggCycles
-            If .HatchEggCycles <> "---" And .HatchEggCycles <> "ERROR" Then
+            If IsNumber(.HatchEggCycles) Then
                 txtHatch.Text = .HatchEggCycles & "週期 (約合" & CInt(.HatchEggCycles) * 257 & "步)"
             Else
                 txtHatch.Text = .HatchEggCycles
@@ -162,17 +162,17 @@
             txtSVT.Text = .SpeciesStrengthValues.Total.ToString
             txtCategory.Text = .Category
             txtWeight.Text = .Weight
-            If .Ability1 <> "---" And .Ability1 <> "ERROR" Then
+            If IsNumber(.Ability1) Then
                 txtAbility1.Text = CurrentAbility(CInt(.Ability1) - 1)
             Else
                 txtAbility1.Text = .Ability1
             End If
-            If .Ability2 <> "---" And .Ability2 <> "ERROR" Then
+            If IsNumber(.Ability2) Then
                 txtAbility2.Text = CurrentAbility(CInt(.Ability2) - 1)
             Else
                 txtAbility2.Text = .Ability2
             End If
-            If .AbilityHidden <> "---" And .AbilityHidden <> "ERROR" Then
+            If IsNumber(.AbilityHidden) Then
                 txtAbility3.Text = CurrentAbility(CInt(.AbilityHidden) - 1)
             Else
                 txtAbility3.Text = .AbilityHidden
@@ -482,19 +482,21 @@
     End Sub
 
     Private Sub txtAbility1_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility1.Tap
-        If txtAbility1.Text = "---" Then
-            Exit Sub
+        If IsNumber(PokemonInformationShared.Ability1) Then
+            MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
         End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
-        Exit Sub
+    End Sub
+
+    Private Sub txtAbility2_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility2.Tap
+        If IsNumber(PokemonInformationShared.Ability2) Then
+            MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability2 - 1), txtAbility1.Text, MessageBoxButton.OK)
+        End If
     End Sub
 
     Private Sub txtAbility3_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility3.Tap
-        If txtAbility3.Text = "---" Then
-            Exit Sub
+        If IsNumber(PokemonInformationShared.AbilityHidden) Then
+            MessageBox.Show(AbilityDescriptions(PokemonInformationShared.AbilityHidden - 1), txtAbility1.Text, MessageBoxButton.OK)
         End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.AbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
-        Exit Sub
     End Sub
 
     Private Sub lstEvoRot_Tap(sender As Object, e As GestureEventArgs) Handles lstEvoRot.Tap
@@ -577,14 +579,6 @@
         ShellTile.Create(New Uri("/PageTileLauncher.xaml?TileIndex=" & CurrentPinnedTileIndex.ToString & "&PokemonID=" & PokemonID, UriKind.RelativeOrAbsolute), TileToPin, True)
         CurrentPinnedTileIndex = CurrentPinnedTileIndex + 1
         TileIndexCounter(CurrentPinnedTileIndexKey) = CurrentPinnedTileIndex
-    End Sub
-
-    Private Sub txtAbility2_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility2.Tap
-        If txtAbility2.Text = "---" Then
-            Exit Sub
-        End If
-        MessageBox.Show(AbilityDescriptions(PokemonInformationShared.Ability2 - 1), txtAbility2.Text, MessageBoxButton.OK)
-        Exit Sub
     End Sub
 
     Private Sub lstFormDifferences_DoubleTap(sender As Object, e As GestureEventArgs) Handles lstFormDifferences.DoubleTap

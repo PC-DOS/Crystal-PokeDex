@@ -6695,7 +6695,7 @@ Public Module LibPokemonFormDifference
                     .IsUniqueDescriptionAvailable = True
                     .UniqueDescription = "吸收了壓倒性的光能量之後變化而成的樣子。能從全身發射雷射光。全身放出的光會對生物和自然界產生作用，造成各式各樣的影響。"
                     .Ability1 = 233
-                    .Ability2 = " - --"""
+                    .Ability2 = "---"
                     .AbilityHidden = "---"
                     .Height = "2.4 m"
                     .Weight = "230.0 kg"

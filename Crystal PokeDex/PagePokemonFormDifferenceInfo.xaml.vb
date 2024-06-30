@@ -149,17 +149,17 @@
                 txtWeight.Text = .Weight
                 txtCategory.Text = .Category
                 txtBodyColor.Text = .BodyColor
-                If .Ability1 <> "---" And .Ability1 <> "ERROR" Then
+                If IsNumber(.Ability1) Then
                     txtAbility1.Text = CurrentAbility(CInt(.Ability1) - 1)
                 Else
                     txtAbility1.Text = .Ability1
                 End If
-                If .Ability2 <> "---" And .Ability2 <> "ERROR" Then
+                If IsNumber(.Ability2) Then
                     txtAbility2.Text = CurrentAbility(CInt(.Ability2) - 1)
                 Else
                     txtAbility2.Text = .Ability2
                 End If
-                If .AbilityHidden <> "---" And .AbilityHidden <> "ERROR" Then
+                If IsNumber(.AbilityHidden) Then
                     txtAbility3.Text = CurrentAbility(CInt(.AbilityHidden) - 1)
                 Else
                     txtAbility3.Text = .AbilityHidden
@@ -180,24 +180,21 @@
 
 
     Private Sub txtAbility1_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility1.Tap
-        If txtAbility1.Text = "---" Then
-            Exit Sub
+        If IsNumber(SharedFormDifferenceInformation.Ability1) Then
+            MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
         End If
-        MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.Ability1 - 1), txtAbility1.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtAbility2_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility2.Tap
-        If txtAbility2.Text = "---" Then
-            Exit Sub
+        If IsNumber(SharedFormDifferenceInformation.Ability2) Then
+            MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.Ability2 - 1), txtAbility2.Text, MessageBoxButton.OK)
         End If
-        MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.Ability2 - 1), txtAbility2.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtAbility3_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility3.Tap
-        If txtAbility3.Text = "---" Then
-            Exit Sub
+        If IsNumber(SharedFormDifferenceInformation.AbilityHidden) Then
+            MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.AbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
         End If
-        MessageBox.Show(AbilityDescriptions(SharedFormDifferenceInformation.AbilityHidden - 1), txtAbility3.Text, MessageBoxButton.OK)
     End Sub
 
     Private Sub txtDescription_GotFocus(sender As Object, e As RoutedEventArgs) Handles txtDescription.GotFocus
