@@ -137,14 +137,14 @@
     <Compile Include="LibItems.vb" />
     <Compile Include="LibMove.vb" />
     <Compile Include="LibPokemonFormDifferenceProvider.vb" />
-    <Compile Include="LibNumberValidation.vb" />
+    <Compile Include="NumberValidator.vb" />
     <Compile Include="LibPokemon.vb" />
     <Compile Include="LibPokemonMovesLearning.vb" />
     <Compile Include="LibPokemonNamesProvider.vb" />
     <Compile Include="LibTypeProperties.vb" />
-    <Compile Include="LibOnlineSearchProvider.vb" />
-    <Compile Include="LibSettingsProvider.vb" />
-    <Compile Include="LibHTMLInfo.vb" />
+    <Compile Include="OnlineSearchProvider.vb" />
+    <Compile Include="SettingsProvider.vb" />
+    <Compile Include="HTMLInformationFileProvider.vb" />
     <Compile Include="LibPokemonNamesMultiChineseProvider.vb" />
     <Compile Include="LibTypeRepresentativeColorProvider.vb" />
     <Compile Include="PageBlank.xaml.vb">
@@ -240,7 +240,7 @@
       <DependentUpon>ResPokemons.resx</DependentUpon>
     </Compile>
     <Compile Include="SearchRequestHandler.vb" />
-    <Compile Include="TileCountMgmt.vb" />
+    <Compile Include="PinnedTileCounter.vb" />
     <Compile Include="ViewModels\ItemViewModel.vb" />
     <Compile Include="ViewModels\MainViewModel.vb" />
   </ItemGroup>
@@ -458,7 +458,9 @@
     <Content Include="Images\refresh.png" />
     <Content Include="Microsoft.Phone.Controls.Toolkit.dll" />
     <Content Include="Microsoft.Phone.Controls.Toolkit.pdb" />
-    <Content Include="Microsoft.Phone.Controls.Toolkit.xml" />
+    <Content Include="Microsoft.Phone.Controls.Toolkit.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="FormDifferenceImages\003\Gigantamax.png" />
     <Content Include="FormDifferenceImages\003\Mega.png" />
     <Content Include="FormDifferenceImages\006\Gigantamax.png" />

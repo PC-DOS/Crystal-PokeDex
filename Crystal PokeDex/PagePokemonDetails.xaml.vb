@@ -548,35 +548,35 @@
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click_1(sender As Object, e As EventArgs)
-        Dim tile As FlipTileData
-        tile = New FlipTileData
-        Dim PkMnNum As String
-        PkMnNum = PokemonInformationShared.DexIDNumber
-        With tile
-            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+        Dim TileToPin As FlipTileData
+        TileToPin = New FlipTileData
+        Dim PokemonID As String
+        PokemonID = PokemonInformationShared.DexIDNumber
+        With TileToPin
+            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
+            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
+            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
             .Title = CurrentPokemonTranslationForCommonUse(CInt(PokemonInformationShared.DexIDNumber) - 1)
         End With
-        ShellTile.Create(New Uri("/PageTileLauncher.xaml?Index=" & currentTileIndex.ToString & "&Num=" & PkMnNum, UriKind.RelativeOrAbsolute), tile, True)
-        currentTileIndex = currentTileIndex + 1
-        indexManage("Index") = currentTileIndex
+        ShellTile.Create(New Uri("/PageTileLauncher.xaml?TileIndex=" & CurrentPinnedTileIndex.ToString & "&PokemonID=" & PokemonID, UriKind.RelativeOrAbsolute), TileToPin, True)
+        CurrentPinnedTileIndex = CurrentPinnedTileIndex + 1
+        TileIndexCounter(CurrentPinnedTileIndexKey) = CurrentPinnedTileIndex
     End Sub
 
     Private Sub ApplicationBarMenuItem_Click_2(sender As Object, e As EventArgs)
-        Dim tile As FlipTileData
-        tile = New FlipTileData
-        Dim PkMnNum As String
-        PkMnNum = PokemonInformationShared.DexIDNumber
-        With tile
-            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
-            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PkMnNum & ".png", UriKind.RelativeOrAbsolute)
+        Dim TileToPin As FlipTileData
+        TileToPin = New FlipTileData
+        Dim PokemonID As String
+        PokemonID = PokemonInformationShared.DexIDNumber
+        With TileToPin
+            .BackgroundImage = New Uri("/PokemonTilesStandard/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
+            .SmallBackgroundImage = New Uri("/PokemonTilesStandard/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
+            .WideBackgroundImage = New Uri("/PokemonTilesLarge/" & PokemonID & ".png", UriKind.RelativeOrAbsolute)
             .Title = ""
         End With
-        ShellTile.Create(New Uri("/PageTileLauncher.xaml?Index=" & currentTileIndex.ToString & "&Num=" & PkMnNum, UriKind.RelativeOrAbsolute), tile, True)
-        currentTileIndex = currentTileIndex + 1
-        indexManage("Index") = currentTileIndex
+        ShellTile.Create(New Uri("/PageTileLauncher.xaml?TileIndex=" & CurrentPinnedTileIndex.ToString & "&PokemonID=" & PokemonID, UriKind.RelativeOrAbsolute), TileToPin, True)
+        CurrentPinnedTileIndex = CurrentPinnedTileIndex + 1
+        TileIndexCounter(CurrentPinnedTileIndexKey) = CurrentPinnedTileIndex
     End Sub
 
     Private Sub txtAbility2_Tap(sender As Object, e As GestureEventArgs) Handles txtAbility2.Tap
