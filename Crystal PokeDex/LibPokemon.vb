@@ -35829,14 +35829,14 @@ Public Module LibPokemon
                     .Category = "悖謬神奇寶貝"
                     .BodyColor = "藍"
                     .Sheleter = "---"
-                    .CatchRate = "3"
+                    .CatchRate = "5"
                     .InitialFriendshipValue = "---"
                     .EggGroup1 = "未發現組"
                     .EggGroup2 = "---"
                     .HatchEggCycles = "50"
                     .BasicExpPoint = "295"
                     .FullLevelExpPoint = "1250000"
-                    .Ability1 = 289
+                    .Ability1 = 281
                     .Ability2 = "---"
                     .AbilityHidden = "---"
                     With .SpeciesStrengthValues
@@ -35846,6 +35846,566 @@ Public Module LibPokemon
                         .SpecialAttack = 125
                         .SpecialDefence = 83
                         .Speed = 109
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1010
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]+[超能力]"
+                    .Description = "與超自然雜誌曾報導的未來的畢力吉翁的樣子有多項特徵一致。根據極少數的目擊紀錄，牠似乎用光輝燦爛的劍將大樹與巨岩切成了絲。"
+                    .GenderRatio = "無性別"
+                    .Height = "1.5 m"
+                    .Weight = "125.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "---"
+                    .CatchRate = "5"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "50"
+                    .BasicExpPoint = "295"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 282
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 130
+                        .Defence = 88
+                        .SpecialAttack = 70
+                        .SpecialDefence = 108
+                        .Speed = 104
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1011
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]+[龍]"
+                    .Description = "用只會在某個地區栽培的特別的蘋果進化而來。是２隻等於１隻的神奇寶貝。由露出了頭部的外頭蟲與露出了尾巴的裡頭蟲相扶相持，一起在蘋果裡面生活。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.4 m"
+                    .Weight = "4.4 kg"
+                    .Category = "糖蘋果神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "---"
+                    .CatchRate = "45"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "植物組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "170"
+                    .FullLevelExpPoint = "600000"
+                    .Ability1 = 306
+                    .Ability2 = 82
+                    .AbilityHidden = 60
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 80
+                        .Defence = 110
+                        .SpecialAttack = 95
+                        .SpecialDefence = 80
+                        .Speed = 40
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1012
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]+[幽靈]"
+                    .Description = "據說是未能將茶道鑽研到極致就死去的茶道家的悔恨附在抹茶上，於是就成為了寶可夢。會將由粉末構成的身體的一部分灑在食物上，藉此吸取舔了粉末的對象的精氣。雖然這種寶可夢看起來像是來悲茶的地區型態，但最近被發現其實兩者毫無關係。住進極為昂貴的茶罐裡的樣子。雖然長得與便宜貨不同，但外行人無法分辨出來。"
+                    .GenderRatio = "無性別"
+                    .Height = "0.4 m"
+                    .Weight = "4.4 kg"
+                    .Category = "抹茶神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "---"
+                    .CatchRate = "120"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "礦物組"
+                    .EggGroup2 = "不定形組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "62"
+                    .FullLevelExpPoint = "1000000"
+                    .Ability1 = 299
+                    .Ability2 = "---"
+                    .AbilityHidden = 85
+                    With .SpeciesStrengthValues
+                        .HP = 40
+                        .Attack = 45
+                        .Defence = 45
+                        .SpecialAttack = 74
+                        .SpecialDefence = 54
+                        .Speed = 50
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1013
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]+[幽靈]"
+                    .Description = "雖然會假裝成茶企圖吸取誤飲者的精氣，但經常會被識破。會住進有名的陶藝大師所製作的精美茶碗中。是令愛好者著迷不已的寶可夢。喜歡待在民宅的地板下或架子深處等陰涼的地方。日落後會四處徘徊尋找獵物。越是用頭部的茶筅攪拌，就越能累積起能量。這是牠面對戰鬥時的準備。"
+                    .GenderRatio = "無性別"
+                    .Height = "0.2 m"
+                    .Weight = "2.2 kg"
+                    .Category = "抹茶神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "---"
+                    .CatchRate = "60"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "礦物組"
+                    .EggGroup2 = "不定形組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "---"
+                    .FullLevelExpPoint = "1000000"
+                    .Ability1 = 299
+                    .Ability2 = "---"
+                    .AbilityHidden = 85
+                    With .SpeciesStrengthValues
+                        .HP = 71
+                        .Attack = 60
+                        .Defence = 106
+                        .SpecialAttack = 121
+                        .SpecialDefence = 80
+                        .Speed = 70
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1014
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[毒]+[格鬥]"
+                    .Description = "脖子上的毒素鎖鏈刺激了全身的肌肉，使牠的身體變得壯碩。動不動就會怒火沖天的粗暴傢伙。會揮甩脖子的鎖鏈一股腦兒地擊碎東西。"
+                    .GenderRatio = "1:0"
+                    .Height = "1.8 m"
+                    .Weight = "92.2 kg"
+                    .Category = "隨從神奇寶貝"
+                    .BodyColor = "黑"
+                    .Sheleter = "---"
+                    .CatchRate = "3"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "120"
+                    .BasicExpPoint = "278"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 305
+                    .Ability2 = "---"
+                    .AbilityHidden = 275
+                    With .SpeciesStrengthValues
+                        .HP = 88
+                        .Attack = 128
+                        .Defence = 115
+                        .SpecialAttack = 58
+                        .SpecialDefence = 86
+                        .Speed = 80
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1015
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[毒]+[超能力]"
+                    .Description = "由能夠激發潛力的毒素所構成的鎖鏈刺激了牠的腦部，使牠的精神力量開竅了。會從安全的地方釋放出能引起強烈頭暈的念力，把敵手戲弄得團團轉。"
+                    .GenderRatio = "1:0"
+                    .Height = "1.0 m"
+                    .Weight = "12.2 kg"
+                    .Category = "隨從神奇寶貝"
+                    .BodyColor = "黑"
+                    .Sheleter = "---"
+                    .CatchRate = "3"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "120"
+                    .BasicExpPoint = "278"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 305
+                    .Ability2 = "---"
+                    .AbilityHidden = 119
+                    With .SpeciesStrengthValues
+                        .HP = 88
+                        .Attack = 75
+                        .Defence = 66
+                        .SpecialAttack = 130
+                        .SpecialDefence = 90
+                        .Speed = 106
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1016
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[毒]+[妖精]"
+                    .Description = "受到纏繞在身上的鎖鏈所釋放的毒素刺激，使牠得到了美妙的身姿和聲音。會拍動豔麗的翅膀散佈費洛蒙，使人類和神奇寶貝神魂顛倒，為牠著迷。"
+                    .GenderRatio = "1:0"
+                    .Height = "1.4 m"
+                    .Weight = "30.1 kg"
+                    .Category = "隨從神奇寶貝"
+                    .BodyColor = "黑"
+                    .Sheleter = "---"
+                    .CatchRate = "3"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "120"
+                    .BasicExpPoint = "278"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 305
+                    .Ability2 = "---"
+                    .AbilityHidden = 101
+                    With .SpeciesStrengthValues
+                        .HP = 88
+                        .Attack = 91
+                        .Defence = 82
+                        .SpecialAttack = 70
+                        .SpecialDefence = 125
+                        .Speed = 99
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1017
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]"
+                    .Description = "屬性會根據戴上的面具而改變。會用矯捷的身手和踢技將敵人玩弄於股掌之上。喜歡惡作劇，好奇心旺盛。能激發出面具蘊藏的屬性的能量來戰鬥。"
+                    .GenderRatio = "0:1"
+                    .Height = "1.2 m"
+                    .Weight = "39.8 kg"
+                    .Category = "面具神奇寶貝"
+                    .BodyColor = "黑"
+                    .Sheleter = "---"
+                    .CatchRate = "5"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "10"
+                    .BasicExpPoint = "275"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 128
+                    .Ability2 = "---"
+                    .AbilityHidden = 301
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 120
+                        .Defence = 84
+                        .SpecialAttack = 60
+                        .SpecialDefence = 96
+                        .Speed = 110
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1018
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[鋼]+[龍]"
+                    .Description = "會收集周圍的靜電。以四肢著地的姿勢發射的光束威力驚人無比。會在山裡挖洞來尋找食物。身體非常堅硬，即使遇到洞穴坍塌也絲毫不會在意。"
+                    .GenderRatio = "1:1"
+                    .Height = "2.0 m"
+                    .Weight = "60.0 kg"
+                    .Category = "合金神奇寶貝"
+                    .BodyColor = "白"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "礦物組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "30"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1000000"
+                    .Ability1 = 192
+                    .Ability2 = 5
+                    .AbilityHidden = 242
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 105
+                        .Defence = 130
+                        .SpecialAttack = 125
+                        .SpecialDefence = 65
+                        .Speed = 85
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1019
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[草]+[龍]"
+                    .Description = "７隻蛇蟲蟲住在蜜糖製成的蘋果裡。由正中央的蛇蟲蟲發號施令。由善變的蛇蟲蟲們聚集同住在一起。偶爾心靈相通時，就會發揮出真正的力量。"
+                    .GenderRatio = "1:1"
+                    .Height = "1.8 m"
+                    .Weight = "93.0 kg"
+                    .Category = "蘋果大蛇神奇寶貝"
+                    .BodyColor = "綠"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "植物組"
+                    .EggGroup2 = "龍組"
+                    .HatchEggCycles = "20"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "600000"
+                    .Ability1 = 306
+                    .Ability2 = 144
+                    .AbilityHidden = 60
+                    With .SpeciesStrengthValues
+                        .HP = 106
+                        .Attack = 80
+                        .Defence = 110
+                        .SpecialAttack = 120
+                        .SpecialDefence = 80
+                        .Speed = 44
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1020
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[火]+[龍]"
+                    .Description = "目擊報告極為稀少。有將牠噴出火柱大鬧的樣子拍攝下來的短片。與超自然雜誌刊登的可疑寶可夢長得很相似。報導中的寶可夢據說是從化石復原的炎帝。"
+                    .GenderRatio = "無性別"
+                    .Height = "3.5 m"
+                    .Weight = "590.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "褐"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 281
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 105
+                        .Attack = 115
+                        .Defence = 121
+                        .SpecialAttack = 65
+                        .SpecialDefence = 93
+                        .Speed = 91
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1021
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[電]+[龍]"
+                    .Description = "據說會從體毛釋放出雷電將周圍燒成焦土。具體詳情不明。與超自然雜誌曾報導且掀起了短暫話題的雷公的祖先長得很像。"
+                    .GenderRatio = "無性別"
+                    .Height = "5.2 m"
+                    .Weight = "480.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "黃"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 281
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 125
+                        .Attack = 73
+                        .Defence = 91
+                        .SpecialAttack = 137
+                        .SpecialDefence = 89
+                        .Speed = 75
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1022
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[岩石]+[超能力]"
+                    .Description = "與可疑的雜誌當成被邪惡組織改造的代拉基翁來報導的寶可夢很相似。身體似乎是由金屬構成。牠的名字來自記載於古老書籍裡的神秘物體。"
+                    .GenderRatio = "無性別"
+                    .Height = "1.5 m"
+                    .Weight = "162.5 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "灰"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 282
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 120
+                        .Defence = 80
+                        .SpecialAttack = 68
+                        .SpecialDefence = 108
+                        .Speed = 124
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1023
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[鋼]+[超能力]"
+                    .Description = "與超自然雜誌裡介紹是勾帕路翁型最新兵器的神秘物體長得很相似。據說牠曾射出發光的刀刃劈開了周遭的一切，但沒有能得知其真面目的其他資訊。"
+                    .GenderRatio = "無性別"
+                    .Height = "1.6 m"
+                    .Weight = "156.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "藍"
+                    .Sheleter = "---"
+                    .CatchRate = "10"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 282
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 72
+                        .Defence = 100
+                        .SpecialAttack = 122
+                        .SpecialDefence = 108
+                        .Speed = 98
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1024
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = False
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[一般]"
+                    .Description = "會用將能量變為堅硬結晶的能力來保護自己。是太晶之源的寶可夢。人們認為牠曾經棲息在古代的帕底亞，但卻受到地殼變動的影響而滅絕了。"
+                    .GenderRatio = "1:1"
+                    .Height = "0.2 m"
+                    .Weight = "6.5 kg"
+                    .Category = "太晶神奇寶貝"
+                    .BodyColor = "藍"
+                    .Sheleter = "---"
+                    .CatchRate = "255"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 308
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 65
+                        .Defence = 85
+                        .SpecialAttack = 65
+                        .SpecialDefence = 85
+                        .Speed = 60
+                        .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                    .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                    .ImageFemaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
+                End With
+            Case 1025
+                With ReturnValue
+                    .IsMissingNo = False
+                    .IsNoGenderOrSingleGender = True
+                    .DexIDNumber = PokemonNationalDexNumberToQuery
+                    .Type = "[毒]+幽靈]"
+                    .Description = "會讓對手吃下能激發慾望與能力的毒素麻糬，然後用鎖鏈來操控對手。桃形的殼是劇毒的儲藏庫。會製作帶毒的麻糬送給人和寶可夢吃。"
+                    .GenderRatio = "無性別"
+                    .Height = "0.3 m"
+                    .Weight = "0.3 kg"
+                    .Category = "支配神奇寶貝"
+                    .BodyColor = "紫"
+                    .Sheleter = "---"
+                    .CatchRate = "3"
+                    .InitialFriendshipValue = "---"
+                    .EggGroup1 = "未發現組"
+                    .EggGroup2 = "---"
+                    .HatchEggCycles = "---"
+                    .BasicExpPoint = "0"
+                    .FullLevelExpPoint = "1250000"
+                    .Ability1 = 311
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    With .SpeciesStrengthValues
+                        .HP = 88
+                        .Attack = 88
+                        .Defence = 160
+                        .SpecialAttack = 88
+                        .SpecialDefence = 88
+                        .Speed = 88
                         .Total = .Attack + .Defence + .HP + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                     .ImageMaleURI = "/Pokemons/" & PokemonNationalDexNumberToQuery & ".png"
