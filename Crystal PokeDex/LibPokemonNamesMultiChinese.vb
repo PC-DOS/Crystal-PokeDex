@@ -1,4 +1,4 @@
-﻿Public Module LibPokemonNamesMultiChineseProvider
+﻿Public Module LibPokemonNamesMultiChinese
     Public IsPokemonNameSimplifiedChineseEnabled As Boolean
     Public IsPokemonNameOfficialTranslationEnabled As Boolean
     Public UIPokemonNameDisplayConfig As ChineseDisplayConfig

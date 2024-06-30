@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.Serialization
 
-Public Module LibPokemonFormDifferenceProvider
+Public Module LibPokemonFormDifference
     Public Structure PokemonFormDifferenceInfo
         Public FormName As String
         Public Type As String
@@ -7800,6 +7800,33 @@ Public Module LibPokemonFormDifferenceProvider
                     End With
                 End With
                 FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 901
+                With FormDifferenceList
+                    .Add("赫月")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "在飄洋過海到達的土地上努力生存下來的結果，使牠擁有了特別的樣子和能力。會用堅硬如鐵的泥巴保護身體，且擁有能夠看穿黑暗的左眼。是特別的月月熊。"
+                    .Ability1 = 300
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.7 m"
+                    .Weight = "333.0 kg"
+                    .Category = "泥炭神奇寶貝"
+                    .BodyColor = "褐"
+                    .Type = "[地面]+[一般]"
+                    .ImagePath = "/FormDifferenceImages/901/Bloodmoon.png"
+                    With .SpeciesStrengthValues
+                        .HP = 113
+                        .Attack = 70
+                        .Defence = 120
+                        .SpecialAttack = 135
+                        .SpecialDefence = 65
+                        .Speed = 52
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
             Case 902
                 With FormDifferenceList
                     .Add("雄性的樣子")
@@ -8154,6 +8181,81 @@ Public Module LibPokemonFormDifferenceProvider
                     End With
                 End With
                 FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 967
+                With FormDifferenceList
+                    .Add("原生形態")
+                    .Add("對戰形態")
+                    .Add("坐騎形態")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .Ability1 = 61
+                    .Ability2 = "---"
+                    .AbilityHidden = 144
+                    .Height = "1.6 m"
+                    .Weight = "63.0 kg"
+                    .Category = "坐騎神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[龍]+[一般]"
+                    .ImagePath = "/FormDifferenceImages/967/Raw.png"
+                    With .SpeciesStrengthValues
+                        .HP = 70
+                        .Attack = 95
+                        .Defence = 65
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 121
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .Ability1 = 61
+                    .Ability2 = "---"
+                    .AbilityHidden = 144
+                    .Height = "1.6 m"
+                    .Weight = "63.0 kg"
+                    .Category = "坐騎神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[龍]+[一般]"
+                    .ImagePath = "/FormDifferenceImages/967/Battle.png"
+                    With .SpeciesStrengthValues
+                        .HP = 70
+                        .Attack = 95
+                        .Defence = 65
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 121
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = False
+                    .UniqueDescription = ""
+                    .Ability1 = 61
+                    .Ability2 = "---"
+                    .AbilityHidden = 144
+                    .Height = "1.6 m"
+                    .Weight = "63.0 kg"
+                    .Category = "坐騎神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[龍]+[一般]"
+                    .ImagePath = "/FormDifferenceImages/967/Ride.png"
+                    With .SpeciesStrengthValues
+                        .HP = 70
+                        .Attack = 95
+                        .Defence = 65
+                        .SpecialAttack = 85
+                        .SpecialDefence = 65
+                        .Speed = 121
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
             Case 978
                 With FormDifferenceList
                     .Add("上弓姿勢")
@@ -8330,6 +8432,427 @@ Public Module LibPokemonFormDifferenceProvider
                         .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
                     End With
                 End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 1007
+                With FormDifferenceList
+                    .Add("制限形態")
+                    .Add("完全形態")
+                    .Add("疾馳形態")
+                    .Add("破浪形態")
+                    .Add("乘風形態")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "生態等詳情仍然不明。故勒頓這個名字是發現牠的博士所命名的。與古書裡記載的名為翼大王的生物有著相似的特徵。"
+                    .Ability1 = 288
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.5 m"
+                    .Weight = "303.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紅"
+                    .Type = "[格鬥]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1007/Limited.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "牠似乎就是古老的探險記裡提到的翼大王的真面目。據記載，牠曾以拳頭擊裂大地。雖然長相相似，但頑強凶暴的程度卻是凌駕於摩托蜥之上。牠的生態等資訊目前一切不明。"
+                    .Ability1 = 288
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.5 m"
+                    .Weight = "303.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紅"
+                    .Type = "[格鬥]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1007/Full.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "牠似乎就是古老的探險記裡提到的翼大王的真面目。據記載，牠曾以拳頭擊裂大地。雖然長相相似，但頑強凶暴的程度卻是凌駕於摩托蜥之上。牠的生態等資訊目前一切不明。"
+                    .Ability1 = 288
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.5 m"
+                    .Weight = "303.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紅"
+                    .Type = "[格鬥]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1007/Sprinting.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "牠似乎就是古老的探險記裡提到的翼大王的真面目。據記載，牠曾以拳頭擊裂大地。雖然長相相似，但頑強凶暴的程度卻是凌駕於摩托蜥之上。牠的生態等資訊目前一切不明。"
+                    .Ability1 = 288
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.5 m"
+                    .Weight = "303.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紅"
+                    .Type = "[格鬥]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1007/Swimming.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "牠似乎就是古老的探險記裡提到的翼大王的真面目。據記載，牠曾以拳頭擊裂大地。雖然長相相似，但頑強凶暴的程度卻是凌駕於摩托蜥之上。牠的生態等資訊目前一切不明。"
+                    .Ability1 = 288
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "2.5 m"
+                    .Weight = "303.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紅"
+                    .Type = "[格鬥]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1007/Gliding.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 135
+                        .Defence = 115
+                        .SpecialAttack = 85
+                        .SpecialDefence = 100
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 1008
+                With FormDifferenceList
+                    .Add("受限模式")
+                    .Add("完整模式")
+                    .Add("行駛模式")
+                    .Add("浮水模式")
+                    .Add("滑翔模式")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "古老的探險記裡記載的一種叫做鐵大蛇的神秘物體與牠的特徵一致。密勒頓這個名字是發現牠的博士所命名的。生態等詳情仍然不明。"
+                    .Ability1 = 289
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "3.5 m"
+                    .Weight = "240.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紫"
+                    .Type = "[電]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1008/LowPowerMode.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "詳情目前仍然不明。雖然給人貌似摩托蜥的印象，但力量和冷酷的程度可說是天壤之別。牠似乎就是古書裡所提及的鐵大蛇。傳說牠曾用雷電將大地化成了一片灰。"
+                    .Ability1 = 289
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "3.5 m"
+                    .Weight = "240.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紫"
+                    .Type = "[電]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1008/FullMode.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "詳情目前仍然不明。雖然給人貌似摩托蜥的印象，但力量和冷酷的程度可說是天壤之別。牠似乎就是古書裡所提及的鐵大蛇。傳說牠曾用雷電將大地化成了一片灰。"
+                    .Ability1 = 289
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "3.5 m"
+                    .Weight = "240.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紫"
+                    .Type = "[電]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1008/DriveMode.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "詳情目前仍然不明。雖然給人貌似摩托蜥的印象，但力量和冷酷的程度可說是天壤之別。牠似乎就是古書裡所提及的鐵大蛇。傳說牠曾用雷電將大地化成了一片灰。"
+                    .Ability1 = 289
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "3.5 m"
+                    .Weight = "240.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紫"
+                    .Type = "[電]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1008/AquaticMode.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "詳情目前仍然不明。雖然給人貌似摩托蜥的印象，但力量和冷酷的程度可說是天壤之別。牠似乎就是古書裡所提及的鐵大蛇。傳說牠曾用雷電將大地化成了一片灰。"
+                    .Ability1 = 289
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "3.5 m"
+                    .Weight = "240.0 kg"
+                    .Category = "悖謬神奇寶貝"
+                    .BodyColor = "紫"
+                    .Type = "[電]+[龍]"
+                    .ImagePath = "/FormDifferenceImages/1008/GlideMode.png"
+                    With .SpeciesStrengthValues
+                        .HP = 100
+                        .Attack = 85
+                        .Defence = 100
+                        .SpecialAttack = 135
+                        .SpecialDefence = 115
+                        .Speed = 135
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 1017
+                With FormDifferenceList
+                    .Add("碧草面具")
+                    .Add("水井面具")
+                    .Add("火灶面具")
+                    .Add("礎石面具")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "屬性會根據戴上的面具而改變。會用矯捷的身手和踢技將敵人玩弄於股掌之上。喜歡惡作劇，好奇心旺盛。能激發出面具蘊藏的屬性的能量來戰鬥。"
+                    .Ability1 = 128
+                    .Ability2 = "---"
+                    .AbilityHidden = 301
+                    .Height = "1.2 m"
+                    .Weight = "39.8 kg"
+                    .Category = "面具神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[草]"
+                    .ImagePath = "/FormDifferenceImages/1017/GrassMask.png"
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 120
+                        .Defence = 84
+                        .SpecialAttack = 60
+                        .SpecialDefence = 96
+                        .Speed = 110
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "這是牠攻守兼備的樣子。會如源源不絕的湧水一般，絲毫不間斷地使出招式。激發出水之力量的樣子。會運用踢技和藤蔓接連不斷地發動攻擊。"
+                    .Ability1 = 11
+                    .Ability2 = "---"
+                    .AbilityHidden = 301
+                    .Height = "1.2 m"
+                    .Weight = "39.8 kg"
+                    .Category = "面具神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[草]+[水]"
+                    .ImagePath = "/FormDifferenceImages/1017/WellspringMask.png"
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 120
+                        .Defence = 84
+                        .SpecialAttack = 60
+                        .SpecialDefence = 96
+                        .Speed = 110
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "這是牠最具攻擊性的樣子。會如熊熊燃燒的爐火一般，氣勢猛烈地攻擊敵人。激發出火之力量的樣子。會自在操控帶刺的藤蔓，使其像長矛般地刺穿敵手。"
+                    .Ability1 = 104
+                    .Ability2 = "---"
+                    .AbilityHidden = 301
+                    .Height = "1.2 m"
+                    .Weight = "39.8 kg"
+                    .Category = "面具神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[草]+[火]"
+                    .ImagePath = "/FormDifferenceImages/1017/HearthflameMask.png"
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 120
+                        .Defence = 84
+                        .SpecialAttack = 60
+                        .SpecialDefence = 96
+                        .Speed = 110
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "這是牠最具攻擊性的樣子。會如熊熊燃燒的爐火一般，氣勢猛烈地攻擊敵人。激發出火之力量的樣子。會自在操控帶刺的藤蔓，使其像長矛般地刺穿敵手。"
+                    .Ability1 = 5
+                    .Ability2 = "---"
+                    .AbilityHidden = 301
+                    .Height = "1.2 m"
+                    .Weight = "39.8 kg"
+                    .Category = "面具神奇寶貝"
+                    .BodyColor = "綠"
+                    .Type = "[草]+[岩石]"
+                    .ImagePath = "/FormDifferenceImages/1017/CornerstoneMask.png"
+                    With .SpeciesStrengthValues
+                        .HP = 80
+                        .Attack = 120
+                        .Defence = 84
+                        .SpecialAttack = 60
+                        .SpecialDefence = 96
+                        .Speed = 110
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+            Case 1024
+                With FormDifferenceList
+                    .Add("普通形態")
+                    .Add("太晶形態")
+                    .Add("星晶形態")
+                End With
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "會用將能量變為堅硬結晶的能力來保護自己。是太晶之源的寶可夢。人們認為牠曾經棲息在古代的帕底亞，但卻受到地殼變動的影響而滅絕了。"
+                    .Ability1 = 308
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "0.2 m"
+                    .Weight = "6.5 kg"
+                    .Category = "太晶神奇寶貝"
+                    .BodyColor = "藍"
+                    .Type = "[一般]"
+                    .ImagePath = "/FormDifferenceImages/1024/Normal.png"
+                    With .SpeciesStrengthValues
+                        .HP = 90
+                        .Attack = 65
+                        .Defence = 85
+                        .SpecialAttack = 65
+                        .SpecialDefence = 85
+                        .Speed = 60
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "一旦察覺到危險，就會用太晶的結晶製造出堅固的甲殼來備戰。太晶的甲殼若受到對手的招式攻擊，就會把該招式的能量吸收來供自己使用。"
+                    .Ability1 = 309
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "0.3 m"
+                    .Weight = "16.0 kg"
+                    .Category = "太晶神奇寶貝"
+                    .BodyColor = "藍"
+                    .Type = "[一般]"
+                    .ImagePath = "/FormDifferenceImages/1024/Terastal.png"
+                    With .SpeciesStrengthValues
+                        .HP = 95
+                        .Attack = 95
+                        .Defence = 110
+                        .SpecialAttack = 105
+                        .SpecialDefence = 110
+                        .Speed = 85
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
+                With FormDifferenceInfoTemp
+                    .IsUniqueDescriptionAvailable = True
+                    .UniqueDescription = "太晶能量異常增強後變成的樣子。與古代人所想的世界很相似。根據古老的探險記所記載，牠被掩埋在地底下的樣子就猶如懸浮在宇宙的星星。"
+                    .Ability1 = 310
+                    .Ability2 = "---"
+                    .AbilityHidden = "---"
+                    .Height = "1.7 m"
+                    .Weight = "77.0 kg"
+                    .Category = "太晶神奇寶貝"
+                    .BodyColor = "藍"
+                    .Type = "[一般]"
+                    .ImagePath = "/FormDifferenceImages/1024/Stellar.png"
+                    With .SpeciesStrengthValues
+                        .HP = 160
+                        .Attack = 105
+                        .Defence = 110
+                        .SpecialAttack = 130
+                        .SpecialDefence = 110
+                        .Speed = 85
+                        .Total = .HP + .Attack + .Defence + .SpecialAttack + .SpecialDefence + .Speed
+                    End With
+                End With
+                FormDifferenceInformationList.Add(FormDifferenceInfoTemp)
         End Select
     End Sub
     Sub InitPokemonTypes()

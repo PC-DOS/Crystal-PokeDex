@@ -36107,7 +36107,7 @@ Public Module LibPokemon
                     .Height = "1.2 m"
                     .Weight = "39.8 kg"
                     .Category = "面具神奇寶貝"
-                    .BodyColor = "黑"
+                    .BodyColor = "綠"
                     .Sheleter = "---"
                     .CatchRate = "5"
                     .InitialFriendshipValue = "---"

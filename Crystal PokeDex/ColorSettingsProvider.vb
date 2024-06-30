@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.Serialization
 
-Public Module LibColors
+Public Module ColorSettingsProvider
     <DataContract> Public Class RGBColor
         <DataMember> Public Red As Integer
         <DataMember> Public Green As Integer

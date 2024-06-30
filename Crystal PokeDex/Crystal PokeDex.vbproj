@@ -131,12 +131,12 @@
     <Compile Include="Browser.xaml.vb">
       <DependentUpon>Browser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LibColors.vb" />
+    <Compile Include="ColorSettingsProvider.vb" />
     <Compile Include="LibAbility.vb" />
     <Compile Include="LibPokemonEvolutions.vb" />
     <Compile Include="LibItems.vb" />
     <Compile Include="LibMove.vb" />
-    <Compile Include="LibPokemonFormDifferenceProvider.vb" />
+    <Compile Include="LibPokemonFormDifference.vb" />
     <Compile Include="NumberValidator.vb" />
     <Compile Include="LibPokemon.vb" />
     <Compile Include="LibPokemonMovesLearning.vb" />
@@ -145,8 +145,8 @@
     <Compile Include="OnlineSearchProvider.vb" />
     <Compile Include="SettingsProvider.vb" />
     <Compile Include="HTMLInformationFileProvider.vb" />
-    <Compile Include="LibPokemonNamesMultiChineseProvider.vb" />
-    <Compile Include="LibTypeRepresentativeColorProvider.vb" />
+    <Compile Include="LibPokemonNamesMultiChinese.vb" />
+    <Compile Include="LibTypeRepresentativeColor.vb" />
     <Compile Include="PageBlank.xaml.vb">
       <DependentUpon>PageBlank.xaml</DependentUpon>
     </Compile>
@@ -451,6 +451,27 @@
     <Content Include="FormDifferenceImages\025\Cosplay-PopStar.png" />
     <Content Include="FormDifferenceImages\025\Cosplay-RockStar.png" />
     <Content Include="FormDifferenceImages\025\Cosplay.png" />
+    <Content Include="FormDifferenceImages\1007\Full.png" />
+    <Content Include="FormDifferenceImages\1007\Gliding.png" />
+    <Content Include="FormDifferenceImages\1007\Limited.png" />
+    <Content Include="FormDifferenceImages\1007\Sprinting.png" />
+    <Content Include="FormDifferenceImages\1007\Swimming.png" />
+    <Content Include="FormDifferenceImages\1008\AquaticMode.png" />
+    <Content Include="FormDifferenceImages\1008\DriveMode.png" />
+    <Content Include="FormDifferenceImages\1008\FullMode.png" />
+    <Content Include="FormDifferenceImages\1008\GlideMode.png" />
+    <Content Include="FormDifferenceImages\1008\LowPowerMode.png" />
+    <Content Include="FormDifferenceImages\1017\CornerstoneMask.png" />
+    <Content Include="FormDifferenceImages\1017\GrassMask.png" />
+    <Content Include="FormDifferenceImages\1017\HearthflameMask.png" />
+    <Content Include="FormDifferenceImages\1017\WellspringMask.png" />
+    <Content Include="FormDifferenceImages\1024\Normal.png" />
+    <Content Include="FormDifferenceImages\1024\Stellar.png" />
+    <Content Include="FormDifferenceImages\1024\Terastal.png" />
+    <Content Include="FormDifferenceImages\901\Bloodmoon.png" />
+    <Content Include="FormDifferenceImages\967\Battle.png" />
+    <Content Include="FormDifferenceImages\967\Raw.png" />
+    <Content Include="FormDifferenceImages\967\Ride.png" />
     <Content Include="Icons\ApplicationBar.Cancel.png" />
     <Content Include="Icons\ApplicationBar.Check.png" />
     <Content Include="Images\call.png" />

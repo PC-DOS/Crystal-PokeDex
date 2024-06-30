@@ -4420,10 +4420,12 @@
                 With EvolutionRoutinsTemp
                     .Add("使用酸酸蘋果")
                     .Add("使用甜甜蘋果")
+                    .Add("使用蜜汁蘋果")
                 End With
                 With EvoluteToNumersTemp
                     .Add("841")
                     .Add("842")
+                    .Add("1011")
                 End With
             Case 841
                 IsEvolutionsAvailableTemp = False
@@ -4490,7 +4492,7 @@
             Case 854
                 IsEvolutionsAvailableTemp = True
                 With EvolutionRoutinsTemp
-                    .Add("使用[破裂的茶壺]或[缺損的茶壺]")
+                    .Add("使用[破裂的茶壺]（贗品形態）或[缺損的茶壺]（真品形態）")
                 End With
                 With EvoluteToNumersTemp
                     .Add("855")
@@ -5132,6 +5134,50 @@
             Case 1007
                 IsEvolutionsAvailableTemp = False
             Case 1008
+                IsEvolutionsAvailableTemp = False
+            Case 1009
+                IsEvolutionsAvailableTemp = False
+            Case 1010
+                IsEvolutionsAvailableTemp = False
+            Case 1011
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("學會[龍聲鼓舞]時提升等級")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("1019")
+                End With
+            Case 1012
+                IsEvolutionsAvailableTemp = True
+                With EvolutionRoutinsTemp
+                    .Add("使用[凡作茶碗]（冒牌貨的樣子）或[傑作茶碗]（高檔貨的樣子）")
+                End With
+                With EvoluteToNumersTemp
+                    .Add("1013")
+                End With
+            Case 1013
+                IsEvolutionsAvailableTemp = False
+            Case 1014
+                IsEvolutionsAvailableTemp = False
+            Case 1015
+                IsEvolutionsAvailableTemp = False
+            Case 1016
+                IsEvolutionsAvailableTemp = False
+            Case 1017
+                IsEvolutionsAvailableTemp = False
+            Case 1018
+                IsEvolutionsAvailableTemp = False
+            Case 1019
+                IsEvolutionsAvailableTemp = False
+            Case 1021
+                IsEvolutionsAvailableTemp = False
+            Case 1022
+                IsEvolutionsAvailableTemp = False
+            Case 1023
+                IsEvolutionsAvailableTemp = False
+            Case 1024
+                IsEvolutionsAvailableTemp = False
+            Case 1025
                 IsEvolutionsAvailableTemp = False
         End Select
     End Sub
